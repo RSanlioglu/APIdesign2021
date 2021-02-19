@@ -1,4 +1,4 @@
 package MyntFramework.coreJSON;
 
-public class DataAccess {
+public class DataAccessJSON {
 }

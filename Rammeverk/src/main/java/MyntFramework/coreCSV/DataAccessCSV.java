@@ -1,4 +1,4 @@
 package MyntFramework.coreCSV;
 
-public class DataAccess {
+public class DataAccessCSV {
 }
