@@ -1,6 +1,6 @@
 package dataJSON.converting;
 
-public class Convert implements IConvert {
+public class JSONConverter implements IJSONConverter {
     @Override
     public void convertToCSV(String pathName) {
 

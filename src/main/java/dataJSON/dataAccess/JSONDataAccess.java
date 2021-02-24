@@ -1,12 +1,8 @@
 package dataJSON.dataAccess;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-public class DataAccess implements IDataAccess{
+public class JSONDataAccess implements IJSONDataAccess {
 
     //Create a JSON file
     @Override

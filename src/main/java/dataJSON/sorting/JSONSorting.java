@@ -1,6 +1,6 @@
 package dataJSON.sorting;
 
-public class Sorting implements ISorting{
+public class JSONSorting implements IJSONSorting {
 
     @Override
     public void sortASCint() {

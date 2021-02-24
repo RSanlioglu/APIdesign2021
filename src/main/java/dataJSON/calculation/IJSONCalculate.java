@@ -1,6 +1,6 @@
 package dataJSON.calculation;
 
-public interface ICalculate {
+public interface IJSONCalculate {
     double calcAvg();
     int occurrence();
     int findMaxInt(); //Flere konstruktører for ulike datatyper?

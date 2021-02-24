@@ -1,6 +1,6 @@
 package dataJSON.calculation;
 
-public class Calculate implements ICalculate{
+public class JSONCalculate implements IJSONCalculate {
     @Override
     public double calcAvg() {
         return 0;

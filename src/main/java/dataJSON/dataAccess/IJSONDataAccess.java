@@ -2,7 +2,7 @@ package dataJSON.dataAccess;
 
 import java.util.ArrayList;
 
-public interface IDataAccess {
+public interface IJSONDataAccess {
     void createJSON();
     void readDataFile();
     void writeToDataFile(Object o);
