@@ -1,0 +1,18 @@
+dataCSV/dataAcces/Student.java
+ dataCSV.dataAcces.Student
+dataCSV/calculation/Calculation.java
+ dataCSV.calculation.Calculation
+dataCSV/sorting/Sorting.java
+ dataCSV.sorting.Sorting
+dataCSV/ApplicationCsv.java
+ dataCSV.ApplicationCsv
+dataCSV/converting/Converting.java
+ dataCSV.converting.Converting
+dataCSV/dataAcces/Kurs.java
+ dataCSV.dataAcces.Kurs
+dataCSV/dataAcces/DataAccess.java
+ dataCSV.dataAcces.DataAccess
+TestCsv.java
+ TestCsv
+dataCSV/dataAcces/WriteToFile.java
+ dataCSV.dataAcces.WriteToFile
