@@ -1,12 +1,14 @@
 package dataJSON.dataAccess;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IJSONDataAccess {
     void createJSON();
-    void readDataFile();
-    void writeToDataFile(Object o);
-    void writeCollectionToFile();
+    List<Object> readDataFile(String fileName, final Class type) throws IOException;
+    void writeToDataFile(Object o, String fileName);
+    void writeCollectionToFile(List<Object> l_o, String fileName);
 
     /*CRUD operasjoner i rammeverket*/
     Object getData();

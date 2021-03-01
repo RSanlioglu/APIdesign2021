@@ -1,6 +1,12 @@
 package dataJSON.dataAccess;
 
+import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JSONDataAccess implements IJSONDataAccess {
 
@@ -12,20 +18,40 @@ public class JSONDataAccess implements IJSONDataAccess {
 
     //Read a JSON file
     @Override
-    public void readDataFile() {
+    public List<Object> readDataFile(String fileName, Class type) throws IOException {
+        List<Object> objects = new ArrayList<>();
 
+        ObjectMapper objectMapper = new ObjectMapper();
+        MappingIterator<Object> mappingIterator = objectMapper.readerFor(type).readValues(new File(fileName));
+
+        while(mappingIterator.hasNext()) {
+            objects.add(mappingIterator.next());
+        }
+        return objects;
     }
 
-    //Write one object into the JSON file
+    //Write one object into the JSON file !!NOT CORRECT!!
     @Override
-    public void writeToDataFile(Object o) {
-
+    public void writeToDataFile(Object o, String fileName) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), o);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Write a collection of data into the JSON file
     @Override
-    public void writeCollectionToFile() {
-
+    public void writeCollectionToFile(List<Object> l_o, String fileName) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        for(Object o : l_o) {
+            try {
+                objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), o);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     //Get an object from the JSON file
