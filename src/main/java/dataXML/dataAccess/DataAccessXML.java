@@ -1,11 +1,26 @@
 package dataXML.dataAccess;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataAccessXML implements IDataAccessXML{
     @Override
-    public void createXML() {
+    public void createXML(File file, Object o) {
 
+        XmlMapper xmlMapper = new XmlMapper();
+        try {
+            xmlMapper.writeValue(file, o);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void assertNotNull(String xml) {
     }
 
     @Override
@@ -14,12 +29,17 @@ public class DataAccessXML implements IDataAccessXML{
     }
 
     @Override
-    public void writeToDataFile(Object o) {
-
+    public void writeToDataFile(Object o) throws JsonProcessingException{
+        XmlMapper xmlMapper = new XmlMapper();
+        String xml = xmlMapper.writeValueAsString(o);
+        assertNotNull(xml);
     }
 
     @Override
-    public void writeCollectionToFile() {
+    public void writeCollectionToFile(){
+       
+          
+        
 
     }
 
