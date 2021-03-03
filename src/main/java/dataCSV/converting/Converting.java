@@ -1,13 +1,12 @@
 package dataCSV.converting;
 
-import dataCSV.dataAcces.Runner;
-
 import java.util.ArrayList;
 
-public class Converting {
-    public static ArrayList<Runner> convertToJson(ArrayList<Runner> list) {
+public class Converting implements IConverting{
 
+    @Override
+    public void convertToJson (){
 
-        return new ArrayList<Runner>();
     }
+
 }

@@ -1,21 +1,36 @@
 package dataCSV.calculation;
 
-import dataCSV.dataAcces.Runner;
-
 import java.util.ArrayList;
 
-public class Calculation {
-    public static float CalculateAverageSpeed(ArrayList<Runner> list){
+public class Calculation implements ICalculation {
+
+
+    @Override
+    public float CalculateAverage() {
+        return 0.0f;
+    }
+
+    @Override
+    public float CalculateMax() {
 
         return 0.0f;
     }
 
-    public static float CalculateMaxSpeed(ArrayList<Runner> list){
+    @Override
+    public float CalculateMin() {
 
         return 0.0f;
     }
-    public static float CalculateMinSpeed(ArrayList<Runner> list){
 
-        return 0.0f;
+    @Override
+    public double CalculateAverageDouble() {
+        return 0;
     }
+
+    @Override
+    public int CalculateIntMax() {
+        return 0;
+    }
+
+
 }
