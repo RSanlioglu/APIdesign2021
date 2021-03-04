@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface IJSONDataAccess {
+public interface IDataAccessJSON {
     void createJSON();
     List<Object> readDataFile(String fileName, final Class type) throws IOException;
     void writeToDataFile(Object o, String fileName);

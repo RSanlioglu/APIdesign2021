@@ -1,6 +1,6 @@
 package dataJSON.sorting;
 
-public interface IJSONSorting {
+public interface ISortingJSON {
     void sortASCint();
     void sortASCdouble();
     void sortASCfloat();

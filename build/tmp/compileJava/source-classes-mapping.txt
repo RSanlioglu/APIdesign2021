@@ -1,24 +1,22 @@
 dataJSON/calculation/JSONCalculate.java
  dataJSON.calculation.JSONCalculate
-dataJSON/calculation/IJSONCalculate.java
- dataJSON.calculation.IJSONCalculate
+dataJSON/dataAccess/JSONDataAccess.java
+ dataJSON.dataAccess.JSONDataAccess
 dataJSON/sorting/IJSONSorting.java
  dataJSON.sorting.IJSONSorting
 dataJSON/sorting/JSONSorting.java
  dataJSON.sorting.JSONSorting
-dataJSON/coreJSON.java
- dataJSON.coreJSON
+Model/Car.java
+ Model.Car
 dataJSON/dataAccess/IJSONDataAccess.java
  dataJSON.dataAccess.IJSONDataAccess
-model/Car.java
- model.Car
-csv/csvClass.java
- csv.csvClass
-dataJSON/converting/JSONConverter.java
- dataJSON.converting.JSONConverter
+dataJSON/calculation/IJSONCalculate.java
+ dataJSON.calculation.IJSONCalculate
+dataJSON/coreJSON.java
+ dataJSON.coreJSON
 dataJSON/converting/IJSONConverter.java
  dataJSON.converting.IJSONConverter
-dataJSON/dataAccess/JSONDataAccess.java
- dataJSON.dataAccess.JSONDataAccess
 Main.java
  Main
+dataJSON/converting/JSONConverter.java
+ dataJSON.converting.JSONConverter

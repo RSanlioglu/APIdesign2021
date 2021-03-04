@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONDataAccess implements IJSONDataAccess {
+public class DataAccessJSON implements IDataAccessJSON {
 
     //Create a JSON file
     @Override
@@ -60,7 +60,7 @@ public class JSONDataAccess implements IJSONDataAccess {
         return null;
     }
 
-    //Get all data from the JSON file with different keys
+    //Kanskje slette disse?
     @Override
     public ArrayList<Object> getAllData(int key) {
         return null;
