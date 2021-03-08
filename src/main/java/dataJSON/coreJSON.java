@@ -1,5 +1,4 @@
 package dataJSON;
 
-public class coreJSON {
-
+public class CoreJSON {
 }
