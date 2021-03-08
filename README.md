@@ -7,7 +7,7 @@ Siden vi ikke skal ha en executable fil så må vi ekportere en .jar fil. Denne 
 1. File --> Project Structure
 2. Gå til "Artifacts" --> klikk på "+" knappen --> JAR --> From modules with dependencies
 3. Velg modulen (i dette tilfellet rammeverk)
-4. Ikke velg noen "Main class", la den være tom.
+4. Ikke velg noen "TestCsv class", la den være tom.
 5. Navngi jar filen under test, vi finner et nytt navn etterhvert som en final. Følg også nøye med på hvor outputten er etter at builden er ferdig.
 6. Når du har navngitt jar filen, gå til "Build" --> Build Artifacts
 7. Klikk på jar filen du nettop laget
