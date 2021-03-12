@@ -1,7 +1,6 @@
 package dataCSV.sorting;
-import java.util.ArrayList;
 
-public class Sorting implements ISorting{
+public class SortingCSV implements ISortingCSV {
     @Override
     public void SortIncreasingInt(){
 

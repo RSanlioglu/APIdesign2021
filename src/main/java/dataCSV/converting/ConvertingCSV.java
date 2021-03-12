@@ -1,8 +1,6 @@
 package dataCSV.converting;
 
-import java.util.ArrayList;
-
-public class Converting implements IConverting{
+public class ConvertingCSV implements IConvertingCSV {
 
     @Override
     public void convertToJson (){

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataAccess implements IDataAccess{
+public class DataAccessCSV implements IDataAccessCSV {
     //Constructor
     public void createCsv() {
 

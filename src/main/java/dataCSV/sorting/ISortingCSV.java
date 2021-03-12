@@ -2,7 +2,7 @@ package dataCSV.sorting;
 
 import java.util.ArrayList;
 
-public interface ISorting {
+public interface ISortingCSV {
     void SortIncreasingInt();
 
     void SortIncreasingDouble();

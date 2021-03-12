@@ -1,6 +1,6 @@
 package dataCSV.converting;
 
-public interface IConverting {
+public interface IConvertingCSV {
     void convertToJson ();
 
 }

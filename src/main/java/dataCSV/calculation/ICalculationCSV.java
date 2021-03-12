@@ -2,7 +2,7 @@ package dataCSV.calculation;
 
 import java.util.ArrayList;
 
-public interface ICalculation {
+public interface ICalculationCSV {
 
     float CalculateAverage();
     float CalculateMax();

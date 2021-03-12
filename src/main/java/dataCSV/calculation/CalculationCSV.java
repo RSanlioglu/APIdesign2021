@@ -1,8 +1,6 @@
 package dataCSV.calculation;
 
-import java.util.ArrayList;
-
-public class Calculation implements ICalculation {
+public class CalculationCSV implements ICalculationCSV {
 
 
     @Override

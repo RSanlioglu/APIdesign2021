@@ -1,5 +1,5 @@
 package dataCSV.dataAcces;
 
-public interface IDataAccess {
+public interface IDataAccessCSV {
     void createCsv();
 }
