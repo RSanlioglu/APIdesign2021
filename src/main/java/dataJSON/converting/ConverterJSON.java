@@ -37,7 +37,6 @@ public class ConverterJSON implements IConverterJSON {
         }
     }
 
-    //Får bare Items for XML filer
     @Override
     public void convertToXML(String pathName, String newFileName, String rootTagName) {
         JsonMapper jsonMapper = new JsonMapper();
