@@ -1,20 +1,16 @@
 package dataJSON.dataAccess;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IDataAccessJSON {
-    void createJSON();
-    List<Object> readDataFile(String fileName, final Class type) throws IOException;
-    void writeToDataFile(Object o, String fileName);
-    void writeCollectionToFile(List<Object> l_o, String fileName);
+    void createJson();                                        //Create a JSON-file
+    List<Object> getAllObjects();                             //Get all objects from file
+    void writeToFile(Object o);                               //Override one object to file
+    void writeToFile(List<Object> l_o);                       //Override list to file
+    void append(Object o);                                    //Add one object to file
+    void append(List<Object> l_o);                            //Add list to file
+    boolean doesExist(Object o);                              //Check if file exists
+    void deleteObject(Object o);                              //Delete one object from file
+    void updateObject(Object oldObject, Object newObject);    //Update an existing object
 
-    /*CRUD operasjoner i rammeverket*/
-    Object getData();
-    ArrayList<Object> getAllData(int key);
-    ArrayList<Object> getAllData(double key);
-    ArrayList<Object> getAllData(float key);
-    void updateField(Object o);
-    void deleteField(Object o);
 }
