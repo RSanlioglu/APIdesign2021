@@ -26,7 +26,7 @@ public class TestCsv {
         DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", Car.class);
       // dataAccessXML.writeObject(new Car (213,"Audi","A3",2000));
        //dataAccessXML.writeList(Collections.singletonList(carList), "Cars");
-      dataAccessXML.appendObject(new Car (413,"Audi","A5",2002));
+      dataAccessXML.appendObject(new Car (213,"Audi","A3",2000));
     }
 }
 

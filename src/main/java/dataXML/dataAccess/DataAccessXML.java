@@ -20,13 +20,7 @@ public class DataAccessXML implements IDataAccessXML {
         this.type = type;
         createXML();
 
-        /*try {
-            read(type, path);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
-
 
     private void write(List<Object> obj) {
         XmlMapper objectMapper = new XmlMapper();
@@ -36,7 +30,6 @@ public class DataAccessXML implements IDataAccessXML {
             e.printStackTrace();
         }
     }
-
 
     private void read(Class type) throws IOException {
 
@@ -56,18 +49,6 @@ public class DataAccessXML implements IDataAccessXML {
         }
     }
 
-    private void assertNotNull(String xml) {
-    }
-
-
-
-
-   /* public void writeToDataFile(Object o) throws JsonProcessingException {
-        XmlMapper xmlMapper = new XmlMapper();
-        String xml = xmlMapper.writeValueAsString(o);
-        assertNotNull(xml);
-    }*/
-
 
     @Override
     public void createXML() {
@@ -83,9 +64,17 @@ public class DataAccessXML implements IDataAccessXML {
         }
     }
 
-    @Override
+    /*Returns a list of objects to client. Then client can easilly
+     * cast the objects to appropriate class*/
     public List<Object> getAllObjects() {
-        return null;
+        List<Object> returnList = new ArrayList<>();
+        try {
+            read(type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        returnList.addAll(o_list);
+        return returnList;
     }
 
     @Override
@@ -106,7 +95,6 @@ public class DataAccessXML implements IDataAccessXML {
         for (Object o : l_o) {
             try {
                 xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootName).writeValue(new File(fileName), o);
-                System.out.println("2");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -132,6 +120,11 @@ public class DataAccessXML implements IDataAccessXML {
      * OBJECTS in order to append to the datafile.
      * The previous data will not be removed*/
     public void appendList(List<Object> l_o) {
+        try {
+            read(type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         o_list.addAll(l_o);
         write(o_list);
     }
@@ -142,6 +135,11 @@ public class DataAccessXML implements IDataAccessXML {
      * */
     public boolean doesExist(Object o) {
         boolean exists = false;
+        try {
+            read(type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for(Object x : o_list) {
             if(x.toString().equals(o.toString())) {
                 exists = true;
@@ -154,6 +152,11 @@ public class DataAccessXML implements IDataAccessXML {
      * remove it*/
     public void deleteObject(Object o) {
         Iterator i = o_list.iterator();
+        try {
+            read(type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         while(i.hasNext()) {
             Object x = i.next();
             if(x.toString().equals(o.toString())) {
@@ -168,6 +171,11 @@ public class DataAccessXML implements IDataAccessXML {
      * last in the file*/
     public void updateObject(Object oldObject, Object newObject) {
         Object objectToBeDeleted = null;
+        try {
+            read(type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         for(Object x : o_list) {
             if(x.toString().equals(oldObject.toString())) {
