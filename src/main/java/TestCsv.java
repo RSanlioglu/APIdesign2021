@@ -1,4 +1,5 @@
-import dataXML.converting.ConverterXML;
+import dataXML.Car;
+import dataXML.dataAccess.DataAccessXML;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -18,9 +19,10 @@ public class TestCsv {
         csv.writeCollectionToDataFile(Collections.singletonList(runner),"runner.csv", Runner.class,
                 false);*/
 
-        ConverterXML converterXML = new ConverterXML();
-        converterXML.convertToCSV("xml.xml", "");
-
+        //ConverterXML converterXML = new ConverterXML();
+       // converterXML.convertToCSV("xml.xml", "");
+        DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", Car.class);
+       // dataAccessXML.createXML("cars.xml", new Car());
 
     }
 }
