@@ -1,20 +1,56 @@
-dataCSV/calculation/Calculation.java
- dataCSV.calculation.Calculation
 dataCSV/sorting/Sorting.java
  dataCSV.sorting.Sorting
-dataCSV/converting/IConverting.java
- dataCSV.converting.IConverting
-dataCSV/dataAcces/Runner.java
- dataCSV.dataAcces.Runner
-dataCSV/converting/Converting.java
- dataCSV.converting.Converting
+dataJSON/dataAccess/IDataAccessJSON.java
+ dataJSON.dataAccess.IDataAccessJSON
 dataCSV/calculation/ICalculation.java
  dataCSV.calculation.ICalculation
+dataXML/calculation/CalculateXML.java
+ dataXML.calculation.CalculateXML
 dataCSV/dataAcces/IDataAccess.java
  dataCSV.dataAcces.IDataAccess
-dataCSV/sorting/ISorting.java
- dataCSV.sorting.ISorting
-dataCSV/dataAcces/DataAccess.java
- dataCSV.dataAcces.DataAccess
+dataXML/converting/ConverterXML.java
+ dataXML.converting.ConverterXML
+dataXML/calculation/ICalculateXML.java
+ dataXML.calculation.ICalculateXML
+dataXML/dataAccess/DataAccessXML.java
+ dataXML.dataAccess.DataAccessXML
+dataXML/sorting/ISortingXML.java
+ dataXML.sorting.ISortingXML
+dataXML/CoreXML.java
+ dataXML.CoreXML
+dataCSV/calculation/Calculation.java
+ dataCSV.calculation.Calculation
+dataJSON/sorting/SortingJSON.java
+ dataJSON.sorting.SortingJSON
+dataCSV/CoreCSV.java
+ dataCSV.CoreCSV
+dataJSON/converting/IConverterJSON.java
+ dataJSON.converting.IConverterJSON
+dataJSON/sorting/ISortingJSON.java
+ dataJSON.sorting.ISortingJSON
+dataCSV/converting/IConverting.java
+ dataCSV.converting.IConverting
+dataXML/dataAccess/IDataAccessXML.java
+ dataXML.dataAccess.IDataAccessXML
+dataCSV/converting/Converting.java
+ dataCSV.converting.Converting
+dataJSON/calculation/CalculateJSON.java
+ dataJSON.calculation.CalculateJSON
+dataJSON/calculation/ICalculateJSON.java
+ dataJSON.calculation.ICalculateJSON
 TestCsv.java
  TestCsv
+dataJSON/dataAccess/DataAccessJSON.java
+ dataJSON.dataAccess.DataAccessJSON
+dataXML/sorting/SortingXML.java
+ dataXML.sorting.SortingXML
+dataJSON/converting/ConverterJSON.java
+ dataJSON.converting.ConverterJSON
+dataXML/converting/IConverterXML.java
+ dataXML.converting.IConverterXML
+dataJSON/CoreJSON.java
+ dataJSON.CoreJSON
+dataCSV/dataAcces/DataAccess.java
+ dataCSV.dataAcces.DataAccess
+dataCSV/sorting/ISorting.java
+ dataCSV.sorting.ISorting
