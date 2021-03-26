@@ -49,13 +49,8 @@ public class Car {
         Year = year;
     }
 
-    /*@Override
+    @Override
     public String toString() {
-        return "Car{" +
-                "registrationID=" + registrationID +
-                ", producer='" + producer + ''' +
-        ", model='" + model + ''' +
-        ", Year=" + Year +
-                '}';
-    }*/
+        return "Car{" + "registrationID=" + registrationID + ", producer='" + producer + "'" + ", model='" + model + "'" + ", Year=" + Year + '}';
+    }
 }

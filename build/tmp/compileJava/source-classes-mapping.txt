@@ -30,8 +30,8 @@ dataJSON/sorting/ISortingJSON.java
  dataJSON.sorting.ISortingJSON
 dataCSV/converting/IConverting.java
  dataCSV.converting.IConverting
-dataXML/dataAccess/IDataAccessXML.java
- dataXML.dataAccess.IDataAccessXML
+dataJSON/CoreJSON.java
+ dataJSON.CoreJSON
 dataCSV/converting/Converting.java
  dataCSV.converting.Converting
 dataJSON/calculation/CalculateJSON.java
@@ -50,8 +50,8 @@ dataXML/converting/IConverterXML.java
  dataXML.converting.IConverterXML
 dataXML/Car.java
  dataXML.Car
-dataJSON/CoreJSON.java
- dataJSON.CoreJSON
+dataXML/dataAccess/IDataAccessXML.java
+ dataXML.dataAccess.IDataAccessXML
 TestCsv.java
  TestCsv
 dataXML/dataAccess/DataAccessXML.java

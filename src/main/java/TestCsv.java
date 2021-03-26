@@ -5,6 +5,8 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestCsv {
 
@@ -21,9 +23,14 @@ public class TestCsv {
 
         //ConverterXML converterXML = new ConverterXML();
        // converterXML.convertToCSV("xml.xml", "");
+        List<Car> carList = new ArrayList<>();
+        carList.add(new Car (213,"Audi","A3",2000));
+        carList.add(new Car (313,"Audi","A4",2001));
+        carList.add(new Car (413,"Audi","A5",2002));
         DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", Car.class);
-       // dataAccessXML.createXML("cars.xml", new Car());
-
+      // dataAccessXML.writeObject(new Car (213,"Audi","A3",2000));
+       //dataAccessXML.writeList(Collections.singletonList(carList), "Cars");
+      dataAccessXML.appendObject(new Car (413,"Audi","A5",2002));
     }
 }
 
