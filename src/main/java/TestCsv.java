@@ -1,16 +1,12 @@
 import dataXML.Car;
 import dataXML.dataAccess.DataAccessXML;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestCsv {
 
-    public static void main(String[] args) throws ParserConfigurationException, TransformerException, SAXException, IOException {
+    public static void main(String[] args) {
 
         /*DataAccess csv = new DataAccess();
 

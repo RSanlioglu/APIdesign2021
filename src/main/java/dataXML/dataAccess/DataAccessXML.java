@@ -43,13 +43,17 @@ public class DataAccessXML implements IDataAccessXML {
         List<Object> objects = new ArrayList<>();
         XmlMapper objectMapper = new XmlMapper();
         MappingIterator<Object> mappingIterator;
+        File file = new File(fileName);
 
-         mappingIterator = objectMapper.readerFor(type).readValues(fileName);
+        if(file.length() != 0) {
+            mappingIterator = objectMapper.readerFor(type).readValues(file);
 
-        while (mappingIterator.hasNext()) {
-            objects.add(mappingIterator.next());
+            while (mappingIterator.hasNext()) {
+                objects.add(mappingIterator.next());
+            }
+            o_list.addAll(objects);
+
         }
-        o_list.addAll(objects);
     }
 
     private void assertNotNull(String xml) {
