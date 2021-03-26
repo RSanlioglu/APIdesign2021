@@ -17,6 +17,7 @@ public class DataAccessJSON implements IDataAccessJSON {
         this.fileName = fileName;
         try {
             read(type);
+            createJson();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,7 +73,7 @@ public class DataAccessJSON implements IDataAccessJSON {
     /*Gets the datafile specified from the constructor and
     * writes over the file with the object given from the
     * parameter*/
-    public void writeToFile(Object o) {
+    public void writeObject(Object o) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), o);
@@ -84,7 +85,7 @@ public class DataAccessJSON implements IDataAccessJSON {
     /*Gets the datafile specified from the constructor and
     * writes over the file with data given from the list
     * in the function parameter*/
-    public void writeToFile(List<Object> l_o) {
+    public void writeList(List<Object> l_o) {
         ObjectMapper objectMapper = new ObjectMapper();
         for(Object o : l_o) {
             try {
@@ -98,7 +99,7 @@ public class DataAccessJSON implements IDataAccessJSON {
     /*Add one object to the datafile. The object must be of the same
     * type as the data inside the json-file.
     * The previous data will not be removed*/
-    public void append(Object o) {
+    public void appendObject(Object o) {
         o_list.add(o);
         write(o_list);
     }
@@ -106,7 +107,7 @@ public class DataAccessJSON implements IDataAccessJSON {
     /*Add one list of objects to the datafile. The list must contain
     * OBJECTS in order to append to the datafile.
     * The previous data will not be removed*/
-    public void append(List<Object> l_o) {
+    public void appendList(List<Object> l_o) {
         o_list.addAll(l_o);
         write(o_list);
     }
@@ -151,6 +152,6 @@ public class DataAccessJSON implements IDataAccessJSON {
             }
         }
         deleteObject(objectToBeDeleted);
-        append(newObject);
+        appendObject(newObject);
     }
 }

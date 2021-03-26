@@ -10,10 +10,9 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import java.io.File;
 import java.io.IOException;
 
-public class ConverterJSON implements IConverterJSON {
+public class ConverterJSON {
 
-    @Override
-    public void convertToCSV(String pathName, String newFileName) {
+    public static void convertToCSV(String pathName, String newFileName) {
         JsonNode jsonTree = null;
         try {
             jsonTree = new ObjectMapper().readTree(new File(pathName));
@@ -37,8 +36,7 @@ public class ConverterJSON implements IConverterJSON {
         }
     }
 
-    @Override
-    public void convertToXML(String pathName, String newFileName, String rootTagName) {
+    public static void convertToXML(String pathName, String newFileName, String rootTagName) {
         JsonMapper jsonMapper = new JsonMapper();
         Object x = null;
         try {
