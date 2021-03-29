@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DataAccessTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-03-29T21:17:51" hostname="LAPTOP-KA5PC1CV" time="0.326">
+  <properties/>
+  <testcase name="createNewCSVFile()" classname="DataAccessTest" time="0.212"/>
+  <testcase name="appendObject_WithOutHeader()" classname="DataAccessTest" time="0.037"/>
+  <testcase name="writeOneObjectToFile_withHeader()" classname="DataAccessTest" time="0.006"/>
+  <testcase name="appendList_withHeader()" classname="DataAccessTest" time="0.002"/>
+  <testcase name="getAllObjectsFromTheCSVFile_withoutHeader()" classname="DataAccessTest" time="0.016"/>
+  <testcase name="createExistingCSVFile()" classname="DataAccessTest" time="0.002"/>
+  <testcase name="getAllObjectsFromTheCSVFile_withHeader()" classname="DataAccessTest" time="0.011"/>
+  <testcase name="writeListToFile_WithHeader()" classname="DataAccessTest" time="0.006"/>
+  <testcase name="writeOneObjectToFile_withOutHeader()" classname="DataAccessTest" time="0.006"/>
+  <testcase name="appendList_withOutHeader()" classname="DataAccessTest" time="0.003"/>
+  <testcase name="writeListToFile_WithOutHeader()" classname="DataAccessTest" time="0.007"/>
+  <testcase name="appendObject_WithHeader()" classname="DataAccessTest" time="0.008"/>
+  <system-out><![CDATA[Success
+Success
+Success
+Success
+Success
+Success
+Success
+This file already exists
+Success
+Success
+Success
+Success
+Success
+Success
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
