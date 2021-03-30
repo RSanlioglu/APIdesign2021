@@ -1,5 +1,6 @@
 package dataCSV.dataAcces;
 
+import Exceptions.FileAlreadyExistsException;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -27,13 +28,11 @@ public class DataAccess implements IDataAccess{
     /**
      * Function that allow the client to create an empty .csv file. The name is given from the constructor
      */
-    public void createCSV() {
+    public void createCSV() throws FileAlreadyExistsException {
         File file = new File(fileName);
         try {
-            if(file.createNewFile()) {
-                System.out.println("Success");
-            } else {
-                System.out.println("This file already exists");
+            if(!file.createNewFile()) {
+                throw new FileAlreadyExistsException("This file already exists: " + fileName);
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,3 +1,4 @@
+import Exceptions.FileAlreadyExistsException;
 import dataCSV.dataAcces.DataAccess;
 import org.junit.jupiter.api.*;
 
@@ -17,7 +18,11 @@ public class DataAccessTest {
     @BeforeEach
     public void setUp() {
         DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
-        dataAccess.createCSV();
+        try {
+            dataAccess.createCSV();
+        } catch (FileAlreadyExistsException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -35,7 +40,11 @@ public class DataAccessTest {
     @SuppressWarnings("unchecked")
     public void createNewCSVFile() {
         DataAccess dataAccess = new DataAccess("newFile.csv", Car.class, true);
-        dataAccess.createCSV(); //Create the file
+        try {
+            dataAccess.createCSV(); //Create the file
+        } catch (FileAlreadyExistsException e) {
+            e.printStackTrace();
+        }
         assertTrue(new File("newFile.csv").exists()); //See if the file exists
 
         List<Car> cars = (List<Car>)(List<?>) dataAccess.getAllObjects();
@@ -45,13 +54,13 @@ public class DataAccessTest {
     }
 
     /**
-     * Try to create a new csv-file, but it already exists
+     * Try to create a new csv-file, but it already exists.
+     * This test will throw an exception
      */
     @Test
     public void createExistingCSVFile() {
         DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
-        dataAccess.createCSV(); //The test.csv is created before each test so this file already exists
-        //TODO: Implement exception and assert throws
+        assertThrows(FileAlreadyExistsException.class, dataAccess::createCSV);
     }
 
 

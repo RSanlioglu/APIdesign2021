@@ -10,9 +10,11 @@ dataCSV/converting/Converting.java
  dataCSV.converting.Converting
 dataCSV/calculation/ICalculation.java
  dataCSV.calculation.ICalculation
-dataCSV/dataAcces/DataAccess.java
- dataCSV.dataAcces.DataAccess
-dataCSV/dataAcces/IDataAccess.java
- dataCSV.dataAcces.IDataAccess
 TestCsv.java
  TestCsv
+Exceptions/FileAlreadyExistsException.java
+ Exceptions.FileAlreadyExistsException
+dataCSV/dataAcces/IDataAccess.java
+ dataCSV.dataAcces.IDataAccess
+dataCSV/dataAcces/DataAccess.java
+ dataCSV.dataAcces.DataAccess

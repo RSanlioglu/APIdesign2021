@@ -1,9 +1,10 @@
 package dataCSV.dataAcces;
 
+import Exceptions.FileAlreadyExistsException;
 import java.util.List;
 
 public interface IDataAccess {
-    void createCSV();                                       //Create an empty csv file
+    void createCSV() throws FileAlreadyExistsException;                                       //Create an empty csv file
     List<Object> getAllObjects();                           //Return all of the objects from csv file
     void writeObject(Object o);                             //Override one object to the file
     void writeList(List<Object> l_o);                       //Override one list to the file
