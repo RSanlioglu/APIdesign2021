@@ -1,9 +1,11 @@
 package dataJSON.dataAccess;
 
+import Exceptions.FileAlreadyExistsException;
+
 import java.util.List;
 
 public interface IDataAccessJSON {
-    void createJson();                                        //Create a JSON-file
+    void createJson() throws FileAlreadyExistsException;                                        //Create a JSON-file
     List<Object> getAllObjects();                             //Get all objects from file
     void writeObject(Object o);                               //Override one object to file
     void writeList(List<Object> l_o);                       //Override list to file
