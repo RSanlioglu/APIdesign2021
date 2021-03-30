@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DataAccessTest {
-    private static final DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+    //private static final DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
 
     /**
      * Creates a new test.csv file for each test, with headers
@@ -365,6 +365,25 @@ public class DataAccessTest {
     @Test
     public void deleteObjectFromFile() {
         DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+        List<Car> cars = new ArrayList<>();
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        cars.add(tesla);
+        cars.add(etron);
+        dataAccess.writeList(Collections.singletonList(cars));
+
+        assertTrue(dataAccess.doesExist(tesla)); //Check if the tesla is inside the file before deleting it
+        dataAccess.deleteObject(tesla);
+        assertFalse(dataAccess.doesExist(tesla)); //Check if the tesla is inside the file after deleting it
+    }
+
+    /**
+     * A test that will delete an object in the file. When the objects are returned the deleted object
+     * will not be found
+     */
+    @Test
+    public void deleteObjectFromFile_WithoutHeaders() {
+        DataAccess dataAccess = new DataAccess("test.csv", Car.class, false);
         List<Car> cars = new ArrayList<>();
         Car tesla = new Car(2211, "Tesla", "Model s", 2020);
         Car etron = new Car(8853, "Audi", "E Tron", 2020);
