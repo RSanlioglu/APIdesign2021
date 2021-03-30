@@ -9,6 +9,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DataAccessTest {
+    private static final DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+
     /**
      * Creates a new test.csv file for each test, with headers
      */
@@ -19,7 +21,7 @@ public class DataAccessTest {
     }
 
     /**
-     * After each test the file is emptied
+     * After each test the file is deleted
      */
     @AfterEach
     public void tearDown() {
@@ -273,8 +275,25 @@ public class DataAccessTest {
      * car-objects
      */
     @Test
+    @SuppressWarnings("unchecked")
     public void appendList_withHeader() {
+        DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+        dataAccess.writeObject(new Car(55323, "Opel", "Astra", 2010)); //The dataAccess contains one car now
 
+        List<Car> cars = new ArrayList<>();
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        cars.add(tesla);
+        cars.add(etron);
+
+        dataAccess.appendList(Collections.singletonList(cars)); //Append the cars to the file
+
+        //Read them back
+        List<Car> returnedCars = (List<Car>)(List<?>) dataAccess.getAllObjects();
+
+        assertEquals(3, returnedCars.size());                       //Check the length of the list of cars returned
+        assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
+        assertEquals(returnedCars.get(2).toString(), etron.toString());     //The third car in the file should be the e tron
     }
 
     /**
@@ -283,7 +302,103 @@ public class DataAccessTest {
      * car-objects
      */
     @Test
+    @SuppressWarnings("unchecked")
     public void appendList_withOutHeader() {
+        DataAccess dataAccess = new DataAccess("test.csv", Car.class, false);
+        dataAccess.writeObject(new Car(55323, "Opel", "Astra", 2010)); //The dataAccess contains one car now
 
+        List<Car> cars = new ArrayList<>();
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        cars.add(tesla);
+        cars.add(etron);
+
+        dataAccess.appendList(Collections.singletonList(cars)); //Append the cars to the file
+
+        //Read them back
+        List<Car> returnedCars = (List<Car>)(List<?>) dataAccess.getAllObjects();
+
+        assertEquals(3, returnedCars.size());                       //Check the length of the list of cars returned
+        assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
+        assertEquals(returnedCars.get(2).toString(), etron.toString());     //The third car in the file should be the e tron
+    }
+
+    /**
+     * Simple test to see if the framework can find an object with the same values in the file.
+     * The test is supposed to find the object and return a true value.
+     */
+    @Test
+    public void doesExist_Correct() {
+        DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+        List<Car> cars = new ArrayList<>();
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        cars.add(tesla);
+        cars.add(etron);
+        dataAccess.writeList(Collections.singletonList(cars));
+
+        assertTrue(dataAccess.doesExist(tesla));
+    }
+
+    /**
+     * Simple test to see if the framework can find an object with the same values in the file.
+     * The test is supposed to NOT find the object and return a false value.
+     */
+    @Test
+    public void doesExist_Fail() {
+        DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+        List<Car> cars = new ArrayList<>();
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car mustang = new Car(55311, "Ford", "Mustang", 1969); //Mustang is not added to the list and will not exist in the file
+        cars.add(tesla);
+        cars.add(etron);
+        dataAccess.writeList(Collections.singletonList(cars));
+
+        assertFalse(dataAccess.doesExist(mustang));
+    }
+
+    /**
+     * A test that will delete an object in the file. When the objects are returned the deleted object
+     * will not be found
+     */
+    @Test
+    public void deleteObjectFromFile() {
+        DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+        List<Car> cars = new ArrayList<>();
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        cars.add(tesla);
+        cars.add(etron);
+        dataAccess.writeList(Collections.singletonList(cars));
+
+        assertTrue(dataAccess.doesExist(tesla)); //Check if the tesla is inside the file before deleting it
+        dataAccess.deleteObject(tesla);
+        assertFalse(dataAccess.doesExist(tesla)); //Check if the tesla is inside the file after deleting it
+    }
+
+    /**
+     * A test where we compare a Car-object before updating it and after updating it to see
+     * the changes made
+     */
+    @Test
+    @SuppressWarnings("unchecked")
+    public void updateObjectFromFile() {
+        DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+        List<Car> cars = new ArrayList<>();
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        cars.add(tesla);
+        cars.add(etron);
+        dataAccess.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
+
+        List<Car> returnedCars = (List<Car>)(List<?>) dataAccess.getAllObjects();
+        assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
+
+        Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021); //The new Tesla
+        dataAccess.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
+
+        returnedCars = (List<Car>)(List<?>) dataAccess.getAllObjects(); //Read the file again
+        assertEquals(returnedCars.get(1).toString(), teslaUpdated.toString()); //Compare the new tesla with the tesla from the file. The updated objects are at the bottom
     }
 }
