@@ -13,6 +13,12 @@ public class DataAccessTest {
     //private static final DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
 
     /**
+     * The tests that are created here uses a specific type of class that we have created
+     * just for the sake of the tests. The class is a simple Car class, letting us create
+     * objects of cars for the different tests
+     */
+
+    /**
      * Creates a new test.csv file for each test, with headers
      */
     @BeforeEach
