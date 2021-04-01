@@ -18,5 +18,7 @@ dataJSON/calculation/ICalculateJSON.java
  dataJSON.calculation.ICalculateJSON
 dataJSON/sorting/SortingJSON.java
  dataJSON.sorting.SortingJSON
+dataJSON/sorting/SortingAlgorithm.java
+ dataJSON.sorting.SortingAlgorithm
 Main.java
  Main

@@ -21,31 +21,18 @@ public class SortingJSON implements ISortingJSON {
     public List<? extends Object> sortIntASC(HashMap<Integer, ?> mapOfObjects) {
         List<Object> sortedList = new ArrayList<>();
 
-        List<Integer> intToBeSorted = new ArrayList<>(mapOfObjects.keySet());
+        int[] intToBeSorted = new int[mapOfObjects.size()];
+        int j = 0;
+        for(Integer i : mapOfObjects.keySet()) {
+            intToBeSorted[j++] = i;
+        }
 
-        for(Integer i : sort(intToBeSorted)) {
+        SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
+
+        for(int i : intToBeSorted) {
             sortedList.add(mapOfObjects.get(i));
         }
 
         return sortedList;
-    }
-
-    private List<Integer> sort(List<Integer> integerList) {
-        int n = integerList.size();
-        int min, tmp;
-
-        for(int i = 0; i < n-1; i++) {
-            min = i;
-            for(int j = i+1; j < n; j++) {
-                if(integerList.get(j) < integerList.get(min)) {
-                    min = j;
-                }
-            }
-            tmp = integerList.get(min);
-            integerList.set(min, integerList.get(i));
-            integerList.set(i, tmp);
-        }
-
-        return integerList;
     }
 }
