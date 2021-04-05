@@ -9,13 +9,13 @@ public class SortingJSON implements ISortingJSON {
     }
 
     /**
-     * The client sends in a hashmap of data. The key values will be sorted
+     * The client sends in a hashmap of data. The key values will be sorted ascending
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
      *
      * @param mapOfObjects - A hashmap containing objects and the keys to the objects
-     * @return - A list of objects that are sorted by the key integer values (Ascending)
+     * @return - A list of objects that are sorted by the key values
      */
     public List<? extends Object> sortIntASC(HashMap<Integer, ?> mapOfObjects) {
         List<Object> sortedList = new ArrayList<>();
@@ -42,7 +42,7 @@ public class SortingJSON implements ISortingJSON {
      * writes it on there using the DataAccess.
      *
      * @param mapOfObjects - A hashmap containing objects and the keys to the objects
-     * @return - A list of objects that are sorted by the key integer values (Ascending)
+     * @return - A list of objects that are sorted by the key values
      */
     public List<? extends Object> sortIntDESC(HashMap<Integer, ?> mapOfObjects) {
         List<Object> sortedList = new ArrayList<>();
@@ -69,13 +69,13 @@ public class SortingJSON implements ISortingJSON {
      * writes it on there using the DataAccess.
      *
      * @param mapOfObjects - A hashmap containing objects and the keys to the objects
-     * @return - A list of objects that are sorted by the key integer values (Ascending)
+     * @return - A list of objects that are sorted by the key values
      */
     public List<? extends Object> sortDoubleASC(HashMap<Double, ?> mapOfObjects) {
         List<Object> sortedList = new ArrayList<>();
 
         double[] doubleToBeSorted = new double[mapOfObjects.size()];
-        int j = 0;
+        int j  = 0;
         for(Double i : mapOfObjects.keySet()) {
             doubleToBeSorted[j++] = i;
         }
@@ -85,6 +85,35 @@ public class SortingJSON implements ISortingJSON {
         for(double i : doubleToBeSorted) {
             sortedList.add(mapOfObjects.get(i));
         }
+
+        return sortedList;
+    }
+
+    /**
+     * The client sends in a hashmap of data. The key values will be sorted where the double value is descending,
+     * with a merge-sort algorithm and a list of sorted objects is then returned
+     * to the client. Note! Changes are not printed on datafile until client
+     * writes it on there using the DataAccess.
+     *
+     * @param mapOfObjects - A hasmap containing objects and the keys to the objects
+     * @return - A list of objects that are sorted by the key values
+     */
+    public List<? extends Object> sortDoubleDESC(HashMap<Double, ?> mapOfObjects) {
+        List<Object> sortedList = new ArrayList<>();
+
+        double[] doubleToBeSorted = new double[mapOfObjects.size()];
+        int j = 0;
+        for(Double i : mapOfObjects.keySet()) {
+            doubleToBeSorted[j++] = i;
+        }
+
+        SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length - 1);
+
+        for(double i : doubleToBeSorted) {
+            sortedList.add(mapOfObjects.get(i));
+        }
+
+        Collections.reverse(sortedList);
 
         return sortedList;
     }
