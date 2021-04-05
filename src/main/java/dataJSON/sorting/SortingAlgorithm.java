@@ -1,6 +1,6 @@
 package dataJSON.sorting;
 
-public abstract class SortingAlgorithm {
+abstract class SortingAlgorithm {
     /**
      * A simple Merge Sort algorithm used to sort data.
      * The algorithm is obtained from the course ITF20006-1 21V Algorithms and datastructures
@@ -92,5 +92,6 @@ public abstract class SortingAlgorithm {
             }
         }
     }
+
 
 }
