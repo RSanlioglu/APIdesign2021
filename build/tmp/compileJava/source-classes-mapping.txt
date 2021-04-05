@@ -18,9 +18,13 @@ dataJSON/dataAccess/DataAccess.java
  dataJSON.dataAccess.DataAccess
 Person.java
  Person
-dataJSON/sorting/SortingAlgorithm.java
- dataJSON.sorting.SortingAlgorithm
+dataJSON/sorting/BinarySearchTree.java
+ dataJSON.sorting.BinarySearchTree
+dataJSON/sorting/TreeNode.java
+ dataJSON.sorting.TreeNode
 dataJSON/sorting/SortingJSON.java
  dataJSON.sorting.SortingJSON
 Main.java
  Main
+dataJSON/sorting/SortingAlgorithm.java
+ dataJSON.sorting.SortingAlgorithm

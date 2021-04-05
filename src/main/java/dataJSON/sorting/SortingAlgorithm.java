@@ -93,5 +93,12 @@ abstract class SortingAlgorithm {
         }
     }
 
+    public static void bstSortString(String[] stringToBeSorted) {
+        BinarySearchTree bst = new BinarySearchTree();
+        for(String s : stringToBeSorted) {
+            bst.insert(s);
+        }
+        bst.inorder();
+    }
 
 }

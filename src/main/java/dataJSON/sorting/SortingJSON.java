@@ -117,4 +117,16 @@ public class SortingJSON implements ISortingJSON {
 
         return sortedList;
     }
+
+    public void sortStringAlphabetical(HashMap<String, ?> mapOfObjects) {
+        List<Object> sortedList = new ArrayList<>();
+
+        String[] StringToBeSorted = new String[mapOfObjects.size()];
+        int j = 0;
+        for(String i : mapOfObjects.keySet()) {
+            StringToBeSorted[j++] = i;
+        }
+
+        SortingAlgorithm.bstSortString(StringToBeSorted);
+    }
 }
