@@ -95,7 +95,7 @@ public class SortingJSON implements ISortingJSON {
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
      *
-     * @param mapOfObjects - A hasmap containing objects and the keys to the objects
+     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
      * @return - A list of objects that are sorted by the key values
      */
     public List<? extends Object> sortDoubleDESC(HashMap<Double, ?> mapOfObjects) {
@@ -118,7 +118,14 @@ public class SortingJSON implements ISortingJSON {
         return sortedList;
     }
 
-    public List<? extends Object> sortStringAlphabetical(HashMap<String, ?> mapOfObjects) {
+    /**
+     * The client sends a hashmap of data. The key values will be sorted where the string value is ascending
+     * with a binary search tree algorithm and a list of sorted objects is then returned to the client.
+     * Note! Changes are not printed on datafile until client writes it on there using the DataAccess.
+     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @return - A list of objects that are sorted by the key values
+     */
+    public List<? extends Object> sortStringAlphabeticalASC(HashMap<String, ?> mapOfObjects) {
         List<Object> sortedList = new ArrayList<>();
         List<String> stringToBeSorted = new ArrayList<>(mapOfObjects.keySet());
 
@@ -127,6 +134,28 @@ public class SortingJSON implements ISortingJSON {
         for(String s : stringToBeSorted) {
             sortedList.add(mapOfObjects.get(s));
         }
+
+        return sortedList;
+    }
+
+    /**
+     * The client sends a hashmap of data. The key values will be sorted where the string value is descending
+     * with a binary search tree algorithm and a list of sorted objects is then returned to the client.
+     * Note! Changes are not printed on datafile until client writes it on there using the DataAccess.
+     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @return - A list of objects that are sorted by the key values
+     */
+    public List<? extends Object> sortStringAlphabeticalDESC(HashMap<String, ?> mapOfObjects) {
+        List<Object> sortedList = new ArrayList<>();
+        List<String> stringToBeSorted = new ArrayList<>(mapOfObjects.keySet());
+
+        SortingAlgorithm.bstSortString(stringToBeSorted);
+
+        for(String s : stringToBeSorted) {
+            sortedList.add(mapOfObjects.get(s));
+        }
+
+        Collections.reverse(sortedList);
 
         return sortedList;
     }
