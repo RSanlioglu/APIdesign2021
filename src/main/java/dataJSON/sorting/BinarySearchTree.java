@@ -49,17 +49,18 @@ public class BinarySearchTree {
         }
     }
 
-    public void inorder() {
-        System.out.println("Ord og forekomster i teksten: ");
-        inorder(root);
-        System.out.println("\n");
+    public List<String> inorder() {
+        List<String> sortedStrings = new ArrayList<>();
+        inorder(root, sortedStrings);
+        return sortedStrings;
     }
 
-    private void inorder(TreeNode t) {
+    private List<String> inorder(TreeNode t, List<String> stringsToBeSorted) {
         if (t != null) {
-            inorder(t.left);
-            t.write();
-            inorder(t.right);
+            inorder(t.left, stringsToBeSorted);
+            stringsToBeSorted.add(t.data);
+            inorder(t.right, stringsToBeSorted);
         }
+        return stringsToBeSorted;
     }
 }

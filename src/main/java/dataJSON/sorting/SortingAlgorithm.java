@@ -1,5 +1,7 @@
 package dataJSON.sorting;
 
+import java.util.List;
+
 abstract class SortingAlgorithm {
     /**
      * A simple Merge Sort algorithm used to sort data.
@@ -93,12 +95,12 @@ abstract class SortingAlgorithm {
         }
     }
 
-    public static void bstSortString(String[] stringToBeSorted) {
+    public static void bstSortString(List<String> stringToBeSorted) {
         BinarySearchTree bst = new BinarySearchTree();
         for(String s : stringToBeSorted) {
             bst.insert(s);
         }
-        bst.inorder();
+        stringToBeSorted.clear();
+        stringToBeSorted.addAll(bst.inorder());
     }
-
 }

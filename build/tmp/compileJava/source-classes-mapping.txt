@@ -14,15 +14,15 @@ dataJSON/converting/ConverterJSON.java
  dataJSON.converting.ConverterJSON
 Exceptions/FileAlreadyExistsException.java
  Exceptions.FileAlreadyExistsException
-dataJSON/sorting/SortingJSON.java
- dataJSON.sorting.SortingJSON
 Person.java
  Person
-Main.java
- Main
 dataJSON/sorting/BinarySearchTree.java
  dataJSON.sorting.BinarySearchTree
 dataJSON/sorting/TreeNode.java
  dataJSON.sorting.TreeNode
 dataJSON/sorting/SortingAlgorithm.java
  dataJSON.sorting.SortingAlgorithm
+dataJSON/sorting/SortingJSON.java
+ dataJSON.sorting.SortingJSON
+Main.java
+ Main
