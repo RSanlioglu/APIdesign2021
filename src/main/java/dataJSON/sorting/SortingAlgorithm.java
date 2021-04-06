@@ -95,6 +95,12 @@ abstract class SortingAlgorithm {
         }
     }
 
+    /**
+     * For sorting the strings, a simple binary search tree is used for the sorting.
+     * The algorithm for the search tree is obtained from the course ITF20006-1 21V Algorithms and datastructures
+     * and modified such that it is suitable for the framework
+     * @param stringToBeSorted - A list of strings that is supposed to be sorted
+     */
     public static void bstSortString(List<String> stringToBeSorted) {
         BinarySearchTree bst = new BinarySearchTree();
         for(String s : stringToBeSorted) {

@@ -49,6 +49,12 @@ public class BinarySearchTree {
         }
     }
 
+    /**
+     * Simple inorder traversals within the search tree that has been inserted with data.
+     * The traversal will start from the far left node and add all strings when passing to
+     * the far right node, leaving us with a list with alphabetical sorted lists.
+     * @return - A list of alphabetical sorted strings
+     */
     public List<String> inorder() {
         List<String> sortedStrings = new ArrayList<>();
         inorder(root, sortedStrings);
