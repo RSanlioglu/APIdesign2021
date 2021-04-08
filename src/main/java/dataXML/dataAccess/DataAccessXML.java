@@ -45,7 +45,6 @@ public class DataAccessXML implements IDataAccessXML {
                 objects.add(mappingIterator.next());
             }
             o_list.addAll(objects);
-
         }
     }
 
@@ -143,6 +142,7 @@ public class DataAccessXML implements IDataAccessXML {
         for(Object x : o_list) {
             if(x.toString().equals(o.toString())) {
                 exists = true;
+                System.out.println("this exists");
             }
         }
         return exists;
@@ -157,10 +157,10 @@ public class DataAccessXML implements IDataAccessXML {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(i.hasNext()) {
-            Object x = i.next();
+        for(Object x : o_list) {
             if(x.toString().equals(o.toString())) {
-                i.remove();
+               o_list.remove(x);
+               break;
             }
         }
         write(o_list);
@@ -170,19 +170,20 @@ public class DataAccessXML implements IDataAccessXML {
      * with the new object with new data. The new object is placed
      * last in the file*/
     public void updateObject(Object oldObject, Object newObject) {
-        Object objectToBeDeleted = null;
+        //Object objectToBeDeleted = null;
         try {
             read(type);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         for(Object x : o_list) {
             if(x.toString().equals(oldObject.toString())) {
-                objectToBeDeleted = x;
+                o_list.remove(x);
+                break;
             }
         }
-        deleteObject(objectToBeDeleted);
+        write(o_list);
+        //deleteObject(objectToBeDeleted);
         appendObject(newObject);
     }
 }

@@ -13,9 +13,9 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.io.IOException;
 
-public class ConverterXML implements IConverterXML{
-    @Override
-    public void convertToCSV(String pathNameCSV, String pathNameXML) throws ParserConfigurationException, IOException, SAXException, TransformerException {
+public class ConverterXML{
+
+    public static void convertToCSV(String pathNameCSV, String pathNameXML) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         File stylesheet = new File("style.xsl");
         File xmlSource = new File(pathNameCSV);
 
@@ -32,7 +32,7 @@ public class ConverterXML implements IConverterXML{
 
     }
 
-    @Override
+
     public void convertToJSON(String pathName) {
 
     }

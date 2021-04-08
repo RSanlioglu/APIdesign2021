@@ -1,0 +1,32 @@
+<ArrayList>
+  <item>
+    <registrationID>2211</registrationID>
+    <producer>Tesla</producer>
+    <model>Model s</model>
+    <year>2020</year>
+  </item>
+  <item>
+    <registrationID>8853</registrationID>
+    <producer>Audi</producer>
+    <model>E Tron</model>
+    <year>2020</year>
+  </item>
+  <item>
+    <registrationID>8853</registrationID>
+    <producer>Audi</producer>
+    <model>E Tron</model>
+    <year>2020</year>
+  </item>
+  <item>
+    <registrationID>2211</registrationID>
+    <producer>Tesla</producer>
+    <model>Model s</model>
+    <year>2020</year>
+  </item>
+  <item>
+    <registrationID>8853</registrationID>
+    <producer>Audi</producer>
+    <model>E Tron</model>
+    <year>2020</year>
+  </item>
+</ArrayList>

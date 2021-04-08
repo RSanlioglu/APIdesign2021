@@ -1,14 +1,20 @@
 <ArrayList>
   <item>
-    <registrationID>213</registrationID>
+    <registrationID>111</registrationID>
     <producer>Audi</producer>
     <model>A3</model>
-    <year>2000</year>
+    <year>3000</year>
   </item>
   <item>
-    <registrationID>213</registrationID>
+    <registrationID>23</registrationID>
+    <producer>Volvo</producer>
+    <model>20</model>
+    <year>4000</year>
+  </item>
+  <item>
+    <registrationID>413</registrationID>
     <producer>Audi</producer>
-    <model>A3</model>
-    <year>2000</year>
+    <model>A5</model>
+    <year>2002</year>
   </item>
 </ArrayList>
