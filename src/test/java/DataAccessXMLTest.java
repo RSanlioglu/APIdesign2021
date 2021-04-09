@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DataAccessXMLTest {
-    private static final DataAccessXML dataAccessXML = new DataAccessXML("test.xml", Car.class);
+    private static final DataAccessXML dataAccessXML = new DataAccessXML("test.xml", Car.class, "Car");
 
     /**
      * The tests that are created here uses a specific type of class that we have created
@@ -35,7 +35,7 @@ public class DataAccessXMLTest {
      */
     @AfterEach
     public void tearDown() {
-        new File("test.xml").delete();
+       // new File("test.xml").delete();
     }
 
     /**
@@ -44,7 +44,7 @@ public class DataAccessXMLTest {
     @Test
     @SuppressWarnings("unchecked")
     public void createNewXMLFile() {
-        DataAccessXML dataAccessXML = new DataAccessXML("newFile.xml", Car.class);
+        DataAccessXML dataAccessXML = new DataAccessXML("newFile.xml", Car.class, "Car");
 
             dataAccessXML.createXML(); //Create the file
 
@@ -80,7 +80,7 @@ public class DataAccessXMLTest {
         Car tesla = new Car(33212, "Tesla", "Model S", 2020);
         cars.add(mercedes);
         cars.add(mustang);
-        dataAccessXML.writeList(Collections.singletonList(cars), "Car");
+        dataAccessXML.writeList(Collections.singletonList(cars));
 
         //Return the cars from the datafile
         List<Car> returneCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
@@ -123,7 +123,7 @@ public class DataAccessXMLTest {
         cars.add(mustang);
         cars.add(passat);
 
-        dataAccessXML.writeList(Collections.singletonList(cars), "Car"); //Writes the list of cars to the file
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
 
@@ -190,7 +190,7 @@ public class DataAccessXMLTest {
         Car etron = new Car(8853, "Audi", "E Tron", 2020);
         cars.add(tesla);
         cars.add(etron);
-        dataAccessXML.writeList(Collections.singletonList(cars), "Car");
+        dataAccessXML.writeList(Collections.singletonList(cars));
 
         assertTrue(dataAccessXML.doesExist(tesla));
     }
@@ -207,7 +207,7 @@ public class DataAccessXMLTest {
         Car mustang = new Car(55311, "Ford", "Mustang", 1969); //Mustang is not added to the list and will not exist in the file
         cars.add(tesla);
         cars.add(etron);
-        dataAccessXML.writeList(Collections.singletonList(cars),"Car");
+        dataAccessXML.writeList(Collections.singletonList(cars));
 
         assertFalse(dataAccessXML.doesExist(mustang));
     }
@@ -242,12 +242,13 @@ public class DataAccessXMLTest {
         Car etron = new Car(8853, "Audi", "E Tron", 2020);
         cars.add(tesla);
         cars.add(etron);
-        dataAccessXML.writeList(Collections.singletonList(cars), "Car"); //Write the list of cars in to the file
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
 
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
         assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
 
         Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021); //The new Tesla
+
         dataAccessXML.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
 
         returnedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects(); //Read the file again

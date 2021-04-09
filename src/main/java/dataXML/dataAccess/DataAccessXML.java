@@ -13,24 +13,19 @@ public class DataAccessXML implements IDataAccessXML {
     public List<Object> o_list = new ArrayList<>();
     private final String fileName;
     private Class type;
+    private String rootName;
 
 
-    public DataAccessXML(String fileName, Class type) {
+
+    public DataAccessXML(String fileName, Class type, String rootName) {
         this.fileName = fileName;
         this.type = type;
+        this.rootName = rootName;
         createXML();
 
     }
 
-    private void write(List<Object> obj) {
-        XmlMapper objectMapper = new XmlMapper();
-        try {
 
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), obj);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public List<Object> getAllObjects() {
@@ -86,21 +81,19 @@ public class DataAccessXML implements IDataAccessXML {
     }
 
     @Override
-    public void writeList(List<Object> l_o, String rootName) {
-
+    public void writeList(List<Object> l_o) {
 
         XmlMapper xmlMapper = new XmlMapper();
 
 
-        for (Object o : l_o) {
-            try {
-                xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootName).writeValue(new File(fileName), o);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootName).writeValue(new File(fileName), l_o);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
+
 
     /*Add one object to the datafile. The object must be of the same
      * type as the data inside the json-file.
@@ -162,7 +155,7 @@ public class DataAccessXML implements IDataAccessXML {
                 break;
             }
         }
-        write(objects);
+        writeList(objects);
     }
 
     /*Finds the object to be updated and deletes it and replaces it
@@ -170,14 +163,17 @@ public class DataAccessXML implements IDataAccessXML {
      * last in the file*/
     public void updateObject(Object oldObject, Object newObject) {
         List<Object> objects = getAllObjects();
+        Object objectToBeDeleted = null;
+
         for (Object x : objects) {
             if (x.toString().equals(oldObject.toString())) {
-                objects.remove(x);
-                break;
+
+                objectToBeDeleted = x;
+
             }
         }
-        write(objects);
-        //deleteObject(objectToBeDeleted);
+
+        deleteObject(objectToBeDeleted);
         appendObject(newObject);
     }
 }

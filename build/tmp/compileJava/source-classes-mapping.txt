@@ -12,8 +12,8 @@ dataXML/converting/ConverterXML.java
  dataXML.converting.ConverterXML
 dataXML/calculation/ICalculateXML.java
  dataXML.calculation.ICalculateXML
-dataXML/dataAccess/DataAccessXML.java
- dataXML.dataAccess.DataAccessXML
+dataCSV/dataAcces/DataAccess.java
+ dataCSV.dataAcces.DataAccess
 dataXML/sorting/ISortingXML.java
  dataXML.sorting.ISortingXML
 dataXML/CoreXML.java
@@ -38,8 +38,8 @@ dataJSON/calculation/CalculateJSON.java
  dataJSON.calculation.CalculateJSON
 dataJSON/calculation/ICalculateJSON.java
  dataJSON.calculation.ICalculateJSON
-TestCsv.java
- TestCsv
+dataCSV/sorting/ISorting.java
+ dataCSV.sorting.ISorting
 dataJSON/dataAccess/DataAccessJSON.java
  dataJSON.dataAccess.DataAccessJSON
 dataXML/sorting/SortingXML.java
@@ -52,7 +52,7 @@ dataXML/Car.java
  dataXML.Car
 dataJSON/CoreJSON.java
  dataJSON.CoreJSON
-dataCSV/dataAcces/DataAccess.java
- dataCSV.dataAcces.DataAccess
-dataCSV/sorting/ISorting.java
- dataCSV.sorting.ISorting
+TestCsv.java
+ TestCsv
+dataXML/dataAccess/DataAccessXML.java
+ dataXML.dataAccess.DataAccessXML

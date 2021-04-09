@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TestCsv {
@@ -34,16 +35,16 @@ public class TestCsv {
         carList.add(car2);
         carList.add(new Car (413,"Audi","A5",2002));
 
-        DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", Car.class);
+        DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", Car.class, "Car");
 
-        //dataAccessXML.writeList(Collections.singletonList(carList), "Cars");
+        dataAccessXML.writeList(Collections.singletonList(carList));
         //dataAccessXML.appendObject(new Car (213,"Audi","A3",2000));
        // dataAccessXML.appendList(Collections.singletonList(carList));
        // dataAccessXML.appendObject(car1);
         //dataAccessXML.appendObject(car2);
        //dataAccessXML.writeObject(car1);
        //dataAccessXML.appendObject(car2);
-        //dataAccessXML.updateObject(car1, car2);
+        dataAccessXML.updateObject(car1, car2);
         //dataAccessXML.deleteObject(car1);
        // dataAccessXML.doesExist(car1);
       //  System.out.println(  dataAccessXML.getAllObjects().toString());

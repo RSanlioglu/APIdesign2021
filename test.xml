@@ -1,0 +1,20 @@
+<Car>
+  <item>
+    <registrationID>121222</registrationID>
+    <producer>Mercedes</producer>
+    <model>G-Class</model>
+    <year>2018</year>
+  </item>
+  <item>
+    <registrationID>5531121</registrationID>
+    <producer>Volkswagen</producer>
+    <model>Golf</model>
+    <year>2008</year>
+  </item>
+  <item>
+    <registrationID>8853</registrationID>
+    <producer>Audi</producer>
+    <model>E Tron</model>
+    <year>2020</year>
+  </item>
+</Car>
