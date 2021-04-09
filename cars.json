@@ -1,0 +1,11 @@
+[ {
+  "registrationID" : 111,
+  "producer" : "Audi",
+  "model" : "A3",
+  "year" : 3000
+}, {
+  "registrationID" : 23,
+  "producer" : "Volvo",
+  "model" : "20",
+  "year" : 4000
+} ]

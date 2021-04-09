@@ -1,39 +1,60 @@
 package dataXML.converting;
 
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
+import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ConverterXML{
+public class ConverterXML {
 
-    public static void convertToCSV(String pathNameCSV, String pathNameXML) throws ParserConfigurationException, IOException, SAXException, TransformerException {
-        File stylesheet = new File("style.xsl");
-        File xmlSource = new File(pathNameCSV);
+    public static void convertToCSV(String pathName, String newFile, Class type, boolean header) throws IOException {
+        List<Object> objects = new ArrayList<>();
+        XmlMapper objectMapper = new XmlMapper();
+        MappingIterator<Object> mappingIterator;
+        File file = new File(pathName);
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(xmlSource);
+        if (file.length() != 0) {
+            mappingIterator = objectMapper.readerFor(type).readValues(file);
 
-        StreamSource stylesource = new StreamSource(stylesheet);
-        Transformer transformer = TransformerFactory.newInstance()
-                .newTransformer(stylesource);
-        Source source = new DOMSource(document);
-        Result outputTarget = new StreamResult(new File("/tmp/x.csv"));
-        transformer.transform(source, outputTarget);
+            while (mappingIterator.hasNext()) {
+                objects.add(mappingIterator.next());
+            }
+        }
+
+        CsvMapper csvMapper = new CsvMapper();
+        CsvSchema csvSchema;
+        if (header) {
+            csvSchema = csvMapper.schemaFor(type).withHeader();
+        } else {
+            csvSchema = csvMapper.schemaFor(type).withoutHeader();
+        }
+
+        csvMapper.writer(csvSchema).writeValue(new File(newFile), objects);
 
     }
 
 
-    public void convertToJSON(String pathName) {
+    public static void convertToJSON(String pathName, String newFile, Class type) throws IOException {
+        List<Object> objects = new ArrayList<>();
+        XmlMapper objectMapper = new XmlMapper();
+        MappingIterator<Object> mappingIterator;
+        File file = new File(pathName);
 
+        if (file.length() != 0) {
+            mappingIterator = objectMapper.readerFor(type).readValues(file);
+
+            while (mappingIterator.hasNext()) {
+                objects.add(mappingIterator.next());
+            }
+        }
+
+        ObjectMapper objectMapperJSON = new ObjectMapper();
+        objectMapperJSON.writerWithDefaultPrettyPrinter().writeValue(new File(newFile), objects);
     }
 }
