@@ -35,7 +35,7 @@ public class DataAccessXMLTest {
      */
     @AfterEach
     public void tearDown() {
-       // new File("test.xml").delete();
+        new File("test.xml").delete();
     }
 
     /**
