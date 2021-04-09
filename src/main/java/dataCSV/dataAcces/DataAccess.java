@@ -25,6 +25,8 @@ public class DataAccess implements IDataAccess{
         this.type = type;
     }
 
+
+
     /**
      * Function that allow the client to create an empty .csv file. The name is given from the constructor
      */
@@ -217,4 +219,6 @@ public class DataAccess implements IDataAccess{
         deleteObject(objectToBeDeleted);
         appendObject(newObject);
     }
+
+
 }
