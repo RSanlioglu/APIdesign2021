@@ -143,10 +143,10 @@ public class DataAccessXMLTest {
     public void appendObject() {
         Car gClass = new Car(121222, "Mercedes", "G-Class", 2018);
         Car golf = new Car(5531121, "Volkswagen", "Golf", 2008);
-        dataAccessXML.writeObject(gClass);
+        dataAccessXML.appendObject(gClass);
         dataAccessXML.appendObject(golf);
         //Get the cars back from the file
-        List<Car> cars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
+        List<Object> cars = dataAccessXML.getAllObjects();
 
         assertEquals(2, cars.size());
         assertEquals(gClass.toString(), cars.get(0).toString());
