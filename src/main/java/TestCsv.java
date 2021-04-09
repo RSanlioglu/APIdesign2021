@@ -48,11 +48,10 @@ public class TestCsv {
         //dataAccessXML.deleteObject(car1);
        // dataAccessXML.doesExist(car1);
       //  System.out.println(  dataAccessXML.getAllObjects().toString());
-        //ConverterXML.convertToJSON("cars.xml","cars.json",Car.class);
+        ConverterXML.convertToJSON("cars.xml","cars.json",Car.class);
         ConverterXML.convertToCSV("cars.xml","cars.csv",Car.class, false);
         //void updateObject(Object oldObject, Object newObject);
-        //List<Object> getAllObjects();
-        //ConverterXML.convertToCSV("cars.csv","cars.xml");
+
 
 
 

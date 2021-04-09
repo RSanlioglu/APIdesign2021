@@ -1,8 +1,13 @@
 [ {
-  "registrationID" : 111,
+  "registrationID" : 23,
+  "producer" : "Volvo",
+  "model" : "20",
+  "year" : 4000
+}, {
+  "registrationID" : 413,
   "producer" : "Audi",
-  "model" : "A3",
-  "year" : 3000
+  "model" : "A5",
+  "year" : 2002
 }, {
   "registrationID" : 23,
   "producer" : "Volvo",
