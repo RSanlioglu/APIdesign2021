@@ -5,9 +5,7 @@ import dataJSON.dataAccess.DataAccessJSON;
 import java.util.*;
 import java.lang.reflect.Field;
 
-
-public class SortingJSON {
-    //TODO: FIX THE INTERFACE
+public class SortingJSON implements ISortingJSON{
     DataAccessJSON json;
     Class type;
 
@@ -17,7 +15,7 @@ public class SortingJSON {
     }
 
     /**
-     * The client sends in a hashmap of data. The key values will be sorted ascending
+     * The client sends in a string for the fieldname. The key values will be sorted ascending
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
@@ -55,7 +53,7 @@ public class SortingJSON {
     }
 
     /**
-     * The client sends in a hashmap of data. The key values will be sorted where the int value is descending,
+     * The client sends in a String of fieldname. The key values will be sorted where the int value is descending,
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
@@ -95,7 +93,7 @@ public class SortingJSON {
     }
 
     /**
-     * The client sends in a hashmap of data. The key values will be sorted where the double value is ascending,
+     * The client sends in a string for the field name. The key values will be sorted where the double value is ascending,
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
@@ -133,7 +131,7 @@ public class SortingJSON {
     }
 
     /**
-     * The client sends in a hashmap of data. The key values will be sorted where the double value is descending,
+     * The client sends in a string for the fieldname. The key values will be sorted where the double value is descending,
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
@@ -174,7 +172,7 @@ public class SortingJSON {
     }
 
     /**
-     * The client sends a hashmap of data. The key values will be sorted where the string value is ascending
+     * The client sends a string for a fieldname. The key values will be sorted where the string value is ascending
      * with a binary search tree algorithm and a list of sorted objects is then returned to the client.
      * Note! Changes are not printed on datafile until client writes it on there using the DataAccess.
      * @param fieldName - sort by the selected field that the client inputs
@@ -209,7 +207,7 @@ public class SortingJSON {
     }
 
     /**
-     * The client sends a hashmap of data. The key values will be sorted where the string value is descending
+     * The client sends a string for a fieldName. The key values will be sorted where the string value is descending
      * with a binary search tree algorithm and a list of sorted objects is then returned to the client.
      * Note! Changes are not printed on datafile until client writes it on there using the DataAccess.
      * @param fieldName - sort by the selected field that the client inputs
