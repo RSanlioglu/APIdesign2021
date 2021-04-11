@@ -1,11 +1,19 @@
 package dataJSON.sorting;
 
+import dataJSON.dataAccess.DataAccessJSON;
+
 import java.util.*;
+import java.lang.reflect.Field;
 
-public class SortingJSON implements ISortingJSON {
 
-    public SortingJSON() {
+public class SortingJSON {
+    //TODO: FIX THE INTERFACE
+    DataAccessJSON json;
+    Class type;
 
+    public SortingJSON(DataAccessJSON json, Class type) {
+        this.json = json;
+        this.type = type;
     }
 
     /**
@@ -14,24 +22,35 @@ public class SortingJSON implements ISortingJSON {
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
      *
-     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
-    public List<? extends Object> sortIntASC(HashMap<Integer, ?> mapOfObjects) {
+    public List<? extends Object> sortIntASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        int[] intToBeSorted = new int[mapOfObjects.size()];
-        int j = 0;
-        for(Integer i : mapOfObjects.keySet()) {
-            intToBeSorted[j++] = i;
+        HashMap<Integer, Object> objectsMap = new HashMap<>();
+        List<Object> objects = json.getAllObjects();
+
+        Field field = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            int[] intToBeSorted = new int[objects.size()];
+            int j = 0;
+            for(Object o : objects) {
+                intToBeSorted[j++] = (int) field.get(o);
+                objectsMap.put((int) field.get(o), o);
+            }
+
+            SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
+
+            for(int i : intToBeSorted) {
+                sortedList.add(objectsMap.get(i));
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
-
-        SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
-
-        for(int i : intToBeSorted) {
-            sortedList.add(mapOfObjects.get(i));
-        }
-
         return sortedList;
     }
 
@@ -41,23 +60,36 @@ public class SortingJSON implements ISortingJSON {
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
      *
-     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
-    public List<? extends Object> sortIntDESC(HashMap<Integer, ?> mapOfObjects) {
+    public List<? extends Object> sortIntDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        int[] intToBeSorted = new int[mapOfObjects.size()];
-        int j = 0;
-        for(Integer i : mapOfObjects.keySet()) {
-            intToBeSorted[j++] = i;
-        }
+        HashMap<Integer, Object> objectsMap = new HashMap<>();
+        List<Object> objects = json.getAllObjects();
 
-        SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1 );
+        Field field = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
 
-        for(int i = mapOfObjects.size() + 1; i-- > 1;) {
-            sortedList.add(mapOfObjects.get(i));
+            int[] intToBeSorted = new int[objects.size()];
+            int j = 0;
+            for(Object o : objects) {
+                intToBeSorted[j++] = (int) field.get(o);
+                objectsMap.put((int) field.get(o), o);
+            }
+
+            SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
+
+            for(int i : intToBeSorted) {
+                sortedList.add(objectsMap.get(i));
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
+        Collections.reverse(sortedList);
 
         return sortedList;
     }
@@ -68,24 +100,35 @@ public class SortingJSON implements ISortingJSON {
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
      *
-     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
-    public List<? extends Object> sortDoubleASC(HashMap<Double, ?> mapOfObjects) {
+    public List<? extends Object> sortDoubleASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        double[] doubleToBeSorted = new double[mapOfObjects.size()];
-        int j  = 0;
-        for(Double i : mapOfObjects.keySet()) {
-            doubleToBeSorted[j++] = i;
+        HashMap<Double, Object> objectsMap = new HashMap<>();
+        List<Object> objects = json.getAllObjects();
+
+        Field field = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            double[] doubleToBeSorted = new double[objects.size()];
+            int j = 0;
+            for(Object o : objects) {
+                doubleToBeSorted[j++] = (double) field.get(o);
+                objectsMap.put((double) field.get(o), o);
+            }
+
+            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length - 1);
+
+            for(double d : doubleToBeSorted) {
+                sortedList.add(objectsMap.get(d));
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
-
-        SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
-
-        for(double i : doubleToBeSorted) {
-            sortedList.add(mapOfObjects.get(i));
-        }
-
         return sortedList;
     }
 
@@ -95,22 +138,34 @@ public class SortingJSON implements ISortingJSON {
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
      *
-     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
-    public List<? extends Object> sortDoubleDESC(HashMap<Double, ?> mapOfObjects) {
+    public List<? extends Object> sortDoubleDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        double[] doubleToBeSorted = new double[mapOfObjects.size()];
-        int j = 0;
-        for(Double i : mapOfObjects.keySet()) {
-            doubleToBeSorted[j++] = i;
-        }
+        HashMap<Double, Object> objectsMap = new HashMap<>();
+        List<Object> objects = json.getAllObjects();
 
-        SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length - 1);
+        Field field = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
 
-        for(double i : doubleToBeSorted) {
-            sortedList.add(mapOfObjects.get(i));
+            double[] doubleToBeSorted = new double[objects.size()];
+            int j = 0;
+            for(Object o : objects) {
+                doubleToBeSorted[j++] = (double) field.get(o);
+                objectsMap.put((double) field.get(o), o);
+            }
+
+            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length - 1);
+
+            for(double d : doubleToBeSorted) {
+                sortedList.add(objectsMap.get(d));
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
 
         Collections.reverse(sortedList);
@@ -122,19 +177,34 @@ public class SortingJSON implements ISortingJSON {
      * The client sends a hashmap of data. The key values will be sorted where the string value is ascending
      * with a binary search tree algorithm and a list of sorted objects is then returned to the client.
      * Note! Changes are not printed on datafile until client writes it on there using the DataAccess.
-     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
-    public List<? extends Object> sortStringAlphabeticalASC(HashMap<String, ?> mapOfObjects) {
+    public List<? extends Object> sortStringAlphabeticalASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
-        List<String> stringToBeSorted = new ArrayList<>(mapOfObjects.keySet());
 
-        SortingAlgorithm.bstSortString(stringToBeSorted);
+        HashMap<String, Object> objectsMap = new HashMap<>();
+        List<Object> objects = json.getAllObjects();
 
-        for(String s : stringToBeSorted) {
-            sortedList.add(mapOfObjects.get(s));
+        Field field = null;
+
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                objectsMap.put((String) field.get(o), o);
+            }
+            List<String> stringToBeSorted = new ArrayList<>(objectsMap.keySet());
+
+            SortingAlgorithm.bstSortString(stringToBeSorted);
+
+            for(String s : stringToBeSorted) {
+                sortedList.add(objectsMap.get(s));
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
-
         return sortedList;
     }
 
@@ -142,17 +212,33 @@ public class SortingJSON implements ISortingJSON {
      * The client sends a hashmap of data. The key values will be sorted where the string value is descending
      * with a binary search tree algorithm and a list of sorted objects is then returned to the client.
      * Note! Changes are not printed on datafile until client writes it on there using the DataAccess.
-     * @param mapOfObjects - A hashmap containing objects and the keys to the objects
+     * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
-    public List<? extends Object> sortStringAlphabeticalDESC(HashMap<String, ?> mapOfObjects) {
+    public List<? extends Object> sortStringAlphabeticalDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
-        List<String> stringToBeSorted = new ArrayList<>(mapOfObjects.keySet());
 
-        SortingAlgorithm.bstSortString(stringToBeSorted);
+        HashMap<String, Object> objectsMap = new HashMap<>();
+        List<Object> objects = json.getAllObjects();
 
-        for(String s : stringToBeSorted) {
-            sortedList.add(mapOfObjects.get(s));
+        Field field = null;
+
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                objectsMap.put((String) field.get(o), o);
+            }
+            List<String> stringToBeSorted = new ArrayList<>(objectsMap.keySet());
+
+            SortingAlgorithm.bstSortString(stringToBeSorted);
+
+            for(String s : stringToBeSorted) {
+                sortedList.add(objectsMap.get(s));
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
 
         Collections.reverse(sortedList);
@@ -160,3 +246,6 @@ public class SortingJSON implements ISortingJSON {
         return sortedList;
     }
 }
+
+
+
