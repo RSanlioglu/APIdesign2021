@@ -26,26 +26,32 @@ public class SortingJSON implements ISortingJSON{
     public List<? extends Object> sortIntASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        HashMap<Integer, Object> objectsMap = new HashMap<>();
+        HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = json.getAllObjects();
 
-        Field field = null;
+        Field field;
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
             int[] intToBeSorted = new int[objects.size()];
-            int j = 0;
-            for(Object o : objects) {
-                intToBeSorted[j++] = (int) field.get(o);
-                objectsMap.put((int) field.get(o), o);
+            for(int i = 0; i < objects.size(); i++) {
+                List<Object> list = new ArrayList<>();
+                intToBeSorted[i] = (int) field.get(objects.get(i));
+                for (Object object : objects) {
+                    if (field.getInt(objects.get(i)) == field.getInt(object)) {
+                        list.add(object);
+                    }
+                }
+                objectsMap.put(field.getInt(objects.get(i)), list);
             }
-
             SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
-
-            for(int i : intToBeSorted) {
-                sortedList.add(objectsMap.get(i));
+            LinkedHashSet<Integer> set = RemoveDuplicates.removeDuplicatesInt(intToBeSorted);
+            for(int i : set) {
+                sortedList.addAll(objectsMap.get(i));
             }
+
+
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -64,25 +70,29 @@ public class SortingJSON implements ISortingJSON{
     public List<? extends Object> sortIntDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        HashMap<Integer, Object> objectsMap = new HashMap<>();
+        HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = json.getAllObjects();
 
-        Field field = null;
+        Field field;
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
             int[] intToBeSorted = new int[objects.size()];
-            int j = 0;
-            for(Object o : objects) {
-                intToBeSorted[j++] = (int) field.get(o);
-                objectsMap.put((int) field.get(o), o);
+            for(int i = 0; i < objects.size(); i++) {
+                List<Object> list = new ArrayList<>();
+                intToBeSorted[i] = (int) field.get(objects.get(i));
+                for(Object object : objects) {
+                    if(field.getInt(objects.get(i)) == field.getInt(object)) {
+                        list.add(object);
+                    }
+                }
+                objectsMap.put(field.getInt(objects.get(i)), list);
             }
-
             SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
-
-            for(int i : intToBeSorted) {
-                sortedList.add(objectsMap.get(i));
+            LinkedHashSet<Integer> set = RemoveDuplicates.removeDuplicatesInt(intToBeSorted);
+            for(int i : set) {
+                sortedList.addAll(objectsMap.get(i));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -104,25 +114,29 @@ public class SortingJSON implements ISortingJSON{
     public List<? extends Object> sortDoubleASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        HashMap<Double, Object> objectsMap = new HashMap<>();
+        HashMap<Double, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = json.getAllObjects();
 
-        Field field = null;
+        Field field;
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
             double[] doubleToBeSorted = new double[objects.size()];
-            int j = 0;
-            for(Object o : objects) {
-                doubleToBeSorted[j++] = (double) field.get(o);
-                objectsMap.put((double) field.get(o), o);
+            for(int i = 0; i < objects.size(); i++) {
+                List<Object> list = new ArrayList<>();
+                doubleToBeSorted[i] = (double) field.get(objects.get(i));
+                for(Object object : objects) {
+                    if(field.getDouble(objects.get(i)) == field.getDouble(object)) {
+                        list.add(object);
+                    }
+                }
+                objectsMap.put(field.getDouble(objects.get(i)), list);
             }
-
-            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length - 1);
-
-            for(double d : doubleToBeSorted) {
-                sortedList.add(objectsMap.get(d));
+            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
+            LinkedHashSet<Double> set = RemoveDuplicates.removeDuplicatesDouble(doubleToBeSorted);
+            for(double i : set) {
+                sortedList.addAll(objectsMap.get(i));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -142,30 +156,33 @@ public class SortingJSON implements ISortingJSON{
     public List<? extends Object> sortDoubleDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        HashMap<Double, Object> objectsMap = new HashMap<>();
+        HashMap<Double, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = json.getAllObjects();
 
-        Field field = null;
+        Field field;
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
             double[] doubleToBeSorted = new double[objects.size()];
-            int j = 0;
-            for(Object o : objects) {
-                doubleToBeSorted[j++] = (double) field.get(o);
-                objectsMap.put((double) field.get(o), o);
+            for(int i = 0; i < objects.size(); i++) {
+                List<Object> list = new ArrayList<>();
+                doubleToBeSorted[i] = (double) field.get(objects.get(i));
+                for(Object object : objects) {
+                    if(field.getDouble(objects.get(i)) == field.getDouble(object)) {
+                        list.add(object);
+                    }
+                }
+                objectsMap.put(field.getDouble(objects.get(i)), list);
             }
-
-            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length - 1);
-
-            for(double d : doubleToBeSorted) {
-                sortedList.add(objectsMap.get(d));
+            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
+            LinkedHashSet<Double> set = RemoveDuplicates.removeDuplicatesDouble(doubleToBeSorted);
+            for(double i : set) {
+                sortedList.addAll(objectsMap.get(i));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
-
         Collections.reverse(sortedList);
 
         return sortedList;
@@ -181,24 +198,30 @@ public class SortingJSON implements ISortingJSON{
     public List<? extends Object> sortStringAlphabeticalASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        HashMap<String, Object> objectsMap = new HashMap<>();
+        HashMap<String, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = json.getAllObjects();
 
-        Field field = null;
+        Field field;
 
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
-            for(Object o : objects) {
-                objectsMap.put((String) field.get(o), o);
+            List<String> stringToBeSorted = new ArrayList<>();
+            for(int i = 0; i < objects.size(); i++) {
+                List<Object> list = new ArrayList<>();
+                stringToBeSorted.add(i, (String) field.get(objects.get(i)));
+                for(Object object : objects) {
+                    if(field.get(objects.get(i)).toString().equals(field.get(object).toString())) {
+                        list.add(object);
+                    }
+                }
+                objectsMap.put((String) field.get(objects.get(i)), list);
             }
-            List<String> stringToBeSorted = new ArrayList<>(objectsMap.keySet());
-
             SortingAlgorithm.bstSortString(stringToBeSorted);
-
-            for(String s : stringToBeSorted) {
-                sortedList.add(objectsMap.get(s));
+            LinkedHashSet<String> set = RemoveDuplicates.removeDuplicatesString(stringToBeSorted);
+            for(String s : set) {
+                sortedList.addAll(objectsMap.get(s));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -216,24 +239,30 @@ public class SortingJSON implements ISortingJSON{
     public List<? extends Object> sortStringAlphabeticalDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
-        HashMap<String, Object> objectsMap = new HashMap<>();
+        HashMap<String, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = json.getAllObjects();
 
-        Field field = null;
+        Field field;
 
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
-            for(Object o : objects) {
-                objectsMap.put((String) field.get(o), o);
+            List<String> stringToBeSorted = new ArrayList<>();
+            for(int i = 0; i < objects.size(); i++) {
+                List<Object> list = new ArrayList<>();
+                stringToBeSorted.add(i, (String) field.get(objects.get(i)));
+                for(Object object : objects) {
+                    if(field.get(objects.get(i)).toString().equals(field.get(object).toString())) {
+                        list.add(object);
+                    }
+                }
+                objectsMap.put((String) field.get(objects.get(i)), list);
             }
-            List<String> stringToBeSorted = new ArrayList<>(objectsMap.keySet());
-
             SortingAlgorithm.bstSortString(stringToBeSorted);
-
-            for(String s : stringToBeSorted) {
-                sortedList.add(objectsMap.get(s));
+            LinkedHashSet<String> set = RemoveDuplicates.removeDuplicatesString(stringToBeSorted);
+            for(String s : set) {
+                sortedList.addAll(objectsMap.get(s));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -244,6 +273,3 @@ public class SortingJSON implements ISortingJSON{
         return sortedList;
     }
 }
-
-
-

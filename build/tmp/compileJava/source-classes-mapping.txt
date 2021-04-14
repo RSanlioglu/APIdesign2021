@@ -22,6 +22,8 @@ dataJSON/converting/ConverterJSON.java
  dataJSON.converting.ConverterJSON
 dataJSON/coreJSON.java
  dataJSON.coreJSON
+dataJSON/sorting/RemoveDuplicates.java
+ dataJSON.sorting.RemoveDuplicates
 dataJSON/sorting/SortingJSON.java
  dataJSON.sorting.SortingJSON
 Main.java
