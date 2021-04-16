@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DataAccessXMLTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-04-09T12:26:26" hostname="BRAM" time="0.759">
+  <properties/>
+  <testcase name="appendList()" classname="DataAccessXMLTest" time="0.663"/>
+  <testcase name="createNewXMLFile()" classname="DataAccessXMLTest" time="0.004"/>
+  <testcase name="writeListToFile()" classname="DataAccessXMLTest" time="0.007"/>
+  <testcase name="getAllObjectsFromTheJSONFile()" classname="DataAccessXMLTest" time="0.007"/>
+  <testcase name="writeOneObjectToFile()" classname="DataAccessXMLTest" time="0.006"/>
+  <testcase name="doesExist_Fail()" classname="DataAccessXMLTest" time="0.006"/>
+  <testcase name="updateObjectFromFile()" classname="DataAccessXMLTest" time="0.025"/>
+  <testcase name="doesExist_Correct()" classname="DataAccessXMLTest" time="0.006"/>
+  <testcase name="appendObject()" classname="DataAccessXMLTest" time="0.012"/>
+  <testcase name="deleteObjectFromFile()" classname="DataAccessXMLTest" time="0.017"/>
+  <system-out><![CDATA[This file already exists
+This file already exists
+This file already exists
+Success
+This file already exists
+This file already exists
+This file already exists
+This file already exists
+This file already exists
+This file already exists
+This file already exists
+this exists
+This file already exists
+[Car{registrationID=121222, producer='Mercedes', model='G-Class', Year=2018}, Car{registrationID=5531121, producer='Volkswagen', model='Golf', Year=2008}]
+This file already exists
+this exists
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
