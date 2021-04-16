@@ -1,58 +1,30 @@
-dataCSV/sorting/Sorting.java
- dataCSV.sorting.Sorting
-dataJSON/dataAccess/IDataAccessJSON.java
- dataJSON.dataAccess.IDataAccessJSON
-dataCSV/calculation/ICalculation.java
- dataCSV.calculation.ICalculation
-dataXML/calculation/CalculateXML.java
- dataXML.calculation.CalculateXML
-dataCSV/dataAcces/IDataAccess.java
- dataCSV.dataAcces.IDataAccess
-dataXML/converting/ConverterXML.java
- dataXML.converting.ConverterXML
-dataXML/calculation/ICalculateXML.java
- dataXML.calculation.ICalculateXML
-dataCSV/dataAcces/DataAccess.java
- dataCSV.dataAcces.DataAccess
-dataXML/sorting/ISortingXML.java
- dataXML.sorting.ISortingXML
-dataXML/CoreXML.java
- dataXML.CoreXML
-dataCSV/calculation/Calculation.java
- dataCSV.calculation.Calculation
-dataJSON/sorting/SortingJSON.java
- dataJSON.sorting.SortingJSON
-dataCSV/CoreCSV.java
- dataCSV.CoreCSV
-dataJSON/converting/IConverterJSON.java
- dataJSON.converting.IConverterJSON
+dataJSON/sorting/TreeNode.java
+ dataJSON.sorting.TreeNode
 dataJSON/sorting/ISortingJSON.java
  dataJSON.sorting.ISortingJSON
-dataCSV/converting/IConverting.java
- dataCSV.converting.IConverting
-dataXML/dataAccess/IDataAccessXML.java
- dataXML.dataAccess.IDataAccessXML
-dataCSV/converting/Converting.java
- dataCSV.converting.Converting
+dataJSON/dataAccess/IDataAccessJSON.java
+ dataJSON.dataAccess.IDataAccessJSON
 dataJSON/calculation/CalculateJSON.java
  dataJSON.calculation.CalculateJSON
 dataJSON/calculation/ICalculateJSON.java
  dataJSON.calculation.ICalculateJSON
-dataCSV/sorting/ISorting.java
- dataCSV.sorting.ISorting
 dataJSON/dataAccess/DataAccessJSON.java
  dataJSON.dataAccess.DataAccessJSON
-dataXML/sorting/SortingXML.java
- dataXML.sorting.SortingXML
+Person.java
+ Person
+Exceptions/FileAlreadyExistsException.java
+ Exceptions.FileAlreadyExistsException
+dataJSON/sorting/BinarySearchTree.java
+ dataJSON.sorting.BinarySearchTree
+dataJSON/sorting/SortingAlgorithm.java
+ dataJSON.sorting.SortingAlgorithm
 dataJSON/converting/ConverterJSON.java
  dataJSON.converting.ConverterJSON
-dataXML/converting/IConverterXML.java
- dataXML.converting.IConverterXML
-dataXML/Car.java
- dataXML.Car
-dataJSON/CoreJSON.java
- dataJSON.CoreJSON
-dataXML/dataAccess/DataAccessXML.java
- dataXML.dataAccess.DataAccessXML
-TestCsv.java
- TestCsv
+dataJSON/coreJSON.java
+ dataJSON.coreJSON
+dataJSON/sorting/RemoveDuplicates.java
+ dataJSON.sorting.RemoveDuplicates
+dataJSON/sorting/SortingJSON.java
+ dataJSON.sorting.SortingJSON
+Main.java
+ Main
