@@ -3,7 +3,7 @@ package dataCSV.dataAcces;
 import Exceptions.FileAlreadyExistsException;
 import java.util.List;
 
-public interface IDataAccess {
+public interface IDataAccessCSV {
     void createCSV() throws FileAlreadyExistsException;                                       //Create an empty csv file
     List<Object> getAllObjects();                           //Return all of the objects from csv file
     void writeObject(Object o);                             //Override one object to the file

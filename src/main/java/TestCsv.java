@@ -1,7 +1,8 @@
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import dataCSV.CoreCSV;
+import dataCSV.converting.ConverterCSV;
+import dataCSV.dataAcces.DataAccessCSV;
 import dataXML.converting.ConverterXML;
-import dataXML.dataAccess.DataAccessXML;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,20 +34,27 @@ public class TestCsv {
         carList.add(car2);
         carList.add(new CoreCSV.Car(413,"Audi","A5",2002));
 
-        DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", CoreCSV.Car.class, "Car");
+       // DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", CoreCSV.Car.class, "Car");
+        DataAccessCSV dataAccessCSV = new DataAccessCSV("car111.csv", CoreCSV.Car.class, false);
+        dataAccessCSV.writeList(Collections.singletonList(carList));
+        List<Object> objects = dataAccessCSV.getAllObjects();
+        System.out.println(objects);
+        System.out.println(carList);
+        ConverterCSV.convertToJSON(dataAccessCSV,"car111.json", CoreCSV.Car.class);
+        ConverterCSV.convertToXML(dataAccessCSV, "car111.xml", CoreCSV.Car.class, "Car");
 
-        dataAccessXML.writeList(Collections.singletonList(carList));
+        //dataAccessXML.writeList(Collections.singletonList(carList));
         //dataAccessXML.appendObject(new Car (213,"Audi","A3",2000));
        // dataAccessXML.appendList(Collections.singletonList(carList));
        // dataAccessXML.appendObject(car1);
         //dataAccessXML.appendObject(car2);
        //dataAccessXML.writeObject(car1);
        //dataAccessXML.appendObject(car2);
-        dataAccessXML.updateObject(car1, car2);
+      //  dataAccessXML.updateObject(car1, car2);
         //dataAccessXML.deleteObject(car1);
        // dataAccessXML.doesExist(car1);
       //  System.out.println(  dataAccessXML.getAllObjects().toString());
-        ConverterXML.convertToJSON("cars.xml","cars.json", CoreCSV.Car.class);
+    //    ConverterXML.convertToJSON("cars.xml","cars.json", CoreCSV.Car.class);
         ConverterXML.convertToCSV("cars.xml","cars.csv", CoreCSV.Car.class, false);
         //void updateObject(Object oldObject, Object newObject);
        // dataAccessXML.doesExist(tesla); //Check if the tesla is inside the file before deleting it

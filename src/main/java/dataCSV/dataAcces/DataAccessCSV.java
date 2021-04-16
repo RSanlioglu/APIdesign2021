@@ -13,13 +13,13 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataAccess implements IDataAccess{
+public class DataAccessCSV implements IDataAccessCSV {
     private String fileName;
     private boolean withHeaders;
     private Class type;
 
     //Constructor
-    public DataAccess(String fileName, Class type, boolean withHeaders) {
+    public DataAccessCSV(String fileName, Class type, boolean withHeaders) {
         this.fileName = fileName;
         this.withHeaders = withHeaders;
         this.type = type;

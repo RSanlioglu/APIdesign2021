@@ -1,6 +1,6 @@
 package dataCSV.calculation;
 
-import dataCSV.dataAcces.DataAccess;
+import dataCSV.dataAcces.DataAccessCSV;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -9,7 +9,7 @@ import java.util.List;
 public class Calculation implements ICalculation {
 
     @Override
-    public int CalculateColumnSumInt(DataAccess csv, String fileName, String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException {
+    public int CalculateColumnSumInt(DataAccessCSV csv, String fileName, String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException {
        // DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
@@ -28,7 +28,7 @@ public class Calculation implements ICalculation {
     }
 
    @Override
-    public double CalculateColumnSumDouble(DataAccess csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double CalculateColumnSumDouble(DataAccessCSV csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
@@ -49,7 +49,7 @@ public class Calculation implements ICalculation {
 
 
     @Override
-    public double CalculateColumnAverageInt(DataAccess csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double CalculateColumnAverageInt(DataAccessCSV csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
@@ -68,7 +68,7 @@ public class Calculation implements ICalculation {
     }
 
     @Override
-    public double CalculateColumnAverageDouble(DataAccess csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double CalculateColumnAverageDouble(DataAccessCSV csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
@@ -87,7 +87,7 @@ public class Calculation implements ICalculation {
     }
 
     @Override
-    public int CalculateColumnMinInt(DataAccess csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int CalculateColumnMinInt(DataAccessCSV csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
@@ -108,7 +108,7 @@ public class Calculation implements ICalculation {
     }
 
     @Override
-    public double CalculateColumnMinDouble(DataAccess csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double CalculateColumnMinDouble(DataAccessCSV csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
@@ -129,7 +129,7 @@ public class Calculation implements ICalculation {
     }
 
     @Override
-    public int CountIntValue(DataAccess csv, String fileName, String columnName, Class type, int refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int CountIntValue(DataAccessCSV csv, String fileName, String columnName, Class type, int refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
@@ -150,7 +150,7 @@ public class Calculation implements ICalculation {
     }
 
     @Override
-    public int CountStringValue(DataAccess csv, String fileName, String columnName, Class type, String refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int CountStringValue(DataAccessCSV csv, String fileName, String columnName, Class type, String refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 

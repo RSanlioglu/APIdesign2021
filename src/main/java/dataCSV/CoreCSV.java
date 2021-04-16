@@ -1,12 +1,8 @@
 package dataCSV;
 
-import dataCSV.converting.Converting;
-import dataCSV.dataAcces.DataAccess;
+import dataCSV.dataAcces.DataAccessCSV;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class CoreCSV {
     public static class Car {
@@ -65,13 +61,13 @@ public class CoreCSV {
     }
 
     public static void main(String[] args) throws IOException {
-        DataAccess csv = new DataAccess("car.csv",Car.class, false);
+        DataAccessCSV csv = new DataAccessCSV("car.csv",Car.class, false);
         /*List<Car> cars = new ArrayList<>();
         cars.add(new Car(4, "audi","a3",200));
         cars.add(new Car(3,"bmw","x5",2021));
         cars.add(new Car(1,"mercedes","cclass",1995));
 
         csv.writeList(Colections.singletonList(cars));*/
-        Converting.convertToJSON(csv, "car.csv","cars.json",Car.class,false);
+        //Converting.convertToJSON(csv, "car.csv","cars.json",Car.class,false);
     }
 }
