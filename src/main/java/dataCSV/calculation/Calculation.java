@@ -1,6 +1,6 @@
 package dataCSV.calculation;
 
-import dataCSV.dataAcces.DataAccessCSV;
+import dataCSV.dataAccess.DataAccessCSV;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -10,7 +10,7 @@ public class Calculation implements ICalculation {
 
     @Override
     public int CalculateColumnSumInt(DataAccessCSV csv, String fileName, String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException {
-       // DataAccess csv = new DataAccess();
+        // DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -27,7 +27,7 @@ public class Calculation implements ICalculation {
         return sum;
     }
 
-   @Override
+    @Override
     public double CalculateColumnSumDouble(DataAccessCSV csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         //DataAccess csv = new DataAccess();
         List<Object> objects = csv.getAllObjects();

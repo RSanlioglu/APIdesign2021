@@ -1,10 +1,10 @@
 package dataCSV.calculation;
 
-import dataCSV.dataAcces.DataAccessCSV;
+import dataCSV.dataAccess.DataAccessCSV;
 
 import java.io.IOException;
 
-public interface ICalculationCSV {
+public interface ICalculation {
 
     int CalculateColumnSumInt(DataAccessCSV csv, String fileName, String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException;
 
