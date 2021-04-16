@@ -39,12 +39,14 @@ public class Calculation implements ICalculation {
 
         for (Object o : objects) {
             Object value = field.get(o);
-            int intVal = (int) value;
+            double intVal = (double) value;
             sum += intVal;
         }
 
         return sum;
     }
+
+
 
     @Override
     public double CalculateColumnAverageInt(DataAccess csv, String fileName, String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
@@ -113,7 +115,7 @@ public class Calculation implements ICalculation {
         Field field = type.getDeclaredField(columnName);
         field.setAccessible(true);
 
-        double min = -Double.MAX_VALUE;
+        double min = Double.MAX_VALUE;
 
         for (Object o : objects) {
             Object value = field.get(o);

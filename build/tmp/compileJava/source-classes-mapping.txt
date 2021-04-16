@@ -1,18 +1,22 @@
-dataCSV/sorting/ISorting.java
- dataCSV.sorting.ISorting
+dataCSV/dataAcces/DataAccess.java
+ dataCSV.dataAcces.DataAccess
 Exceptions/FileAlreadyExistsException.java
  Exceptions.FileAlreadyExistsException
 dataCSV/sorting/Sorting.java
  dataCSV.sorting.Sorting
-dataCSV/dataAcces/Runner.java
- dataCSV.dataAcces.Runner
-dataCSV/dataAcces/DataAccess.java
- dataCSV.dataAcces.DataAccess
-dataCSV/dataAcces/IDataAccess.java
- dataCSV.dataAcces.IDataAccess
-dataCSV/calculation/Calculation.java
- dataCSV.calculation.Calculation
+dataCSV/converting/IConverting.java
+ dataCSV.converting.IConverting
+dataCSV/converting/Converting.java
+ dataCSV.converting.Converting
 dataCSV/calculation/ICalculation.java
  dataCSV.calculation.ICalculation
-dataCSV/TestCsv.java
- dataCSV.TestCsv
+dataCSV/dataAcces/IDataAccess.java
+ dataCSV.dataAcces.IDataAccess
+dataCSV/sorting/ISorting.java
+ dataCSV.sorting.ISorting
+dataCSV/calculation/Calculation.java
+ dataCSV.calculation.Calculation
+Runner.java
+ Runner
+TestCsv.java
+ TestCsv
