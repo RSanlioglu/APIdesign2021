@@ -1,5 +1,5 @@
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import dataXML.Car;
+import dataCSV.CoreCSV;
 import dataXML.converting.ConverterXML;
 import dataXML.dataAccess.DataAccessXML;
 
@@ -26,14 +26,14 @@ public class TestCsv {
 
         //ConverterXML converterXML = new ConverterXML();
         // converterXML.convertToCSV("xml.xml", "");
-        List<Car> carList = new ArrayList<>();
-        Car car1 = new Car (111,"Audi","A3",3000);
-        Car car2 = new Car (23,"Volvo","20",4000);
+        List<CoreCSV.Car> carList = new ArrayList<>();
+        CoreCSV.Car car1 = new CoreCSV.Car(111,"Audi","A3",3000);
+        CoreCSV.Car car2 = new CoreCSV.Car(23,"Volvo","20",4000);
         carList.add(car1);
         carList.add(car2);
-        carList.add(new Car (413,"Audi","A5",2002));
+        carList.add(new CoreCSV.Car(413,"Audi","A5",2002));
 
-        DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", Car.class, "Car");
+        DataAccessXML dataAccessXML = new DataAccessXML("cars.xml", CoreCSV.Car.class, "Car");
 
         dataAccessXML.writeList(Collections.singletonList(carList));
         //dataAccessXML.appendObject(new Car (213,"Audi","A3",2000));
@@ -46,8 +46,8 @@ public class TestCsv {
         //dataAccessXML.deleteObject(car1);
        // dataAccessXML.doesExist(car1);
       //  System.out.println(  dataAccessXML.getAllObjects().toString());
-        ConverterXML.convertToJSON("cars.xml","cars.json",Car.class);
-        ConverterXML.convertToCSV("cars.xml","cars.csv",Car.class, false);
+        ConverterXML.convertToJSON("cars.xml","cars.json", CoreCSV.Car.class);
+        ConverterXML.convertToCSV("cars.xml","cars.csv", CoreCSV.Car.class, false);
         //void updateObject(Object oldObject, Object newObject);
        // dataAccessXML.doesExist(tesla); //Check if the tesla is inside the file before deleting it
         //dataAccessXML.deleteObject(tesla);
@@ -62,7 +62,7 @@ public class TestCsv {
             String readContent = new String(Files.readAllBytes(Paths.get("cars.xml")));
 
             // deserialize from the XML into a Phone object
-            Car deserializedData = xmlMapper.readValue(readContent, Car.class);
+            CoreCSV.Car deserializedData = xmlMapper.readValue(readContent, CoreCSV.Car.class);
 
             // Print object details
             System.out.println("Deserialized data: ");

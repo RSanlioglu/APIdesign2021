@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DataAccessXMLTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-04-09T12:26:26" hostname="BRAM" time="0.759">
+<testsuite name="DataAccessXMLTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-04-16T11:09:04" hostname="LAPTOP-76PCAH75" time="0.497">
   <properties/>
-  <testcase name="appendList()" classname="DataAccessXMLTest" time="0.663"/>
-  <testcase name="createNewXMLFile()" classname="DataAccessXMLTest" time="0.004"/>
-  <testcase name="writeListToFile()" classname="DataAccessXMLTest" time="0.007"/>
-  <testcase name="getAllObjectsFromTheJSONFile()" classname="DataAccessXMLTest" time="0.007"/>
-  <testcase name="writeOneObjectToFile()" classname="DataAccessXMLTest" time="0.006"/>
-  <testcase name="doesExist_Fail()" classname="DataAccessXMLTest" time="0.006"/>
-  <testcase name="updateObjectFromFile()" classname="DataAccessXMLTest" time="0.025"/>
-  <testcase name="doesExist_Correct()" classname="DataAccessXMLTest" time="0.006"/>
-  <testcase name="appendObject()" classname="DataAccessXMLTest" time="0.012"/>
-  <testcase name="deleteObjectFromFile()" classname="DataAccessXMLTest" time="0.017"/>
-  <system-out><![CDATA[This file already exists
-This file already exists
+  <testcase name="appendList()" classname="DataAccessXMLTest" time="0.315"/>
+  <testcase name="createNewXMLFile()" classname="DataAccessXMLTest" time="0.008"/>
+  <testcase name="writeListToFile()" classname="DataAccessXMLTest" time="0.014"/>
+  <testcase name="getAllObjectsFromTheJSONFile()" classname="DataAccessXMLTest" time="0.011"/>
+  <testcase name="writeOneObjectToFile()" classname="DataAccessXMLTest" time="0.013"/>
+  <testcase name="doesExist_Fail()" classname="DataAccessXMLTest" time="0.017"/>
+  <testcase name="updateObjectFromFile()" classname="DataAccessXMLTest" time="0.052"/>
+  <testcase name="doesExist_Correct()" classname="DataAccessXMLTest" time="0.008"/>
+  <testcase name="appendObject()" classname="DataAccessXMLTest" time="0.019"/>
+  <testcase name="deleteObjectFromFile()" classname="DataAccessXMLTest" time="0.033"/>
+  <system-out><![CDATA[Success
 This file already exists
 Success
+Success
 This file already exists
-This file already exists
-This file already exists
-This file already exists
-This file already exists
-This file already exists
-This file already exists
+Success
+Success
+Success
+Success
+Success
+Success
 this exists
-This file already exists
+Success
 [Car{registrationID=121222, producer='Mercedes', model='G-Class', Year=2018}, Car{registrationID=5531121, producer='Volkswagen', model='Golf', Year=2008}]
-This file already exists
+Success
 this exists
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
