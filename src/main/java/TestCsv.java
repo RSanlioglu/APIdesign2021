@@ -2,10 +2,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import dataXML.Car;
 import dataXML.converting.ConverterXML;
 import dataXML.dataAccess.DataAccessXML;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -13,9 +10,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**This class is just for fast testing and will be deleted before the last submit **/
 public class TestCsv {
 
-    public static void main(String[] args) throws ParserConfigurationException, TransformerException, SAXException, IOException {
+    public static void main(String[] args) throws IOException {
 
         /*DataAccess csv = new DataAccess();
 
@@ -51,10 +49,6 @@ public class TestCsv {
         ConverterXML.convertToJSON("cars.xml","cars.json",Car.class);
         ConverterXML.convertToCSV("cars.xml","cars.csv",Car.class, false);
         //void updateObject(Object oldObject, Object newObject);
-
-
-
-
        // dataAccessXML.doesExist(tesla); //Check if the tesla is inside the file before deleting it
         //dataAccessXML.deleteObject(tesla);
        //Check if the tesla is inside the file after deleting it

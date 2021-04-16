@@ -57,7 +57,7 @@ public class DataAccessXMLTest {
     }
 
     /**
-     * Try to create a new json-file, but it already exists.
+     * Try to create a new Xml-file, but it already exists.
      * This test will throw an exception
      */
    /* @Test
