@@ -1,7 +1,9 @@
 package dataJSON.dataAccess;
 
+import Exceptions.FileAlreadyExistsException;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,30 +11,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataAccessJSON implements IDataAccessJSON {
+    private final String fileName;
+    private Class type;
 
-    //Create a JSON file
-    @Override
-    public void createJSON() {
-
+    /*Constructor*/
+    public DataAccessJSON(String fileName, Class type) {
+        this.fileName = fileName;
+        this.type = type;
     }
 
-    //Read a JSON file
-    @Override
-    public List<Object> readDataFile(String fileName, Class type) throws IOException {
+    /**
+     * Creates a new file with the filename that the client declared in the constructor.
+     * If the file already exists a FileAlreadyExistsException is thrown.
+     */
+    public void createJson() throws FileAlreadyExistsException {
+        File file = new File(fileName);
+        try {
+            if(!file.createNewFile()) {
+                throw new FileAlreadyExistsException("This file already exists: " + fileName);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Returns a list of objects to client. Then client can easilly
+     * cast the objects to appropriate class
+     * @return list of objects read from file
+     */
+    public List<Object> getAllObjects() {
         List<Object> objects = new ArrayList<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        MappingIterator<Object> mappingIterator = objectMapper.readerFor(type).readValues(new File(fileName));
-
-        while(mappingIterator.hasNext()) {
-            objects.add(mappingIterator.next());
+        MappingIterator<Object> mappingIterator = null;
+        try {
+            mappingIterator = objectMapper.readerFor(type).readValues(new File(fileName));
+            while(mappingIterator.hasNext()) {
+                objects.add(mappingIterator.next());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return objects;
     }
 
-    //Write one object into the JSON file !!NOT CORRECT!!
-    @Override
-    public void writeToDataFile(Object o, String fileName) {
+    /**
+     * Gets the datafile specified from the constructor and
+     * writes over the file with the object given from the
+     * parameter
+     * @param o - Object to be written onto the file
+     */
+    public void writeObject(Object o) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), o);
@@ -41,9 +71,13 @@ public class DataAccessJSON implements IDataAccessJSON {
         }
     }
 
-    //Write a collection of data into the JSON file
-    @Override
-    public void writeCollectionToFile(List<Object> l_o, String fileName) {
+    /**
+     * Gets the datafile specified from the constructor and
+     * writes over the file with data given from the list
+     * in the function parameter
+     * @param l_o - List of objects to be written onto the file
+     */
+    public void writeList(List<Object> l_o) {
         ObjectMapper objectMapper = new ObjectMapper();
         for(Object o : l_o) {
             try {
@@ -54,35 +88,98 @@ public class DataAccessJSON implements IDataAccessJSON {
         }
     }
 
-    //Get an object from the JSON file
-    @Override
-    public Object getData() {
-        return null;
+    /**
+     * Add one object to the datafile. The object must be of the same
+     * type as the data inside the json-file.
+     * The previous data will not be removed
+     * @param o - Object to be appended onto the file
+     */
+    public void appendObject(Object o) {
+        List<Object> objects = getAllObjects();
+        objects.add(o);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), objects);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    //Kanskje slette disse?
-    @Override
-    public ArrayList<Object> getAllData(int key) {
-        return null;
-    }
-    @Override
-    public ArrayList<Object> getAllData(double key) {
-        return null;
-    }
-    @Override
-    public ArrayList<Object> getAllData(float key) {
-        return null;
-    }
+    /**
+     * Add one list of objects to the datafile. The list must contain
+     * OBJECTS in order to append to the datafile.
+     * The previous data will not be removed
+     * @param l_o - List of objects to be appended onto the file
+     */
+    public void appendList(List<Object> l_o) {
+        List<Object> objects = getAllObjects();
+        objects.addAll(l_o);
 
-    //Get one field and update it
-    @Override
-    public void updateField(Object o) {
-
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), objects);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    //Delete a field in the JSON file
-    @Override
-    public void deleteField(Object o) {
+    /**
+     * Used to check if an object does exist in the collection of data
+     * gotten from the data-file. The objects are compared by the .toString()
+     * functions from the objects.
+     * @param o - Object to be searched for
+     * @return True or false value
+     */
+    public boolean doesExist(Object o) {
+        boolean exists = false;
+        List<Object> objects = getAllObjects();
+        for(Object obj : objects) {
+            if(obj.toString().equals(o.toString())) {
+                exists = true;
+            }
+        }
+        return exists;
+    }
 
+    /**
+     * Deletes an object from the file. The object must first
+     * be created by the client and the framework will find it and
+     * remove it
+     * @param o - Object to be deleted
+     */
+    public void deleteObject(Object o) {
+        List<Object> objects = getAllObjects();
+        objects.removeIf(obj -> obj.toString().equals(o.toString()));
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
+
+        try {
+            objectWriter.writeValue(new File(fileName), objects);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Finds the object to be updated and deletes it and replaces it
+     * with the new object with new data. The new object is placed
+     * last in the file
+     * @param oldObject - Object to be updated
+     * @param newObject - Object with the new values
+     */
+    public void updateObject(Object oldObject, Object newObject) {
+        Object objectToBeDeleted = null;
+        List<Object> objects = getAllObjects();
+
+        for(Object x : objects) {
+            if(x.toString().equals(oldObject.toString())) {
+                objectToBeDeleted = x;
+            }
+        }
+
+        deleteObject(objectToBeDeleted);
+        appendObject(newObject);
     }
 }

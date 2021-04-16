@@ -10,10 +10,15 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import java.io.File;
 import java.io.IOException;
 
-public class ConverterJSON implements IConverterJSON {
-    @Override
-    public void convertToCSV(String pathName, String newFileName) throws IOException {
-        JsonNode jsonTree = new ObjectMapper().readTree(new File(pathName));
+public class ConverterJSON {
+
+    public static void convertToCSV(String pathName, String newFileName) {
+        JsonNode jsonTree = null;
+        try {
+            jsonTree = new ObjectMapper().readTree(new File(pathName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         CsvSchema.Builder csvSchemaBuilder = CsvSchema.builder();
 
         JsonNode firstObject = jsonTree.elements().next();
@@ -22,18 +27,29 @@ public class ConverterJSON implements IConverterJSON {
 
         CsvSchema csvSchema = csvSchemaBuilder.build().withHeader();
         CsvMapper csvMapper = new CsvMapper();
-        csvMapper.writerFor(JsonNode.class)
-                .with(csvSchema)
-                .writeValue(new File(newFileName), jsonTree);
+        try {
+            csvMapper.writerFor(JsonNode.class)
+                    .with(csvSchema)
+                    .writeValue(new File(newFileName), jsonTree);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    //Får bare Items for XML filer
-    @Override
-    public void convertToXML(String pathName, String newFileName, String rootTagName, Class type) throws IOException {
+    public static void convertToXML(String pathName, String newFileName, String rootTagName) {
         JsonMapper jsonMapper = new JsonMapper();
-        Object x = jsonMapper.readValue(new File(pathName), Object.class);
+        Object x = null;
+        try {
+            x = jsonMapper.readValue(new File(pathName), Object.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        ObjectMapper xmlMapper = new XmlMapper();
-        xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootTagName).writeValue(new File(newFileName), x);
+        XmlMapper xmlMapper = new XmlMapper();
+        try {
+            xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootTagName).writeValue(new File(newFileName), x);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
