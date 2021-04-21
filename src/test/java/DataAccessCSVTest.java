@@ -82,9 +82,9 @@ public class DataAccessCSVTest {
 
         //The list of cars are created. NOTE! tesla is not added and will not be expected to be returned from the file
         List<Car> cars = new ArrayList<>();
-        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009);
-        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969);
-        Car tesla = new Car(33212, "Tesla", "Model S", 2020);
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car tesla = new Car(33212, "Tesla", "Model S", 2020, 0);
         cars.add(mercedes);
         cars.add(mustang);
         dataAccessCSV.writeList(Collections.singletonList(cars));
@@ -111,9 +111,9 @@ public class DataAccessCSVTest {
 
         //The list of cars are created. NOTE! tesla is not added and will not be expected to be returned from the file
         List<Car> cars = new ArrayList<>();
-        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009);
-        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969);
-        Car tesla = new Car(33212, "Tesla", "Model S", 2020);
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car tesla = new Car(33212, "Tesla", "Model S", 2020, 0);
         cars.add(mercedes);
         cars.add(mustang);
         dataAccessCSV.writeList(Collections.singletonList(cars));
@@ -138,7 +138,7 @@ public class DataAccessCSVTest {
     @SuppressWarnings("unchecked")
     public void writeOneObjectToFile_withHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
-        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018);
+        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
         dataAccessCSV.writeObject(gClass); //Writes the car object to the file
 
         //Get all objects from the file
@@ -161,7 +161,7 @@ public class DataAccessCSVTest {
     @SuppressWarnings("unchecked")
     public void writeOneObjectToFile_withOutHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
-        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018);
+        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
         dataAccessCSV.writeObject(gClass); //Writes the car object to the file
 
         //Get all objects from the file
@@ -184,9 +184,9 @@ public class DataAccessCSVTest {
     public void writeListToFile_WithHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         List<Car> cars = new ArrayList<>();
-        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009);
-        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969);
-        Car passat = new Car(99122, "Volkswagen", "Passat", 2006);
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.9);
 
         cars.add(mercedes);
         cars.add(mustang);
@@ -213,9 +213,9 @@ public class DataAccessCSVTest {
     public void writeListToFile_WithOutHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
         List<Car> cars = new ArrayList<>();
-        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009);
-        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969);
-        Car passat = new Car(99122, "Volkswagen", "Passat", 2006);
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.9);
 
         cars.add(mercedes);
         cars.add(mustang);
@@ -244,8 +244,8 @@ public class DataAccessCSVTest {
     public void appendObject_WithHeader() {
         //Add the cars. One is added the other is appended
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
-        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018);
-        Car golf = new Car(5531121, "Volkswagen", "Golf", 2008);
+        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
+        Car golf = new Car(5531121, "Volkswagen", "Golf", 2008, 1.6);
         dataAccessCSV.writeObject(gClass);
         dataAccessCSV.appendObject(golf);
 
@@ -269,8 +269,8 @@ public class DataAccessCSVTest {
     public void appendObject_WithOutHeader() {
         //Add the cars. One is added the other is appended
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
-        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018);
-        Car golf = new Car(5531121, "Volkswagen", "Golf", 2008);
+        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
+        Car golf = new Car(5531121, "Volkswagen", "Golf", 2008, 1.6);
         dataAccessCSV.writeObject(gClass);
         dataAccessCSV.appendObject(golf);
 
@@ -293,11 +293,11 @@ public class DataAccessCSVTest {
     @SuppressWarnings("unchecked")
     public void appendList_withHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
-        dataAccessCSV.writeObject(new Car(55323, "Opel", "Astra", 2010)); //The dataAccess contains one car now
+        dataAccessCSV.writeObject(new Car(55323, "Opel", "Astra", 2010, 1.6)); //The dataAccess contains one car now
 
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
 
@@ -320,11 +320,11 @@ public class DataAccessCSVTest {
     @SuppressWarnings("unchecked")
     public void appendList_withOutHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
-        dataAccessCSV.writeObject(new Car(55323, "Opel", "Astra", 2010)); //The dataAccess contains one car now
+        dataAccessCSV.writeObject(new Car(55323, "Opel", "Astra", 2010, 1.6)); //The dataAccess contains one car now
 
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
 
@@ -346,8 +346,8 @@ public class DataAccessCSVTest {
     public void doesExist_Correct() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
         dataAccessCSV.writeList(Collections.singletonList(cars));
@@ -363,9 +363,9 @@ public class DataAccessCSVTest {
     public void doesExist_Fail() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
-        Car mustang = new Car(55311, "Ford", "Mustang", 1969); //Mustang is not added to the list and will not exist in the file
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
+        Car mustang = new Car(55311, "Ford", "Mustang", 1969, 4.7); //Mustang is not added to the list and will not exist in the file
         cars.add(tesla);
         cars.add(etron);
         dataAccessCSV.writeList(Collections.singletonList(cars));
@@ -381,8 +381,8 @@ public class DataAccessCSVTest {
     public void deleteObjectFromFile() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
         dataAccessCSV.writeList(Collections.singletonList(cars));
@@ -400,8 +400,8 @@ public class DataAccessCSVTest {
     public void deleteObjectFromFile_WithoutHeaders() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
         dataAccessCSV.writeList(Collections.singletonList(cars));
@@ -420,8 +420,8 @@ public class DataAccessCSVTest {
     public void updateObjectFromFile() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
         dataAccessCSV.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
@@ -429,7 +429,7 @@ public class DataAccessCSVTest {
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
         assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
 
-        Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021); //The new Tesla
+        Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021, 0); //The new Tesla
         dataAccessCSV.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
 
         returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects(); //Read the file again

@@ -79,9 +79,9 @@ public class DataAccessJSONTest {
     public void getAllObjectsFromTheJSONFile() {
         //The list of cars are created. NOTE! Tesla is not added and will not be returned from the file
         List<Car> cars = new ArrayList<>();
-        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009);
-        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969);
-        Car tesla = new Car(33212, "Tesla", "Model S", 2020);
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.9);
+        Car tesla = new Car(33212, "Tesla", "Model S", 2020, 0);
         cars.add(mercedes);
         cars.add(mustang);
         dataAccessJSON.writeList(Collections.singletonList(cars));
@@ -95,6 +95,78 @@ public class DataAccessJSONTest {
     }
 
     /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's registrationID.
+     * The cars are then compared. The test will pass with correct comparison. Will test int values
+     */
+    @Test
+    public void getCorrectObjectByIDReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccessJSON.getObjectById("registrationID", 99122).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's registrationID.
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test int values
+     */
+    @Test
+    public void getCorrectObjectByIDReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 2.0);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(mercedes.toString(), dataAccessJSON.getObjectById("registrationID", 99122).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's producer (Here all of them are unique).
+     * The cars are then compared. The test will pass with correct comparison. Will test string values
+     */
+    @Test
+    public void getCorrectObjectByProducerReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.9);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccessJSON.getObjectById("producer", "Volkswagen").toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's producer (Here all of them are unique).
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test string values
+     */
+    @Test
+    public void getCorrectObjectByProducerReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 5.1);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(passat.toString(), dataAccessJSON.getObjectById("producer", "Mercedes").toString());
+    }
+
+    /**
      * Creates a new Car-object and writes it to the json-file.
      * The test checks the size of the objects returned from the file
      * and the value that is expected
@@ -102,7 +174,7 @@ public class DataAccessJSONTest {
     @Test
     @SuppressWarnings("unchecked")
     public void writeOneObjectToFile() {
-        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018);
+        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
         dataAccessJSON.writeObject(gClass); //Write the object to the file
 
         List<Car> cars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects(); //Get all objects from the file (should only be one now)
@@ -119,9 +191,9 @@ public class DataAccessJSONTest {
     @SuppressWarnings("unchecked")
     public void writeListToFile() {
         List<Car> cars = new ArrayList<>();
-        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009);
-        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969);
-        Car passat = new Car(99122, "Volkswagen", "Passat", 2006);
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 5.1);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
 
         cars.add(mercedes);
         cars.add(mustang);
@@ -145,8 +217,8 @@ public class DataAccessJSONTest {
     @Test
     @SuppressWarnings("unchecked")
     public void appendObject() {
-        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018);
-        Car golf = new Car(5531121, "Volkswagen", "Golf", 2008);
+        Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
+        Car golf = new Car(5531121, "Volkswagen", "Golf", 2008, 1.6);
         dataAccessJSON.writeObject(gClass);
         dataAccessJSON.appendObject(golf);
         //Get the cars back from the file
@@ -165,11 +237,11 @@ public class DataAccessJSONTest {
     @Test
     @SuppressWarnings("unchecked")
     public void appendList() {
-        dataAccessJSON.writeObject(new Car(55323, "Opel", "Astra", 2010)); //The dataFile contains one car now
+        dataAccessJSON.writeObject(new Car(55323, "Opel", "Astra", 2010, 1.6)); //The dataFile contains one car now
 
         List<Object> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
 
@@ -189,8 +261,8 @@ public class DataAccessJSONTest {
     @Test
     public void doesExist_Correct() {
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
         dataAccessJSON.writeList(Collections.singletonList(cars));
@@ -205,9 +277,9 @@ public class DataAccessJSONTest {
     @Test
     public void doesExist_Fail() {
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
-        Car mustang = new Car(55311, "Ford", "Mustang", 1969); //Mustang is not added to the list and will not exist in the file
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
+        Car mustang = new Car(55311, "Ford", "Mustang", 1969, 4.6); //Mustang is not added to the list and will not exist in the file
         cars.add(tesla);
         cars.add(etron);
         dataAccessJSON.writeList(Collections.singletonList(cars));
@@ -222,8 +294,8 @@ public class DataAccessJSONTest {
     @Test
     public void deleteObjectFromFile() {
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
         dataAccessJSON.writeList(Collections.singletonList(cars));
@@ -241,8 +313,8 @@ public class DataAccessJSONTest {
     @SuppressWarnings("unchecked")
     public void updateObjectFromFile() {
         List<Car> cars = new ArrayList<>();
-        Car tesla = new Car(2211, "Tesla", "Model s", 2020);
-        Car etron = new Car(8853, "Audi", "E Tron", 2020);
+        Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
+        Car etron = new Car(8853, "Audi", "E Tron", 2020, 0);
         cars.add(tesla);
         cars.add(etron);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
@@ -250,7 +322,7 @@ public class DataAccessJSONTest {
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
         assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
 
-        Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021); //The new Tesla
+        Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021, 0); //The new Tesla
         dataAccessJSON.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
 
         returnedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects(); //Read the file again

@@ -7,6 +7,9 @@ import java.util.List;
 public interface IDataAccessJSON {
     void createJson() throws FileAlreadyExistsException;                                        //Create a JSON-file
     List<Object> getAllObjects();                             //Get all objects from file
+    public Object getObjectById(String fieldName, double value);
+    public Object getObjectById(String fieldName, int value);
+    public Object getObjectById(String fieldName, String value);
     void writeObject(Object o);                               //Override one object to file
     void writeList(List<Object> l_o);                       //Override list to file
     void appendObject(Object o);                                    //Add one object to file

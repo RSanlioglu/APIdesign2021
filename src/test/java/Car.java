@@ -1,13 +1,14 @@
 public class Car {
     int registrationID;
     String producer, model;
-    int Year;
+    int year;
+    double cylinderVolume;
 
-    public Car(int registrationID, String producer, String model, int year) {
+    public Car(int registrationID, String producer, String model, int year, double cylinderVolume) {
         this.registrationID = registrationID;
         this.producer = producer;
         this.model = model;
-        Year = year;
+        this.year = year;
     }
 
     //Tom konstruktør for å lese
@@ -40,11 +41,19 @@ public class Car {
     }
 
     public int getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(int year) {
-        Year = year;
+        this.year = year;
+    }
+
+    public double getCylinderVolume() {
+        return cylinderVolume;
+    }
+
+    public void setCylinderVolume(double cylinderVolume) {
+        this.cylinderVolume = cylinderVolume;
     }
 
     @Override
@@ -53,7 +62,8 @@ public class Car {
                 "registrationID=" + registrationID +
                 ", producer='" + producer + '\'' +
                 ", model='" + model + '\'' +
-                ", Year=" + Year +
+                ", year=" + year +
+                ", cylinderVolume=" + cylinderVolume +
                 '}';
     }
 }

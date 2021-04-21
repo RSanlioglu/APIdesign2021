@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DataAccessXMLTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-04-16T12:33:32" hostname="LAPTOP-KA5PC1CV" time="0.751">
+<testsuite name="DataAccessXMLTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2021-04-21T10:01:29" hostname="LAPTOP-KA5PC1CV" time="0.256">
   <properties/>
-  <testcase name="appendList()" classname="DataAccessXMLTest" time="0.515"/>
+  <testcase name="appendList()" classname="DataAccessXMLTest" time="0.116"/>
   <testcase name="createNewXMLFile()" classname="DataAccessXMLTest" time="0.007"/>
-  <testcase name="writeListToFile()" classname="DataAccessXMLTest" time="0.012"/>
-  <testcase name="getAllObjectsFromTheJSONFile()" classname="DataAccessXMLTest" time="0.014"/>
-  <testcase name="writeOneObjectToFile()" classname="DataAccessXMLTest" time="0.015"/>
-  <testcase name="doesExist_Fail()" classname="DataAccessXMLTest" time="0.018"/>
-  <testcase name="updateObjectFromFile()" classname="DataAccessXMLTest" time="0.058"/>
-  <testcase name="doesExist_Correct()" classname="DataAccessXMLTest" time="0.019"/>
-  <testcase name="appendObject()" classname="DataAccessXMLTest" time="0.032"/>
-  <testcase name="deleteObjectFromFile()" classname="DataAccessXMLTest" time="0.05"/>
+  <testcase name="writeListToFile()" classname="DataAccessXMLTest" time="0.009"/>
+  <testcase name="getAllObjectsFromTheJSONFile()" classname="DataAccessXMLTest" time="0.01"/>
+  <testcase name="writeOneObjectToFile()" classname="DataAccessXMLTest" time="0.011"/>
+  <testcase name="doesExist_Fail()" classname="DataAccessXMLTest" time="0.012"/>
+  <testcase name="updateObjectFromFile()" classname="DataAccessXMLTest" time="0.04"/>
+  <testcase name="doesExist_Correct()" classname="DataAccessXMLTest" time="0.009"/>
+  <testcase name="appendObject()" classname="DataAccessXMLTest" time="0.015"/>
+  <testcase name="deleteObjectFromFile()" classname="DataAccessXMLTest" time="0.023"/>
   <system-out><![CDATA[Success
 This file already exists
 Success
@@ -24,7 +24,7 @@ Success
 Success
 this exists
 Success
-[Car{registrationID=121222, producer='Mercedes', model='G-Class', Year=2018}, Car{registrationID=5531121, producer='Volkswagen', model='Golf', Year=2008}]
+[Car{registrationID=121222, producer='Mercedes', model='G-Class', year=2018, cylinderVolume=0.0}, Car{registrationID=5531121, producer='Volkswagen', model='Golf', year=2008, cylinderVolume=0.0}]
 Success
 this exists
 ]]></system-out>
