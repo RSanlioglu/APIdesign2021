@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DataAccessCSVTest {
-    //private static final DataAccess dataAccess = new DataAccess("test.csv", Car.class, true);
+    private static final DataAccessCSV dataAccess = new DataAccessCSV("test.csv", Car.class, true);
 
     /**
      * The tests that are created here uses a specific type of class that we have created
@@ -128,6 +128,113 @@ public class DataAccessCSVTest {
         assertFalse(dataAccessCSV.doesExist(tesla));                           //Tesla is NOT in the file. doesExist function is tested further down
     }
 
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's registrationID.
+     * The cars are then compared. The test will pass with correct comparison. Will test int values
+     */
+    @Test
+    public void getCorrectObjectByIDReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's registrationID.
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test int values
+     */
+    @Test
+    public void getCorrectObjectByIDReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 2.0);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(mercedes.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's Producer (In this case they are unique).
+     * The cars are then compared. The test will pass with correct comparison. Will test String values
+     */
+    @Test
+    public void getCorrectObjectByProducerReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccess.getObjectById("producer", "Volkswagen").toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's Producer (In this case they are unique).
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test String values
+     */
+    @Test
+    public void getCorrectObjectByProducerReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 2.0);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(mercedes.toString(), dataAccess.getObjectById("producer", "Ford").toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's Cylinder (In this case they are unique).
+     * The cars are then compared. The test will pass with correct comparison. Will test Double values
+     */
+    @Test
+    public void getCorrectObjectByCylinderReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccess.getObjectById("cylinderVolume", 1.6).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's Cylinder (In this case they are unique).
+     * The cars are then compared. The test will pass with an incorrect comparison. Will Double int values
+     */
+    @Test
+    public void getCorrectObjectByCylinderReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 2.0);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(mercedes.toString(), dataAccess.getObjectById("cylinderVolume", 4.7).toString());
+    }
 
     /**
      * Creates a new Car-object and writes it to the csv-file.

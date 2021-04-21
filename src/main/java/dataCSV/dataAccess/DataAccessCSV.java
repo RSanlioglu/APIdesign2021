@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +71,90 @@ public class DataAccessCSV implements IDataAccessCSV {
             }
         }
         return objects;
+    }
+
+    /**
+     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * the correct object to be returned by matching it's ID, which is a sort of primary key
+     *
+     * @param fieldName - The name of the field to be used for searching
+     * @param value - The value that the user wants to retrieve the object by
+     * @return - Object with correct id will be returned
+     */
+    public Object getObjectById(String fieldName, double value) {
+        List<Object> objects = getAllObjects();
+        Field field;
+        Object obj = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                if(field.getDouble(o) == value) {
+                    obj = o;
+                    break;
+                }
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+
+    /**
+     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * the correct object to be returned by matching it's ID, which is a sort of primary key
+     *
+     * @param fieldName - The name of the field to be used for searching
+     * @param value - The value that the user wants to retrieve the object by
+     * @return - Object with correct id will be returned
+     */
+    public Object getObjectById(String fieldName, int value) {
+        List<Object> objects = getAllObjects();
+        Field field;
+        Object obj = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                if(field.getInt(o) == value) {
+                    obj = o;
+                    break;
+                }
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+
+    /**
+     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * the correct object to be returned by matching it's ID, which is a sort of primary key
+     *
+     * @param fieldName - The name of the field to be used for searching
+     * @param value - The value that the user wants to retrieve the object by
+     * @return - Object with correct id will be returned
+     */
+    public Object getObjectById(String fieldName, String value) {
+        List<Object> objects = getAllObjects();
+        Field field;
+        Object obj = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                if(((String) field.get(o)).equals(value)) {
+                    obj = o;
+                    break;
+                }
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return obj;
     }
 
     /***
