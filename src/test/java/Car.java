@@ -9,6 +9,7 @@ public class Car {
         this.producer = producer;
         this.model = model;
         this.year = year;
+        this.cylinderVolume = cylinderVolume;
     }
 
     //Tom konstruktør for å lese

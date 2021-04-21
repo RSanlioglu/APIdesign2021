@@ -167,6 +167,42 @@ public class DataAccessJSONTest {
     }
 
     /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's cylinder volume.
+     * The cars are then compared. The test will pass with correct comparison. Will test double values
+     */
+    @Test
+    public void getCorrectObjectByCylinderReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccessJSON.getObjectById("cylinderVolume", 1.6).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's cylinder volume.
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test double values
+     */
+    @Test
+    public void getCorrectObjectByCylinderReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 2.0);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(mercedes.toString(), dataAccessJSON.getObjectById("cylinderVolume", 4.7).toString());
+    }
+
+    /**
      * Creates a new Car-object and writes it to the json-file.
      * The test checks the size of the objects returned from the file
      * and the value that is expected
