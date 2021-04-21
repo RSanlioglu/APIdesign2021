@@ -1,10 +1,12 @@
 package dataXML.dataAccess;
 
+import Exceptions.FileAlreadyExistsException;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,17 +17,11 @@ public class DataAccessXML implements IDataAccessXML {
     private Class type;
     private String rootName;
 
-
-
     public DataAccessXML(String fileName, Class type, String rootName) {
         this.fileName = fileName;
         this.type = type;
         this.rootName = rootName;
-        createXML();
-
     }
-
-
 
     @Override
     public List<Object> getAllObjects() {
@@ -51,15 +47,95 @@ public class DataAccessXML implements IDataAccessXML {
         return objects;
     }
 
+    /**
+     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * the correct object to be returned by matching it's ID, which is a sort of primary key
+     *
+     * @param fieldName - The name of the field to be used for searching
+     * @param value - The value that the user wants to retrieve the object by
+     * @return - Object with correct id will be returned
+     */
+    public Object getObjectById(String fieldName, double value) {
+        List<Object> objects = getAllObjects();
+        Field field;
+        Object obj = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                if(field.getDouble(o) == value) {
+                    obj = o;
+                    break;
+                }
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+
+    /**
+     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * the correct object to be returned by matching it's ID, which is a sort of primary key
+     *
+     * @param fieldName - The name of the field to be used for searching
+     * @param value - The value that the user wants to retrieve the object by
+     * @return - Object with correct id will be returned
+     */
+    public Object getObjectById(String fieldName, int value) {
+        List<Object> objects = getAllObjects();
+        Field field;
+        Object obj = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                if(field.getInt(o) == value) {
+                    obj = o;
+                }
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
+
+    /**
+     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * the correct object to be returned by matching it's ID, which is a sort of primary key
+     *
+     * @param fieldName - The name of the field to be used for searching
+     * @param value - The value that the user wants to retrieve the object by
+     * @return - Object with correct id will be returned
+     */
+    public Object getObjectById(String fieldName, String value) {
+        List<Object> objects = getAllObjects();
+        Field field;
+        Object obj = null;
+        try {
+            field = type.getDeclaredField(fieldName);
+            field.setAccessible(true);
+
+            for(Object o : objects) {
+                if(((String) field.get(o)).equals(value)) {
+                    obj = o;
+                    break;
+                }
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
 
     @Override
-    public void createXML() {
+    public void createXML() throws FileAlreadyExistsException {
         File file = new File(fileName);
         try {
-            if (file.createNewFile()) {
-                System.out.println("Success");
-            } else {
-                System.out.println("This file already exists");
+            if(!file.createNewFile()) {
+                throw new FileAlreadyExistsException("This file already exists: " + fileName);
             }
         } catch (IOException e) {
             e.printStackTrace();

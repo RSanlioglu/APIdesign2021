@@ -1,3 +1,4 @@
+import Exceptions.FileAlreadyExistsException;
 import dataCSV.CoreCSV;
 import dataXML.dataAccess.DataAccessXML;
 import org.junit.jupiter.api.AfterEach;
@@ -21,11 +22,15 @@ public class DataAccessXMLTest {
      */
 
     /**
-     * Creates a new test.json file for each test.
+     * Creates a new test.xml file for each test.
      */
     @BeforeEach
     public void setUp() {
+        try {
             dataAccessXML.createXML();
+        } catch (FileAlreadyExistsException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -37,14 +42,18 @@ public class DataAccessXMLTest {
     }
 
     /**
-     * Create a new empty json file
+     * Create a new empty xml file
      */
     @Test
     @SuppressWarnings("unchecked")
     public void createNewXMLFile() {
         DataAccessXML dataAccessXML = new DataAccessXML("newFile.xml", Car.class, "Car");
 
-        dataAccessXML.createXML(); //Create the file
+        try {
+            dataAccessXML.createXML(); //Create the file
+        } catch (FileAlreadyExistsException e) {
+            e.printStackTrace();
+        }
 
         assertTrue(new File("newFile.xml").exists()); //See if the file exists
 
@@ -58,10 +67,10 @@ public class DataAccessXMLTest {
      * Try to create a new Xml-file, but it already exists.
      * This test will throw an exception
      */
-   /* @Test
-    public void createExistingJSONFile() {
-        assertThrows(FileAlreadyExistsException.class, dataAccessJSON::createJson); //This will throw an exception since the file is created before the test, and we create it again here
-    }*/
+    @Test
+    public void createExistingXMLFile() {
+        assertThrows(FileAlreadyExistsException.class, dataAccessXML::createXML); //This will throw an exception since the file is created before the test, and we create it again here
+    }
 
     /**
      * A test where we add two car-objecst in the datafile,
@@ -70,7 +79,7 @@ public class DataAccessXMLTest {
      */
     @Test
     @SuppressWarnings("unchecked")
-   public void getAllObjectsFromTheJSONFile() {
+   public void getAllObjectsFromTheXMLFile() {
         //The list of cars are created. NOTE! Tesla is not added and will not be returned from the file
         List<Car> cars = new ArrayList<>();
         Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
@@ -89,7 +98,115 @@ public class DataAccessXMLTest {
     }
 
     /**
-     * Creates a new Car-object and writes it to the json-file.
+     * This test will write 3 car objects to the file and a car is retrieved by it's registrationID.
+     * The cars are then compared. The test will pass with correct comparison. Will test int values
+     */
+    @Test
+    public void getCorrectObjectByIDReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccessXML.getObjectById("registrationID", 99122).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's registrationID.
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test int values
+     */
+    @Test
+    public void getCorrectObjectByIDReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 2.0);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(mercedes.toString(), dataAccessXML.getObjectById("registrationID", 99122).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's producer (Here all of them are unique).
+     * The cars are then compared. The test will pass with correct comparison. Will test string values
+     */
+    @Test
+    public void getCorrectObjectByProducerReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.9);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccessXML.getObjectById("producer", "Volkswagen").toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's producer (Here all of them are unique).
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test string values
+     */
+    @Test
+    public void getCorrectObjectByProducerReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 5.1);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(passat.toString(), dataAccessXML.getObjectById("producer", "Mercedes").toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's cylinder volume.
+     * The cars are then compared. The test will pass with correct comparison. Will test double values
+     */
+    @Test
+    public void getCorrectObjectByCylinderReference() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.0);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 1.6);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertEquals(passat.toString(), dataAccessXML.getObjectById("cylinderVolume", 1.6).toString());
+    }
+
+    /**
+     * This test will write 3 car objects to the file and a car is retrieved by it's cylinder volume.
+     * The cars are then compared. The test will pass with an incorrect comparison. Will test double values
+     */
+    @Test
+    public void getCorrectObjectByCylinderReference_NotEquals() {
+        List<Car> cars = new ArrayList<>();
+        Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
+        Car mustang = new Car(55311, "Ford", "Mustang Cobra", 1969, 4.7);
+        Car passat = new Car(99122, "Volkswagen", "Passat", 2006, 2.0);
+        cars.add(mercedes);
+        cars.add(passat);
+        cars.add(mustang);
+        dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
+
+        assertNotEquals(mercedes.toString(), dataAccessXML.getObjectById("cylinderVolume", 4.7).toString());
+    }
+
+    /**
+     * Creates a new Car-object and writes it to the xml-file.
      * The test checks the size of the objects returned from the file
      * and the value that is expected
      */
