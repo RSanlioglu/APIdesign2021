@@ -15,18 +15,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataAccessCSV implements IDataAccessCSV {
-    private String fileName;
-    private boolean withHeaders;
-    private Class type;
+    private final String fileName;
+    private final boolean withHeaders;
+    private final Class type;
 
-    //Constructor
+    /**
+     * Constructor for instantiating the DataAccess for csv files.
+     * @param fileName - name of file which the access will operate on
+     * @param type - Type of object class the access wil operate on. (CLIENT MUST CREATE IT)
+     * @param withHeaders - Declare if the CSV file will contain headers.
+     */
     public DataAccessCSV(String fileName, Class type, boolean withHeaders) {
         this.fileName = fileName;
         this.withHeaders = withHeaders;
         this.type = type;
     }
-
-
 
     /**
      * Function that allow the client to create an empty .csv file. The name is given from the constructor
@@ -157,7 +160,7 @@ public class DataAccessCSV implements IDataAccessCSV {
         return obj;
     }
 
-    /***
+    /**
      * Writes over the file with this one object that is given by the client.
      * Previous data will be deleted after calling this function
      * @param o - Object to be written on to the file
@@ -177,7 +180,7 @@ public class DataAccessCSV implements IDataAccessCSV {
         }
     }
 
-    /***
+    /**
      * Overrides the file with a list of objects that is given by the client.
      * Previous data will be deleted after calling this function
      * @param l_o - List to written on to the file
@@ -304,6 +307,4 @@ public class DataAccessCSV implements IDataAccessCSV {
         deleteObject(objectToBeDeleted);
         appendObject(newObject);
     }
-
-
 }

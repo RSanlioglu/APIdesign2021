@@ -263,7 +263,6 @@ public class DataAccessXMLTest {
         //Get the cars back from the file
 
         List<Object> cars = dataAccessXML.getAllObjects();
-        System.out.println(cars.toString());
         assertEquals(2, cars.size());
         assertEquals(gClass.toString(), cars.get(0).toString());
         assertEquals(golf.toString(), cars.get(1).toString());

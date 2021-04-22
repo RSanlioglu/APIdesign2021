@@ -4,11 +4,11 @@ import Exceptions.FileAlreadyExistsException;
 import java.util.List;
 
 public interface IDataAccessCSV {
-    void createCSV() throws FileAlreadyExistsException;                                       //Create an empty csv file
+    void createCSV() throws FileAlreadyExistsException;     //Create an empty csv file
     List<Object> getAllObjects();                           //Return all of the objects from csv file
-    Object getObjectById(String fieldName, int value);
-    Object getObjectById(String fieldName, double value);
-    Object getObjectById(String fieldName, String value);
+    Object getObjectById(String fieldName, int value);      //Get one object by a field
+    Object getObjectById(String fieldName, double value);   //Get one object by a field
+    Object getObjectById(String fieldName, String value);   //Get one object by a field
     void writeObject(Object o);                             //Override one object to the file
     void writeList(List<Object> l_o);                       //Override one list to the file
     void appendObject(Object o);                            //Add one object to the file

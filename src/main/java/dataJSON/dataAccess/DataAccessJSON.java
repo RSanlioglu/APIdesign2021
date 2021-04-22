@@ -13,9 +13,13 @@ import java.util.List;
 
 public class DataAccessJSON implements IDataAccessJSON {
     private final String fileName;
-    private Class type;
+    private final Class type;
 
-    /*Constructor*/
+    /**
+     * Constructor for creating an instance of data-access.
+     * @param fileName - The file name the client wants to operate on
+     * @param type - Specify the class of objects the file is responsible of (MUST BE CREATED BY CLIENT FIRST)
+     */
     public DataAccessJSON(String fileName, Class type) {
         this.fileName = fileName;
         this.type = type;
@@ -262,7 +266,6 @@ public class DataAccessJSON implements IDataAccessJSON {
                 objectToBeDeleted = x;
             }
         }
-
         deleteObject(objectToBeDeleted);
         appendObject(newObject);
     }

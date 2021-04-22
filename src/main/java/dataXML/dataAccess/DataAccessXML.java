@@ -12,10 +12,9 @@ import java.util.List;
 
 public class DataAccessXML implements IDataAccessXML {
 
-    public List<Object> o_list = new ArrayList<>();
     private final String fileName;
-    private Class type;
-    private String rootName;
+    private final Class type;
+    private final String rootName;
 
     public DataAccessXML(String fileName, Class type, String rootName) {
         this.fileName = fileName;
@@ -23,6 +22,10 @@ public class DataAccessXML implements IDataAccessXML {
         this.rootName = rootName;
     }
 
+    /**
+     * Will return all of the objects returned from the xml file.
+     * @return List of objects from the data-file
+     */
     @Override
     public List<Object> getAllObjects() {
 
@@ -130,6 +133,10 @@ public class DataAccessXML implements IDataAccessXML {
         return obj;
     }
 
+    /**
+     * Creates a new file with the filename that the client declared in the constructor.
+     * If the file already exists a FileAlreadyExistsException is thrown.
+     */
     @Override
     public void createXML() throws FileAlreadyExistsException {
         File file = new File(fileName);
@@ -142,7 +149,12 @@ public class DataAccessXML implements IDataAccessXML {
         }
     }
 
-
+    /**
+     * Gets the datafile specified from the constructor and
+     * writes over the file with the object given from the
+     * parameter
+     * @param o - Object to be written onto the file
+     */
     @Override
     public void writeObject(Object o) {
         List<Object> objects = new ArrayList<>();
@@ -156,12 +168,15 @@ public class DataAccessXML implements IDataAccessXML {
 
     }
 
+    /**
+     * Gets the datafile specified from the constructor and
+     * writes over the file with data given from the list
+     * in the function parameter
+     * @param l_o - List of objects to be written onto the file
+     */
     @Override
     public void writeList(List<Object> l_o) {
-
         XmlMapper xmlMapper = new XmlMapper();
-
-
         try {
             xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootName).writeValue(new File(fileName), l_o);
         } catch (IOException e) {
@@ -171,9 +186,12 @@ public class DataAccessXML implements IDataAccessXML {
     }
 
 
-    /*Add one object to the datafile. The object must be of the same
-     * type as the data inside the json-file.
-     * The previous data will not be removed*/
+    /**
+     * Add one object to the datafile. The object must be of the same
+     * type as the data inside the xml-file.
+     * The previous data will not be removed
+     * @param o - Object to be appended onto the file
+     */
     public void appendObject(Object o) {
         List<Object> objects = getAllObjects();
         objects.add(o);
@@ -186,9 +204,12 @@ public class DataAccessXML implements IDataAccessXML {
         }
     }
 
-    /*Add one list of objects to the datafile. The list must contain
+    /**
+     * Add one list of objects to the datafile. The list must contain
      * OBJECTS in order to append to the datafile.
-     * The previous data will not be removed*/
+     * The previous data will not be removed
+     * @param l_o - List of objects to be appended onto the file
+     */
     public void appendList(List<Object> l_o) {
         List<Object> objects = getAllObjects();
         objects.addAll(l_o);
@@ -201,27 +222,31 @@ public class DataAccessXML implements IDataAccessXML {
 
     }
 
-    /*Used to check if an object does exist in the collection of data
+    /**
+     * Used to check if an object does exist in the collection of data
      * gotten from the data-file. The objects are compared by the .toString()
-     * functions from the objects. Therefore
-     * */
+     * functions from the objects.
+     * @param o - Object to be searched for
+     * @return True or false value
+     */
     public boolean doesExist(Object o) {
         boolean exists = false;
         List<Object> objects = getAllObjects();
 
-
         for (Object x : objects) {
             if (x.toString().equals(o.toString())) {
                 exists = true;
-                System.out.println("this exists");
             }
         }
         return exists;
     }
 
-    /*Deletes an object from the file. The object must first
+    /**
+     * Deletes an object from the file. The object must first
      * be created by the client and the framework will find it and
-     * remove it*/
+     * remove it
+     * @param o - Object to be deleted
+     */
     public void deleteObject(Object o) {
         List<Object> objects = getAllObjects();
 
@@ -234,21 +259,22 @@ public class DataAccessXML implements IDataAccessXML {
         writeList(objects);
     }
 
-    /*Finds the object to be updated and deletes it and replaces it
+    /**
+     * Finds the object to be updated and deletes it and replaces it
      * with the new object with new data. The new object is placed
-     * last in the file*/
+     * last in the file
+     * @param oldObject - Object to be updated
+     * @param newObject - Object with the new values
+     */
     public void updateObject(Object oldObject, Object newObject) {
         List<Object> objects = getAllObjects();
         Object objectToBeDeleted = null;
 
         for (Object x : objects) {
             if (x.toString().equals(oldObject.toString())) {
-
                 objectToBeDeleted = x;
-
             }
         }
-
         deleteObject(objectToBeDeleted);
         appendObject(newObject);
     }
