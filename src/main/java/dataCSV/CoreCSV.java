@@ -1,6 +1,6 @@
 package dataCSV;
 
-import dataCSV.dataAccess.DataAccessCSV;
+import DataAccess.DataAccessCSV;
 
 import java.io.IOException;
 

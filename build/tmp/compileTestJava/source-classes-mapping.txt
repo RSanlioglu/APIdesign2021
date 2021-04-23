@@ -1,8 +1,12 @@
-Car.java
- Car
-DataAccessJSONTest.java
- DataAccessJSONTest
+Model/Car.java
+ Model.Car
+Model/Person.java
+ Model.Person
 DataAccessCSVTest.java
  DataAccessCSVTest
 DataAccessXMLTest.java
  DataAccessXMLTest
+DataAccessJSONTest.java
+ DataAccessJSONTest
+CalculationCSVTest.java
+ CalculationCSVTest

@@ -1,9 +1,11 @@
+import DataAccess.DataAccessXML;
 import Exceptions.FileAlreadyExistsException;
-import dataCSV.CoreCSV;
-import dataXML.dataAccess.DataAccessXML;
+
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import Model.Car;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13,11 +15,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DataAccessXMLTest {
-    private static final DataAccessXML dataAccessXML = new DataAccessXML("test.xml", Car.class, "Car");
+    private static final DataAccessXML dataAccessXML = new DataAccessXML("test.xml", Car.class, "Model.Car");
 
     /**
      * The tests that are created here uses a specific type of class that we have created
-     * just for the sake of the tests. The class is a simple Car class, letting us create
+     * just for the sake of the tests. The class is a simple Model.Car class, letting us create
      * objects of cars for the different tests
      */
 
@@ -47,7 +49,7 @@ public class DataAccessXMLTest {
     @Test
     @SuppressWarnings("unchecked")
     public void createNewXMLFile() {
-        DataAccessXML dataAccessXML = new DataAccessXML("newFile.xml", Car.class, "Car");
+        DataAccessXML dataAccessXML = new DataAccessXML("newFile.xml", Car.class, "Model.Car");
 
         try {
             dataAccessXML.createXML(); //Create the file
@@ -57,7 +59,7 @@ public class DataAccessXMLTest {
 
         assertTrue(new File("newFile.xml").exists()); //See if the file exists
 
-        List<CoreCSV.Car> cars = (List<CoreCSV.Car>)(List<?>) dataAccessXML.getAllObjects();
+        List<Car> cars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
         assertEquals(0, cars.size()); //Check if the file is empty
 
         new File("newFile.xml").delete(); //Delete the file at last
@@ -93,8 +95,8 @@ public class DataAccessXMLTest {
         List<Car> returneCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
 
         assertEquals(2, returneCars.size());
-        assertEquals(returneCars.get(0).toString(), mercedes.toString());
-        assertEquals(returneCars.get(1).toString(), mustang.toString());
+        Assertions.assertEquals(returneCars.get(0).toString(), mercedes.toString());
+        Assertions.assertEquals(returneCars.get(1).toString(), mustang.toString());
     }
 
     /**
@@ -112,7 +114,7 @@ public class DataAccessXMLTest {
         cars.add(mustang);
         dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertEquals(passat.toString(), dataAccessXML.getObjectById("registrationID", 99122).toString());
+        Assertions.assertEquals(passat.toString(), dataAccessXML.getObjectById("registrationID", 99122).toString());
     }
 
     /**
@@ -130,7 +132,7 @@ public class DataAccessXMLTest {
         cars.add(mustang);
         dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertNotEquals(mercedes.toString(), dataAccessXML.getObjectById("registrationID", 99122).toString());
+        Assertions.assertNotEquals(mercedes.toString(), dataAccessXML.getObjectById("registrationID", 99122).toString());
     }
 
     /**
@@ -148,7 +150,7 @@ public class DataAccessXMLTest {
         cars.add(mustang);
         dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertEquals(passat.toString(), dataAccessXML.getObjectById("producer", "Volkswagen").toString());
+        Assertions.assertEquals(passat.toString(), dataAccessXML.getObjectById("producer", "Volkswagen").toString());
     }
 
     /**
@@ -166,7 +168,7 @@ public class DataAccessXMLTest {
         cars.add(mustang);
         dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertNotEquals(passat.toString(), dataAccessXML.getObjectById("producer", "Mercedes").toString());
+        Assertions.assertNotEquals(passat.toString(), dataAccessXML.getObjectById("producer", "Mercedes").toString());
     }
 
     /**
@@ -184,7 +186,7 @@ public class DataAccessXMLTest {
         cars.add(mustang);
         dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertEquals(passat.toString(), dataAccessXML.getObjectById("cylinderVolume", 1.6).toString());
+        Assertions.assertEquals(passat.toString(), dataAccessXML.getObjectById("cylinderVolume", 1.6).toString());
     }
 
     /**
@@ -202,11 +204,11 @@ public class DataAccessXMLTest {
         cars.add(mustang);
         dataAccessXML.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertNotEquals(mercedes.toString(), dataAccessXML.getObjectById("cylinderVolume", 4.7).toString());
+        Assertions.assertNotEquals(mercedes.toString(), dataAccessXML.getObjectById("cylinderVolume", 4.7).toString());
     }
 
     /**
-     * Creates a new Car-object and writes it to the xml-file.
+     * Creates a new Model.Car-object and writes it to the xml-file.
      * The test checks the size of the objects returned from the file
      * and the value that is expected
      */
@@ -219,7 +221,7 @@ public class DataAccessXMLTest {
         List<Car> cars = (List<Car>)(List<?>) dataAccessXML.getAllObjects(); //Get all objects from the file (should only be one now)
 
         assertEquals(1, cars.size()); //Check if the list only contains one car since we only added one
-        assertEquals(gClass.toString(), cars.get(0).toString()); //Check the car returned from the file
+        Assertions.assertEquals(gClass.toString(), cars.get(0).toString()); //Check the car returned from the file
     }
 
     /**
@@ -243,9 +245,9 @@ public class DataAccessXMLTest {
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
-        assertEquals(returnedCars.get(0).toString(), mercedes.toString());
-        assertEquals(returnedCars.get(1).toString(), mustang.toString());
-        assertEquals(returnedCars.get(2).toString(), passat.toString());
+        Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());
+        Assertions.assertEquals(returnedCars.get(1).toString(), mustang.toString());
+        Assertions.assertEquals(returnedCars.get(2).toString(), passat.toString());
     }
 
     /**
@@ -264,8 +266,8 @@ public class DataAccessXMLTest {
 
         List<Object> cars = dataAccessXML.getAllObjects();
         assertEquals(2, cars.size());
-        assertEquals(gClass.toString(), cars.get(0).toString());
-        assertEquals(golf.toString(), cars.get(1).toString());
+        Assertions.assertEquals(gClass.toString(), cars.get(0).toString());
+        Assertions.assertEquals(golf.toString(), cars.get(1).toString());
     }
 
     /**
@@ -289,8 +291,8 @@ public class DataAccessXMLTest {
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
 
         assertEquals(3, returnedCars.size());
-        assertEquals(returnedCars.get(1).toString(), tesla.toString());
-        assertEquals(returnedCars.get(2).toString(), etron.toString());
+        Assertions.assertEquals(returnedCars.get(1).toString(), tesla.toString());
+        Assertions.assertEquals(returnedCars.get(2).toString(), etron.toString());
     }
 
     /**
@@ -345,7 +347,7 @@ public class DataAccessXMLTest {
     }
 
     /**
-     * A test where we compare a Car-object before updating it and after updating it to see
+     * A test where we compare a Model.Car-object before updating it and after updating it to see
      * the changes made
      */
     @Test
@@ -359,13 +361,13 @@ public class DataAccessXMLTest {
         dataAccessXML.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
 
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
-        assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
+        Assertions.assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
 
         Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021, 0); //The new Tesla
 
         dataAccessXML.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
 
         returnedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects(); //Read the file again
-        assertEquals(returnedCars.get(1).toString(), teslaUpdated.toString()); //Compare the new tesla with the tesla from the file. The updated objects are at the bottom
+        Assertions.assertEquals(returnedCars.get(1).toString(), teslaUpdated.toString()); //Compare the new tesla with the tesla from the file. The updated objects are at the bottom
     }
 }

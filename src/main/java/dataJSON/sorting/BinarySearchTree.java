@@ -3,7 +3,7 @@ package dataJSON.sorting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BinarySearchTree {
+class BinarySearchTree {
     private TreeNode root;
 
     //Constructor that creates a search tree with a null value for the root
