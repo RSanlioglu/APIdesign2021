@@ -10,8 +10,10 @@ public interface ICalculation {
     double CalculateColumnAverageInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException;
     double CalculateColumnAverageDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException;
     int CalculateColumnMinInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException;
+    int calculateColumnMaxInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException;
     double CalculateColumnMinDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException;
+    double calculateColumnMaxDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException;
     int CountIntValue(String columnName, Class type, int value) throws IOException, NoSuchFieldException, IllegalAccessException;
     int CountStringValue(String columnName, Class type, String value) throws IOException, NoSuchFieldException, IllegalAccessException;
-
+    int CountdoubleValue(String columnName, Class type, double refValue) throws IOException, NoSuchFieldException, IllegalAccessException;
 }

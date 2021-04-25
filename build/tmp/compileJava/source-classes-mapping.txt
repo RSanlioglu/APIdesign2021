@@ -1,48 +1,48 @@
 dataJSON/sorting/RemoveDuplicates.java
  dataJSON.sorting.RemoveDuplicates
-Calculation/CalculationCSV.java
- Calculation.CalculationCSV
-dataCSV/sorting/SortingCSV.java
- dataCSV.sorting.SortingCSV
-dataXML/sorting/SortingXML.java
- dataXML.sorting.SortingXML
-Calculation/CalculationJSON.java
- Calculation.CalculationJSON
-dataXML/converting/ConverterXML.java
- dataXML.converting.ConverterXML
-dataCSV/converting/ConverterCSV.java
- dataCSV.converting.ConverterCSV
-dataXML/sorting/ISortingXML.java
- dataXML.sorting.ISortingXML
-Calculation/CalculationXML.java
- Calculation.CalculationXML
-dataXML/CoreXML.java
- dataXML.CoreXML
-dataJSON/sorting/BinarySearchTree.java
- dataJSON.sorting.BinarySearchTree
-dataJSON/sorting/SortingJSON.java
- dataJSON.sorting.SortingJSON
-dataJSON/sorting/SortingAlgorithm.java
- dataJSON.sorting.SortingAlgorithm
-Calculation/ICalculation.java
- Calculation.ICalculation
-DataAccess/DataAccessCSV.java
- DataAccess.DataAccessCSV
-DataAccess/IDataAccess.java
- DataAccess.IDataAccess
-dataXML/converting/IConverterXML.java
- dataXML.converting.IConverterXML
 dataJSON/sorting/TreeNode.java
  dataJSON.sorting.TreeNode
 dataJSON/sorting/ISortingJSON.java
  dataJSON.sorting.ISortingJSON
-Exceptions/FileAlreadyExistsException.java
- Exceptions.FileAlreadyExistsException
+dataJSON/sorting/SortingAlgorithm.java
+ dataJSON.sorting.SortingAlgorithm
+dataCSV/sorting/SortingCSV.java
+ dataCSV.sorting.SortingCSV
 DataAccess/DataAccessJSON.java
  DataAccess.DataAccessJSON
+dataXML/converting/IConverterXML.java
+ dataXML.converting.IConverterXML
+dataXML/converting/ConverterXML.java
+ dataXML.converting.ConverterXML
+dataCSV/sorting/ISortingCSV.java
+ dataCSV.sorting.ISortingCSV
+dataXML/sorting/ISortingXML.java
+ dataXML.sorting.ISortingXML
+DataAccess/IDataAccess.java
+ DataAccess.IDataAccess
+dataXML/CoreXML.java
+ dataXML.CoreXML
+Exceptions/FileAlreadyExistsException.java
+ Exceptions.FileAlreadyExistsException
+dataCSV/converting/ConverterCSV.java
+ dataCSV.converting.ConverterCSV
+dataJSON/sorting/BinarySearchTree.java
+ dataJSON.sorting.BinarySearchTree
+dataXML/sorting/SortingXML.java
+ dataXML.sorting.SortingXML
+dataJSON/sorting/SortingJSON.java
+ dataJSON.sorting.SortingJSON
 dataJSON/converting/ConverterJSON.java
  dataJSON.converting.ConverterJSON
 DataAccess/DataAccessXML.java
  DataAccess.DataAccessXML
-dataCSV/sorting/ISortingCSV.java
- dataCSV.sorting.ISortingCSV
+DataAccess/DataAccessCSV.java
+ DataAccess.DataAccessCSV
+Calculation/CalculationCSV.java
+ Calculation.CalculationCSV
+Calculation/ICalculation.java
+ Calculation.ICalculation
+Calculation/CalculationJSON.java
+ Calculation.CalculationJSON
+Calculation/CalculationXML.java
+ Calculation.CalculationXML

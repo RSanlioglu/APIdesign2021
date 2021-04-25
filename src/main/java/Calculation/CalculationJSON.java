@@ -106,6 +106,20 @@ public class CalculationJSON implements ICalculation{
         return min;    }
 
     @Override
+    public int calculateColumnMaxInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+        List<Object> objects = json.getAllObjects();
+        Field field = type.getDeclaredField(columnName);
+        field.setAccessible(true);
+        int max = Integer.MIN_VALUE;
+        for(Object o : objects) {
+            int value = field.getInt(o);
+            if(max < value)
+                max = value;
+        }
+        return max;
+    }
+
+    @Override
     public double CalculateColumnMinDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
@@ -123,6 +137,20 @@ public class CalculationJSON implements ICalculation{
         }
 
         return min;
+    }
+
+    @Override
+    public double calculateColumnMaxDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+        List<Object> objects = json.getAllObjects();
+        Field field = type.getDeclaredField(columnName);
+        field.setAccessible(true);
+        double max = Double.MIN_VALUE;
+        for(Object o : objects) {
+            double value = field.getDouble(o);
+            if(max < value)
+                max = value;
+        }
+        return max;
     }
 
     @Override
@@ -162,6 +190,25 @@ public class CalculationJSON implements ICalculation{
                 count++;
         }
 
+        return count;
+    }
+
+    @Override
+    public int CountdoubleValue(String columnName, Class type, double refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+        List<Object> objects = json.getAllObjects();
+
+        Field field = type.getDeclaredField(columnName);
+        field.setAccessible(true);
+
+        int count = 0;
+
+        for (Object o : objects) {
+            Object value = field.get(o);
+            double strVal = (double) value;
+
+            if (strVal == refValue)
+                count++;
+        }
         return count;
     }
 }

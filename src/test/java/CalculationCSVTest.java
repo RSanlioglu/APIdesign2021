@@ -102,6 +102,22 @@ public class CalculationCSVTest {
     }
 
     /**
+     * The test will return the max integer value from the person.csv file.
+     * The max integer is received from the age column
+     */
+    @Test
+    public void calculateMaxAge() {
+        int max = 0;
+        try {
+            max = calculation.calculateColumnMaxInt("age", Person.class);
+        } catch ( NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        assertNotEquals(0, max);
+        assertEquals(38, max);
+    }
+
+    /**
      * The test will return the min double value from the person.csv file.
      * The min double is received from the height column.
      */
@@ -115,6 +131,22 @@ public class CalculationCSVTest {
         }
         assertNotEquals(0, min);
         assertEquals(1.4, min);
+    }
+
+    /**
+     * The test will return the max double value from the person.csv file.
+     * The ,ax double is received from the height column.
+     */
+    @Test
+    public void calculateMaxHeight() {
+        double max = 0;
+        try {
+            max = calculation.calculateColumnMaxDouble("height", Person.class);
+        } catch ( NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        assertNotEquals(0, max);
+        assertEquals(2.5, max);
     }
 
     /**
@@ -145,5 +177,20 @@ public class CalculationCSVTest {
         }
         assertEquals(2, countName);
         assertNotEquals(0, countName);
+    }
+
+    /**
+     * The test will return how many times a double value occurs in one column in the person.csv file.
+     */
+    @Test
+    public void countHeight() {
+        int countDouble = 0;
+        try {
+            countDouble = calculation.CountdoubleValue("height", Person.class, 2.3);
+        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        assertNotEquals(0, countDouble);
+        assertEquals(2, countDouble);
     }
 }
