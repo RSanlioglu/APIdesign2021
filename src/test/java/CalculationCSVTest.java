@@ -1,23 +1,14 @@
 import Calculation.CalculationCSV;
 import DataAccess.DataAccessCSV;
 import Model.Person;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculationCSVTest {
     private static final DataAccessCSV dataAccess = new DataAccessCSV("src/test/java/DataFiles/people.csv", Person.class, true);
     private static final CalculationCSV calculation = new CalculationCSV(dataAccess);
-    private List<Person> people;
-
-    @BeforeEach
-    @SuppressWarnings("unchecked")
-    public void setUp() {
-        people = (List<Person>) (List<?>) dataAccess.getAllObjects();
-    }
 
     /**
      * The test will calculate the sum weight between the people in people.csv file.
@@ -26,7 +17,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateSumIntWeight() {
-        int sum = 0;
+        int sum;
         sum = calculation.calculateColumnSumInt("weight", Person.class);
 
         assertEquals(sum, 860);

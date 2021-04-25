@@ -5,7 +5,7 @@
 		<first_name>Wilma</first_name>
 		<last_name>Mendez</last_name>
 		<height>01.9</height>
-		<weight>00.5</weight>
+		<weight>30</weight>
 	</Person>
 	<Person>
 		<id>28288</id>
@@ -13,7 +13,7 @@
 		<first_name>Harrison</first_name>
 		<last_name>Benson</last_name>
 		<height>01.9</height>
-		<weight>00.3</weight>
+		<weight>54</weight>
 	</Person>
 	<Person>
 		<id>81076</id>
@@ -21,7 +21,7 @@
 		<first_name>Ora</first_name>
 		<last_name>Griffith</last_name>
 		<height>01.6</height>
-		<weight>00.4</weight>
+		<weight>120</weight>
 	</Person>
 	<Person>
 		<id>38058</id>
@@ -29,7 +29,7 @@
 		<first_name>Caesar</first_name>
 		<last_name>Yang</last_name>
 		<height>02.3</height>
-		<weight>07.0</weight>
+		<weight>55</weight>
 	</Person>
 	<Person>
 		<id>51967</id>
@@ -37,7 +37,7 @@
 		<first_name>Richard</first_name>
 		<last_name>Knapp</last_name>
 		<height>01.8</height>
-		<weight>07.4</weight>
+		<weight>75</weight>
 	</Person>
 	<Person>
 		<id>9338</id>
@@ -45,7 +45,7 @@
 		<first_name>Jemima</first_name>
 		<last_name>Mason</last_name>
 		<height>02.0</height>
-		<weight>07.4</weight>
+		<weight>74</weight>
 	</Person>
 	<Person>
 		<id>73668</id>
@@ -53,7 +53,7 @@
 		<first_name>Hop</first_name>
 		<last_name>Reyes</last_name>
 		<height>01.9</height>
-		<weight>06.8</weight>
+		<weight>68</weight>
 	</Person>
 	<Person>
 		<id>86406</id>
@@ -61,7 +61,7 @@
 		<first_name>Alice</first_name>
 		<last_name>Armstrong</last_name>
 		<height>02.3</height>
-		<weight>02.0</weight>
+		<weight>20</weight>
 	</Person>
 	<Person>
 		<id>63603</id>
@@ -69,7 +69,7 @@
 		<first_name>Roanna</first_name>
 		<last_name>Stephens</last_name>
 		<height>01.6</height>
-		<weight>06.0</weight>
+		<weight>60</weight>
 	</Person>
 	<Person>
 		<id>56967</id>
@@ -77,7 +77,7 @@
 		<first_name>Rigel</first_name>
 		<last_name>Freeman</last_name>
 		<height>01.5</height>
-		<weight>02.8</weight>
+		<weight>28</weight>
 	</Person>
 	<Person>
 		<id>19876</id>
@@ -85,7 +85,7 @@
 		<first_name>Ralph</first_name>
 		<last_name>Trujillo</last_name>
 		<height>02.5</height>
-		<weight>06.7</weight>
+		<weight>67</weight>
 	</Person>
 	<Person>
 		<id>8815</id>
@@ -93,710 +93,6 @@
 		<first_name>Illiana</first_name>
 		<last_name>Bruce</last_name>
 		<height>02.0</height>
-		<weight>00.6</weight>
-	</Person>
-	<Person>
-		<id>64114</id>
-		<age>31</age>
-		<first_name>Veda</first_name>
-		<last_name>Mcconnell</last_name>
-		<height>02.0</height>
-		<weight>08.1</weight>
-	</Person>
-	<Person>
-		<id>17004</id>
-		<age>33</age>
-		<first_name>Seth</first_name>
-		<last_name>Short</last_name>
-		<height>02.1</height>
-		<weight>09.4</weight>
-	</Person>
-	<Person>
-		<id>5954</id>
-		<age>25</age>
-		<first_name>Abdul</first_name>
-		<last_name>Hutchinson</last_name>
-		<height>02.5</height>
-		<weight>05.7</weight>
-	</Person>
-	<Person>
-		<id>67685</id>
-		<age>24</age>
-		<first_name>Dara</first_name>
-		<last_name>Slater</last_name>
-		<height>02.1</height>
-		<weight>07.9</weight>
-	</Person>
-	<Person>
-		<id>5508</id>
-		<age>27</age>
-		<first_name>Zelenia</first_name>
-		<last_name>Nichols</last_name>
-		<height>02.0</height>
-		<weight>02.0</weight>
-	</Person>
-	<Person>
-		<id>39084</id>
-		<age>30</age>
-		<first_name>Remedios</first_name>
-		<last_name>Barrera</last_name>
-		<height>02.4</height>
-		<weight>03.0</weight>
-	</Person>
-	<Person>
-		<id>27804</id>
-		<age>39</age>
-		<first_name>Kimberly</first_name>
-		<last_name>Morin</last_name>
-		<height>01.3</height>
-		<weight>01.6</weight>
-	</Person>
-	<Person>
-		<id>28843</id>
-		<age>35</age>
-		<first_name>George</first_name>
-		<last_name>Hurst</last_name>
-		<height>02.5</height>
-		<weight>08.7</weight>
-	</Person>
-	<Person>
-		<id>20109</id>
-		<age>36</age>
-		<first_name>Orla</first_name>
-		<last_name>Kramer</last_name>
-		<height>01.3</height>
-		<weight>08.6</weight>
-	</Person>
-	<Person>
-		<id>67455</id>
-		<age>20</age>
-		<first_name>Alexa</first_name>
-		<last_name>Moses</last_name>
-		<height>02.2</height>
-		<weight>00.8</weight>
-	</Person>
-	<Person>
-		<id>94298</id>
-		<age>37</age>
-		<first_name>Harper</first_name>
-		<last_name>Holt</last_name>
-		<height>01.4</height>
-		<weight>00.1</weight>
-	</Person>
-	<Person>
-		<id>80074</id>
-		<age>33</age>
-		<first_name>Myles</first_name>
-		<last_name>Rhodes</last_name>
-		<height>01.7</height>
-		<weight>07.3</weight>
-	</Person>
-	<Person>
-		<id>1231</id>
-		<age>29</age>
-		<first_name>Cailin</first_name>
-		<last_name>Compton</last_name>
-		<height>02.1</height>
-		<weight>06.3</weight>
-	</Person>
-	<Person>
-		<id>19555</id>
-		<age>28</age>
-		<first_name>Elton</first_name>
-		<last_name>Vega</last_name>
-		<height>01.4</height>
-		<weight>06.1</weight>
-	</Person>
-	<Person>
-		<id>78480</id>
-		<age>35</age>
-		<first_name>Glenna</first_name>
-		<last_name>Bird</last_name>
-		<height>02.0</height>
-		<weight>03.0</weight>
-	</Person>
-	<Person>
-		<id>46782</id>
-		<age>20</age>
-		<first_name>Adele</first_name>
-		<last_name>Whitaker</last_name>
-		<height>02.1</height>
-		<weight>08.2</weight>
-	</Person>
-	<Person>
-		<id>80374</id>
-		<age>22</age>
-		<first_name>Basil</first_name>
-		<last_name>Bell</last_name>
-		<height>01.7</height>
-		<weight>00.0</weight>
-	</Person>
-	<Person>
-		<id>99066</id>
-		<age>36</age>
-		<first_name>Kevin</first_name>
-		<last_name>Everett</last_name>
-		<height>02.3</height>
-		<weight>00.1</weight>
-	</Person>
-	<Person>
-		<id>20259</id>
-		<age>20</age>
-		<first_name>Rajah</first_name>
-		<last_name>Moody</last_name>
-		<height>01.6</height>
-		<weight>06.5</weight>
-	</Person>
-	<Person>
-		<id>76324</id>
-		<age>30</age>
-		<first_name>Natalie</first_name>
-		<last_name>Carroll</last_name>
-		<height>01.8</height>
-		<weight>07.7</weight>
-	</Person>
-	<Person>
-		<id>30298</id>
-		<age>26</age>
-		<first_name>Alec</first_name>
-		<last_name>Gillespie</last_name>
-		<height>01.3</height>
-		<weight>00.9</weight>
-	</Person>
-	<Person>
-		<id>36834</id>
-		<age>28</age>
-		<first_name>Keefe</first_name>
-		<last_name>Lewis</last_name>
-		<height>01.5</height>
-		<weight>00.6</weight>
-	</Person>
-	<Person>
-		<id>59626</id>
-		<age>37</age>
-		<first_name>Omar</first_name>
-		<last_name>Leon</last_name>
-		<height>02.0</height>
-		<weight>09.2</weight>
-	</Person>
-	<Person>
-		<id>95628</id>
-		<age>38</age>
-		<first_name>Mason</first_name>
-		<last_name>Barron</last_name>
-		<height>01.6</height>
-		<weight>05.6</weight>
-	</Person>
-	<Person>
-		<id>46048</id>
-		<age>34</age>
-		<first_name>Patricia</first_name>
-		<last_name>Sweet</last_name>
-		<height>02.4</height>
-		<weight>03.0</weight>
-	</Person>
-	<Person>
-		<id>60708</id>
-		<age>35</age>
-		<first_name>Harding</first_name>
-		<last_name>Nguyen</last_name>
-		<height>02.2</height>
-		<weight>06.6</weight>
-	</Person>
-	<Person>
-		<id>1034</id>
-		<age>34</age>
-		<first_name>Penelope</first_name>
-		<last_name>Suarez</last_name>
-		<height>02.2</height>
-		<weight>08.2</weight>
-	</Person>
-	<Person>
-		<id>72804</id>
-		<age>28</age>
-		<first_name>Talon</first_name>
-		<last_name>Riddle</last_name>
-		<height>02.5</height>
-		<weight>05.4</weight>
-	</Person>
-	<Person>
-		<id>34284</id>
-		<age>29</age>
-		<first_name>Lucy</first_name>
-		<last_name>Fischer</last_name>
-		<height>02.4</height>
-		<weight>07.3</weight>
-	</Person>
-	<Person>
-		<id>72126</id>
-		<age>29</age>
-		<first_name>Quentin</first_name>
-		<last_name>Kerr</last_name>
-		<height>01.7</height>
-		<weight>01.6</weight>
-	</Person>
-	<Person>
-		<id>33803</id>
-		<age>34</age>
-		<first_name>Dustin</first_name>
-		<last_name>Mcgowan</last_name>
-		<height>02.0</height>
-		<weight>06.9</weight>
-	</Person>
-	<Person>
-		<id>23758</id>
-		<age>40</age>
-		<first_name>Anjolie</first_name>
-		<last_name>Blackwell</last_name>
-		<height>01.8</height>
-		<weight>01.6</weight>
-	</Person>
-	<Person>
-		<id>20544</id>
-		<age>32</age>
-		<first_name>Abbot</first_name>
-		<last_name>Hampton</last_name>
-		<height>01.9</height>
-		<weight>02.0</weight>
-	</Person>
-	<Person>
-		<id>10777</id>
-		<age>20</age>
-		<first_name>Arden</first_name>
-		<last_name>Durham</last_name>
-		<height>02.2</height>
-		<weight>05.9</weight>
-	</Person>
-	<Person>
-		<id>6396</id>
-		<age>37</age>
-		<first_name>Wesley</first_name>
-		<last_name>Peterson</last_name>
-		<height>01.5</height>
-		<weight>05.7</weight>
-	</Person>
-	<Person>
-		<id>16108</id>
-		<age>32</age>
-		<first_name>Hamish</first_name>
-		<last_name>Buck</last_name>
-		<height>02.5</height>
-		<weight>06.8</weight>
-	</Person>
-	<Person>
-		<id>1158</id>
-		<age>34</age>
-		<first_name>Theodore</first_name>
-		<last_name>Rosario</last_name>
-		<height>02.2</height>
-		<weight>07.7</weight>
-	</Person>
-	<Person>
-		<id>27831</id>
-		<age>27</age>
-		<first_name>Winter</first_name>
-		<last_name>Walls</last_name>
-		<height>02.0</height>
-		<weight>05.0</weight>
-	</Person>
-	<Person>
-		<id>33253</id>
-		<age>30</age>
-		<first_name>Caesar</first_name>
-		<last_name>Hodge</last_name>
-		<height>01.5</height>
-		<weight>07.5</weight>
-	</Person>
-	<Person>
-		<id>12532</id>
-		<age>20</age>
-		<first_name>Clayton</first_name>
-		<last_name>Martinez</last_name>
-		<height>02.1</height>
-		<weight>08.8</weight>
-	</Person>
-	<Person>
-		<id>51839</id>
-		<age>23</age>
-		<first_name>Hall</first_name>
-		<last_name>Weeks</last_name>
-		<height>01.3</height>
-		<weight>02.1</weight>
-	</Person>
-	<Person>
-		<id>98875</id>
-		<age>36</age>
-		<first_name>Arthur</first_name>
-		<last_name>Delaney</last_name>
-		<height>02.0</height>
-		<weight>06.2</weight>
-	</Person>
-	<Person>
-		<id>63128</id>
-		<age>32</age>
-		<first_name>Tate</first_name>
-		<last_name>Vega</last_name>
-		<height>02.2</height>
-		<weight>06.2</weight>
-	</Person>
-	<Person>
-		<id>48488</id>
-		<age>25</age>
-		<first_name>Veronica</first_name>
-		<last_name>Harrison</last_name>
-		<height>02.1</height>
-		<weight>08.0</weight>
-	</Person>
-	<Person>
-		<id>86479</id>
-		<age>36</age>
-		<first_name>Holly</first_name>
-		<last_name>Davidson</last_name>
-		<height>02.5</height>
-		<weight>08.0</weight>
-	</Person>
-	<Person>
-		<id>15594</id>
-		<age>34</age>
-		<first_name>Mary</first_name>
-		<last_name>Walter</last_name>
-		<height>02.0</height>
-		<weight>01.9</weight>
-	</Person>
-	<Person>
-		<id>74301</id>
-		<age>35</age>
-		<first_name>Cullen</first_name>
-		<last_name>Craig</last_name>
-		<height>01.4</height>
-		<weight>09.5</weight>
-	</Person>
-	<Person>
-		<id>77163</id>
-		<age>23</age>
-		<first_name>Jack</first_name>
-		<last_name>Everett</last_name>
-		<height>01.4</height>
-		<weight>05.6</weight>
-	</Person>
-	<Person>
-		<id>6117</id>
-		<age>35</age>
-		<first_name>Conan</first_name>
-		<last_name>Sharp</last_name>
-		<height>01.9</height>
-		<weight>09.0</weight>
-	</Person>
-	<Person>
-		<id>12597</id>
-		<age>37</age>
-		<first_name>Jillian</first_name>
-		<last_name>Flynn</last_name>
-		<height>02.4</height>
-		<weight>08.0</weight>
-	</Person>
-	<Person>
-		<id>92663</id>
-		<age>35</age>
-		<first_name>Craig</first_name>
-		<last_name>English</last_name>
-		<height>02.5</height>
-		<weight>09.4</weight>
-	</Person>
-	<Person>
-		<id>10176</id>
-		<age>20</age>
-		<first_name>Drake</first_name>
-		<last_name>Frost</last_name>
-		<height>01.4</height>
-		<weight>06.6</weight>
-	</Person>
-	<Person>
-		<id>8526</id>
-		<age>35</age>
-		<first_name>Jeanette</first_name>
-		<last_name>Dillon</last_name>
-		<height>02.3</height>
-		<weight>02.4</weight>
-	</Person>
-	<Person>
-		<id>91656</id>
-		<age>33</age>
-		<first_name>Whoopi</first_name>
-		<last_name>Garza</last_name>
-		<height>01.8</height>
-		<weight>09.3</weight>
-	</Person>
-	<Person>
-		<id>9584</id>
-		<age>29</age>
-		<first_name>Avram</first_name>
-		<last_name>Douglas</last_name>
-		<height>02.1</height>
-		<weight>01.9</weight>
-	</Person>
-	<Person>
-		<id>65183</id>
-		<age>20</age>
-		<first_name>Ivan</first_name>
-		<last_name>Rush</last_name>
-		<height>01.5</height>
-		<weight>08.5</weight>
-	</Person>
-	<Person>
-		<id>64797</id>
-		<age>25</age>
-		<first_name>Astra</first_name>
-		<last_name>Pickett</last_name>
-		<height>02.5</height>
-		<weight>06.7</weight>
-	</Person>
-	<Person>
-		<id>28705</id>
-		<age>23</age>
-		<first_name>Joelle</first_name>
-		<last_name>Best</last_name>
-		<height>02.1</height>
-		<weight>07.0</weight>
-	</Person>
-	<Person>
-		<id>49811</id>
-		<age>29</age>
-		<first_name>Ariel</first_name>
-		<last_name>Cash</last_name>
-		<height>02.4</height>
-		<weight>05.0</weight>
-	</Person>
-	<Person>
-		<id>46805</id>
-		<age>20</age>
-		<first_name>Erin</first_name>
-		<last_name>Oneal</last_name>
-		<height>02.2</height>
-		<weight>07.1</weight>
-	</Person>
-	<Person>
-		<id>26624</id>
-		<age>26</age>
-		<first_name>Brody</first_name>
-		<last_name>Ochoa</last_name>
-		<height>02.5</height>
-		<weight>02.8</weight>
-	</Person>
-	<Person>
-		<id>50217</id>
-		<age>33</age>
-		<first_name>Echo</first_name>
-		<last_name>Levy</last_name>
-		<height>02.1</height>
-		<weight>06.0</weight>
-	</Person>
-	<Person>
-		<id>617</id>
-		<age>27</age>
-		<first_name>Thomas</first_name>
-		<last_name>Roth</last_name>
-		<height>01.5</height>
-		<weight>08.0</weight>
-	</Person>
-	<Person>
-		<id>10107</id>
-		<age>30</age>
-		<first_name>Chase</first_name>
-		<last_name>Case</last_name>
-		<height>02.1</height>
-		<weight>06.1</weight>
-	</Person>
-	<Person>
-		<id>54813</id>
-		<age>37</age>
-		<first_name>Fletcher</first_name>
-		<last_name>Bray</last_name>
-		<height>01.3</height>
-		<weight>01.7</weight>
-	</Person>
-	<Person>
-		<id>14952</id>
-		<age>28</age>
-		<first_name>Anastasia</first_name>
-		<last_name>Nash</last_name>
-		<height>02.2</height>
-		<weight>06.9</weight>
-	</Person>
-	<Person>
-		<id>46577</id>
-		<age>29</age>
-		<first_name>Imelda</first_name>
-		<last_name>Cooper</last_name>
-		<height>02.3</height>
-		<weight>09.1</weight>
-	</Person>
-	<Person>
-		<id>40245</id>
-		<age>24</age>
-		<first_name>Uma</first_name>
-		<last_name>Holmes</last_name>
-		<height>01.6</height>
-		<weight>09.3</weight>
-	</Person>
-	<Person>
-		<id>51190</id>
-		<age>28</age>
-		<first_name>Inez</first_name>
-		<last_name>Banks</last_name>
-		<height>02.0</height>
-		<weight>00.0</weight>
-	</Person>
-	<Person>
-		<id>16679</id>
-		<age>35</age>
-		<first_name>Austin</first_name>
-		<last_name>Dickson</last_name>
-		<height>01.9</height>
-		<weight>02.8</weight>
-	</Person>
-	<Person>
-		<id>17500</id>
-		<age>28</age>
-		<first_name>Amos</first_name>
-		<last_name>Nolan</last_name>
-		<height>02.3</height>
-		<weight>01.2</weight>
-	</Person>
-	<Person>
-		<id>55295</id>
-		<age>36</age>
-		<first_name>Matthew</first_name>
-		<last_name>Whitehead</last_name>
-		<height>02.0</height>
-		<weight>09.2</weight>
-	</Person>
-	<Person>
-		<id>68180</id>
-		<age>39</age>
-		<first_name>Yuli</first_name>
-		<last_name>Woods</last_name>
-		<height>02.5</height>
-		<weight>05.6</weight>
-	</Person>
-	<Person>
-		<id>30582</id>
-		<age>21</age>
-		<first_name>Reagan</first_name>
-		<last_name>Williams</last_name>
-		<height>01.7</height>
-		<weight>08.8</weight>
-	</Person>
-	<Person>
-		<id>60116</id>
-		<age>36</age>
-		<first_name>Wade</first_name>
-		<last_name>Ross</last_name>
-		<height>01.6</height>
-		<weight>09.8</weight>
-	</Person>
-	<Person>
-		<id>68753</id>
-		<age>28</age>
-		<first_name>Boris</first_name>
-		<last_name>Butler</last_name>
-		<height>02.5</height>
-		<weight>01.6</weight>
-	</Person>
-	<Person>
-		<id>40026</id>
-		<age>23</age>
-		<first_name>Amena</first_name>
-		<last_name>Galloway</last_name>
-		<height>01.7</height>
-		<weight>07.0</weight>
-	</Person>
-	<Person>
-		<id>24275</id>
-		<age>34</age>
-		<first_name>Deborah</first_name>
-		<last_name>Parker</last_name>
-		<height>02.1</height>
-		<weight>05.0</weight>
-	</Person>
-	<Person>
-		<id>97162</id>
-		<age>40</age>
-		<first_name>Bethany</first_name>
-		<last_name>Howard</last_name>
-		<height>02.5</height>
-		<weight>00.2</weight>
-	</Person>
-	<Person>
-		<id>21203</id>
-		<age>25</age>
-		<first_name>Shaine</first_name>
-		<last_name>Bean</last_name>
-		<height>01.9</height>
-		<weight>08.7</weight>
-	</Person>
-	<Person>
-		<id>9960</id>
-		<age>34</age>
-		<first_name>Indigo</first_name>
-		<last_name>Underwood</last_name>
-		<height>01.3</height>
-		<weight>09.3</weight>
-	</Person>
-	<Person>
-		<id>28123</id>
-		<age>40</age>
-		<first_name>Christopher</first_name>
-		<last_name>Walters</last_name>
-		<height>01.9</height>
-		<weight>01.3</weight>
-	</Person>
-	<Person>
-		<id>8391</id>
-		<age>30</age>
-		<first_name>Cole</first_name>
-		<last_name>Dickson</last_name>
-		<height>01.9</height>
-		<weight>02.6</weight>
-	</Person>
-	<Person>
-		<id>43992</id>
-		<age>31</age>
-		<first_name>Irene</first_name>
-		<last_name>Estrada</last_name>
-		<height>01.3</height>
-		<weight>06.2</weight>
-	</Person>
-	<Person>
-		<id>82239</id>
-		<age>20</age>
-		<first_name>Renee</first_name>
-		<last_name>Reilly</last_name>
-		<height>01.3</height>
-		<weight>02.2</weight>
-	</Person>
-	<Person>
-		<id>14408</id>
-		<age>25</age>
-		<first_name>Drake</first_name>
-		<last_name>Chandler</last_name>
-		<height>01.7</height>
-		<weight>07.0</weight>
-	</Person>
-	<Person>
-		<id>97292</id>
-		<age>33</age>
-		<first_name>Sloane</first_name>
-		<last_name>Pennington</last_name>
-		<height>01.8</height>
-		<weight>05.9</weight>
-	</Person>
-	<Person>
-		<id>92682</id>
-		<age>25</age>
-		<first_name>Jin</first_name>
-		<last_name>Cline</last_name>
-		<height>02.4</height>
-		<weight>08.9</weight>
+		<weight>60</weight>
 	</Person>
 </People>
