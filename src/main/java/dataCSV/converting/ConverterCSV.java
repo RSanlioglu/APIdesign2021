@@ -1,8 +1,8 @@
 package dataCSV.converting;
 
-import dataCSV.dataAccess.DataAccessCSV;
-import dataJSON.dataAccess.DataAccessJSON;
-import dataXML.dataAccess.DataAccessXML;
+import DataAccess.DataAccessCSV;
+import DataAccess.DataAccessJSON;
+import DataAccess.DataAccessXML;
 
 import java.io.IOException;
 import java.util.Collections;

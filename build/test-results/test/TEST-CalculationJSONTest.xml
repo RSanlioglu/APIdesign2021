@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CalculationJSONTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-25T17:26:12" hostname="LAPTOP-KA5PC1CV" time="0.042">
+  <properties/>
+  <testcase name="calculateMinHeight()" classname="CalculationJSONTest" time="0.008"/>
+  <testcase name="calculateMaxAge()" classname="CalculationJSONTest" time="0.003"/>
+  <testcase name="calculateMinAge()" classname="CalculationJSONTest" time="0.003"/>
+  <testcase name="calculateAverageHeightDouble()" classname="CalculationJSONTest" time="0.003"/>
+  <testcase name="countAge()" classname="CalculationJSONTest" time="0.003"/>
+  <testcase name="calculateSumIntWeight()" classname="CalculationJSONTest" time="0.002"/>
+  <testcase name="calculateDoubleHeight()" classname="CalculationJSONTest" time="0.003"/>
+  <testcase name="calculateAverageAgeInt()" classname="CalculationJSONTest" time="0.003"/>
+  <testcase name="countName()" classname="CalculationJSONTest" time="0.002"/>
+  <testcase name="calculateMaxHeight()" classname="CalculationJSONTest" time="0.003"/>
+  <testcase name="countHeight()" classname="CalculationJSONTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

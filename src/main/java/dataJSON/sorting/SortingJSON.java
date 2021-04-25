@@ -1,6 +1,6 @@
 package dataJSON.sorting;
 
-import dataJSON.dataAccess.DataAccessJSON;
+import DataAccess.DataAccessJSON;
 
 import java.util.*;
 import java.lang.reflect.Field;

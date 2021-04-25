@@ -1,6 +1,7 @@
+import DataAccess.DataAccessCSV;
 import Exceptions.FileAlreadyExistsException;
-import dataCSV.dataAccess.DataAccessCSV;
 import org.junit.jupiter.api.*;
+import Model.Car;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class DataAccessCSVTest {
 
     /**
      * The tests that are created here uses a specific type of class that we have created
-     * just for the sake of the tests. The class is a simple Car class, letting us create
+     * just for the sake of the tests. The class is a simple Model.Car class, letting us create
      * objects of cars for the different tests
      */
 
@@ -94,8 +95,8 @@ public class DataAccessCSVTest {
         returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
 
         assertEquals(2, returnedCars.size()); //The size of the returned cars are 2
-        assertEquals(returnedCars.get(0).toString(), mercedes.toString());  //Mercedes is in the csv file
-        assertEquals(returnedCars.get(1).toString(), mustang.toString());   //Mustang is in the csv file
+        Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());  //Mercedes is in the csv file
+        Assertions.assertEquals(returnedCars.get(1).toString(), mustang.toString());   //Mustang is in the csv file
         assertFalse(dataAccessCSV.doesExist(tesla));                           //Tesla is NOT in the file. doesExist function is tested further down
     }
 
@@ -123,8 +124,8 @@ public class DataAccessCSVTest {
         returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
 
         assertEquals(2, returnedCars.size()); //The size of the returned cars are 2
-        assertEquals(returnedCars.get(0).toString(), mercedes.toString());  //Mercedes is in the csv file
-        assertEquals(returnedCars.get(1).toString(), mustang.toString());   //Mustang is in the csv file
+        Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());  //Mercedes is in the csv file
+        Assertions.assertEquals(returnedCars.get(1).toString(), mustang.toString());   //Mustang is in the csv file
         assertFalse(dataAccessCSV.doesExist(tesla));                           //Tesla is NOT in the file. doesExist function is tested further down
     }
 
@@ -143,7 +144,7 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertEquals(passat.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
+        Assertions.assertEquals(passat.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
     }
 
     /**
@@ -161,7 +162,7 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertNotEquals(mercedes.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
+        Assertions.assertNotEquals(mercedes.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
     }
 
     /**
@@ -179,7 +180,7 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertEquals(passat.toString(), dataAccess.getObjectById("producer", "Volkswagen").toString());
+        Assertions.assertEquals(passat.toString(), dataAccess.getObjectById("producer", "Volkswagen").toString());
     }
 
     /**
@@ -197,7 +198,7 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertNotEquals(mercedes.toString(), dataAccess.getObjectById("producer", "Ford").toString());
+        Assertions.assertNotEquals(mercedes.toString(), dataAccess.getObjectById("producer", "Ford").toString());
     }
 
     /**
@@ -215,7 +216,7 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertEquals(passat.toString(), dataAccess.getObjectById("cylinderVolume", 1.6).toString());
+        Assertions.assertEquals(passat.toString(), dataAccess.getObjectById("cylinderVolume", 1.6).toString());
     }
 
     /**
@@ -233,11 +234,11 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        assertNotEquals(mercedes.toString(), dataAccess.getObjectById("cylinderVolume", 4.7).toString());
+        Assertions.assertNotEquals(mercedes.toString(), dataAccess.getObjectById("cylinderVolume", 4.7).toString());
     }
 
     /**
-     * Creates a new Car-object and writes it to the csv-file.
+     * Creates a new Model.Car-object and writes it to the csv-file.
      * The test checks the size of the objects returned from the file
      * and the value that is expected
      */
@@ -256,11 +257,11 @@ public class DataAccessCSVTest {
         assertEquals(1, cars.size());
 
         Car c = cars.get(0); //Get the only car
-        assertEquals(gClass.toString(), c.toString()); //Check the values of the cars
+        Assertions.assertEquals(gClass.toString(), c.toString()); //Check the values of the cars
     }
 
     /**
-     * Creates a new Car-object and writes it to the csv-file.
+     * Creates a new Model.Car-object and writes it to the csv-file.
      * The test checks the size of the objects returned from the file
      * and the value that is expected
      */
@@ -279,7 +280,7 @@ public class DataAccessCSVTest {
         assertEquals(1, cars.size());
 
         Car c = cars.get(0); //Get the only car
-        assertEquals(gClass.toString(), c.toString()); //Check the values of the cars
+        Assertions.assertEquals(gClass.toString(), c.toString()); //Check the values of the cars
     }
 
     /**
@@ -306,9 +307,9 @@ public class DataAccessCSVTest {
         returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
-        assertEquals(returnedCars.get(0).toString(), mercedes.toString());
-        assertEquals(returnedCars.get(1).toString(), mustang.toString());
-        assertEquals(returnedCars.get(2).toString(), passat.toString());
+        Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());
+        Assertions.assertEquals(returnedCars.get(1).toString(), mustang.toString());
+        Assertions.assertEquals(returnedCars.get(2).toString(), passat.toString());
     }
 
     /**
@@ -335,9 +336,9 @@ public class DataAccessCSVTest {
         returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
-        assertEquals(returnedCars.get(0).toString(), mercedes.toString());
-        assertEquals(returnedCars.get(1).toString(), mustang.toString());
-        assertEquals(returnedCars.get(2).toString(), passat.toString());
+        Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());
+        Assertions.assertEquals(returnedCars.get(1).toString(), mustang.toString());
+        Assertions.assertEquals(returnedCars.get(2).toString(), passat.toString());
 
     }
 
@@ -362,8 +363,8 @@ public class DataAccessCSVTest {
 
         //Check the size of the return list and the values
         assertEquals(2, cars.size());
-        assertEquals(gClass.toString(), cars.get(0).toString());
-        assertEquals(golf.toString(), cars.get(1).toString());
+        Assertions.assertEquals(gClass.toString(), cars.get(0).toString());
+        Assertions.assertEquals(golf.toString(), cars.get(1).toString());
     }
 
     /**
@@ -387,8 +388,8 @@ public class DataAccessCSVTest {
 
         //Check the size of the return list and the values
         assertEquals(2, cars.size());
-        assertEquals(gClass.toString(), cars.get(0).toString());
-        assertEquals(golf.toString(), cars.get(1).toString());
+        Assertions.assertEquals(gClass.toString(), cars.get(0).toString());
+        Assertions.assertEquals(golf.toString(), cars.get(1).toString());
     }
 
     /**
@@ -414,8 +415,8 @@ public class DataAccessCSVTest {
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
 
         assertEquals(3, returnedCars.size());                       //Check the length of the list of cars returned
-        assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
-        assertEquals(returnedCars.get(2).toString(), etron.toString());     //The third car in the file should be the e tron
+        Assertions.assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
+        Assertions.assertEquals(returnedCars.get(2).toString(), etron.toString());     //The third car in the file should be the e tron
     }
 
     /**
@@ -441,8 +442,8 @@ public class DataAccessCSVTest {
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
 
         assertEquals(3, returnedCars.size());                       //Check the length of the list of cars returned
-        assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
-        assertEquals(returnedCars.get(2).toString(), etron.toString());     //The third car in the file should be the e tron
+        Assertions.assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
+        Assertions.assertEquals(returnedCars.get(2).toString(), etron.toString());     //The third car in the file should be the e tron
     }
 
     /**
@@ -519,7 +520,7 @@ public class DataAccessCSVTest {
     }
 
     /**
-     * A test where we compare a Car-object before updating it and after updating it to see
+     * A test where we compare a Model.Car-object before updating it and after updating it to see
      * the changes made
      */
     @Test
@@ -534,12 +535,12 @@ public class DataAccessCSVTest {
         dataAccessCSV.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
 
         List<Car> returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
-        assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
+        Assertions.assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
 
         Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021, 0); //The new Tesla
         dataAccessCSV.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
 
         returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects(); //Read the file again
-        assertEquals(returnedCars.get(1).toString(), teslaUpdated.toString()); //Compare the new tesla with the tesla from the file. The updated objects are at the bottom
+        Assertions.assertEquals(returnedCars.get(1).toString(), teslaUpdated.toString()); //Compare the new tesla with the tesla from the file. The updated objects are at the bottom
     }
 }
