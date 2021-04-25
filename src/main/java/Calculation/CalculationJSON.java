@@ -14,7 +14,7 @@ public class CalculationJSON implements ICalculation{
 
     /**
      * Constructor for JSON-calculations
-     * @param json
+     * @param json - Data-access that the client has created beforehand
      */
     public CalculationJSON(DataAccessJSON json) {
         this.json = json;

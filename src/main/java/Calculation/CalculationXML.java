@@ -5,9 +5,17 @@ import DataAccess.DataAccessXML;
 import java.lang.reflect.Field;
 import java.util.List;
 
+/**
+ * Factory for creating calculation instances for XML files.
+ * This class implements the interface ICalculation.
+ */
 public class CalculationXML implements ICalculation{
     DataAccessXML xml;
 
+    /**
+     * Constructor for XML-calculations
+     * @param xml - Data-access that the client has created beforehand
+     */
     public CalculationXML(DataAccessXML xml) {
         this.xml = xml;
     }
