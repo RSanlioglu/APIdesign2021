@@ -3,8 +3,6 @@ import DataAccess.DataAccessJSON;
 import Model.Person;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -18,7 +16,7 @@ public class CalculationJSONTest {
      * second assertion is to double check that the sum isn't something not right.
      */
     @Test
-    public void calculateSumIntWeight() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateSumIntWeight() {
         int sum;
         sum = calculation.calculateColumnSumInt("weight", Person.class);
 
@@ -31,7 +29,7 @@ public class CalculationJSONTest {
      * The sum is supposed to be correct with the assertion.
      */
     @Test
-    public void calculateDoubleHeight() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateDoubleHeight() {
         double sum;
         sum = Math.round(calculation.calculateColumnSumDouble("height", Person.class));
 
@@ -44,7 +42,7 @@ public class CalculationJSONTest {
      * Note that the assertion is supposed to match.
      */
     @Test
-    public void calculateAverageAgeInt() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateAverageAgeInt() {
         double average;
         average = calculation.calculateColumnAverageInt("age", Person.class);
 
@@ -57,7 +55,7 @@ public class CalculationJSONTest {
      * Note that the assertion is supposed to match
      */
     @Test
-    public void calculateAverageHeightDouble() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateAverageHeightDouble() {
         double avgHeight;
         avgHeight = calculation.calculateColumnAverageDouble("height", Person.class);
 
@@ -70,7 +68,7 @@ public class CalculationJSONTest {
      * The min integer is received from the age column.
      */
     @Test
-    public void calculateMinAge() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateMinAge() {
         int min;
         min = calculation.calculateColumnMinInt("age", Person.class);
 
@@ -83,7 +81,7 @@ public class CalculationJSONTest {
      * The max integer is received from the age column
      */
     @Test
-    public void calculateMaxAge() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateMaxAge() {
         int max;
         max = calculation.calculateColumnMaxInt("age", Person.class);
 
@@ -96,7 +94,7 @@ public class CalculationJSONTest {
      * The min double is received from the height column.
      */
     @Test
-    public void calculateMinHeight() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateMinHeight() {
         double min;
         min = calculation.calculateColumnMinDouble("height", Person.class);
 
@@ -109,7 +107,7 @@ public class CalculationJSONTest {
      * The ,ax double is received from the height column.
      */
     @Test
-    public void calculateMaxHeight() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void calculateMaxHeight() {
         double max;
         max = calculation.calculateColumnMaxDouble("height", Person.class);
 
@@ -121,7 +119,7 @@ public class CalculationJSONTest {
      * The test will return how many times an integer occurs in one column in the person.json file.
      */
     @Test
-    public void countAge() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void countAge() {
         int countAge;
         countAge = calculation.countIntValue("age", Person.class, 28);
 
@@ -133,7 +131,7 @@ public class CalculationJSONTest {
      * The test will return how many times a string occurs in one column in the person.json file
      */
     @Test
-    public void countName() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void countName() {
         int countName = 0;
         countName = calculation.countStringValue("first_name", Person.class, "Shirley");
 
@@ -145,7 +143,7 @@ public class CalculationJSONTest {
      * The test will return how many times a double value occurs in one column in the person.json file.
      */
     @Test
-    public void countHeight() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public void countHeight() {
         int countDouble;
         countDouble = calculation.countDoubleValue("height", Person.class, 2);
 

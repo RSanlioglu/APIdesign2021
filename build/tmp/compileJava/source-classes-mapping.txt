@@ -42,7 +42,7 @@ Calculation/ICalculation.java
  Calculation.ICalculation
 Calculation/CalculationCSV.java
  Calculation.CalculationCSV
-Calculation/CalculationJSON.java
- Calculation.CalculationJSON
 Calculation/CalculationXML.java
  Calculation.CalculationXML
+Calculation/CalculationJSON.java
+ Calculation.CalculationJSON
