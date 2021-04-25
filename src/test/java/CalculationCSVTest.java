@@ -4,7 +4,6 @@ import Model.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,11 +27,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateSumIntWeight() {
         int sum = 0;
-        try {
-            sum = calculation.calculateColumnSumInt("weight", Person.class);
-        } catch (NoSuchFieldException | IllegalAccessException | IOException e) {
-            e.printStackTrace();
-        }
+        sum = calculation.calculateColumnSumInt("weight", Person.class);
+
         assertEquals(sum, 860);
         assertNotEquals(sum, 314); //The actual sum is 860
     }
@@ -44,11 +40,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateDoubleHeight() {
         double sum = 0;
-        try {
-            sum = calculation.calculateColumnSumDouble("height", Person.class);
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        sum = calculation.calculateColumnSumDouble("height", Person.class);
+
         assertEquals(sum, 18.5);
         assertNotEquals(sum, 18.0); //The sum is actually 18.5
     }
@@ -60,11 +53,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateAverageAgeInt() {
         double average = 0;
-        try {
-            average = calculation.calculateColumnAverageInt("age", Person.class);
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        average = calculation.calculateColumnAverageInt("age", Person.class);
+
         assertEquals(average, 31.3);
         assertNotEquals(average, 31); //Average is actually 31.3
     }
@@ -76,11 +66,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateAverageHeightDouble() {
         double avgHeight = 0;
-        try {
-            avgHeight = calculation.calculateColumnAverageDouble("height", Person.class);
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        avgHeight = calculation.calculateColumnAverageDouble("height", Person.class);
+
         assertEquals(1.85, avgHeight);
         assertNotEquals(0, avgHeight);
     }
@@ -92,11 +79,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateMinAge() {
         int min = 0;
-        try {
-            min = calculation.calculateColumnMinInt("age", Person.class);
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        min = calculation.calculateColumnMinInt("age", Person.class);
+
         assertEquals(21, min);
         assertNotEquals(0, min);
     }
@@ -108,11 +92,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateMaxAge() {
         int max = 0;
-        try {
-            max = calculation.calculateColumnMaxInt("age", Person.class);
-        } catch ( NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        max = calculation.calculateColumnMaxInt("age", Person.class);
+
         assertNotEquals(0, max);
         assertEquals(38, max);
     }
@@ -124,11 +105,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateMinHeight() {
         double min = 0;
-        try {
-            min = calculation.calculateColumnMinDouble("height", Person.class);
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        min = calculation.calculateColumnMinDouble("height", Person.class);
+
         assertNotEquals(0, min);
         assertEquals(1.4, min);
     }
@@ -140,11 +118,8 @@ public class CalculationCSVTest {
     @Test
     public void calculateMaxHeight() {
         double max = 0;
-        try {
-            max = calculation.calculateColumnMaxDouble("height", Person.class);
-        } catch ( NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        max = calculation.calculateColumnMaxDouble("height", Person.class);
+
         assertNotEquals(0, max);
         assertEquals(2.5, max);
     }
@@ -155,11 +130,8 @@ public class CalculationCSVTest {
     @Test
     public void countAge() {
         int countAge = 0;
-        try {
-            countAge = calculation.countIntValue("age", Person.class, 36);
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        countAge = calculation.countIntValue("age", Person.class, 36);
+
         assertNotEquals(0, countAge);
         assertEquals(4, countAge);
     }
@@ -170,11 +142,8 @@ public class CalculationCSVTest {
     @Test
     public void countName() {
         int countName = 0;
-        try {
-            countName = calculation.countStringValue("first_name", Person.class, "Kyle");
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        countName = calculation.countStringValue("first_name", Person.class, "Kyle");
+
         assertEquals(2, countName);
         assertNotEquals(0, countName);
     }
@@ -185,11 +154,8 @@ public class CalculationCSVTest {
     @Test
     public void countHeight() {
         int countDouble = 0;
-        try {
-            countDouble = calculation.countDoubleValue("height", Person.class, 2.3);
-        } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        countDouble = calculation.countDoubleValue("height", Person.class, 2.3);
+
         assertNotEquals(0, countDouble);
         assertEquals(2, countDouble);
     }

@@ -38,11 +38,11 @@ DataAccess/DataAccessXML.java
  DataAccess.DataAccessXML
 DataAccess/DataAccessCSV.java
  DataAccess.DataAccessCSV
+Calculation/CalculationXML.java
+ Calculation.CalculationXML
+Calculation/CalculationJSON.java
+ Calculation.CalculationJSON
 Calculation/CalculationCSV.java
  Calculation.CalculationCSV
 Calculation/ICalculation.java
  Calculation.ICalculation
-Calculation/CalculationJSON.java
- Calculation.CalculationJSON
-Calculation/CalculationXML.java
- Calculation.CalculationXML

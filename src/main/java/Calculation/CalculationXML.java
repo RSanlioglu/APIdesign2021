@@ -1,3 +1,4 @@
+/*
 package Calculation;
 
 import DataAccess.DataAccessXML;
@@ -212,3 +213,4 @@ public class CalculationXML implements ICalculation{
         return count;
     }
 }
+*/

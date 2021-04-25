@@ -1,3 +1,4 @@
+/*
 package Calculation;
 
 import DataAccess.DataAccessJSON;
@@ -212,3 +213,4 @@ public class CalculationJSON implements ICalculation{
         return count;
     }
 }
+*/

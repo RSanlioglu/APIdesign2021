@@ -2,7 +2,6 @@ package Calculation;
 
 import DataAccess.DataAccessCSV;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -46,12 +45,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the sum value of the entire column
      */
     @Override
-    public int calculateColumnSumInt(String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException {
+    public int calculateColumnSumInt(String columnName, Class type){
         List<Object> objects = csv.getAllObjects();
         int sum = 0;
 
         for (Object o : objects) {
-            int value = getField(columnName, type).getInt(o);
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             sum += value;
         }
 
@@ -65,12 +69,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the sum value of the entire column
      */
     @Override
-    public double calculateColumnSumDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnSumDouble(String columnName, Class type) {
         List<Object> objects = csv.getAllObjects();
         double sum = 0;
 
         for (Object o : objects) {
-            double value = getField(columnName, type).getDouble(o);
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             sum += value;
         }
 
@@ -84,12 +93,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the average value of the entire column
      */
     @Override
-    public double calculateColumnAverageInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnAverageInt(String columnName, Class type) {
         List<Object> objects = csv.getAllObjects();
         int sum = 0;
 
         for (Object o : objects) {
-            int value = getField(columnName, type).getInt(o);
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             sum += value;
         }
 
@@ -103,12 +117,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the average value of the entire column
      */
     @Override
-    public double calculateColumnAverageDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnAverageDouble(String columnName, Class type) {
         List<Object> objects = csv.getAllObjects();
         double sum = 0;
 
         for (Object o : objects) {
-            double value = getField(columnName, type).getDouble(o);
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             sum += value;
         }
 
@@ -122,12 +141,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the min value of the entire column
      */
     @Override
-    public int calculateColumnMinInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int calculateColumnMinInt(String columnName, Class type) {
         List<Object> objects = csv.getAllObjects();
         int min = Integer.MAX_VALUE;
 
         for (Object o : objects) {
-            int value = getField(columnName, type).getInt(o);
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if (min > value)
                 min = value;
         }
@@ -142,12 +166,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the max value of the entire column
      */
     @Override
-    public int calculateColumnMaxInt(String columnName, Class type) throws NoSuchFieldException, IllegalAccessException {
+    public int calculateColumnMaxInt(String columnName, Class type) {
         List<Object> objects = csv.getAllObjects();
         int max = Integer.MIN_VALUE;
 
         for(Object o : objects) {
-            int value = getField(columnName, type).getInt(o);
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if(max < value)
                 max = value;
         }
@@ -161,12 +190,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the min value of the entire column
      */
     @Override
-    public double calculateColumnMinDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnMinDouble(String columnName, Class type) {
         List<Object> objects = csv.getAllObjects();
         double min = Double.MAX_VALUE;
 
         for (Object o : objects) {
-            double value = getField(columnName, type).getDouble(o);
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if (min > value)
                 min = value;
         }
@@ -181,12 +215,17 @@ public class CalculationCSV implements ICalculation {
      * @return - returns the max value of the entire column
      */
     @Override
-    public double calculateColumnMaxDouble(String columnName, Class type) throws NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnMaxDouble(String columnName, Class type) {
         List<Object> objects = csv.getAllObjects();
         double max = Double.MIN_VALUE;
 
         for(Object o : objects) {
-            double value = getField(columnName, type).getDouble(o);
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if(max < value)
                 max = value;
         }
@@ -202,12 +241,17 @@ public class CalculationCSV implements ICalculation {
      * @return - Returns the amount of times the reference value is counted in the column
      */
     @Override
-    public int countIntValue(String columnName, Class type, int refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int countIntValue(String columnName, Class type, int refValue) {
         List<Object> objects = csv.getAllObjects();
         int count = 0;
 
         for (Object o : objects) {
-            int value = getField(columnName, type).getInt(o);
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if (value == refValue)
                 count++;
         }
@@ -224,12 +268,17 @@ public class CalculationCSV implements ICalculation {
      * @return - Returns the amount of times the reference value is counted in the column
      */
     @Override
-    public int countStringValue(String columnName, Class type, String refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int countStringValue(String columnName, Class type, String refValue) {
         List<Object> objects = csv.getAllObjects();
         int count = 0;
 
         for (Object o : objects) {
-            String value = (String) getField(columnName, type).get(o);
+            String value = null;
+            try {
+                value = (String) getField(columnName, type).get(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if (value.equals(refValue))
                 count++;
         }
@@ -245,12 +294,17 @@ public class CalculationCSV implements ICalculation {
      * @return - Returns the amount of times the reference value is counted in the column
      */
     @Override
-    public int countDoubleValue(String columnName, Class type, double refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int countDoubleValue(String columnName, Class type, double refValue) {
         List<Object> objects = csv.getAllObjects();
         int count = 0;
 
         for (Object o : objects) {
-            double value = getField(columnName, type).getDouble(o);
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if (value == refValue)
                 count++;
         }
