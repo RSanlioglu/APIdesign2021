@@ -2,211 +2,304 @@ package Calculation;
 
 import DataAccess.DataAccessXML;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 
-public class CalculationXML {
+public class CalculationXML implements ICalculation{
     DataAccessXML xml;
 
     public CalculationXML(DataAccessXML xml) {
         this.xml = xml;
     }
 
-    //@Override
-    public int calculateColumnSumInt(String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException {
+    /**
+     * Private function that will retrieve fields given by the client.
+     * @param columnName - Name of the column the client wants to focus on the datafile.
+     * @param type - Type of object the client is working with
+     * @return - Will return a Field.
+     */
+    private Field getField(String columnName, Class type) {
+        Field field = null;
+        try {
+            field = type.getDeclaredField(columnName);
+            field.setAccessible(true);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        return field;
+    }
+
+    /**
+     * Will calculate all of the int values from given column name. The column must consist of datatype int
+     * @param columnName - Name of the column the client wants to get the sum value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the sum value of the entire column
+     */
+    @Override
+    public int calculateColumnSumInt(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         int sum = 0;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            int intVal = (int) value;
-            sum += intVal;
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            sum += value;
         }
 
         return sum;
     }
 
-    //@Override
-    public double calculateColumnSumDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will calculate all of the double values from given column name. The column must consist of datatype double
+     * @param columnName - Name of the column the client wants to get the sum value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the sum value of the entire column
+     */
+    @Override
+    public double calculateColumnSumDouble(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         double sum = 0;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            double intVal = (double) value;
-            sum += intVal;
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            sum += value;
         }
 
         return sum;
     }
 
-    //@Override
-    public double calculateColumnAverageInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+
+    /**
+     * Will calculate the average int in a column. The column must consist of datatype int
+     * @param columnName - Name of the column the client wants to get the average value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the average value of the entire column
+     */
+    @Override
+    public double calculateColumnAverageInt(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         int sum = 0;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            int intVal = (int) value;
-            sum += intVal;
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            sum += value;
         }
 
         return (double)sum / ((objects.size() == 0) ? 1 : objects.size());
     }
 
-    //@Override
-    public double calculateColumnAverageDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will calculate the average double in a column. The column must consist of datatype double.
+     * @param columnName - Name of the column the client wants to get the average value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the average value of the entire column
+     */
+    @Override
+    public double calculateColumnAverageDouble(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         double sum = 0;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            double doubleVal = (double) value;
-            sum += doubleVal;
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            sum += value;
         }
 
         return sum / ((objects.size() == 0) ? 1 : objects.size());
     }
 
-    //@Override
-    public int calculateColumnMinInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will find the min integer value of a column. The column given must consist of datatype integer.
+     * @param columnName - Name of the column the client wants to get the min value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the min value of the entire column
+     */
+    @Override
+    public int calculateColumnMinInt(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         int min = Integer.MAX_VALUE;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            int intVal = (int) value;
-
-            if (min > intVal)
-                min = intVal;
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            if (min > value)
+                min = value;
         }
 
         return min;
     }
 
-    //@Override
-    public int calculateColumnMaxInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will find the max integer value of a column. The column given must consist of datatype integer.
+     * @param columnName - Name of the column the client wants to get the min value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the max value of the entire column
+     */
+    @Override
+    public int calculateColumnMaxInt(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
         int max = Integer.MIN_VALUE;
+
         for(Object o : objects) {
-            int value = field.getInt(o);
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if(max < value)
                 max = value;
         }
         return max;
     }
 
-    //@Override
-    public double calculateColumnMinDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will find the min double value of a column. The column given must consist of datatype double.
+     * @param columnName - Name of the column the client wants to get the min value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the min value of the entire column
+     */
+    @Override
+    public double calculateColumnMinDouble(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         double min = Double.MAX_VALUE;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            double doubleVal = (double) value;
-
-            if (min > doubleVal)
-                min = doubleVal;
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            if (min > value)
+                min = value;
         }
 
         return min;
     }
 
-    //@Override
-    public double calculateColumnMaxDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will find the max double value of a column. The column given must consist of datatype double.
+     * @param columnName - Name of the column the client wants to get the min value of
+     * @param type - Class type of the objects. Must be created by client
+     * @return - returns the max value of the entire column
+     */
+    @Override
+    public double calculateColumnMaxDouble(String columnName, Class type) {
         List<Object> objects = xml.getAllObjects();
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
         double max = Double.MIN_VALUE;
+
         for(Object o : objects) {
-            double value = field.getDouble(o);
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             if(max < value)
                 max = value;
         }
         return max;
     }
 
-    //@Override
-    public int countIntValue(String columnName, Class type, int refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will find out how many times a specific data occurs in a column, selected by the client.
+     * The column must consist of integer values
+     * @param columnName - Name of the column the client wants to see for the reference value.
+     * @param type - Class type of the objects. Must be created by client
+     * @param refValue - The reference value that will be checked in the column selected
+     * @return - Returns the amount of times the reference value is counted in the column
+     */
+    @Override
+    public int countIntValue(String columnName, Class type, int refValue) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         int count = 0;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            int intVal = (int) value;
-
-            if (intVal == refValue)
+            int value = 0;
+            try {
+                value = getField(columnName, type).getInt(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            if (value == refValue)
                 count++;
         }
 
         return count;
     }
 
-    //@Override
-    public int countStringValue(String columnName, Class type, String refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will find out how many times a specific data occurs in a column, selected by the client.
+     * The column must consist of string values
+     * @param columnName - Name of the column the client wants to see for the reference value.
+     * @param type - Class type of the objects. Must be created by client
+     * @param refValue - The reference value that will be checked in the column selected
+     * @return - Returns the amount of times the reference value is counted in the column
+     */
+    @Override
+    public int countStringValue(String columnName, Class type, String refValue) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         int count = 0;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            String strVal = (String) value;
-
-            if (strVal.equals(refValue))
+            String value = null;
+            try {
+                value = (String) getField(columnName, type).get(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            if (value.equals(refValue))
                 count++;
         }
 
         return count;
     }
 
-    //@Override
-    public int countDoubleValue(String columnName, Class type, double refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    /**
+     * Will find out how many times a specific data occurs in a column, selected by the client.
+     * The column must consist of double values
+     * @param columnName - Name of the column the client wants to see for the reference value.
+     * @param type - Class type of the objects. Must be created by client
+     * @param refValue - The reference value that will be checked in the column selected
+     * @return - Returns the amount of times the reference value is counted in the column
+     */
+    @Override
+    public int countDoubleValue(String columnName, Class type, double refValue) {
         List<Object> objects = xml.getAllObjects();
-
-        Field field = type.getDeclaredField(columnName);
-        field.setAccessible(true);
-
         int count = 0;
 
         for (Object o : objects) {
-            Object value = field.get(o);
-            double strVal = (double) value;
-
-            if (strVal == refValue)
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            if (value == refValue)
                 count++;
         }
         return count;

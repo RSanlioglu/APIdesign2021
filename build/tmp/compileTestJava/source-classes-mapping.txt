@@ -10,7 +10,7 @@ DataAccessJSONTest.java
  DataAccessJSONTest
 CalculationCSVTest.java
  CalculationCSVTest
-CalculationXMLTest.java
- CalculationXMLTest
 CalculationJSONTest.java
  CalculationJSONTest
+CalculationXMLTest.java
+ CalculationXMLTest
