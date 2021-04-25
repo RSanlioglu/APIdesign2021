@@ -15,7 +15,7 @@ public class CalculationJSON implements ICalculation{
 
 
     @Override
-    public int CalculateColumnSumInt(String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException {
+    public int calculateColumnSumInt(String columnName, Class type) throws NoSuchFieldException, IllegalAccessException, IOException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -33,7 +33,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public double CalculateColumnSumDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnSumDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -51,7 +51,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public double CalculateColumnAverageInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnAverageInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -69,7 +69,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public double CalculateColumnAverageDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnAverageDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -87,7 +87,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public int CalculateColumnMinInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int calculateColumnMinInt(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -120,7 +120,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public double CalculateColumnMinDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public double calculateColumnMinDouble(String columnName, Class type) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -154,7 +154,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public int CountIntValue(String columnName, Class type, int refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int countIntValue(String columnName, Class type, int refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -174,7 +174,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public int CountStringValue(String columnName, Class type, String refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int countStringValue(String columnName, Class type, String refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);
@@ -194,7 +194,7 @@ public class CalculationJSON implements ICalculation{
     }
 
     @Override
-    public int CountdoubleValue(String columnName, Class type, double refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public int countDoubleValue(String columnName, Class type, double refValue) throws IOException, NoSuchFieldException, IllegalAccessException {
         List<Object> objects = json.getAllObjects();
 
         Field field = type.getDeclaredField(columnName);

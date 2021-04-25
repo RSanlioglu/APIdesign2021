@@ -29,7 +29,7 @@ public class CalculationCSVTest {
     public void calculateSumIntWeight() {
         int sum = 0;
         try {
-            sum = calculation.CalculateColumnSumInt("weight", Person.class);
+            sum = calculation.calculateColumnSumInt("weight", Person.class);
         } catch (NoSuchFieldException | IllegalAccessException | IOException e) {
             e.printStackTrace();
         }
@@ -45,7 +45,7 @@ public class CalculationCSVTest {
     public void calculateDoubleHeight() {
         double sum = 0;
         try {
-            sum = calculation.CalculateColumnSumDouble("height", Person.class);
+            sum = calculation.calculateColumnSumDouble("height", Person.class);
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class CalculationCSVTest {
     public void calculateAverageAgeInt() {
         double average = 0;
         try {
-            average = calculation.CalculateColumnAverageInt("age", Person.class);
+            average = calculation.calculateColumnAverageInt("age", Person.class);
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class CalculationCSVTest {
     public void calculateAverageHeightDouble() {
         double avgHeight = 0;
         try {
-            avgHeight = calculation.CalculateColumnAverageDouble("height", Person.class);
+            avgHeight = calculation.calculateColumnAverageDouble("height", Person.class);
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -93,7 +93,7 @@ public class CalculationCSVTest {
     public void calculateMinAge() {
         int min = 0;
         try {
-            min = calculation.CalculateColumnMinInt("age", Person.class);
+            min = calculation.calculateColumnMinInt("age", Person.class);
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -125,7 +125,7 @@ public class CalculationCSVTest {
     public void calculateMinHeight() {
         double min = 0;
         try {
-            min = calculation.CalculateColumnMinDouble("height", Person.class);
+            min = calculation.calculateColumnMinDouble("height", Person.class);
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -156,7 +156,7 @@ public class CalculationCSVTest {
     public void countAge() {
         int countAge = 0;
         try {
-            countAge = calculation.CountIntValue("age", Person.class, 36);
+            countAge = calculation.countIntValue("age", Person.class, 36);
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -171,7 +171,7 @@ public class CalculationCSVTest {
     public void countName() {
         int countName = 0;
         try {
-            countName = calculation.CountStringValue("first_name", Person.class, "Kyle");
+            countName = calculation.countStringValue("first_name", Person.class, "Kyle");
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -186,7 +186,7 @@ public class CalculationCSVTest {
     public void countHeight() {
         int countDouble = 0;
         try {
-            countDouble = calculation.CountdoubleValue("height", Person.class, 2.3);
+            countDouble = calculation.countDoubleValue("height", Person.class, 2.3);
         } catch (IOException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
