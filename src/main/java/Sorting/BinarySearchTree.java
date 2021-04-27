@@ -1,9 +1,14 @@
-package dataJSON.sorting;
+package Sorting;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class BinarySearchTree {
+/**
+ * A binary search tree implementation for the use of sorting strings. The implementation
+ * is gathered from the course: ITF20006-1 21V Algorithms and datastructures, and modified
+ * so that it is capable for the use of the frameworks scope.
+ */
+final class BinarySearchTree {
     private TreeNode root;
 
     //Constructor that creates a search tree with a null value for the root

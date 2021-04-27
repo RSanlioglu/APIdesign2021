@@ -1,9 +1,8 @@
-package dataJSON.sorting;
+package Sorting;
 
-import java.util.HashMap;
 import java.util.List;
 
-public interface ISortingJSON {
+public interface ISorting {
     List<? extends Object> sortIntASC(String fieldName);
     List<? extends Object> sortIntDESC(String fieldName);
     List<? extends Object> sortDoubleASC(String fieldName);

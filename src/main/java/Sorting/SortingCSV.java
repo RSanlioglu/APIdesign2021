@@ -1,16 +1,15 @@
-package dataJSON.sorting;
+package Sorting;
 
-import DataAccess.DataAccessJSON;
-
-import java.util.*;
+import DataAccess.DataAccessCSV;
 import java.lang.reflect.Field;
+import java.util.*;
 
-public class SortingJSON implements ISortingJSON{
-    DataAccessJSON json;
+public class SortingCSV implements ISorting{
+    DataAccessCSV csv;
     Class type;
 
-    public SortingJSON(DataAccessJSON json, Class type) {
-        this.json = json;
+    public SortingCSV(DataAccessCSV csv, Class type) {
+        this.csv = csv;
         this.type = type;
     }
 
@@ -23,11 +22,12 @@ public class SortingJSON implements ISortingJSON{
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
+    @Override
     public List<? extends Object> sortIntASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = json.getAllObjects();
+        List<Object> objects = csv.getAllObjects();
 
         Field field;
         try {
@@ -46,7 +46,7 @@ public class SortingJSON implements ISortingJSON{
                 objectsMap.put(field.getInt(objects.get(i)), list);
             }
             SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
-            LinkedHashSet<Integer> set = RemoveDuplicates.removeDuplicatesInt(intToBeSorted);
+            LinkedHashSet<Integer> set = RemoveDuplicateUtilities.removeDuplicatesInt(intToBeSorted);
             for(int i : set) {
                 sortedList.addAll(objectsMap.get(i));
             }
@@ -67,11 +67,12 @@ public class SortingJSON implements ISortingJSON{
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
+    @Override
     public List<? extends Object> sortIntDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = json.getAllObjects();
+        List<Object> objects = csv.getAllObjects();
 
         Field field;
         try {
@@ -90,7 +91,7 @@ public class SortingJSON implements ISortingJSON{
                 objectsMap.put(field.getInt(objects.get(i)), list);
             }
             SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
-            LinkedHashSet<Integer> set = RemoveDuplicates.removeDuplicatesInt(intToBeSorted);
+            LinkedHashSet<Integer> set = RemoveDuplicateUtilities.removeDuplicatesInt(intToBeSorted);
             for(int i : set) {
                 sortedList.addAll(objectsMap.get(i));
             }
@@ -111,11 +112,12 @@ public class SortingJSON implements ISortingJSON{
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
+    @Override
     public List<? extends Object> sortDoubleASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Double, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = json.getAllObjects();
+        List<Object> objects = csv.getAllObjects();
 
         Field field;
         try {
@@ -134,7 +136,7 @@ public class SortingJSON implements ISortingJSON{
                 objectsMap.put(field.getDouble(objects.get(i)), list);
             }
             SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
-            LinkedHashSet<Double> set = RemoveDuplicates.removeDuplicatesDouble(doubleToBeSorted);
+            LinkedHashSet<Double> set = RemoveDuplicateUtilities.removeDuplicatesDouble(doubleToBeSorted);
             for(double i : set) {
                 sortedList.addAll(objectsMap.get(i));
             }
@@ -153,11 +155,12 @@ public class SortingJSON implements ISortingJSON{
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
+    @Override
     public List<? extends Object> sortDoubleDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Double, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = json.getAllObjects();
+        List<Object> objects = csv.getAllObjects();
 
         Field field;
         try {
@@ -176,7 +179,7 @@ public class SortingJSON implements ISortingJSON{
                 objectsMap.put(field.getDouble(objects.get(i)), list);
             }
             SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
-            LinkedHashSet<Double> set = RemoveDuplicates.removeDuplicatesDouble(doubleToBeSorted);
+            LinkedHashSet<Double> set = RemoveDuplicateUtilities.removeDuplicatesDouble(doubleToBeSorted);
             for(double i : set) {
                 sortedList.addAll(objectsMap.get(i));
             }
@@ -195,11 +198,12 @@ public class SortingJSON implements ISortingJSON{
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
+    @Override
     public List<? extends Object> sortStringAlphabeticalASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<String, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = json.getAllObjects();
+        List<Object> objects = csv.getAllObjects();
 
         Field field;
 
@@ -219,7 +223,7 @@ public class SortingJSON implements ISortingJSON{
                 objectsMap.put((String) field.get(objects.get(i)), list);
             }
             SortingAlgorithm.bstSortString(stringToBeSorted);
-            LinkedHashSet<String> set = RemoveDuplicates.removeDuplicatesString(stringToBeSorted);
+            LinkedHashSet<String> set = RemoveDuplicateUtilities.removeDuplicatesString(stringToBeSorted);
             for(String s : set) {
                 sortedList.addAll(objectsMap.get(s));
             }
@@ -236,11 +240,12 @@ public class SortingJSON implements ISortingJSON{
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
+    @Override
     public List<? extends Object> sortStringAlphabeticalDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<String, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = json.getAllObjects();
+        List<Object> objects = csv.getAllObjects();
 
         Field field;
 
@@ -260,7 +265,7 @@ public class SortingJSON implements ISortingJSON{
                 objectsMap.put((String) field.get(objects.get(i)), list);
             }
             SortingAlgorithm.bstSortString(stringToBeSorted);
-            LinkedHashSet<String> set = RemoveDuplicates.removeDuplicatesString(stringToBeSorted);
+            LinkedHashSet<String> set = RemoveDuplicateUtilities.removeDuplicatesString(stringToBeSorted);
             for(String s : set) {
                 sortedList.addAll(objectsMap.get(s));
             }

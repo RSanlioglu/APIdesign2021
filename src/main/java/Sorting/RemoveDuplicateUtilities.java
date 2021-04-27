@@ -1,9 +1,12 @@
-package dataJSON.sorting;
+package Sorting;
 
 import java.util.LinkedHashSet;
 import java.util.List;
 
-class RemoveDuplicates {
+/**
+ * Utility class providing simple removal of duplications in a list og hash-keys used in sorting-operations
+ */
+final class RemoveDuplicateUtilities {
     static LinkedHashSet<Integer> removeDuplicatesInt(int[] a) {
         LinkedHashSet<Integer> set = new LinkedHashSet<Integer>();
         for (int j : a) set.add(j);

@@ -1,4 +1,4 @@
-package dataJSON.sorting;
+package Sorting;
 
 import java.util.List;
 

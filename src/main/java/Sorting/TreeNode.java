@@ -1,10 +1,10 @@
-package dataJSON.sorting;
+package Sorting;
 
 /**
  * TreeNodes will contain a string of data and
  * two more nodes. One left node and one right node.
  */
-class TreeNode {
+final class TreeNode {
     String data;
     TreeNode left, right;
 
