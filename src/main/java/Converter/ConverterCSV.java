@@ -1,4 +1,4 @@
-package dataCSV.converting;
+package Converter;
 
 import DataAccess.DataAccessCSV;
 import DataAccess.DataAccessJSON;
@@ -10,17 +10,14 @@ import java.util.List;
 
 public class ConverterCSV {
 
-
-      public static void convertToJSON(DataAccessCSV csv, String newFileName, Class type) throws IOException {
-
+    public static void convertToJSON(DataAccessCSV csv, String newFileName, Class type) {
           List<Object> objects = csv.getAllObjects();
           DataAccessJSON json = new DataAccessJSON(newFileName,type);
           json.writeList(Collections.singletonList(objects));
-      }
+    }
 
 
-    public static void convertToXML(DataAccessCSV csv, String newFileName, Class type, String rootName) throws IOException {
-
+    public static void convertToXML(DataAccessCSV csv, String newFileName, Class type, String rootName) {
         List<Object> objects = csv.getAllObjects();
         DataAccessXML dataAccessXML = new DataAccessXML(newFileName, type, rootName);
         dataAccessXML.writeList(Collections.singletonList(objects));

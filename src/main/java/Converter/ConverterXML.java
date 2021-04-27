@@ -1,4 +1,4 @@
-package dataXML.converting;
+package Converter;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectMapper;

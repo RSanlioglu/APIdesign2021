@@ -14,9 +14,9 @@ CalculationJSONTest.java
  CalculationJSONTest
 CalculationXMLTest.java
  CalculationXMLTest
+SortingXMLTest.java
+ SortingXMLTest
 SortingJSONTest.java
  SortingJSONTest
 SortingCSVTest.java
  SortingCSVTest
-SortingXMLTest.java
- SortingXMLTest

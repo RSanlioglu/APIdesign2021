@@ -1,4 +1,4 @@
-package dataJSON.converting;
+package Converter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
