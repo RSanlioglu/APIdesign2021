@@ -10,7 +10,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import java.io.File;
 import java.io.IOException;
 
-public class ConverterJSON {
+abstract public class ConverterJSON {
 
     public static void convertToCSV(String pathName, String newFileName) {
         JsonNode jsonTree = null;

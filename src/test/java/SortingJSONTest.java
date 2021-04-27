@@ -17,12 +17,12 @@ public class SortingJSONTest {
     private static final SortingJSON sorting = new SortingJSON(dataAccess, Car.class);
 
     List<Car> cars = new ArrayList<>();
-    Car ferrariF40 = new Car(1122029, "Ferrari", "F40", 1992, 2.9);  // 1
-    Car porche911 = new Car(5531110, "Porche", "911", 2018, 3.8);  //2
-    Car fordGT = new Car(9934442, "Ford", "GT", 2005, 5.4);  //3
-    Car mcLaren = new Car(6641124, "Mercedes", "SLR McLaren", 2006, 5.4); //3
-    Car gWagon = new Car(9922212, "Mercedes", "Gelandewagen", 2006, 3.8); //2
-    Car bentley = new Car(7884829, "Bentley", "Continental GT V8", 2020, 6); //4
+    Car ferrariF40 = new Car(1122029, "Ferrari", "F40", 1992, 2.9);
+    Car porche911 = new Car(5531110, "Porche", "911", 2018, 3.8);
+    Car fordGT = new Car(9934442, "Ford", "GT", 2005, 5.4);
+    Car mcLaren = new Car(6641124, "Mercedes", "SLR McLaren", 2006, 5.4);
+    Car gWagon = new Car(9922212, "Mercedes", "Gelandewagen", 2006, 3.8);
+    Car bentley = new Car(7884829, "Bentley", "Continental GT V8", 2020, 6);
 
     @BeforeEach
     public void setUp() {

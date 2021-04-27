@@ -1,9 +1,19 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"registrationID", "producer", "model", "year", "cylinderVolume"})
 public class Car {
+    @JsonProperty("registrationID")
     int registrationID;
-    String producer, model;
+    @JsonProperty("producer")
+    String producer;
+    @JsonProperty("model")
+    String model;
+    @JsonProperty("year")
     int year;
+    @JsonProperty("cylinderVolume")
     double cylinderVolume;
 
     public Car(int registrationID, String producer, String model, int year, double cylinderVolume) {

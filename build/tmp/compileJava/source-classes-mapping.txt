@@ -6,47 +6,35 @@ Calculation/CalculationJSON.java
  Calculation.CalculationJSON
 Calculation/CalculationCSV.java
  Calculation.CalculationCSV
-dataCSV/sorting/SortingCSV.java
- dataCSV.sorting.SortingCSV
+Sorting/SortingCSV.java
+ Sorting.SortingCSV
 DataAccess/DataAccessJSON.java
  DataAccess.DataAccessJSON
-dataXML/converting/IConverterXML.java
- dataXML.converting.IConverterXML
-dataXML/converting/ConverterXML.java
- dataXML.converting.ConverterXML
-dataCSV/sorting/ISortingCSV.java
- dataCSV.sorting.ISortingCSV
-dataXML/sorting/ISortingXML.java
- dataXML.sorting.ISortingXML
-DataAccess/IDataAccess.java
- DataAccess.IDataAccess
-dataXML/CoreXML.java
- dataXML.CoreXML
-Exceptions/FileAlreadyExistsException.java
- Exceptions.FileAlreadyExistsException
-dataCSV/converting/ConverterCSV.java
- dataCSV.converting.ConverterCSV
-Calculation/CalculationXML.java
- Calculation.CalculationXML
-dataXML/sorting/SortingXML.java
- dataXML.sorting.SortingXML
-DataAccess/DataAccessCSV.java
- DataAccess.DataAccessCSV
-dataJSON/converting/ConverterJSON.java
- dataJSON.converting.ConverterJSON
-Sorting/BinarySearchTree.java
- Sorting.BinarySearchTree
 Sorting/TreeNode.java
  Sorting.TreeNode
 Sorting/RemoveDuplicateUtilities.java
  Sorting.RemoveDuplicateUtilities
-Sorting/ISorting.java
- Sorting.ISorting
-Sorting/SortingAlgorithm.java
- Sorting.SortingAlgorithm
-Sorting/SortingCSV.java
- Sorting.SortingCSV
 Sorting/SortingJSON.java
  Sorting.SortingJSON
+Sorting/BinarySearchTree.java
+ Sorting.BinarySearchTree
+DataAccess/IDataAccess.java
+ DataAccess.IDataAccess
+Sorting/ISorting.java
+ Sorting.ISorting
+Exceptions/FileAlreadyExistsException.java
+ Exceptions.FileAlreadyExistsException
 Sorting/SortingXML.java
  Sorting.SortingXML
+Calculation/CalculationXML.java
+ Calculation.CalculationXML
+Sorting/SortingAlgorithm.java
+ Sorting.SortingAlgorithm
+DataAccess/DataAccessCSV.java
+ DataAccess.DataAccessCSV
+Converter/ConverterJSON.java
+ Converter.ConverterJSON
+Converter/ConverterCSV.java
+ Converter.ConverterCSV
+Converter/ConverterXML.java
+ Converter.ConverterXML
