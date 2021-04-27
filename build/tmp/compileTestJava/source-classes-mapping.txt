@@ -18,3 +18,5 @@ SortingJSONTest.java
  SortingJSONTest
 SortingCSVTest.java
  SortingCSVTest
+SortingXMLTest.java
+ SortingXMLTest

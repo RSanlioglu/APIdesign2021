@@ -48,3 +48,5 @@ Sorting/SortingCSV.java
  Sorting.SortingCSV
 Sorting/SortingJSON.java
  Sorting.SortingJSON
+Sorting/SortingXML.java
+ Sorting.SortingXML
