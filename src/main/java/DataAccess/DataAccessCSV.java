@@ -14,6 +14,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Factory for data access creation for CSV files
+ */
 public class DataAccessCSV implements IDataAccess {
     private final String fileName;
     private final boolean withHeaders;
@@ -295,7 +298,8 @@ public class DataAccessCSV implements IDataAccess {
     }
 
     /**
-     * Function that allow the client to create an empty .csv file. The name is given from the constructor
+     * Creates a new file with the filename that the client declared in the constructor.
+     * @throws FileAlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
      */
     public void createCSV() throws FileAlreadyExistsException {
         File file = new File(fileName);

@@ -11,6 +11,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Factory for data access creation for JSON files
+ */
 public class DataAccessJSON implements IDataAccess {
     private final String fileName;
     private final Class type;
@@ -257,7 +260,7 @@ public class DataAccessJSON implements IDataAccess {
 
     /**
      * Creates a new file with the filename that the client declared in the constructor.
-     * If the file already exists a FileAlreadyExistsException is thrown.
+     * @throws FileAlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
      */
     public void createJson() throws FileAlreadyExistsException {
         File file = new File(fileName);

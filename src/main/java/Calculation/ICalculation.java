@@ -1,9 +1,5 @@
 package Calculation;
 
-import DataAccess.DataAccessCSV;
-
-import java.io.IOException;
-
 public interface ICalculation {
     int calculateColumnSumInt(String columnName, Class type);
     double calculateColumnSumDouble(String columnName, Class type);

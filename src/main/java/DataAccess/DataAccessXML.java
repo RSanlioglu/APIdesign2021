@@ -10,12 +10,21 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Factory for data access creation for XML files
+ */
 public class DataAccessXML implements IDataAccess {
 
     private final String fileName;
     private final Class type;
     private final String rootName;
 
+    /**
+     * Constructor used for creating an instance of data access
+     * @param fileName - Name of the file that the client wants to access to
+     * @param type - Type of objects used inside the datafile
+     * @param rootName - Name of the root tag name in the XML file
+     */
     public DataAccessXML(String fileName, Class type, String rootName) {
         this.fileName = fileName;
         this.type = type;
@@ -265,7 +274,7 @@ public class DataAccessXML implements IDataAccess {
 
     /**
      * Creates a new file with the filename that the client declared in the constructor.
-     * If the file already exists a FileAlreadyExistsException is thrown.
+     * @throws FileAlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
      */
     public void createXML() throws FileAlreadyExistsException {
         File file = new File(fileName);
