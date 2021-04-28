@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SortingXMLTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-27T14:58:50" hostname="LAPTOP-KA5PC1CV" time="0.089">
+<testsuite name="SortingXMLTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-28T12:42:36" hostname="LAPTOP-KA5PC1CV" time="0.054">
   <properties/>
-  <testcase name="sortStringAlphabeticalDescending()" classname="SortingXMLTest" time="0.014"/>
-  <testcase name="sortDoubleDescending()" classname="SortingXMLTest" time="0.012"/>
-  <testcase name="sortStringAlphabeticalAscending()" classname="SortingXMLTest" time="0.011"/>
-  <testcase name="sortDoubleAscending()" classname="SortingXMLTest" time="0.02"/>
-  <testcase name="sortIntAscending()" classname="SortingXMLTest" time="0.016"/>
-  <testcase name="sortIntDescending()" classname="SortingXMLTest" time="0.013"/>
+  <testcase name="sortStringAlphabeticalDescending()" classname="SortingXMLTest" time="0.008"/>
+  <testcase name="sortDoubleDescending()" classname="SortingXMLTest" time="0.01"/>
+  <testcase name="sortStringAlphabeticalAscending()" classname="SortingXMLTest" time="0.006"/>
+  <testcase name="sortDoubleAscending()" classname="SortingXMLTest" time="0.011"/>
+  <testcase name="sortIntAscending()" classname="SortingXMLTest" time="0.009"/>
+  <testcase name="sortIntDescending()" classname="SortingXMLTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

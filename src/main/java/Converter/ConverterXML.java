@@ -13,6 +13,13 @@ import java.util.List;
 
 abstract public class ConverterXML {
 
+    /**
+     * Function for converting XML file to CSV file.
+     * @param pathName - Mame of the XML file that the client wants to convert
+     * @param newFile - Name of the new CSV file that the client retrieves after the converting
+     * @param type - Type of objects used inside the XML file.
+     * @param header - Boolean value if the client wants headers or not
+     */
     public static void convertToCSV(String pathName, String newFile, Class type, boolean header) {
         List<Object> objects = new ArrayList<>();
         XmlMapper objectMapper = new XmlMapper();
@@ -44,7 +51,12 @@ abstract public class ConverterXML {
         }
     }
 
-
+    /**
+     * Function for converting XML file to JSON file.
+     * @param pathName - Name of the XML file that the client wants to convert
+     * @param newFile - Name of the new JSON file that the client retrieves after the converting
+     * @param type - Type of objects used inside the XML file.
+     */
     public static void convertToJSON(String pathName, String newFile, Class type) {
         List<Object> objects = new ArrayList<>();
         XmlMapper objectMapper = new XmlMapper();

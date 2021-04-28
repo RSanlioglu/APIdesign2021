@@ -12,6 +12,11 @@ import java.io.IOException;
 
 abstract public class ConverterJSON {
 
+    /**
+     * Function for converting JSON file to CSV file.
+     * @param pathName - Name of the JSON file that the client wants to convert
+     * @param newFileName - Name of the new CSV file the client gets after converting.
+     */
     public static void convertToCSV(String pathName, String newFileName) {
         JsonNode jsonTree = null;
         try {
@@ -36,6 +41,12 @@ abstract public class ConverterJSON {
         }
     }
 
+    /**
+     * Function for converting JSON file to CSV file.
+     * @param pathName - Name of the JSON file that the client wants to convert
+     * @param newFileName - Name of the new XML file the client gets after converting
+     * @param rootTagName - Name of the root tag in the XML file.
+     */
     public static void convertToXML(String pathName, String newFileName, String rootTagName) {
         JsonMapper jsonMapper = new JsonMapper();
         Object x = null;

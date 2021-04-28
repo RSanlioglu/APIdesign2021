@@ -1,19 +1,19 @@
-CalculationJSONTest.java
- CalculationJSONTest
 Model/Person.java
  Model.Person
-CalculationCSVTest.java
- CalculationCSVTest
-CalculationXMLTest.java
- CalculationXMLTest
 SortingXMLTest.java
  SortingXMLTest
 DataAccessCSVTest.java
  DataAccessCSVTest
+CalculationXMLTest.java
+ CalculationXMLTest
 DataAccessXMLTest.java
  DataAccessXMLTest
+CalculationCSVTest.java
+ CalculationCSVTest
 Model/Car.java
  Model.Car
+CalculationJSONTest.java
+ CalculationJSONTest
 SortingJSONTest.java
  SortingJSONTest
 SortingCSVTest.java

@@ -30,11 +30,11 @@ Calculation/CalculationJSON.java
  Calculation.CalculationJSON
 DataAccess/DataAccessXML.java
  DataAccess.DataAccessXML
-Converter/ConverterCSV.java
- Converter.ConverterCSV
+Sorting/SortingJSON.java
+ Sorting.SortingJSON
 Calculation/CalculationXML.java
  Calculation.CalculationXML
 Sorting/SortingCSV.java
  Sorting.SortingCSV
-Sorting/SortingJSON.java
- Sorting.SortingJSON
+Converter/ConverterCSV.java
+ Converter.ConverterCSV

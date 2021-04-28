@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SortingCSVTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-27T14:58:50" hostname="LAPTOP-KA5PC1CV" time="0.073">
+<testsuite name="SortingCSVTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-28T12:42:36" hostname="LAPTOP-KA5PC1CV" time="0.045">
   <properties/>
-  <testcase name="sortStringAlphabeticalDescending()" classname="SortingCSVTest" time="0.017"/>
-  <testcase name="sortDoubleDescending()" classname="SortingCSVTest" time="0.011"/>
-  <testcase name="sortStringAlphabeticalAscending()" classname="SortingCSVTest" time="0.01"/>
-  <testcase name="sortDoubleAscending()" classname="SortingCSVTest" time="0.01"/>
-  <testcase name="sortIntAscending()" classname="SortingCSVTest" time="0.009"/>
-  <testcase name="sortIntDescending()" classname="SortingCSVTest" time="0.011"/>
+  <testcase name="sortStringAlphabeticalDescending()" classname="SortingCSVTest" time="0.01"/>
+  <testcase name="sortDoubleDescending()" classname="SortingCSVTest" time="0.006"/>
+  <testcase name="sortStringAlphabeticalAscending()" classname="SortingCSVTest" time="0.007"/>
+  <testcase name="sortDoubleAscending()" classname="SortingCSVTest" time="0.006"/>
+  <testcase name="sortIntAscending()" classname="SortingCSVTest" time="0.006"/>
+  <testcase name="sortIntDescending()" classname="SortingCSVTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
