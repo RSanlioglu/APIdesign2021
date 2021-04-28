@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+    Abstract class used for converting XML files to CSV or JSON files.
+ */
 abstract public class ConverterXML {
 
     /**

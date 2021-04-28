@@ -5,10 +5,18 @@ import DataAccess.DataAccessJSON;
 import java.util.*;
 import java.lang.reflect.Field;
 
+/**
+ * Factory for SortingJSON.
+ */
 public class SortingJSON implements ISorting {
     DataAccessJSON json;
     Class type;
 
+    /**
+     * Constructor for creating an instance of SortingJSON class
+     * @param json - DataAccess used to access a JSON file
+     * @param type - Type of objects that is in JSON file
+     */
     public SortingJSON(DataAccessJSON json, Class type) {
         this.json = json;
         this.type = type;

@@ -4,10 +4,18 @@ import DataAccess.DataAccessCSV;
 import java.lang.reflect.Field;
 import java.util.*;
 
+/**
+ * Factory for SortingCSV.
+ */
 public class SortingCSV implements ISorting{
     DataAccessCSV csv;
     Class type;
 
+    /**
+     * Constructor used to create an instance of SortingCSV class
+     * @param csv - DataAccess used to acces a CSV file
+     * @param type - Type of objects inside the CSV file
+     */
     public SortingCSV(DataAccessCSV csv, Class type) {
         this.csv = csv;
         this.type = type;

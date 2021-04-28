@@ -11,7 +11,9 @@ import java.util.List;
 final class BinarySearchTree {
     private TreeNode root;
 
-    //Constructor that creates a search tree with a null value for the root
+    /**
+     * Constructor that creates a search tree with a null value for the root
+     */
     public BinarySearchTree() {
         root = null;
     }

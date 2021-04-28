@@ -5,10 +5,18 @@ import DataAccess.DataAccessXML;
 import java.lang.reflect.Field;
 import java.util.*;
 
+/**
+ * Factory for SortingXML.
+ */
 public class SortingXML implements ISorting {
     DataAccessXML xml;
     Class type;
 
+    /**
+     * Constructor used to create an instance of SortingXML class.
+     * @param xml - DataAccess used to access a XML file
+     * @param type - Type of objects in XML file
+     */
     public SortingXML(DataAccessXML xml, Class type) {
         this.xml = xml;
         this.type = type;

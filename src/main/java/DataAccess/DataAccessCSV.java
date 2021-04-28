@@ -14,6 +14,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Factory for data access creation for CSV files
+ */
 public class DataAccessCSV implements IDataAccess {
     private final String fileName;
     private final boolean withHeaders;

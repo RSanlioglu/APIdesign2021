@@ -11,6 +11,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Factory for data access creation for JSON files
+ */
 public class DataAccessJSON implements IDataAccess {
     private final String fileName;
     private final Class type;

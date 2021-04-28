@@ -2,6 +2,9 @@ package Sorting;
 
 import java.util.List;
 
+/**
+ * Sorting algorithms used in sorting functions.
+ */
 abstract class SortingAlgorithm {
     /**
      * A simple Merge Sort algorithm used to sort data.
