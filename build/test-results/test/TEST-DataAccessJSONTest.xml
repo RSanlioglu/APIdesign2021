@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DataAccessJSONTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2021-04-28T12:42:35" hostname="LAPTOP-KA5PC1CV" time="0.123">
+<testsuite name="DataAccessJSONTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2021-04-28T17:35:38" hostname="LAPTOP-KA5PC1CV" time="0.411">
   <properties/>
-  <testcase name="appendList()" classname="DataAccessJSONTest" time="0.008"/>
-  <testcase name="writeListToFile()" classname="DataAccessJSONTest" time="0.005"/>
-  <testcase name="getAllObjectsFromTheJSONFile()" classname="DataAccessJSONTest" time="0.005"/>
-  <testcase name="writeOneObjectToFile()" classname="DataAccessJSONTest" time="0.007"/>
-  <testcase name="doesExist_Fail()" classname="DataAccessJSONTest" time="0.009"/>
-  <testcase name="updateObjectFromFile()" classname="DataAccessJSONTest" time="0.023"/>
-  <testcase name="createNewJSONFile()" classname="DataAccessJSONTest" time="0.004"/>
-  <testcase name="doesExist_Correct()" classname="DataAccessJSONTest" time="0.005"/>
-  <testcase name="appendObject()" classname="DataAccessJSONTest" time="0.007"/>
-  <testcase name="getCorrectObjectByCylinderReference()" classname="DataAccessJSONTest" time="0.004"/>
-  <testcase name="getCorrectObjectByIDReference_NotEquals()" classname="DataAccessJSONTest" time="0.007"/>
-  <testcase name="deleteObjectFromFile()" classname="DataAccessJSONTest" time="0.008"/>
-  <testcase name="getCorrectObjectByProducerReference()" classname="DataAccessJSONTest" time="0.005"/>
-  <testcase name="createExistingJSONFile()" classname="DataAccessJSONTest" time="0.002"/>
-  <testcase name="getCorrectObjectByProducerReference_NotEquals()" classname="DataAccessJSONTest" time="0.006"/>
-  <testcase name="getCorrectObjectByCylinderReference_NotEquals()" classname="DataAccessJSONTest" time="0.005"/>
-  <testcase name="getCorrectObjectByIDReference()" classname="DataAccessJSONTest" time="0.005"/>
+  <testcase name="appendList()" classname="DataAccessJSONTest" time="0.031"/>
+  <testcase name="writeListToFile()" classname="DataAccessJSONTest" time="0.024"/>
+  <testcase name="getAllObjectsFromTheJSONFile()" classname="DataAccessJSONTest" time="0.044"/>
+  <testcase name="writeOneObjectToFile()" classname="DataAccessJSONTest" time="0.011"/>
+  <testcase name="doesExist_Fail()" classname="DataAccessJSONTest" time="0.019"/>
+  <testcase name="updateObjectFromFile()" classname="DataAccessJSONTest" time="0.067"/>
+  <testcase name="createNewJSONFile()" classname="DataAccessJSONTest" time="0.012"/>
+  <testcase name="doesExist_Correct()" classname="DataAccessJSONTest" time="0.01"/>
+  <testcase name="appendObject()" classname="DataAccessJSONTest" time="0.027"/>
+  <testcase name="getCorrectObjectByCylinderReference()" classname="DataAccessJSONTest" time="0.025"/>
+  <testcase name="getCorrectObjectByIDReference_NotEquals()" classname="DataAccessJSONTest" time="0.019"/>
+  <testcase name="deleteObjectFromFile()" classname="DataAccessJSONTest" time="0.035"/>
+  <testcase name="getCorrectObjectByProducerReference()" classname="DataAccessJSONTest" time="0.016"/>
+  <testcase name="createExistingJSONFile()" classname="DataAccessJSONTest" time="0.007"/>
+  <testcase name="getCorrectObjectByProducerReference_NotEquals()" classname="DataAccessJSONTest" time="0.014"/>
+  <testcase name="getCorrectObjectByCylinderReference_NotEquals()" classname="DataAccessJSONTest" time="0.012"/>
+  <testcase name="getCorrectObjectByIDReference()" classname="DataAccessJSONTest" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

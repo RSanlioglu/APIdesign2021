@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CalculationCSVTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-28T12:42:34" hostname="LAPTOP-KA5PC1CV" time="0.267">
+<testsuite name="CalculationCSVTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-28T17:35:34" hostname="LAPTOP-KA5PC1CV" time="1.245">
   <properties/>
-  <testcase name="calculateMinHeight()" classname="CalculationCSVTest" time="0.228"/>
-  <testcase name="calculateMaxAge()" classname="CalculationCSVTest" time="0.005"/>
-  <testcase name="calculateMinAge()" classname="CalculationCSVTest" time="0.004"/>
-  <testcase name="calculateAverageHeightDouble()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="countAge()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="calculateSumIntWeight()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="calculateDoubleHeight()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="calculateAverageAgeInt()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="countName()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="calculateMaxHeight()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="countHeight()" classname="CalculationCSVTest" time="0.003"/>
+  <testcase name="calculateMinHeight()" classname="CalculationCSVTest" time="1.123"/>
+  <testcase name="calculateMaxAge()" classname="CalculationCSVTest" time="0.015"/>
+  <testcase name="calculateMinAge()" classname="CalculationCSVTest" time="0.009"/>
+  <testcase name="calculateAverageHeightDouble()" classname="CalculationCSVTest" time="0.015"/>
+  <testcase name="countAge()" classname="CalculationCSVTest" time="0.012"/>
+  <testcase name="calculateSumIntWeight()" classname="CalculationCSVTest" time="0.01"/>
+  <testcase name="calculateDoubleHeight()" classname="CalculationCSVTest" time="0.011"/>
+  <testcase name="calculateAverageAgeInt()" classname="CalculationCSVTest" time="0.01"/>
+  <testcase name="countName()" classname="CalculationCSVTest" time="0.01"/>
+  <testcase name="calculateMaxHeight()" classname="CalculationCSVTest" time="0.008"/>
+  <testcase name="countHeight()" classname="CalculationCSVTest" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

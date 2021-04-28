@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ConverterTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-28T12:42:35" hostname="LAPTOP-KA5PC1CV" time="0.211">
+<testsuite name="ConverterTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-28T17:35:37" hostname="LAPTOP-KA5PC1CV" time="0.693">
   <properties/>
-  <testcase name="convertCsvToJson()" classname="ConverterTest" time="0.088"/>
-  <testcase name="convertCsvToXml()" classname="ConverterTest" time="0.027"/>
-  <testcase name="convertXmlToJson()" classname="ConverterTest" time="0.022"/>
-  <testcase name="convertXmlToCsv()" classname="ConverterTest" time="0.019"/>
-  <testcase name="convertJsonToCSV()" classname="ConverterTest" time="0.018"/>
-  <testcase name="convertJsonToXML()" classname="ConverterTest" time="0.033"/>
+  <testcase name="convertCsvToJson()" classname="ConverterTest" time="0.341"/>
+  <testcase name="convertCsvToXml()" classname="ConverterTest" time="0.059"/>
+  <testcase name="convertXmlToJson()" classname="ConverterTest" time="0.052"/>
+  <testcase name="convertXmlToCsv()" classname="ConverterTest" time="0.068"/>
+  <testcase name="convertJsonToCSV()" classname="ConverterTest" time="0.068"/>
+  <testcase name="convertJsonToXML()" classname="ConverterTest" time="0.1"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
