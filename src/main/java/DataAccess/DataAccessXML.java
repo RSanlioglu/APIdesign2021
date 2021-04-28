@@ -265,7 +265,7 @@ public class DataAccessXML implements IDataAccess {
 
     /**
      * Creates a new file with the filename that the client declared in the constructor.
-     * If the file already exists a FileAlreadyExistsException is thrown.
+     * @throws FileAlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
      */
     public void createXML() throws FileAlreadyExistsException {
         File file = new File(fileName);
