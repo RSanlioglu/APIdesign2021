@@ -33,6 +33,7 @@ public class DataAccessJSON implements IDataAccess {
      * cast the objects to appropriate class
      * @return list of objects read from file
      */
+    @Override
     public List<Object> getAllObjects() {
         List<Object> objects = new ArrayList<>();
 
@@ -57,6 +58,7 @@ public class DataAccessJSON implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, double value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -85,6 +87,7 @@ public class DataAccessJSON implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, int value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -112,6 +115,7 @@ public class DataAccessJSON implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, String value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -138,6 +142,7 @@ public class DataAccessJSON implements IDataAccess {
      * parameter
      * @param o - Object to be written onto the file
      */
+    @Override
     public void writeObject(Object o) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -153,6 +158,7 @@ public class DataAccessJSON implements IDataAccess {
      * in the function parameter
      * @param l_o - List of objects to be written onto the file
      */
+    @Override
     public void writeList(List<Object> l_o) {
         ObjectMapper objectMapper = new ObjectMapper();
         for(Object o : l_o) {
@@ -170,6 +176,7 @@ public class DataAccessJSON implements IDataAccess {
      * The previous data will not be removed
      * @param o - Object to be appended onto the file
      */
+    @Override
     public void appendObject(Object o) {
         List<Object> objects = getAllObjects();
         objects.add(o);
@@ -188,6 +195,7 @@ public class DataAccessJSON implements IDataAccess {
      * The previous data will not be removed
      * @param l_o - List of objects to be appended onto the file
      */
+    @Override
     public void appendList(List<Object> l_o) {
         List<Object> objects = getAllObjects();
         objects.addAll(l_o);
@@ -207,6 +215,7 @@ public class DataAccessJSON implements IDataAccess {
      * @param o - Object to be searched for
      * @return True or false value
      */
+    @Override
     public boolean doesExist(Object o) {
         boolean exists = false;
         List<Object> objects = getAllObjects();
@@ -224,6 +233,7 @@ public class DataAccessJSON implements IDataAccess {
      * remove it
      * @param o - Object to be deleted
      */
+    @Override
     public void deleteObject(Object o) {
         List<Object> objects = getAllObjects();
         objects.removeIf(obj -> obj.toString().equals(o.toString()));
@@ -245,6 +255,7 @@ public class DataAccessJSON implements IDataAccess {
      * @param oldObject - Object to be updated
      * @param newObject - Object with the new values
      */
+    @Override
     public void updateObject(Object oldObject, Object newObject) {
         Object objectToBeDeleted = null;
         List<Object> objects = getAllObjects();

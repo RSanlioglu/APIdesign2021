@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DataAccessCSVTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2021-04-28T12:42:35" hostname="LAPTOP-KA5PC1CV" time="0.166">
+<testsuite name="DataAccessCSVTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2021-04-29T07:32:50" hostname="LAPTOP-KA5PC1CV" time="0.152">
   <properties/>
   <testcase name="createNewCSVFile()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="appendObject_WithOutHeader()" classname="DataAccessCSVTest" time="0.008"/>
-  <testcase name="writeOneObjectToFile_withHeader()" classname="DataAccessCSVTest" time="0.006"/>
-  <testcase name="deleteObjectFromFile_WithoutHeaders()" classname="DataAccessCSVTest" time="0.011"/>
+  <testcase name="appendObject_WithOutHeader()" classname="DataAccessCSVTest" time="0.007"/>
+  <testcase name="writeOneObjectToFile_withHeader()" classname="DataAccessCSVTest" time="0.005"/>
+  <testcase name="deleteObjectFromFile_WithoutHeaders()" classname="DataAccessCSVTest" time="0.01"/>
   <testcase name="appendList_withHeader()" classname="DataAccessCSVTest" time="0.007"/>
-  <testcase name="doesExist_Fail()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="getAllObjectsFromTheCSVFile_withoutHeader()" classname="DataAccessCSVTest" time="0.006"/>
-  <testcase name="createExistingCSVFile()" classname="DataAccessCSVTest" time="0.004"/>
+  <testcase name="doesExist_Fail()" classname="DataAccessCSVTest" time="0.004"/>
+  <testcase name="getAllObjectsFromTheCSVFile_withoutHeader()" classname="DataAccessCSVTest" time="0.005"/>
+  <testcase name="createExistingCSVFile()" classname="DataAccessCSVTest" time="0.003"/>
   <testcase name="updateObjectFromFile()" classname="DataAccessCSVTest" time="0.011"/>
   <testcase name="getAllObjectsFromTheCSVFile_withHeader()" classname="DataAccessCSVTest" time="0.006"/>
   <testcase name="doesExist_Correct()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="writeListToFile_WithHeader()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="writeOneObjectToFile_withOutHeader()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="getCorrectObjectByCylinderReference()" classname="DataAccessCSVTest" time="0.005"/>
+  <testcase name="writeListToFile_WithHeader()" classname="DataAccessCSVTest" time="0.004"/>
+  <testcase name="writeOneObjectToFile_withOutHeader()" classname="DataAccessCSVTest" time="0.005"/>
+  <testcase name="getCorrectObjectByCylinderReference()" classname="DataAccessCSVTest" time="0.006"/>
   <testcase name="getCorrectObjectByIDReference_NotEquals()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="deleteObjectFromFile()" classname="DataAccessCSVTest" time="0.011"/>
-  <testcase name="getCorrectObjectByProducerReference()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="appendList_withOutHeader()" classname="DataAccessCSVTest" time="0.007"/>
-  <testcase name="writeListToFile_WithOutHeader()" classname="DataAccessCSVTest" time="0.008"/>
-  <testcase name="appendObject_WithHeader()" classname="DataAccessCSVTest" time="0.01"/>
-  <testcase name="getCorrectObjectByProducerReference_NotEquals()" classname="DataAccessCSVTest" time="0.008"/>
+  <testcase name="deleteObjectFromFile()" classname="DataAccessCSVTest" time="0.012"/>
+  <testcase name="getCorrectObjectByProducerReference()" classname="DataAccessCSVTest" time="0.006"/>
+  <testcase name="appendList_withOutHeader()" classname="DataAccessCSVTest" time="0.008"/>
+  <testcase name="writeListToFile_WithOutHeader()" classname="DataAccessCSVTest" time="0.004"/>
+  <testcase name="appendObject_WithHeader()" classname="DataAccessCSVTest" time="0.005"/>
+  <testcase name="getCorrectObjectByProducerReference_NotEquals()" classname="DataAccessCSVTest" time="0.005"/>
   <testcase name="getCorrectObjectByCylinderReference_NotEquals()" classname="DataAccessCSVTest" time="0.006"/>
   <testcase name="getCorrectObjectByIDReference()" classname="DataAccessCSVTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>

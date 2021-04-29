@@ -40,6 +40,7 @@ public class DataAccessCSV implements IDataAccess {
      * client as an OBJECT. The client can then cast it
      * to the desired class-type
      */
+    @Override
     public List<Object> getAllObjects() {
         List<Object> objects = new ArrayList<>();
 
@@ -73,6 +74,7 @@ public class DataAccessCSV implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, double value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -101,6 +103,7 @@ public class DataAccessCSV implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, int value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -129,6 +132,7 @@ public class DataAccessCSV implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, String value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -154,6 +158,7 @@ public class DataAccessCSV implements IDataAccess {
      * Previous data will be deleted after calling this function
      * @param o - Object to be written on to the file
      */
+    @Override
     public void writeObject(Object o) {
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema csvSchema;
@@ -174,6 +179,7 @@ public class DataAccessCSV implements IDataAccess {
      * Previous data will be deleted after calling this function
      * @param l_o - List to written on to the file
      */
+    @Override
     public void writeList(List<Object> l_o) {
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema csvSchema;
@@ -195,6 +201,7 @@ public class DataAccessCSV implements IDataAccess {
      * Appends the set of data in the datafile with one object given by the client
      * @param o - Object that is supposed to be appended to the file
      */
+    @Override
     public void appendObject(Object o) {
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema csvSchema;
@@ -213,6 +220,7 @@ public class DataAccessCSV implements IDataAccess {
      * Appends the set of data in the datafile with one list of objects given by the client
      * @param l_o - List of objects that is supposed to be appended to the file
      */
+    @Override
     public void appendList(List<Object> l_o) {
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema csvSchema;
@@ -236,6 +244,7 @@ public class DataAccessCSV implements IDataAccess {
      * @param o - Object that is supposed to be checked for
      * @return - true or false value
      */
+    @Override
     public boolean doesExist(Object o) {
         boolean exists = false;
         List<Object> objects = new ArrayList<>();
@@ -256,6 +265,7 @@ public class DataAccessCSV implements IDataAccess {
      * without the data to be deleted is then written on to the file.
      * @param o - Object to be deleted
      */
+    @Override
     public void deleteObject(Object o) {
         List<Object> objects =  getAllObjects();
         objects.removeIf(obj -> obj.toString().equals(o.toString()));
@@ -284,6 +294,7 @@ public class DataAccessCSV implements IDataAccess {
      * @param oldObject - Object to be updated
      * @param newObject - Object containing new information
      */
+    @Override
     public void updateObject(Object oldObject, Object newObject) {
         Object objectToBeDeleted = null;
         List<Object> objects = getAllObjects();

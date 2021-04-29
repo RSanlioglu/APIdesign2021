@@ -67,6 +67,7 @@ public class DataAccessXML implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, double value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -95,6 +96,7 @@ public class DataAccessXML implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, int value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -122,6 +124,7 @@ public class DataAccessXML implements IDataAccess {
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
      */
+    @Override
     public Object getObjectById(String fieldName, String value) {
         List<Object> objects = getAllObjects();
         Field field;
@@ -175,7 +178,6 @@ public class DataAccessXML implements IDataAccess {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 
@@ -185,6 +187,7 @@ public class DataAccessXML implements IDataAccess {
      * The previous data will not be removed
      * @param o - Object to be appended onto the file
      */
+    @Override
     public void appendObject(Object o) {
         List<Object> objects = getAllObjects();
         objects.add(o);
@@ -203,6 +206,7 @@ public class DataAccessXML implements IDataAccess {
      * The previous data will not be removed
      * @param l_o - List of objects to be appended onto the file
      */
+    @Override
     public void appendList(List<Object> l_o) {
         List<Object> objects = getAllObjects();
         objects.addAll(l_o);
@@ -222,6 +226,7 @@ public class DataAccessXML implements IDataAccess {
      * @param o - Object to be searched for
      * @return True or false value
      */
+    @Override
     public boolean doesExist(Object o) {
         boolean exists = false;
         List<Object> objects = getAllObjects();
@@ -240,6 +245,7 @@ public class DataAccessXML implements IDataAccess {
      * remove it
      * @param o - Object to be deleted
      */
+    @Override
     public void deleteObject(Object o) {
         List<Object> objects = getAllObjects();
 
@@ -259,6 +265,7 @@ public class DataAccessXML implements IDataAccess {
      * @param oldObject - Object to be updated
      * @param newObject - Object with the new values
      */
+    @Override
     public void updateObject(Object oldObject, Object newObject) {
         List<Object> objects = getAllObjects();
         Object objectToBeDeleted = null;
