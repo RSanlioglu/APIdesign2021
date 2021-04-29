@@ -3,7 +3,7 @@ package DataAccess;
 import java.util.List;
 
 public interface IDataAccess {
-    List<Object> getAllObjects();                           //Return all of the objects from csv file
+    <T> List<T> getAllObjects();                           //Return all of the objects from csv file
     Object getObjectById(String fieldName, int value);      //Get one object by a field
     Object getObjectById(String fieldName, double value);   //Get one object by a field
     Object getObjectById(String fieldName, String value);   //Get one object by a field

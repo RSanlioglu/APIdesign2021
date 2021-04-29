@@ -34,15 +34,16 @@ public class DataAccessJSON implements IDataAccess {
      * @return list of objects read from file
      */
     @Override
-    public List<Object> getAllObjects() {
-        List<Object> objects = new ArrayList<>();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> getAllObjects() {
+        List<T> objects = new ArrayList<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
         MappingIterator<Object> mappingIterator;
         try {
             mappingIterator = objectMapper.readerFor(type).readValues(new File(fileName));
             while(mappingIterator.hasNext()) {
-                objects.add(mappingIterator.next());
+                objects.add((T) type.cast(mappingIterator.next()));
             }
         } catch (IOException e) {
             e.printStackTrace();

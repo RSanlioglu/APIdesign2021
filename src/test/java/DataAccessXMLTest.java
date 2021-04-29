@@ -80,7 +80,6 @@ public class DataAccessXMLTest {
      * Headers are used in this test
      */
     @Test
-    @SuppressWarnings("unchecked")
    public void getAllObjectsFromTheXMLFile() {
         //The list of cars are created. NOTE! Tesla is not added and will not be returned from the file
         List<Car> cars = new ArrayList<>();
@@ -92,11 +91,11 @@ public class DataAccessXMLTest {
         dataAccessXML.writeList(Collections.singletonList(cars));
 
         //Return the cars from the datafile
-        List<Car> returneCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
+        List<Car> returnedCars = dataAccessXML.getAllObjects();
 
-        assertEquals(2, returneCars.size());
-        Assertions.assertEquals(returneCars.get(0).toString(), mercedes.toString());
-        Assertions.assertEquals(returneCars.get(1).toString(), mustang.toString());
+        assertEquals(2, returnedCars.size());
+        Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());
+        Assertions.assertEquals(returnedCars.get(1).toString(), mustang.toString());
     }
 
     /**

@@ -41,8 +41,9 @@ public class DataAccessCSV implements IDataAccess {
      * to the desired class-type
      */
     @Override
-    public List<Object> getAllObjects() {
-        List<Object> objects = new ArrayList<>();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> getAllObjects() {
+        List<T> objects = new ArrayList<>();
 
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema csvSchema;
@@ -60,7 +61,7 @@ public class DataAccessCSV implements IDataAccess {
         }
         if (mappingIterator != null) {
             while(mappingIterator.hasNext()) {
-                objects.add(mappingIterator.next());
+                objects.add((T) type.cast(mappingIterator.next()));
             }
         }
         return objects;

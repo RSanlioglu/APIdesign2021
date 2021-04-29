@@ -36,9 +36,10 @@ public class DataAccessXML implements IDataAccess {
      * @return List of objects from the data-file
      */
     @Override
-    public List<Object> getAllObjects() {
+    @SuppressWarnings("unchecked")
+    public <T> List<T> getAllObjects() {
+        List<T> objects = new ArrayList<>();
 
-        List<Object> objects = new ArrayList<>();
         XmlMapper objectMapper = new XmlMapper();
         MappingIterator<Object> mappingIterator;
         File file = new File(fileName);
@@ -49,7 +50,7 @@ public class DataAccessXML implements IDataAccess {
 
 
                 while (mappingIterator.hasNext()) {
-                    objects.add(mappingIterator.next());
+                    objects.add((T) type.cast(mappingIterator.next()));
                 }
             } catch (IOException e) {
                 e.printStackTrace();

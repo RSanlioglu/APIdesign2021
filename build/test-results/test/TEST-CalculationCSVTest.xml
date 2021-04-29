@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CalculationCSVTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-29T07:32:49" hostname="LAPTOP-KA5PC1CV" time="0.26">
+<testsuite name="CalculationCSVTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-29T07:47:58" hostname="LAPTOP-KA5PC1CV" time="0.278">
   <properties/>
-  <testcase name="calculateMinHeight()" classname="CalculationCSVTest" time="0.219"/>
-  <testcase name="calculateMaxAge()" classname="CalculationCSVTest" time="0.005"/>
-  <testcase name="calculateMinAge()" classname="CalculationCSVTest" time="0.002"/>
-  <testcase name="calculateAverageHeightDouble()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="countAge()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="calculateSumIntWeight()" classname="CalculationCSVTest" time="0.004"/>
+  <testcase name="calculateMinHeight()" classname="CalculationCSVTest" time="0.238"/>
+  <testcase name="calculateMaxAge()" classname="CalculationCSVTest" time="0.004"/>
+  <testcase name="calculateMinAge()" classname="CalculationCSVTest" time="0.003"/>
+  <testcase name="calculateAverageHeightDouble()" classname="CalculationCSVTest" time="0.004"/>
+  <testcase name="countAge()" classname="CalculationCSVTest" time="0.004"/>
+  <testcase name="calculateSumIntWeight()" classname="CalculationCSVTest" time="0.003"/>
   <testcase name="calculateDoubleHeight()" classname="CalculationCSVTest" time="0.003"/>
   <testcase name="calculateAverageAgeInt()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="countName()" classname="CalculationCSVTest" time="0.003"/>
+  <testcase name="countName()" classname="CalculationCSVTest" time="0.004"/>
   <testcase name="calculateMaxHeight()" classname="CalculationCSVTest" time="0.003"/>
-  <testcase name="countHeight()" classname="CalculationCSVTest" time="0.003"/>
+  <testcase name="countHeight()" classname="CalculationCSVTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

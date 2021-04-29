@@ -77,7 +77,6 @@ public class DataAccessCSVTest {
      * Headers are used in this test
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void getAllObjectsFromTheCSVFile_withHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
 
@@ -91,8 +90,8 @@ public class DataAccessCSVTest {
         dataAccessCSV.writeList(Collections.singletonList(cars));
 
         //Returns the cars from the datafile
-        List<Car> returnedCars = new ArrayList<>();
-        returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        List<Car> returnedCars;
+        returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(2, returnedCars.size()); //The size of the returned cars are 2
         Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());  //Mercedes is in the csv file

@@ -77,7 +77,6 @@ public class DataAccessJSONTest {
      * Headers are used in this test
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void getAllObjectsFromTheJSONFile() {
         //The list of cars are created. NOTE! Tesla is not added and will not be returned from the file
         List<Car> cars = new ArrayList<>();
@@ -89,7 +88,7 @@ public class DataAccessJSONTest {
         dataAccessJSON.writeList(Collections.singletonList(cars));
 
         //Return the cars from the datafile
-        List<Car> returneCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> returneCars = dataAccessJSON.getAllObjects();
 
         assertEquals(2, returneCars.size());
         Assertions.assertEquals(returneCars.get(0).toString(), mercedes.toString());
