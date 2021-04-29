@@ -16,7 +16,7 @@ import java.util.List;
 public class DataAccessXML implements IDataAccess {
 
     private final String fileName;
-    private final Class type;
+    private final Class<?> type;
     private final String rootName;
 
     /**
@@ -25,7 +25,7 @@ public class DataAccessXML implements IDataAccess {
      * @param type - Type of objects used inside the datafile
      * @param rootName - Name of the root tag name in the XML file
      */
-    public DataAccessXML(String fileName, Class type, String rootName) {
+    public DataAccessXML(String fileName, Class<?> type, String rootName) {
         this.fileName = fileName;
         this.type = type;
         this.rootName = rootName;

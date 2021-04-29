@@ -9,14 +9,14 @@ import java.util.*;
  */
 public class SortingCSV implements ISorting{
     DataAccessCSV csv;
-    Class type;
+    Class<?> type;
 
     /**
      * Constructor used to create an instance of SortingCSV class
      * @param csv - DataAccess used to acces a CSV file
      * @param type - Type of objects inside the CSV file
      */
-    public SortingCSV(DataAccessCSV csv, Class type) {
+    public SortingCSV(DataAccessCSV csv, Class<?> type) {
         this.csv = csv;
         this.type = type;
     }
@@ -31,7 +31,7 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<? extends Object> sortIntASC(String fieldName) {
+    public List<?> sortIntASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
@@ -76,7 +76,7 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<? extends Object> sortIntDESC(String fieldName) {
+    public List<?> sortIntDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
@@ -121,7 +121,7 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<? extends Object> sortDoubleASC(String fieldName) {
+    public List<?> sortDoubleASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Double, List<Object>> objectsMap = new HashMap<>();
@@ -164,7 +164,7 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<? extends Object> sortDoubleDESC(String fieldName) {
+    public List<?> sortDoubleDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<Double, List<Object>> objectsMap = new HashMap<>();
@@ -207,7 +207,7 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<? extends Object> sortStringAlphabeticalASC(String fieldName) {
+    public List<?> sortStringAlphabeticalASC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<String, List<Object>> objectsMap = new HashMap<>();
@@ -249,7 +249,7 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<? extends Object> sortStringAlphabeticalDESC(String fieldName) {
+    public List<?> sortStringAlphabeticalDESC(String fieldName) {
         List<Object> sortedList = new ArrayList<>();
 
         HashMap<String, List<Object>> objectsMap = new HashMap<>();

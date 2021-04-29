@@ -26,7 +26,7 @@ public class CalculationXML implements ICalculation{
      * @param type - Type of object the client is working with
      * @return - Will return a Field.
      */
-    private Field getField(String columnName, Class type) {
+    private Field getField(String columnName, Class<?> type) {
         Field field = null;
         try {
             field = type.getDeclaredField(columnName);
@@ -45,7 +45,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the sum value of the entire column
      */
     @Override
-    public int calculateColumnSumInt(String columnName, Class type) {
+    public int calculateColumnSumInt(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         int sum = 0;
 
@@ -69,7 +69,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the sum value of the entire column
      */
     @Override
-    public double calculateColumnSumDouble(String columnName, Class type) {
+    public double calculateColumnSumDouble(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         double sum = 0;
 
@@ -94,7 +94,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the average value of the entire column
      */
     @Override
-    public double calculateColumnAverageInt(String columnName, Class type) {
+    public double calculateColumnAverageInt(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         int sum = 0;
 
@@ -118,7 +118,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the average value of the entire column
      */
     @Override
-    public double calculateColumnAverageDouble(String columnName, Class type) {
+    public double calculateColumnAverageDouble(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         double sum = 0;
 
@@ -142,7 +142,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the min value of the entire column
      */
     @Override
-    public int calculateColumnMinInt(String columnName, Class type) {
+    public int calculateColumnMinInt(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         int min = Integer.MAX_VALUE;
 
@@ -167,7 +167,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the max value of the entire column
      */
     @Override
-    public int calculateColumnMaxInt(String columnName, Class type) {
+    public int calculateColumnMaxInt(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         int max = Integer.MIN_VALUE;
 
@@ -191,7 +191,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the min value of the entire column
      */
     @Override
-    public double calculateColumnMinDouble(String columnName, Class type) {
+    public double calculateColumnMinDouble(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         double min = Double.MAX_VALUE;
 
@@ -216,7 +216,7 @@ public class CalculationXML implements ICalculation{
      * @return - returns the max value of the entire column
      */
     @Override
-    public double calculateColumnMaxDouble(String columnName, Class type) {
+    public double calculateColumnMaxDouble(String columnName, Class<?> type) {
         List<Object> objects = xml.getAllObjects();
         double max = Double.MIN_VALUE;
 
@@ -242,7 +242,7 @@ public class CalculationXML implements ICalculation{
      * @return - Returns the amount of times the reference value is counted in the column
      */
     @Override
-    public int countIntValue(String columnName, Class type, int refValue) {
+    public int countIntValue(String columnName, Class<?> type, int refValue) {
         List<Object> objects = xml.getAllObjects();
         int count = 0;
 
@@ -269,7 +269,7 @@ public class CalculationXML implements ICalculation{
      * @return - Returns the amount of times the reference value is counted in the column
      */
     @Override
-    public int countStringValue(String columnName, Class type, String refValue) {
+    public int countStringValue(String columnName, Class<?> type, String refValue) {
         List<Object> objects = xml.getAllObjects();
         int count = 0;
 
@@ -280,6 +280,7 @@ public class CalculationXML implements ICalculation{
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+            assert value != null;
             if (value.equals(refValue))
                 count++;
         }
@@ -296,7 +297,7 @@ public class CalculationXML implements ICalculation{
      * @return - Returns the amount of times the reference value is counted in the column
      */
     @Override
-    public int countDoubleValue(String columnName, Class type, double refValue) {
+    public int countDoubleValue(String columnName, Class<?> type, double refValue) {
         List<Object> objects = xml.getAllObjects();
         int count = 0;
 

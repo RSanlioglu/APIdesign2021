@@ -16,14 +16,14 @@ import java.util.List;
  */
 public class DataAccessJSON implements IDataAccess {
     private final String fileName;
-    private final Class type;
+    private final Class<?> type;
 
     /**
      * Constructor for creating an instance of data-access.
      * @param fileName - The file name the client wants to operate on
      * @param type - Specify the class of objects the file is responsible of (MUST BE CREATED BY CLIENT FIRST)
      */
-    public DataAccessJSON(String fileName, Class type) {
+    public DataAccessJSON(String fileName, Class<?> type) {
         this.fileName = fileName;
         this.type = type;
     }
@@ -37,7 +37,7 @@ public class DataAccessJSON implements IDataAccess {
         List<Object> objects = new ArrayList<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
-        MappingIterator<Object> mappingIterator = null;
+        MappingIterator<Object> mappingIterator;
         try {
             mappingIterator = objectMapper.readerFor(type).readValues(new File(fileName));
             while(mappingIterator.hasNext()) {

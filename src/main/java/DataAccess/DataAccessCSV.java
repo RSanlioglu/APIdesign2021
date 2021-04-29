@@ -20,7 +20,7 @@ import java.util.List;
 public class DataAccessCSV implements IDataAccess {
     private final String fileName;
     private final boolean withHeaders;
-    private final Class type;
+    private final Class<?> type;
 
     /**
      * Constructor for instantiating the DataAccess for csv files.
@@ -28,7 +28,7 @@ public class DataAccessCSV implements IDataAccess {
      * @param type - Type of object class the access wil operate on. (CLIENT MUST CREATE IT)
      * @param withHeaders - Declare if the CSV file will contain headers.
      */
-    public DataAccessCSV(String fileName, Class type, boolean withHeaders) {
+    public DataAccessCSV(String fileName, Class<?> type, boolean withHeaders) {
         this.fileName = fileName;
         this.withHeaders = withHeaders;
         this.type = type;

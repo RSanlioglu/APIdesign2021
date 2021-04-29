@@ -18,7 +18,7 @@ abstract public class ConverterCSV {
      * @param newFileName - The name of the newly created JSON file.
      * @param type - Type of object used inside the csv file.
      */
-    public static void convertToJSON(DataAccessCSV csv, String newFileName, Class type) {
+    public static void convertToJSON(DataAccessCSV csv, String newFileName, Class<?> type) {
           List<Object> objects = csv.getAllObjects();
           DataAccessJSON json = new DataAccessJSON(newFileName,type);
           json.writeList(Collections.singletonList(objects));
@@ -31,7 +31,7 @@ abstract public class ConverterCSV {
      * @param type - Type of object used inside the csv file
      * @param rootName - The name of the root tag in the xml file.
      */
-    public static void convertToXML(DataAccessCSV csv, String newFileName, Class type, String rootName) {
+    public static void convertToXML(DataAccessCSV csv, String newFileName, Class<?> type, String rootName) {
         List<Object> objects = csv.getAllObjects();
         DataAccessXML dataAccessXML = new DataAccessXML(newFileName, type, rootName);
         dataAccessXML.writeList(Collections.singletonList(objects));
