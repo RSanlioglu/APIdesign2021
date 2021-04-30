@@ -77,15 +77,15 @@ public class DataAccessCSV implements IDataAccess {
      * @return - Object with correct id will be returned
      */
     @Override
-    public Object getObjectById(String fieldName, double value) {
-        List<Object> objects = getAllObjects();
+    public <T> T getObjectById(String fieldName, double value) {
+        List<T> objects = getAllObjects();
         Field field;
-        Object obj = null;
+        T obj = null;
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
-            for(Object o : objects) {
+            for(T o : objects) {
                 if(field.getDouble(o) == value) {
                     obj = o;
                     break;
@@ -106,15 +106,15 @@ public class DataAccessCSV implements IDataAccess {
      * @return - Object with correct id will be returned
      */
     @Override
-    public Object getObjectById(String fieldName, int value) {
-        List<Object> objects = getAllObjects();
+    public <T> T getObjectById(String fieldName, int value) {
+        List<T> objects = getAllObjects();
         Field field;
-        Object obj = null;
+        T obj = null;
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
-            for(Object o : objects) {
+            for(T o : objects) {
                 if(field.getInt(o) == value) {
                     obj = o;
                     break;
@@ -135,15 +135,15 @@ public class DataAccessCSV implements IDataAccess {
      * @return - Object with correct id will be returned
      */
     @Override
-    public Object getObjectById(String fieldName, String value) {
-        List<Object> objects = getAllObjects();
+    public <T> T getObjectById(String fieldName, String value) {
+        List<T> objects = getAllObjects();
         Field field;
-        Object obj = null;
+        T obj = null;
         try {
             field = type.getDeclaredField(fieldName);
             field.setAccessible(true);
 
-            for(Object o : objects) {
+            for(T o : objects) {
                 if(((String) field.get(o)).equals(value)) {
                     obj = o;
                     break;

@@ -141,7 +141,9 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertEquals(passat.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
+        Car retrievedCar = dataAccess.getObjectById("registrationID", 99122);
+
+        Assertions.assertEquals(passat.toString(), retrievedCar.toString());
     }
 
     /**
@@ -159,7 +161,9 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertNotEquals(mercedes.toString(),  dataAccess.getObjectById("registrationID", 99122).toString());
+        Car retrievedCar = dataAccess.getObjectById("registrationID", 99122);
+
+        Assertions.assertNotEquals(mercedes.toString(),  retrievedCar.toString());
     }
 
     /**
@@ -177,7 +181,9 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertEquals(passat.toString(), dataAccess.getObjectById("producer", "Volkswagen").toString());
+        Car retrievedCar = dataAccess.getObjectById("producer", "Volkswagen");
+
+        Assertions.assertEquals(passat.toString(), retrievedCar.toString());
     }
 
     /**
@@ -195,7 +201,9 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertNotEquals(mercedes.toString(), dataAccess.getObjectById("producer", "Ford").toString());
+        Car retrievedCar = dataAccess.getObjectById("producer", "Ford");
+
+        Assertions.assertNotEquals(mercedes.toString(), retrievedCar.toString());
     }
 
     /**
@@ -213,7 +221,9 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertEquals(passat.toString(), dataAccess.getObjectById("cylinderVolume", 1.6).toString());
+        Car retrievedCar = dataAccess.getObjectById("cylinderVolume", 1.6);
+
+        Assertions.assertEquals(passat.toString(), retrievedCar.toString());
     }
 
     /**
@@ -231,7 +241,9 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertNotEquals(mercedes.toString(), dataAccess.getObjectById("cylinderVolume", 4.7).toString());
+        Car retrievedCar = dataAccess.getObjectById("cylinderVolume", 4.7);
+
+        Assertions.assertNotEquals(mercedes.toString(), retrievedCar.toString());
     }
 
     /**
@@ -240,7 +252,6 @@ public class DataAccessCSVTest {
      * and the value that is expected
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void writeOneObjectToFile_withHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
@@ -248,7 +259,7 @@ public class DataAccessCSVTest {
 
         //Get all objects from the file
         List<Car> cars = new ArrayList<>();
-        cars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        cars = dataAccessCSV.getAllObjects();
 
         //Check if there is only one object in the file, since we only added one file
         assertEquals(1, cars.size());
@@ -263,7 +274,6 @@ public class DataAccessCSVTest {
      * and the value that is expected
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void writeOneObjectToFile_withOutHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
         Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
@@ -271,7 +281,7 @@ public class DataAccessCSVTest {
 
         //Get all objects from the file
         List<Car> cars = new ArrayList<>();
-        cars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        cars = dataAccessCSV.getAllObjects();
 
         //Check if there is only one object in the file, since we only added one file
         assertEquals(1, cars.size());
@@ -285,7 +295,6 @@ public class DataAccessCSVTest {
      * used to check with the values of the initial cars.
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void writeListToFile_WithHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         List<Car> cars = new ArrayList<>();
@@ -301,7 +310,7 @@ public class DataAccessCSVTest {
 
         //Returns the cars from the datafile
         List<Car> returnedCars = new ArrayList<>();
-        returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
         Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());
@@ -314,7 +323,6 @@ public class DataAccessCSVTest {
      * used to check with the values of the initial cars.
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void writeListToFile_WithOutHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
         List<Car> cars = new ArrayList<>();
@@ -330,7 +338,7 @@ public class DataAccessCSVTest {
 
         //Returns the cars from the datafile
         List<Car> returnedCars = new ArrayList<>();
-        returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
         Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());
@@ -345,7 +353,6 @@ public class DataAccessCSVTest {
      * and the values expected within the test
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void appendObject_WithHeader() {
         //Add the cars. One is added the other is appended
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
@@ -356,7 +363,7 @@ public class DataAccessCSVTest {
 
         //Get the cars back from the file
         List<Car> cars = new ArrayList<>();
-        cars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        cars = dataAccessCSV.getAllObjects();
 
         //Check the size of the return list and the values
         assertEquals(2, cars.size());
@@ -370,7 +377,6 @@ public class DataAccessCSVTest {
      * and the values expected within the test
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void appendObject_WithOutHeader() {
         //Add the cars. One is added the other is appended
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
@@ -381,7 +387,7 @@ public class DataAccessCSVTest {
 
         //Get the cars back from the file
         List<Car> cars = new ArrayList<>();
-        cars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        cars = dataAccessCSV.getAllObjects();
 
         //Check the size of the return list and the values
         assertEquals(2, cars.size());
@@ -395,7 +401,6 @@ public class DataAccessCSVTest {
      * car-objects
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void appendList_withHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         dataAccessCSV.writeObject(new Car(55323, "Opel", "Astra", 2010, 1.6)); //The dataAccess contains one car now
@@ -409,7 +414,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.appendList(Collections.singletonList(cars)); //Append the cars to the file
 
         //Read them back
-        List<Car> returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        List<Car> returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(3, returnedCars.size());                       //Check the length of the list of cars returned
         Assertions.assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
@@ -422,7 +427,6 @@ public class DataAccessCSVTest {
      * car-objects
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void appendList_withOutHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
         dataAccessCSV.writeObject(new Car(55323, "Opel", "Astra", 2010, 1.6)); //The dataAccess contains one car now
@@ -436,7 +440,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.appendList(Collections.singletonList(cars)); //Append the cars to the file
 
         //Read them back
-        List<Car> returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        List<Car> returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(3, returnedCars.size());                       //Check the length of the list of cars returned
         Assertions.assertEquals(returnedCars.get(1).toString(), tesla.toString());     //The second car in the file should be the tesla
@@ -521,7 +525,6 @@ public class DataAccessCSVTest {
      * the changes made
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void updateObjectFromFile() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         List<Car> cars = new ArrayList<>();
@@ -531,13 +534,13 @@ public class DataAccessCSVTest {
         cars.add(etron);
         dataAccessCSV.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
 
-        List<Car> returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        List<Car> returnedCars = dataAccessCSV.getAllObjects();
         Assertions.assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
 
         Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021, 0); //The new Tesla
         dataAccessCSV.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
 
-        returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects(); //Read the file again
+        returnedCars = dataAccessCSV.getAllObjects(); //Read the file again
         Assertions.assertEquals(returnedCars.get(1).toString(), teslaUpdated.toString()); //Compare the new tesla with the tesla from the file. The updated objects are at the bottom
     }
 }
