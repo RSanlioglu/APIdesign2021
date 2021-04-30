@@ -3,7 +3,6 @@ import DataAccess.DataAccessCSV;
 import Model.Person;
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculationCSVTest {
@@ -30,7 +29,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateDoubleHeight() {
-        double sum = 0;
+        double sum;
         sum = calculation.calculateColumnSumDouble("height", Person.class);
 
         assertEquals(sum, 18.5);
@@ -43,7 +42,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateAverageAgeInt() {
-        double average = 0;
+        double average;
         average = calculation.calculateColumnAverageInt("age", Person.class);
 
         assertEquals(average, 31.3);
@@ -56,7 +55,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateAverageHeightDouble() {
-        double avgHeight = 0;
+        double avgHeight;
         avgHeight = calculation.calculateColumnAverageDouble("height", Person.class);
 
         assertEquals(1.85, avgHeight);
@@ -69,7 +68,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateMinAge() {
-        int min = 0;
+        int min;
         min = calculation.calculateColumnMinInt("age", Person.class);
 
         assertEquals(21, min);
@@ -82,7 +81,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateMaxAge() {
-        int max = 0;
+        int max;
         max = calculation.calculateColumnMaxInt("age", Person.class);
 
         assertNotEquals(0, max);
@@ -95,7 +94,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateMinHeight() {
-        double min = 0;
+        double min;
         min = calculation.calculateColumnMinDouble("height", Person.class);
 
         assertNotEquals(0, min);
@@ -108,7 +107,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void calculateMaxHeight() {
-        double max = 0;
+        double max;
         max = calculation.calculateColumnMaxDouble("height", Person.class);
 
         assertNotEquals(0, max);
@@ -120,7 +119,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void countAge() {
-        int countAge = 0;
+        int countAge;
         countAge = calculation.countIntValue("age", Person.class, 36);
 
         assertNotEquals(0, countAge);
@@ -132,7 +131,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void countName() {
-        int countName = 0;
+        int countName;
         countName = calculation.countStringValue("first_name", Person.class, "Kyle");
 
         assertEquals(2, countName);
@@ -144,7 +143,7 @@ public class CalculationCSVTest {
      */
     @Test
     public void countHeight() {
-        int countDouble = 0;
+        int countDouble;
         countDouble = calculation.countDoubleValue("height", Person.class, 2.3);
 
         assertNotEquals(0, countDouble);

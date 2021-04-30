@@ -57,67 +57,61 @@ public class ConverterTest {
         new File("src/test/java/DataFiles/carsConverted.xml").delete();
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void convertJsonToCSV() {
         ConverterJSON.convertToCSV("src/test/java/DataFiles/cars.json", "src/test/java/DataFiles/carsConverted.csv");
         DataAccessCSV dataAccessCSV = new DataAccessCSV("src/test/java/DataFiles/carsConverted.csv", Car.class, true);
-        List<Car> retrievedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        List<Car> retrievedCars = dataAccessCSV.getAllObjects();
         for(int i = 0; i < retrievedCars.size(); i++) {
             assertEquals(cars.get(i).toString(), retrievedCars.get(i).toString());
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void convertJsonToXML() {
         ConverterJSON.convertToXML("src/test/java/DataFiles/cars.json", "src/test/java/DataFiles/carsConverted.xml", "Cars");
         DataAccessXML dataAccessXML = new DataAccessXML("src/test/java/DataFiles/carsConverted.xml", Car.class, "Cars");
-        List<Car> retrievedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
+        List<Car> retrievedCars = dataAccessXML.getAllObjects();
         for(int i = 0; i < retrievedCars.size(); i++) {
             assertEquals(cars.get(i).toString(), retrievedCars.get(i).toString());
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void convertCsvToJson() {
         ConverterCSV.convertToJSON(csv, "src/test/java/DataFiles/carsConverted.json", Car.class);
         DataAccessJSON dataAccessJSON = new DataAccessJSON("src/test/java/DataFiles/carsConverted.json", Car.class);
-        List<Car> retrievedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> retrievedCars = dataAccessJSON.getAllObjects();
         for(int i = 0; i < retrievedCars.size(); i++) {
             assertEquals(cars.get(i).toString(), retrievedCars.get(i).toString());
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void convertCsvToXml() {
         ConverterCSV.convertToXML(csv, "src/test/java/DataFiles/carsConverted.xml", Car.class, "Cars");
         DataAccessXML dataAccessXML = new DataAccessXML("src/test/java/DataFiles/carsConverted.xml", Car.class, "Cars");
-        List<Car> retrievedCars = (List<Car>)(List<?>) dataAccessXML.getAllObjects();
+        List<Car> retrievedCars = dataAccessXML.getAllObjects();
         for(int i = 0; i < retrievedCars.size(); i++) {
             assertEquals(cars.get(i).toString(), retrievedCars.get(i).toString());
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void convertXmlToJson() {
         ConverterXML.convertToJSON("src/test/java/DataFiles/cars.xml", "src/test/java/DataFiles/carsConverted.json", Car.class);
         DataAccessJSON dataAccessJSON = new DataAccessJSON("src/test/java/DataFiles/carsConverted.json", Car.class);
-        List<Car> retrievedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> retrievedCars = dataAccessJSON.getAllObjects();
         for(int i = 0; i < retrievedCars.size(); i++) {
             assertEquals(cars.get(i).toString(), retrievedCars.get(i).toString());
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void convertXmlToCsv() {
         ConverterXML.convertToCSV("src/test/java/DataFiles/cars.xml", "src/test/java/DataFiles/carsConverted.csv", Car.class, true);
         DataAccessCSV dataAccessCSV = new DataAccessCSV("src/test/java/DataFiles/carsConverted.csv", Car.class, true);
-        List<Car> retrievedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        List<Car> retrievedCars = dataAccessCSV.getAllObjects();
         for(int i = 0; i < retrievedCars.size(); i++) {
             assertEquals(cars.get(i).toString(), retrievedCars.get(i).toString());
         }

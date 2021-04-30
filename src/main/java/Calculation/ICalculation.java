@@ -9,7 +9,7 @@ public interface ICalculation {
     int calculateColumnMaxInt(String columnName, Class<?> type);
     double calculateColumnMinDouble(String columnName, Class<?> type);
     double calculateColumnMaxDouble(String columnName, Class<?> type);
-    int countIntValue(String columnName, Class<?> type, int value);
-    int countStringValue(String columnName, Class<?> type, String value);
+    int countIntValue(String columnName, Class<?> type, int refValue);
+    int countStringValue(String columnName, Class<?> type, String refValue);
     int countDoubleValue(String columnName, Class<?> type, double refValue);
 }

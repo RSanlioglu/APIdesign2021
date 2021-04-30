@@ -46,7 +46,6 @@ public class DataAccessJSONTest {
      * Create a new empty json file
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void createNewJSONFile() {
         DataAccessJSON dataAccessJSON = new DataAccessJSON("newFile.json", Car.class);
         try {
@@ -56,7 +55,7 @@ public class DataAccessJSONTest {
         }
         assertTrue(new File("newFile.json").exists()); //See if the file exists
 
-        List<Car> cars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> cars = dataAccessJSON.getAllObjects();
         assertEquals(0, cars.size()); //Check if the file is empty
 
         new File("newFile.json").delete(); //Delete the file at last
@@ -110,7 +109,9 @@ public class DataAccessJSONTest {
         cars.add(mustang);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertEquals(passat.toString(), dataAccessJSON.getObjectById("registrationID", 99122).toString());
+        Car retrievedCar = dataAccessJSON.getObjectById("registrationID", 99122);
+
+        Assertions.assertEquals(passat.toString(), retrievedCar.toString());
     }
 
     /**
@@ -128,7 +129,9 @@ public class DataAccessJSONTest {
         cars.add(mustang);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertNotEquals(mercedes.toString(), dataAccessJSON.getObjectById("registrationID", 99122).toString());
+        Car retrievedCar = dataAccessJSON.getObjectById("registrationID", 99122);
+
+        Assertions.assertNotEquals(mercedes.toString(), retrievedCar.toString());
     }
 
     /**
@@ -146,7 +149,9 @@ public class DataAccessJSONTest {
         cars.add(mustang);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertEquals(passat.toString(), dataAccessJSON.getObjectById("producer", "Volkswagen").toString());
+        Car retrievedCar = dataAccessJSON.getObjectById("producer", "Volkswagen");
+
+        Assertions.assertEquals(passat.toString(), retrievedCar.toString());
     }
 
     /**
@@ -164,7 +169,9 @@ public class DataAccessJSONTest {
         cars.add(mustang);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertNotEquals(passat.toString(), dataAccessJSON.getObjectById("producer", "Mercedes").toString());
+        Car retrievedCar = dataAccessJSON.getObjectById("producer", "Mercedes");
+
+        Assertions.assertNotEquals(passat.toString(), retrievedCar.toString());
     }
 
     /**
@@ -182,7 +189,9 @@ public class DataAccessJSONTest {
         cars.add(mustang);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertEquals(passat.toString(), dataAccessJSON.getObjectById("cylinderVolume", 1.6).toString());
+        Car retrievedCar = dataAccessJSON.getObjectById("cylinderVolume", 1.6);
+
+        Assertions.assertEquals(passat.toString(), retrievedCar.toString());
     }
 
     /**
@@ -200,7 +209,9 @@ public class DataAccessJSONTest {
         cars.add(mustang);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertNotEquals(mercedes.toString(), dataAccessJSON.getObjectById("cylinderVolume", 4.7).toString());
+        Car retrievedCar = dataAccessJSON.getObjectById("cylinderVolume", 4.7);
+
+        Assertions.assertNotEquals(mercedes.toString(), retrievedCar.toString());
     }
 
     /**
@@ -209,12 +220,11 @@ public class DataAccessJSONTest {
      * and the value that is expected
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void writeOneObjectToFile() {
         Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
         dataAccessJSON.writeObject(gClass); //Write the object to the file
 
-        List<Car> cars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects(); //Get all objects from the file (should only be one now)
+        List<Car> cars = dataAccessJSON.getAllObjects(); //Get all objects from the file (should only be one now)
 
         assertEquals(1, cars.size()); //Check if the list only contains one car since we only added one
         Assertions.assertEquals(gClass.toString(), cars.get(0).toString()); //Check the car returned from the file
@@ -225,7 +235,6 @@ public class DataAccessJSONTest {
      * used to check with the values of the initial cars.
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void writeListToFile() {
         List<Car> cars = new ArrayList<>();
         Car mercedes = new Car(1211, "Mercedes", "C-class", 2009, 2.1);
@@ -238,7 +247,7 @@ public class DataAccessJSONTest {
 
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        List<Car> returnedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> returnedCars = dataAccessJSON.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
         Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());
@@ -252,14 +261,13 @@ public class DataAccessJSONTest {
      * and the values expected within the test
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void appendObject() {
         Car gClass = new Car(121222, "Mercedes", "G-Class", 2018, 2.1);
         Car golf = new Car(5531121, "Volkswagen", "Golf", 2008, 1.6);
         dataAccessJSON.writeObject(gClass);
         dataAccessJSON.appendObject(golf);
         //Get the cars back from the file
-        List<Car> cars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> cars = dataAccessJSON.getAllObjects();
 
         assertEquals(2, cars.size());
         Assertions.assertEquals(gClass.toString(), cars.get(0).toString());
@@ -272,7 +280,6 @@ public class DataAccessJSONTest {
      * car-objects
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void appendList() {
         dataAccessJSON.writeObject(new Car(55323, "Opel", "Astra", 2010, 1.6)); //The dataFile contains one car now
 
@@ -284,7 +291,7 @@ public class DataAccessJSONTest {
 
         dataAccessJSON.appendList(cars); //Append the list of cars to the file
 
-        List<Car> returnedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> returnedCars = dataAccessJSON.getAllObjects();
 
         assertEquals(3, returnedCars.size());
         Assertions.assertEquals(returnedCars.get(1).toString(), tesla.toString());
@@ -347,7 +354,6 @@ public class DataAccessJSONTest {
      * the changes made
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void updateObjectFromFile() {
         List<Car> cars = new ArrayList<>();
         Car tesla = new Car(2211, "Tesla", "Model s", 2020, 0);
@@ -356,13 +362,13 @@ public class DataAccessJSONTest {
         cars.add(etron);
         dataAccessJSON.writeList(Collections.singletonList(cars)); //Write the list of cars in to the file
 
-        List<Car> returnedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects();
+        List<Car> returnedCars = dataAccessJSON.getAllObjects();
         Assertions.assertEquals(tesla.toString(), returnedCars.get(0).toString()); //Compare the old tesla with the tesla from the file
 
         Car teslaUpdated = new Car(2211, "Tesla", "Model x", 2021, 0); //The new Tesla
         dataAccessJSON.updateObject(tesla, teslaUpdated); //Update the old tesla with the new tesla
 
-        returnedCars = (List<Car>)(List<?>) dataAccessJSON.getAllObjects(); //Read the file again
+        returnedCars = dataAccessJSON.getAllObjects(); //Read the file again
         Assertions.assertEquals(returnedCars.get(1).toString(), teslaUpdated.toString()); //Compare the new tesla with the tesla from the file. The updated objects are at the bottom
     }
 }

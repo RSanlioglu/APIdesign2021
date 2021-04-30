@@ -4,12 +4,14 @@ Model/Car.java
  Model.Car
 SortingXMLTest.java
  SortingXMLTest
-DataAccessCSVTest.java
- DataAccessCSVTest
 CalculationXMLTest.java
  CalculationXMLTest
+SortingCSVTest.java
+ SortingCSVTest
 DataAccessXMLTest.java
  DataAccessXMLTest
+DataAccessCSVTest.java
+ DataAccessCSVTest
 CalculationCSVTest.java
  CalculationCSVTest
 CalculationJSONTest.java
@@ -20,5 +22,3 @@ ConverterTest.java
  ConverterTest
 DataAccessJSONTest.java
  DataAccessJSONTest
-SortingCSVTest.java
- SortingCSVTest
