@@ -25,7 +25,7 @@ public class DataAccessCSV implements IDataAccess {
     /**
      * Constructor for instantiating the DataAccess for csv files.
      * @param fileName - name of file which the access will operate on
-     * @param type - Type of object class the access wil operate on. (CLIENT MUST CREATE IT)
+     * @param type - Type of object class the access wil operate on.
      * @param withHeaders - Declare if the CSV file will contain headers.
      */
     public DataAccessCSV(String fileName, Class<?> type, boolean withHeaders) {
@@ -37,8 +37,9 @@ public class DataAccessCSV implements IDataAccess {
     /**
      * Returns a list of object that is red from the
      * .csv file. The list of objects is given back to the
-     * client as an OBJECT. The client can then cast it
-     * to the desired class-type
+     * client as an OBJECT.
+     * @param <T> - Type of class used to cast the objects from the data-file
+     * @return - A list of objects returned from the data-file
      */
     @Override
     @SuppressWarnings("unchecked")

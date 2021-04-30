@@ -44,7 +44,6 @@ public class DataAccessCSVTest {
      * Create a new empty csv.file
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void createNewCSVFile() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("newFile.csv", Car.class, true);
         try {
@@ -54,7 +53,7 @@ public class DataAccessCSVTest {
         }
         assertTrue(new File("newFile.csv").exists()); //See if the file exists
 
-        List<Car> cars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        List<Car> cars = dataAccessCSV.getAllObjects();
         assertEquals(0, cars.size()); //Check if the returned objects are 0, since the file is empty
 
         new File("newFile.csv").delete();  //Delete the file at last
@@ -105,7 +104,6 @@ public class DataAccessCSVTest {
      * Headers are not used in this test
      */
     @Test
-    @SuppressWarnings("unchecked")
     public void getAllObjectsFromTheCSVFile_withoutHeader() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, false);
 
@@ -120,7 +118,7 @@ public class DataAccessCSVTest {
 
         //Returns the cars from the datafile
         List<Car> returnedCars = new ArrayList<>();
-        returnedCars = (List<Car>)(List<?>) dataAccessCSV.getAllObjects();
+        returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(2, returnedCars.size()); //The size of the returned cars are 2
         Assertions.assertEquals(returnedCars.get(0).toString(), mercedes.toString());  //Mercedes is in the csv file
@@ -161,7 +159,7 @@ public class DataAccessCSVTest {
         cars.add(mustang);
         dataAccess.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
-        Assertions.assertNotEquals(mercedes.toString(), dataAccess.getObjectById("registrationID", 99122).toString());
+        Assertions.assertNotEquals(mercedes.toString(),  dataAccess.getObjectById("registrationID", 99122).toString());
     }
 
     /**

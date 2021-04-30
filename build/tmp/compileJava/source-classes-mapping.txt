@@ -18,10 +18,10 @@ Exceptions/FileAlreadyExistsException.java
  Exceptions.FileAlreadyExistsException
 Sorting/SortingXML.java
  Sorting.SortingXML
-Calculation/CalculationCSV.java
- Calculation.CalculationCSV
-DataAccess/DataAccessCSV.java
- DataAccess.DataAccessCSV
+Sorting/SortingJSON.java
+ Sorting.SortingJSON
+Calculation/CalculationXML.java
+ Calculation.CalculationXML
 DataAccess/IDataAccess.java
  DataAccess.IDataAccess
 DataAccess/DataAccessJSON.java
@@ -30,11 +30,11 @@ Calculation/CalculationJSON.java
  Calculation.CalculationJSON
 DataAccess/DataAccessXML.java
  DataAccess.DataAccessXML
+Calculation/CalculationCSV.java
+ Calculation.CalculationCSV
+DataAccess/DataAccessCSV.java
+ DataAccess.DataAccessCSV
 Converter/ConverterCSV.java
  Converter.ConverterCSV
-Calculation/CalculationXML.java
- Calculation.CalculationXML
 Sorting/SortingCSV.java
  Sorting.SortingCSV
-Sorting/SortingJSON.java
- Sorting.SortingJSON

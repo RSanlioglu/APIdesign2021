@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DataAccessCSVTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2021-04-29T07:47:59" hostname="LAPTOP-KA5PC1CV" time="0.142">
+<testsuite name="DataAccessCSVTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2021-04-30T07:40:36" hostname="LAPTOP-KA5PC1CV" time="0.441">
   <properties/>
-  <testcase name="createNewCSVFile()" classname="DataAccessCSVTest" time="0.007"/>
-  <testcase name="appendObject_WithOutHeader()" classname="DataAccessCSVTest" time="0.01"/>
-  <testcase name="writeOneObjectToFile_withHeader()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="deleteObjectFromFile_WithoutHeaders()" classname="DataAccessCSVTest" time="0.009"/>
-  <testcase name="appendList_withHeader()" classname="DataAccessCSVTest" time="0.006"/>
-  <testcase name="doesExist_Fail()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="getAllObjectsFromTheCSVFile_withoutHeader()" classname="DataAccessCSVTest" time="0.007"/>
-  <testcase name="createExistingCSVFile()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="updateObjectFromFile()" classname="DataAccessCSVTest" time="0.01"/>
-  <testcase name="getAllObjectsFromTheCSVFile_withHeader()" classname="DataAccessCSVTest" time="0.006"/>
+  <testcase name="createNewCSVFile()" classname="DataAccessCSVTest" time="0.223"/>
+  <testcase name="appendObject_WithOutHeader()" classname="DataAccessCSVTest" time="0.042"/>
+  <testcase name="writeOneObjectToFile_withHeader()" classname="DataAccessCSVTest" time="0.007"/>
+  <testcase name="deleteObjectFromFile_WithoutHeaders()" classname="DataAccessCSVTest" time="0.016"/>
+  <testcase name="appendList_withHeader()" classname="DataAccessCSVTest" time="0.008"/>
+  <testcase name="doesExist_Fail()" classname="DataAccessCSVTest" time="0.007"/>
+  <testcase name="getAllObjectsFromTheCSVFile_withoutHeader()" classname="DataAccessCSVTest" time="0.01"/>
+  <testcase name="createExistingCSVFile()" classname="DataAccessCSVTest" time="0.006"/>
+  <testcase name="updateObjectFromFile()" classname="DataAccessCSVTest" time="0.013"/>
+  <testcase name="getAllObjectsFromTheCSVFile_withHeader()" classname="DataAccessCSVTest" time="0.007"/>
   <testcase name="doesExist_Correct()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="writeListToFile_WithHeader()" classname="DataAccessCSVTest" time="0.004"/>
+  <testcase name="writeListToFile_WithHeader()" classname="DataAccessCSVTest" time="0.005"/>
   <testcase name="writeOneObjectToFile_withOutHeader()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="getCorrectObjectByCylinderReference()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="getCorrectObjectByIDReference_NotEquals()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="deleteObjectFromFile()" classname="DataAccessCSVTest" time="0.009"/>
-  <testcase name="getCorrectObjectByProducerReference()" classname="DataAccessCSVTest" time="0.005"/>
-  <testcase name="appendList_withOutHeader()" classname="DataAccessCSVTest" time="0.006"/>
-  <testcase name="writeListToFile_WithOutHeader()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="appendObject_WithHeader()" classname="DataAccessCSVTest" time="0.006"/>
-  <testcase name="getCorrectObjectByProducerReference_NotEquals()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="getCorrectObjectByCylinderReference_NotEquals()" classname="DataAccessCSVTest" time="0.004"/>
-  <testcase name="getCorrectObjectByIDReference()" classname="DataAccessCSVTest" time="0.004"/>
+  <testcase name="getCorrectObjectByCylinderReference()" classname="DataAccessCSVTest" time="0.005"/>
+  <testcase name="getCorrectObjectByIDReference_NotEquals()" classname="DataAccessCSVTest" time="0.008"/>
+  <testcase name="deleteObjectFromFile()" classname="DataAccessCSVTest" time="0.012"/>
+  <testcase name="getCorrectObjectByProducerReference()" classname="DataAccessCSVTest" time="0.007"/>
+  <testcase name="appendList_withOutHeader()" classname="DataAccessCSVTest" time="0.008"/>
+  <testcase name="writeListToFile_WithOutHeader()" classname="DataAccessCSVTest" time="0.006"/>
+  <testcase name="appendObject_WithHeader()" classname="DataAccessCSVTest" time="0.009"/>
+  <testcase name="getCorrectObjectByProducerReference_NotEquals()" classname="DataAccessCSVTest" time="0.007"/>
+  <testcase name="getCorrectObjectByCylinderReference_NotEquals()" classname="DataAccessCSVTest" time="0.006"/>
+  <testcase name="getCorrectObjectByIDReference()" classname="DataAccessCSVTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
