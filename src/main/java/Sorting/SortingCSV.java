@@ -31,8 +31,9 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<?> sortIntASC(String fieldName) {
-        List<Object> sortedList = new ArrayList<>();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> sortIntASC(String fieldName) {
+        List<T> sortedList = new ArrayList<>();
 
         HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = csv.getAllObjects();
@@ -56,7 +57,7 @@ public class SortingCSV implements ISorting{
             SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
             LinkedHashSet<Integer> set = RemoveDuplicateUtilities.removeDuplicatesInt(intToBeSorted);
             for(int i : set) {
-                sortedList.addAll(objectsMap.get(i));
+                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
             }
 
 
@@ -76,8 +77,9 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<?> sortIntDESC(String fieldName) {
-        List<Object> sortedList = new ArrayList<>();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> sortIntDESC(String fieldName) {
+        List<T> sortedList = new ArrayList<>();
 
         HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = csv.getAllObjects();
@@ -101,7 +103,7 @@ public class SortingCSV implements ISorting{
             SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
             LinkedHashSet<Integer> set = RemoveDuplicateUtilities.removeDuplicatesInt(intToBeSorted);
             for(int i : set) {
-                sortedList.addAll(objectsMap.get(i));
+                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -121,8 +123,9 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<?> sortDoubleASC(String fieldName) {
-        List<Object> sortedList = new ArrayList<>();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> sortDoubleASC(String fieldName) {
+        List<T> sortedList = new ArrayList<>();
 
         HashMap<Double, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = csv.getAllObjects();
@@ -146,7 +149,7 @@ public class SortingCSV implements ISorting{
             SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
             LinkedHashSet<Double> set = RemoveDuplicateUtilities.removeDuplicatesDouble(doubleToBeSorted);
             for(double i : set) {
-                sortedList.addAll(objectsMap.get(i));
+                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -164,8 +167,9 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<?> sortDoubleDESC(String fieldName) {
-        List<Object> sortedList = new ArrayList<>();
+    @SuppressWarnings("unchecTed")
+    public <T> List<T> sortDoubleDESC(String fieldName) {
+        List<T> sortedList = new ArrayList<>();
 
         HashMap<Double, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = csv.getAllObjects();
@@ -189,7 +193,7 @@ public class SortingCSV implements ISorting{
             SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
             LinkedHashSet<Double> set = RemoveDuplicateUtilities.removeDuplicatesDouble(doubleToBeSorted);
             for(double i : set) {
-                sortedList.addAll(objectsMap.get(i));
+                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -207,8 +211,9 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<?> sortStringAlphabeticalASC(String fieldName) {
-        List<Object> sortedList = new ArrayList<>();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> sortStringAlphabeticalASC(String fieldName) {
+        List<T> sortedList = new ArrayList<>();
 
         HashMap<String, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = csv.getAllObjects();
@@ -233,7 +238,7 @@ public class SortingCSV implements ISorting{
             SortingAlgorithm.bstSortString(stringToBeSorted);
             LinkedHashSet<String> set = RemoveDuplicateUtilities.removeDuplicatesString(stringToBeSorted);
             for(String s : set) {
-                sortedList.addAll(objectsMap.get(s));
+                sortedList.addAll((Collection<? extends T>) objectsMap.get(s));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
@@ -249,8 +254,9 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    public List<?> sortStringAlphabeticalDESC(String fieldName) {
-        List<Object> sortedList = new ArrayList<>();
+    @SuppressWarnings("unchecked")
+    public <T> List<T> sortStringAlphabeticalDESC(String fieldName) {
+        List<T> sortedList = new ArrayList<>();
 
         HashMap<String, List<Object>> objectsMap = new HashMap<>();
         List<Object> objects = csv.getAllObjects();
@@ -275,7 +281,7 @@ public class SortingCSV implements ISorting{
             SortingAlgorithm.bstSortString(stringToBeSorted);
             LinkedHashSet<String> set = RemoveDuplicateUtilities.removeDuplicatesString(stringToBeSorted);
             for(String s : set) {
-                sortedList.addAll(objectsMap.get(s));
+                sortedList.addAll((Collection<? extends T>) objectsMap.get(s));
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();

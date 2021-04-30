@@ -46,10 +46,9 @@ public class SortingCSVTest {
         new File("src/test/java/DataFiles/cars.csv").delete();
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void sortIntAscending() {
-        List<Car> carsSortedByYear = (List<Car>) sorting.sortIntASC("year");
+        List<Car> carsSortedByYear = sorting.sortIntASC("year");
         assertEquals(ferrariF40.toString(), carsSortedByYear.get(0).toString());
         assertEquals(fordGT.toString(), carsSortedByYear.get(1).toString());
         assertEquals(mcLaren.toString(), carsSortedByYear.get(2).toString());
@@ -58,10 +57,9 @@ public class SortingCSVTest {
         assertEquals(bentley.toString(), carsSortedByYear.get(5).toString());
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void sortIntDescending() {
-        List<Car> carsSortedByYear = (List<Car>) sorting.sortIntDESC("year");
+        List<Car> carsSortedByYear = sorting.sortIntDESC("year");
         assertEquals(ferrariF40.toString(), carsSortedByYear.get(5).toString());
         assertEquals(fordGT.toString(), carsSortedByYear.get(4).toString());
         assertEquals(mcLaren.toString(), carsSortedByYear.get(3).toString());
@@ -70,10 +68,9 @@ public class SortingCSVTest {
         assertEquals(bentley.toString(), carsSortedByYear.get(0).toString());
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void sortDoubleAscending() {
-        List<Car> carsSortedByCylinderVolume = (List<Car>) sorting.sortDoubleASC("cylinderVolume");
+        List<Car> carsSortedByCylinderVolume = sorting.sortDoubleASC("cylinderVolume");
         assertEquals(ferrariF40.toString(), carsSortedByCylinderVolume.get(0).toString());
         assertEquals(porche911.toString(), carsSortedByCylinderVolume.get(1).toString());
         assertEquals(gWagon.toString(), carsSortedByCylinderVolume.get(2).toString());
@@ -82,10 +79,9 @@ public class SortingCSVTest {
         assertEquals(bentley.toString(), carsSortedByCylinderVolume.get(5).toString());
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void sortDoubleDescending() {
-        List<Car> carsSortedByCylinderVolume = (List<Car>) sorting.sortDoubleDESC("cylinderVolume");
+        List<Car> carsSortedByCylinderVolume = sorting.sortDoubleDESC("cylinderVolume");
         assertEquals(ferrariF40.toString(), carsSortedByCylinderVolume.get(5).toString());
         assertEquals(porche911.toString(), carsSortedByCylinderVolume.get(4).toString());
         assertEquals(gWagon.toString(), carsSortedByCylinderVolume.get(3).toString());
@@ -94,10 +90,9 @@ public class SortingCSVTest {
         assertEquals(bentley.toString(), carsSortedByCylinderVolume.get(0).toString());
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void sortStringAlphabeticalAscending() {
-        List<Car> carsSortedByCylinderVolume = (List<Car>) sorting.sortStringAlphabeticalASC("producer");
+        List<Car> carsSortedByCylinderVolume = sorting.sortStringAlphabeticalASC("producer");
         assertEquals(bentley.toString(), carsSortedByCylinderVolume.get(0).toString());
         assertEquals(ferrariF40.toString(), carsSortedByCylinderVolume.get(1).toString());
         assertEquals(fordGT.toString(), carsSortedByCylinderVolume.get(2).toString());
@@ -106,10 +101,9 @@ public class SortingCSVTest {
         assertEquals(porche911.toString(), carsSortedByCylinderVolume.get(5).toString());
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void sortStringAlphabeticalDescending() {
-        List<Car> carsSortedByCylinderVolume = (List<Car>) sorting.sortStringAlphabeticalDESC("producer");
+        List<Car> carsSortedByCylinderVolume = sorting.sortStringAlphabeticalDESC("producer");
         assertEquals(bentley.toString(), carsSortedByCylinderVolume.get(5).toString());
         assertEquals(ferrariF40.toString(), carsSortedByCylinderVolume.get(4).toString());
         assertEquals(fordGT.toString(), carsSortedByCylinderVolume.get(3).toString());

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CalculationXMLTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-30T18:16:19" hostname="LAPTOP-KA5PC1CV" time="0.288">
+  <properties/>
+  <testcase name="calculateMinHeight()" classname="CalculationXMLTest" time="0.193"/>
+  <testcase name="calculateMaxAge()" classname="CalculationXMLTest" time="0.013"/>
+  <testcase name="calculateMinAge()" classname="CalculationXMLTest" time="0.009"/>
+  <testcase name="calculateAverageHeightDouble()" classname="CalculationXMLTest" time="0.012"/>
+  <testcase name="countAge()" classname="CalculationXMLTest" time="0.009"/>
+  <testcase name="calculateSumIntWeight()" classname="CalculationXMLTest" time="0.007"/>
+  <testcase name="calculateDoubleHeight()" classname="CalculationXMLTest" time="0.009"/>
+  <testcase name="calculateAverageAgeInt()" classname="CalculationXMLTest" time="0.007"/>
+  <testcase name="countName()" classname="CalculationXMLTest" time="0.007"/>
+  <testcase name="calculateMaxHeight()" classname="CalculationXMLTest" time="0.007"/>
+  <testcase name="countHeight()" classname="CalculationXMLTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

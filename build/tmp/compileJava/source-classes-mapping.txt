@@ -1,21 +1,21 @@
 Converter/ConverterJSON.java
  Converter.ConverterJSON
-Sorting/SortingXML.java
- Sorting.SortingXML
-Calculation/ICalculation.java
- Calculation.ICalculation
 Calculation/CalculationXML.java
  Calculation.CalculationXML
+Calculation/ICalculation.java
+ Calculation.ICalculation
+Calculation/CalculationJSON.java
+ Calculation.CalculationJSON
 Sorting/TreeNode.java
  Sorting.TreeNode
-Sorting/ISorting.java
- Sorting.ISorting
-DataAccess/DataAccessXML.java
- DataAccess.DataAccessXML
+Converter/ConverterCSV.java
+ Converter.ConverterCSV
+Converter/ConverterXML.java
+ Converter.ConverterXML
 Calculation/CalculationCSV.java
  Calculation.CalculationCSV
-Sorting/SortingCSV.java
- Sorting.SortingCSV
+DataAccess/DataAccessXML.java
+ DataAccess.DataAccessXML
 Sorting/RemoveDuplicateUtilities.java
  Sorting.RemoveDuplicateUtilities
 Exceptions/FileAlreadyExistsException.java
@@ -30,11 +30,11 @@ DataAccess/IDataAccess.java
  DataAccess.IDataAccess
 DataAccess/DataAccessJSON.java
  DataAccess.DataAccessJSON
-Calculation/CalculationJSON.java
- Calculation.CalculationJSON
-Converter/ConverterCSV.java
- Converter.ConverterCSV
-Converter/ConverterXML.java
- Converter.ConverterXML
+Sorting/SortingCSV.java
+ Sorting.SortingCSV
+Sorting/ISorting.java
+ Sorting.ISorting
+Sorting/SortingXML.java
+ Sorting.SortingXML
 Sorting/SortingJSON.java
  Sorting.SortingJSON
