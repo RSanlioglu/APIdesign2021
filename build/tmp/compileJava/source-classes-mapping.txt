@@ -1,13 +1,14 @@
-Converter/ConverterJSON.java
- Converter.ConverterJSON
+Calculation/Operations.java
+ Calculation.Operations
 Sorting/SortingXML.java
  Sorting.SortingXML
 DataAccess/DataAccessJSON.java
  DataAccess.DataAccessJSON
 Sorting/TreeNode.java
  Sorting.TreeNode
-Converter/ConverterXML.java
- Converter.ConverterXML
+Calculation/Calculation.java
+ Calculation.Calculation
+ Calculation.Calculation$1
 Sorting/SortingCSV.java
  Sorting.SortingCSV
 Sorting/SortingJSON.java
@@ -31,10 +32,9 @@ Sorting/ISorting.java
  Sorting.ISorting
 Sorting/SortingAlgorithm.java
  Sorting.SortingAlgorithm
-Calculation/Calculation.java
- Calculation.Calculation
- Calculation.Calculation$1
+Converter/ConverterJSON.java
+ Converter.ConverterJSON
 Converter/ConverterCSV.java
  Converter.ConverterCSV
-Calculation/Operations.java
- Calculation.Operations
+Converter/ConverterXML.java
+ Converter.ConverterXML

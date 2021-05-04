@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DataAccessXMLTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2021-05-04T15:49:00" hostname="LAPTOP-KA5PC1CV" time="0.412">
+  <properties/>
+  <testcase name="appendList()" classname="DataAccessXMLTest" time="0.033"/>
+  <testcase name="getAllObjectsFromTheXMLFile()" classname="DataAccessXMLTest" time="0.018"/>
+  <testcase name="createNewXMLFile()" classname="DataAccessXMLTest" time="0.009"/>
+  <testcase name="writeListToFile()" classname="DataAccessXMLTest" time="0.016"/>
+  <testcase name="writeOneObjectToFile()" classname="DataAccessXMLTest" time="0.024"/>
+  <testcase name="doesExist_Fail()" classname="DataAccessXMLTest" time="0.014"/>
+  <testcase name="updateObjectFromFile()" classname="DataAccessXMLTest" time="0.05"/>
+  <testcase name="doesExist_Correct()" classname="DataAccessXMLTest" time="0.023"/>
+  <testcase name="appendObject()" classname="DataAccessXMLTest" time="0.058"/>
+  <testcase name="getCorrectObjectByCylinderReference()" classname="DataAccessXMLTest" time="0.031"/>
+  <testcase name="getCorrectObjectByIDReference_NotEquals()" classname="DataAccessXMLTest" time="0.019"/>
+  <testcase name="deleteObjectFromFile()" classname="DataAccessXMLTest" time="0.032"/>
+  <testcase name="getCorrectObjectByProducerReference()" classname="DataAccessXMLTest" time="0.015"/>
+  <testcase name="createExistingXMLFile()" classname="DataAccessXMLTest" time="0.004"/>
+  <testcase name="getCorrectObjectByProducerReference_NotEquals()" classname="DataAccessXMLTest" time="0.016"/>
+  <testcase name="getCorrectObjectByCylinderReference_NotEquals()" classname="DataAccessXMLTest" time="0.019"/>
+  <testcase name="getCorrectObjectByIDReference()" classname="DataAccessXMLTest" time="0.015"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

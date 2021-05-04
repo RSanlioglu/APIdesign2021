@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
-    Abstract class used for converting CSV files to JSON or XML files.
+ * Abstract class used for converting CSV files to JSON or XML files.
  */
 abstract public class ConverterCSV {
 

@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
-    Abstract class used for converting JSON files to CSV or XML files.
+ * Abstract class used for converting JSON files to CSV or XML files.
  */
 abstract public class ConverterJSON {
 

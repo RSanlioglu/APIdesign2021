@@ -24,21 +24,7 @@ abstract public class ConverterXML {
      * @param header - Boolean value if the client wants headers or not
      */
     public static void convertToCSV(String pathName, String newFile, Class<?> type, boolean header) {
-        List<Object> objects = new ArrayList<>();
-        XmlMapper objectMapper = new XmlMapper();
-        MappingIterator<Object> mappingIterator;
-        File file = new File(pathName);
-
-        if (file.length() != 0) {
-            try {
-                mappingIterator = objectMapper.readerFor(type).readValues(file);
-                while (mappingIterator.hasNext()) {
-                    objects.add(mappingIterator.next());
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        List<Object> objects = readObjectsFromXml(pathName, type);
 
         CsvMapper csvMapper = new CsvMapper();
         CsvSchema csvSchema;
@@ -61,6 +47,23 @@ abstract public class ConverterXML {
      * @param type - Type of objects used inside the XML file.
      */
     public static void convertToJSON(String pathName, String newFile, Class<?> type) {
+        List<Object> objects = readObjectsFromXml(pathName, type);
+
+        ObjectMapper objectMapperJSON = new ObjectMapper();
+        try {
+            objectMapperJSON.writerWithDefaultPrettyPrinter().writeValue(new File(newFile), objects);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Private function used for reading objects from a XML file.
+     * @param pathName - Path of the xml file.
+     * @param type - Type of class hat the objects consist of
+     * @return a list of objects
+     */
+    private static List<Object> readObjectsFromXml(String pathName, Class<?> type) {
         List<Object> objects = new ArrayList<>();
         XmlMapper objectMapper = new XmlMapper();
         MappingIterator<Object> mappingIterator;
@@ -75,14 +78,7 @@ abstract public class ConverterXML {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-
-        ObjectMapper objectMapperJSON = new ObjectMapper();
-        try {
-            objectMapperJSON.writerWithDefaultPrettyPrinter().writeValue(new File(newFile), objects);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return objects;
     }
 }
