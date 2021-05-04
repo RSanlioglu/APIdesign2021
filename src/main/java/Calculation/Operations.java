@@ -23,6 +23,28 @@ abstract class Operations {
     }
 
     /**
+     * Private function that will retrieve the sum of a list of doubles
+     * @param objects - List of objects to retrieve the sum of
+     * @param columnName - Name of the column to calculate on
+     * @param type - Type of class the objects consist of
+     * @return - Sum of doubles in the list of objects
+     */
+    private static double getSumDouble(List<?> objects, String columnName, Class<?> type) {
+        double sum = 0;
+
+        for (Object o : objects) {
+            double value = 0;
+            try {
+                value = getField(columnName, type).getDouble(o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            sum += value;
+        }
+        return sum;
+    }
+
+    /**
      * Will calculate all of the int values from given column name. The column must consist of datatype int
      * @param columnName - Name of the column the client wants to get the sum value of
      * @param type - Class type of the objects. Must be created by client
@@ -51,19 +73,7 @@ abstract class Operations {
      * @return - returns the sum value of the entire column
      */
     public static double calculateColumnSumDouble(List<?> objects, String columnName, Class<?> type) {
-        double sum = 0;
-
-        for (Object o : objects) {
-            double value = 0;
-            try {
-                value = getField(columnName, type).getDouble(o);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-            sum += value;
-        }
-
-        return sum;
+        return getSumDouble(objects, columnName, type);
     }
 
     /**
@@ -95,22 +105,10 @@ abstract class Operations {
      * @return - returns the average value of the entire column
      */
     public static double calculateColumnAverageDouble(List<?> objects, String columnName, Class<?> type) {
-        double sum = 0;
-
-        for (Object o : objects) {
-            double value = 0;
-            try {
-                value = getField(columnName, type).getDouble(o);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-            sum += value;
-        }
+        double sum = getSumDouble(objects, columnName, type);
 
         return sum / ((objects.size() == 0) ? 1 : objects.size());
     }
-
-
 
     /**
      * Will find the min integer value of a column. The column given must consist of datatype integer.

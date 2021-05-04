@@ -12,16 +12,6 @@ import java.util.List;
  */
 public class Calculation implements ICalculation{
     /**
-     * Enum containing three operations such as SUM, MIN and MAX.
-     * Making it easier for client to calculate a column
-     */
-    public enum Method {
-        SUM,
-        MIN,
-        MAX
-    }
-
-    /**
      * List of objects used for calculation
      */
     private static List<Object> objects;
