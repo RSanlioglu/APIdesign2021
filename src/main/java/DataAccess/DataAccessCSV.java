@@ -1,6 +1,6 @@
 package DataAccess;
 
-import Exceptions.AlreadyExistsException;
+import Exception.AlreadyExistsException;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,22 +79,7 @@ public class DataAccessCSV implements IDataAccess {
     @Override
     public <T> T getObjectById(String fieldName, double value) {
         List<T> objects = getAllObjects();
-        Field field;
-        T obj = null;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            for(T o : objects) {
-                if(field.getDouble(o) == value) {
-                    obj = o;
-                    break;
-                }
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return obj;
+        return GetObjectByIdOperations.getObjectById(objects, fieldName, value, type);
     }
 
     /**
@@ -109,22 +93,7 @@ public class DataAccessCSV implements IDataAccess {
     @Override
     public <T> T getObjectById(String fieldName, int value) {
         List<T> objects = getAllObjects();
-        Field field;
-        T obj = null;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            for(T o : objects) {
-                if(field.getInt(o) == value) {
-                    obj = o;
-                    break;
-                }
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return obj;
+        return GetObjectByIdOperations.getObjectById(objects, fieldName, value, type);
     }
 
     /**
@@ -138,22 +107,7 @@ public class DataAccessCSV implements IDataAccess {
     @Override
     public <T> T getObjectById(String fieldName, String value) {
         List<T> objects = getAllObjects();
-        Field field;
-        T obj = null;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            for(T o : objects) {
-                if(((String) field.get(o)).equals(value)) {
-                    obj = o;
-                    break;
-                }
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return obj;
+        return GetObjectByIdOperations.getObjectById(objects, fieldName, value, type);
     }
 
     /**
@@ -286,8 +240,6 @@ public class DataAccessCSV implements IDataAccess {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     /**

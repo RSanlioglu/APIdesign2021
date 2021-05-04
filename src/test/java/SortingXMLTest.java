@@ -1,5 +1,5 @@
 import DataAccess.DataAccessXML;
-import Exceptions.AlreadyExistsException;
+import Exception.AlreadyExistsException;
 import Model.Car;
 import Sorting.SortingXML;
 import org.junit.jupiter.api.AfterEach;

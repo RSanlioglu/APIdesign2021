@@ -1,5 +1,5 @@
 import DataAccess.DataAccessJSON;
-import Exceptions.AlreadyExistsException;
+import Exception.AlreadyExistsException;
 import Model.Car;
 import Sorting.SortingJSON;
 import org.junit.jupiter.api.AfterEach;

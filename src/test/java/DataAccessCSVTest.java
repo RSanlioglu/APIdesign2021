@@ -1,5 +1,5 @@
 import DataAccess.DataAccessCSV;
-import Exceptions.AlreadyExistsException;
+import Exception.AlreadyExistsException;
 import org.junit.jupiter.api.*;
 import Model.Car;
 

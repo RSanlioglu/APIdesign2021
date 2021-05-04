@@ -1,12 +1,11 @@
 package DataAccess;
 
-import Exceptions.AlreadyExistsException;
+import Exception.AlreadyExistsException;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +47,6 @@ public class DataAccessXML implements IDataAccess {
             try {
                 mappingIterator = objectMapper.readerFor(type).readValues(file);
 
-
                 while (mappingIterator.hasNext()) {
                     objects.add((T) type.cast(mappingIterator.next()));
                 }
@@ -71,22 +69,7 @@ public class DataAccessXML implements IDataAccess {
     @Override
     public <T> T getObjectById(String fieldName, double value) {
         List<T> objects = getAllObjects();
-        Field field;
-        T obj = null;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            for(T o : objects) {
-                if(field.getDouble(o) == value) {
-                    obj = o;
-                    break;
-                }
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return obj;
+        return GetObjectByIdOperations.getObjectById(objects, fieldName, value, type);
     }
 
     /**
@@ -100,21 +83,7 @@ public class DataAccessXML implements IDataAccess {
     @Override
     public <T> T getObjectById(String fieldName, int value) {
         List<T> objects = getAllObjects();
-        Field field;
-        T obj = null;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            for(T o : objects) {
-                if(field.getInt(o) == value) {
-                    obj = o;
-                }
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return obj;
+        return  GetObjectByIdOperations.getObjectById(objects, fieldName, value, type);
     }
 
     /**
@@ -128,22 +97,7 @@ public class DataAccessXML implements IDataAccess {
     @Override
     public <T> T getObjectById(String fieldName, String value) {
         List<T> objects = getAllObjects();
-        Field field;
-        T obj = null;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            for(T o : objects) {
-                if(((String) field.get(o)).equals(value)) {
-                    obj = o;
-                    break;
-                }
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return obj;
+        return GetObjectByIdOperations.getObjectById(objects, fieldName, value, type);
     }
 
     /**
@@ -217,7 +171,6 @@ public class DataAccessXML implements IDataAccess {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -268,8 +221,8 @@ public class DataAccessXML implements IDataAccess {
      */
     @Override
     public void updateObject(Object oldObject, Object newObject) {
-        List<Object> objects = getAllObjects();
         Object objectToBeDeleted = null;
+        List<Object> objects = getAllObjects();
 
         for (Object x : objects) {
             if (x.toString().equals(oldObject.toString())) {

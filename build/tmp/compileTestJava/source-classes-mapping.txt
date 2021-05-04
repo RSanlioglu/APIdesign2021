@@ -1,24 +1,24 @@
 Model/Person.java
  Model.Person
+Model/Car.java
+ Model.Car
+SortingXMLTest.java
+ SortingXMLTest
 SortingJSONTest.java
  SortingJSONTest
-DataAccessCSVTest.java
- DataAccessCSVTest
 DataAccessJSONTest.java
  DataAccessJSONTest
 DataAccessXMLTest.java
  DataAccessXMLTest
-SortingCSVTest.java
- SortingCSVTest
-Model/Car.java
- Model.Car
-ConverterTest.java
- ConverterTest
-SortingXMLTest.java
- SortingXMLTest
+DataAccessCSVTest.java
+ DataAccessCSVTest
 CalculationXMLTest.java
  CalculationXMLTest
 CalculationCSVTest.java
  CalculationCSVTest
 CalculationJSONTest.java
  CalculationJSONTest
+ConverterTest.java
+ ConverterTest
+SortingCSVTest.java
+ SortingCSVTest
