@@ -1,32 +1,16 @@
 package Calculation;
 
-import DataAccess.DataAccessCSV;
-
 import java.lang.reflect.Field;
 import java.util.List;
 
-/**
- * Factory for creating calculation instances for CSV files.
- * This class implements the interface ICalculation.
- */
-public class CalculationCSV implements ICalculation {
-    DataAccessCSV csv;
-
-    /**
-     * Constructor for CSV-calculations.
-     * @param csv - Data-access that the client has created and sent to param
-     */
-    public CalculationCSV(DataAccessCSV csv) {
-        this.csv = csv;
-    }
-
+abstract class Operations {
     /**
      * Private function that will retrieve fields given by the client.
      * @param columnName - Name of the column the client wants to focus on the datafile.
      * @param type - Type of object the client is working with
      * @return - Will return a Field.
      */
-    private Field getField(String columnName, Class<?> type) {
+    private static Field getField(String columnName, Class<?> type) {
         Field field = null;
         try {
             field = type.getDeclaredField(columnName);
@@ -44,9 +28,7 @@ public class CalculationCSV implements ICalculation {
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the sum value of the entire column
      */
-    @Override
-    public int calculateColumnSumInt(String columnName, Class<?> type){
-        List<Object> objects = csv.getAllObjects();
+    public static int calculateColumnSumInt(List<?> objects, String columnName, Class<?> type){
         int sum = 0;
 
         for (Object o : objects) {
@@ -68,9 +50,7 @@ public class CalculationCSV implements ICalculation {
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the sum value of the entire column
      */
-    @Override
-    public double calculateColumnSumDouble(String columnName, Class<?> type) {
-        List<Object> objects = csv.getAllObjects();
+    public static double calculateColumnSumDouble(List<?> objects, String columnName, Class<?> type) {
         double sum = 0;
 
         for (Object o : objects) {
@@ -92,10 +72,8 @@ public class CalculationCSV implements ICalculation {
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the average value of the entire column
      */
-    @Override
-    public double calculateColumnAverageInt(String columnName, Class<?> type) {
-        List<Object> objects = csv.getAllObjects();
-        int sum = 0;
+    public static double calculateColumnAverageInt(List<?> objects, String columnName, Class<?> type) {
+        double sum = 0;
 
         for (Object o : objects) {
             int value = 0;
@@ -107,7 +85,7 @@ public class CalculationCSV implements ICalculation {
             sum += value;
         }
 
-        return (double)sum / ((objects.size() == 0) ? 1 : objects.size());
+        return sum / ((objects.size() == 0) ? 1 : objects.size());
     }
 
     /**
@@ -116,9 +94,7 @@ public class CalculationCSV implements ICalculation {
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the average value of the entire column
      */
-    @Override
-    public double calculateColumnAverageDouble(String columnName, Class<?> type) {
-        List<Object> objects = csv.getAllObjects();
+    public static double calculateColumnAverageDouble(List<?> objects, String columnName, Class<?> type) {
         double sum = 0;
 
         for (Object o : objects) {
@@ -134,15 +110,15 @@ public class CalculationCSV implements ICalculation {
         return sum / ((objects.size() == 0) ? 1 : objects.size());
     }
 
+
+
     /**
      * Will find the min integer value of a column. The column given must consist of datatype integer.
      * @param columnName - Name of the column the client wants to get the min value of
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the min value of the entire column
      */
-    @Override
-    public int calculateColumnMinInt(String columnName, Class<?> type) {
-        List<Object> objects = csv.getAllObjects();
+    public static int calculateColumnMinInt(List<?> objects, String columnName, Class<?> type) {
         int min = Integer.MAX_VALUE;
 
         for (Object o : objects) {
@@ -165,9 +141,7 @@ public class CalculationCSV implements ICalculation {
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the max value of the entire column
      */
-    @Override
-    public int calculateColumnMaxInt(String columnName, Class<?> type) {
-        List<Object> objects = csv.getAllObjects();
+    public static int calculateColumnMaxInt(List<?> objects, String columnName, Class<?> type) {
         int max = Integer.MIN_VALUE;
 
         for(Object o : objects) {
@@ -189,9 +163,7 @@ public class CalculationCSV implements ICalculation {
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the min value of the entire column
      */
-    @Override
-    public double calculateColumnMinDouble(String columnName, Class<?> type) {
-        List<Object> objects = csv.getAllObjects();
+    public static double calculateColumnMinDouble(List<?> objects, String columnName, Class<?> type) {
         double min = Double.MAX_VALUE;
 
         for (Object o : objects) {
@@ -214,9 +186,7 @@ public class CalculationCSV implements ICalculation {
      * @param type - Class type of the objects. Must be created by client
      * @return - returns the max value of the entire column
      */
-    @Override
-    public double calculateColumnMaxDouble(String columnName, Class<?> type) {
-        List<Object> objects = csv.getAllObjects();
+    public static double calculateColumnMaxDouble(List<?> objects, String columnName, Class<?> type) {
         double max = Double.MIN_VALUE;
 
         for(Object o : objects) {
@@ -240,9 +210,7 @@ public class CalculationCSV implements ICalculation {
      * @param refValue - The reference value that will be checked in the column selected
      * @return - Returns the amount of times the reference value is counted in the column
      */
-    @Override
-    public int countIntValue(String columnName, Class<?> type, int refValue) {
-        List<Object> objects = csv.getAllObjects();
+    public static int countIntValue(List<?> objects, String columnName, Class<?> type, int refValue) {
         int count = 0;
 
         for (Object o : objects) {
@@ -267,9 +235,7 @@ public class CalculationCSV implements ICalculation {
      * @param refValue - The reference value that will be checked in the column selected
      * @return - Returns the amount of times the reference value is counted in the column
      */
-    @Override
-    public int countStringValue(String columnName, Class<?> type, String refValue) {
-        List<Object> objects = csv.getAllObjects();
+    public static int countStringValue(List<?> objects, String columnName, Class<?> type, String refValue) {
         int count = 0;
 
         for (Object o : objects) {
@@ -293,9 +259,7 @@ public class CalculationCSV implements ICalculation {
      * @param refValue - The reference value that will be checked in the column selected
      * @return - Returns the amount of times the reference value is counted in the column
      */
-    @Override
-    public int countDoubleValue(String columnName, Class<?> type, double refValue) {
-        List<Object> objects = csv.getAllObjects();
+    public static int countDoubleValue(List<?> objects, String columnName, Class<?> type, double refValue) {
         int count = 0;
 
         for (Object o : objects) {

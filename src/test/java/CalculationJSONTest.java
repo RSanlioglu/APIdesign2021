@@ -1,14 +1,13 @@
-import Calculation.CalculationJSON;
+import Calculation.Calculation;
 import DataAccess.DataAccessJSON;
 import Model.Person;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculationJSONTest {
     private static final DataAccessJSON dataAccess = new DataAccessJSON("src/test/java/DataFiles/people.json", Person.class);
-    private static final CalculationJSON calculation = new CalculationJSON(dataAccess);
+    private static final Calculation calculation = new Calculation(dataAccess);
 
     /**
      * The test will calculate the sum weight between the people in people.json file.
@@ -18,7 +17,7 @@ public class CalculationJSONTest {
     @Test
     public void calculateSumIntWeight() {
         int sum;
-        sum = calculation.calculateColumnSumInt("weight", Person.class);
+        sum = calculation.calculateColumnInt("weight", Person.class, Calculation.Method.SUM);
 
         assertEquals(sum, 1876);
         assertNotEquals(sum, 314);
@@ -31,7 +30,7 @@ public class CalculationJSONTest {
     @Test
     public void calculateDoubleHeight() {
         double sum;
-        sum = Math.round(calculation.calculateColumnSumDouble("height", Person.class));
+        sum = Math.round(calculation.calculateColumnDouble("height", Person.class, Calculation.Method.SUM));
 
         assertEquals(sum, 39); //We round the number in order to not work with very precise numbers
         assertNotEquals(sum, 18.0);
@@ -70,7 +69,7 @@ public class CalculationJSONTest {
     @Test
     public void calculateMinAge() {
         int min;
-        min = calculation.calculateColumnMinInt("age", Person.class);
+        min = calculation.calculateColumnInt("age", Person.class, Calculation.Method.MIN);
 
         assertEquals(22, min);
         assertNotEquals(0, min);
@@ -83,7 +82,7 @@ public class CalculationJSONTest {
     @Test
     public void calculateMaxAge() {
         int max;
-        max = calculation.calculateColumnMaxInt("age", Person.class);
+        max = calculation.calculateColumnInt("age", Person.class, Calculation.Method.MAX);
 
         assertNotEquals(0, max);
         assertEquals(39, max);
@@ -96,7 +95,7 @@ public class CalculationJSONTest {
     @Test
     public void calculateMinHeight() {
         double min;
-        min = calculation.calculateColumnMinDouble("height", Person.class);
+        min = calculation.calculateColumnDouble("height", Person.class, Calculation.Method.MIN);
 
         assertNotEquals(0, min);
         assertEquals(1.3, min);
@@ -109,7 +108,7 @@ public class CalculationJSONTest {
     @Test
     public void calculateMaxHeight() {
         double max;
-        max = calculation.calculateColumnMaxDouble("height", Person.class);
+        max = calculation.calculateColumnDouble("height", Person.class, Calculation.Method.MAX);
 
         assertNotEquals(0, max);
         assertEquals(2.4, max);
@@ -121,7 +120,7 @@ public class CalculationJSONTest {
     @Test
     public void countAge() {
         int countAge;
-        countAge = calculation.countIntValue("age", Person.class, 28);
+        countAge = calculation.countIntInColumn("age", Person.class, 28);
 
         assertNotEquals(0, countAge);
         assertEquals(2, countAge);
@@ -133,7 +132,7 @@ public class CalculationJSONTest {
     @Test
     public void countName() {
         int countName = 0;
-        countName = calculation.countStringValue("first_name", Person.class, "Shirley");
+        countName = calculation.countStringInColumn("first_name", Person.class, "Shirley");
 
         assertEquals(2, countName);
         assertNotEquals(0, countName);
@@ -145,7 +144,7 @@ public class CalculationJSONTest {
     @Test
     public void countHeight() {
         int countDouble;
-        countDouble = calculation.countDoubleValue("height", Person.class, 2);
+        countDouble = calculation.countDoubleInColumn("height", Person.class, 2);
 
         assertNotEquals(0, countDouble);
         assertEquals(3, countDouble);

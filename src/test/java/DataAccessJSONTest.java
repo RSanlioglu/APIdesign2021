@@ -1,5 +1,5 @@
 import DataAccess.DataAccessJSON;
-import Exceptions.FileAlreadyExistsException;
+import Exceptions.AlreadyExistsException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +29,7 @@ public class DataAccessJSONTest {
     public void setUp() {
         try {
             dataAccessJSON.createJson();
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
     }
@@ -50,7 +50,7 @@ public class DataAccessJSONTest {
         DataAccessJSON dataAccessJSON = new DataAccessJSON("newFile.json", Car.class);
         try {
             dataAccessJSON.createJson(); //Create the file
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
         assertTrue(new File("newFile.json").exists()); //See if the file exists
@@ -67,7 +67,7 @@ public class DataAccessJSONTest {
      */
     @Test
     public void createExistingJSONFile() {
-        assertThrows(FileAlreadyExistsException.class, dataAccessJSON::createJson); //This will throw an exception since the file is created before the test, and we create it again here
+        assertThrows(AlreadyExistsException.class, dataAccessJSON::createJson); //This will throw an exception since the file is created before the test, and we create it again here
     }
 
     /**

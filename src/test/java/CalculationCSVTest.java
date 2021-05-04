@@ -1,4 +1,4 @@
-import Calculation.CalculationCSV;
+import Calculation.Calculation;
 import DataAccess.DataAccessCSV;
 import Model.Person;
 import org.junit.jupiter.api.Test;
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculationCSVTest {
     private static final DataAccessCSV dataAccess = new DataAccessCSV("src/test/java/DataFiles/people.csv", Person.class, true);
-    private static final CalculationCSV calculation = new CalculationCSV(dataAccess);
+    private static final Calculation calculationCSV = new Calculation(dataAccess);
 
     /**
      * The test will calculate the sum weight between the people in people.csv file.
@@ -17,7 +17,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateSumIntWeight() {
         int sum;
-        sum = calculation.calculateColumnSumInt("weight", Person.class);
+        sum = calculationCSV.calculateColumnInt("weight", Person.class, Calculation.Method.SUM);
 
         assertEquals(sum, 860);
         assertNotEquals(sum, 314); //The actual sum is 860
@@ -30,7 +30,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateDoubleHeight() {
         double sum;
-        sum = calculation.calculateColumnSumDouble("height", Person.class);
+        sum = calculationCSV.calculateColumnDouble("height", Person.class, Calculation.Method.SUM);
 
         assertEquals(sum, 18.5);
         assertNotEquals(sum, 18.0); //The sum is actually 18.5
@@ -43,7 +43,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateAverageAgeInt() {
         double average;
-        average = calculation.calculateColumnAverageInt("age", Person.class);
+        average = calculationCSV.calculateColumnAverageInt("age", Person.class);
 
         assertEquals(average, 31.3);
         assertNotEquals(average, 31); //Average is actually 31.3
@@ -56,7 +56,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateAverageHeightDouble() {
         double avgHeight;
-        avgHeight = calculation.calculateColumnAverageDouble("height", Person.class);
+        avgHeight = calculationCSV.calculateColumnAverageDouble("height", Person.class);
 
         assertEquals(1.85, avgHeight);
         assertNotEquals(0, avgHeight);
@@ -69,7 +69,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateMinAge() {
         int min;
-        min = calculation.calculateColumnMinInt("age", Person.class);
+        min = calculationCSV.calculateColumnInt("age", Person.class, Calculation.Method.MIN);
 
         assertEquals(21, min);
         assertNotEquals(0, min);
@@ -82,7 +82,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateMaxAge() {
         int max;
-        max = calculation.calculateColumnMaxInt("age", Person.class);
+        max = calculationCSV.calculateColumnInt("age", Person.class, Calculation.Method.MAX);
 
         assertNotEquals(0, max);
         assertEquals(38, max);
@@ -95,7 +95,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateMinHeight() {
         double min;
-        min = calculation.calculateColumnMinDouble("height", Person.class);
+        min = calculationCSV.calculateColumnDouble("height", Person.class, Calculation.Method.MIN);
 
         assertNotEquals(0, min);
         assertEquals(1.4, min);
@@ -108,7 +108,7 @@ public class CalculationCSVTest {
     @Test
     public void calculateMaxHeight() {
         double max;
-        max = calculation.calculateColumnMaxDouble("height", Person.class);
+        max = calculationCSV.calculateColumnDouble("height", Person.class, Calculation.Method.MAX);
 
         assertNotEquals(0, max);
         assertEquals(2.5, max);
@@ -120,7 +120,7 @@ public class CalculationCSVTest {
     @Test
     public void countAge() {
         int countAge;
-        countAge = calculation.countIntValue("age", Person.class, 36);
+        countAge = calculationCSV.countIntInColumn("age", Person.class, 36);
 
         assertNotEquals(0, countAge);
         assertEquals(4, countAge);
@@ -132,7 +132,7 @@ public class CalculationCSVTest {
     @Test
     public void countName() {
         int countName;
-        countName = calculation.countStringValue("first_name", Person.class, "Kyle");
+        countName = calculationCSV.countStringInColumn("first_name", Person.class,"Kyle");
 
         assertEquals(2, countName);
         assertNotEquals(0, countName);
@@ -144,7 +144,7 @@ public class CalculationCSVTest {
     @Test
     public void countHeight() {
         int countDouble;
-        countDouble = calculation.countDoubleValue("height", Person.class, 2.3);
+        countDouble = calculationCSV.countDoubleInColumn("height", Person.class, 2.3);
 
         assertNotEquals(0, countDouble);
         assertEquals(2, countDouble);

@@ -1,5 +1,5 @@
 import DataAccess.DataAccessCSV;
-import Exceptions.FileAlreadyExistsException;
+import Exceptions.AlreadyExistsException;
 import org.junit.jupiter.api.*;
 import Model.Car;
 
@@ -27,7 +27,7 @@ public class DataAccessCSVTest {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
         try {
             dataAccessCSV.createCSV();
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
     }
@@ -48,7 +48,7 @@ public class DataAccessCSVTest {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("newFile.csv", Car.class, true);
         try {
             dataAccessCSV.createCSV(); //Create the file
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
         assertTrue(new File("newFile.csv").exists()); //See if the file exists
@@ -66,7 +66,7 @@ public class DataAccessCSVTest {
     @Test
     public void createExistingCSVFile() {
         DataAccessCSV dataAccessCSV = new DataAccessCSV("test.csv", Car.class, true);
-        assertThrows(FileAlreadyExistsException.class, dataAccessCSV::createCSV);
+        assertThrows(AlreadyExistsException.class, dataAccessCSV::createCSV);
     }
 
 

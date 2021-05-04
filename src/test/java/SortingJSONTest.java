@@ -1,5 +1,5 @@
 import DataAccess.DataAccessJSON;
-import Exceptions.FileAlreadyExistsException;
+import Exceptions.AlreadyExistsException;
 import Model.Car;
 import Sorting.SortingJSON;
 import org.junit.jupiter.api.AfterEach;
@@ -28,7 +28,7 @@ public class SortingJSONTest {
     public void setUp() {
         try {
             dataAccess.createJson();
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
         cars.add(ferrariF40);

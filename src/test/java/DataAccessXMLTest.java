@@ -1,5 +1,5 @@
 import DataAccess.DataAccessXML;
-import Exceptions.FileAlreadyExistsException;
+import Exceptions.AlreadyExistsException;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -30,7 +30,7 @@ public class DataAccessXMLTest {
     public void setUp() {
         try {
             dataAccessXML.createXML();
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
     }
@@ -52,7 +52,7 @@ public class DataAccessXMLTest {
 
         try {
             dataAccessXML.createXML(); //Create the file
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
 
@@ -70,7 +70,7 @@ public class DataAccessXMLTest {
      */
     @Test
     public void createExistingXMLFile() {
-        assertThrows(FileAlreadyExistsException.class, dataAccessXML::createXML); //This will throw an exception since the file is created before the test, and we create it again here
+        assertThrows(AlreadyExistsException.class, dataAccessXML::createXML); //This will throw an exception since the file is created before the test, and we create it again here
     }
 
     /**

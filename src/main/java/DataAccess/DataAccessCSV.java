@@ -1,6 +1,6 @@
 package DataAccess;
 
-import Exceptions.FileAlreadyExistsException;
+import Exceptions.AlreadyExistsException;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -313,13 +313,13 @@ public class DataAccessCSV implements IDataAccess {
 
     /**
      * Creates a new file with the filename that the client declared in the constructor.
-     * @throws FileAlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
+     * @throws AlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
      */
-    public void createCSV() throws FileAlreadyExistsException {
+    public void createCSV() throws AlreadyExistsException {
         File file = new File(fileName);
         try {
             if(!file.createNewFile()) {
-                throw new FileAlreadyExistsException("This file already exists: " + fileName);
+                throw new AlreadyExistsException("This file already exists: " + fileName);
             }
         } catch (IOException e) {
             e.printStackTrace();

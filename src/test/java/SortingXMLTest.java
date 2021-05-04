@@ -1,5 +1,5 @@
 import DataAccess.DataAccessXML;
-import Exceptions.FileAlreadyExistsException;
+import Exceptions.AlreadyExistsException;
 import Model.Car;
 import Sorting.SortingXML;
 import org.junit.jupiter.api.AfterEach;
@@ -29,8 +29,7 @@ public class SortingXMLTest {
     public void setUp() {
         try {
             dataAccess.createXML();
-        } catch (FileAlreadyExistsException e) {
-            e.printStackTrace();
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
         cars.add(ferrariF40);

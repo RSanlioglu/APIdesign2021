@@ -1,5 +1,5 @@
 import DataAccess.DataAccessCSV;
-import Exceptions.FileAlreadyExistsException;
+import Exceptions.AlreadyExistsException;
 import Model.Car;
 import Sorting.SortingCSV;
 import org.junit.jupiter.api.AfterEach;
@@ -29,7 +29,7 @@ public class SortingCSVTest {
     public void setUp() {
         try {
             dataAccess.createCSV();
-        } catch (FileAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             e.printStackTrace();
         }
         cars.add(ferrariF40);

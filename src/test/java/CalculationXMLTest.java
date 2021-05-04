@@ -1,4 +1,4 @@
-import Calculation.CalculationXML;
+import Calculation.Calculation;
 import DataAccess.DataAccessXML;
 import Model.Person;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class CalculationXMLTest {
     private static final DataAccessXML dataAccess = new DataAccessXML("src/test/java/DataFiles/people.xml", Person.class, "People");
-    private static final CalculationXML calculation = new CalculationXML(dataAccess);
+    private static final Calculation calculation = new Calculation(dataAccess);
 
     /**
      * The test will calculate the sum weight between the people in people.xml file.
@@ -18,7 +18,7 @@ public class CalculationXMLTest {
     @Test
     public void calculateSumIntWeight() {
         int sum;
-        sum = calculation.calculateColumnSumInt("weight", Person.class);
+        sum = calculation.calculateColumnInt("weight", Person.class, Calculation.Method.SUM);
 
         assertEquals(sum, 711);
         assertNotEquals(sum, 314);
@@ -31,7 +31,7 @@ public class CalculationXMLTest {
     @Test
     public void calculateDoubleHeight() {
         double sum;
-        sum = calculation.calculateColumnSumDouble("height", Person.class);
+        sum = calculation.calculateColumnDouble("height", Person.class, Calculation.Method.SUM);
 
         assertEquals(sum, 23.3);
         assertNotEquals(sum, 18.0);
@@ -70,7 +70,7 @@ public class CalculationXMLTest {
     @Test
     public void calculateMinAge() {
         int min;
-        min = calculation.calculateColumnMinInt("age", Person.class);
+        min = calculation.calculateColumnInt("age", Person.class, Calculation.Method.MIN);
 
         assertEquals(20, min);
         assertNotEquals(0, min);
@@ -83,7 +83,7 @@ public class CalculationXMLTest {
     @Test
     public void calculateMaxAge() {
         int max;
-        max = calculation.calculateColumnMaxInt("age", Person.class);
+        max = calculation.calculateColumnInt("age", Person.class, Calculation.Method.MAX);
 
         assertNotEquals(0, max);
         assertEquals(40, max);
@@ -96,7 +96,7 @@ public class CalculationXMLTest {
     @Test
     public void calculateMinHeight() {
         double min;
-        min = calculation.calculateColumnMinDouble("height", Person.class);
+        min = calculation.calculateColumnDouble("height", Person.class, Calculation.Method.MIN);
 
         assertNotEquals(0, min);
         assertEquals(1.5, min);
@@ -109,7 +109,7 @@ public class CalculationXMLTest {
     @Test
     public void calculateMaxHeight() {
         double max;
-        max = calculation.calculateColumnMaxDouble("height", Person.class);
+        max = calculation.calculateColumnDouble("height", Person.class, Calculation.Method.MAX);
 
         assertNotEquals(0, max);
         assertEquals(2.5, max);
@@ -121,7 +121,7 @@ public class CalculationXMLTest {
     @Test
     public void countAge() {
         int countAge;
-        countAge = calculation.countIntValue("age", Person.class, 33);
+        countAge = calculation.countIntInColumn("age", Person.class, 33);
 
         assertNotEquals(0, countAge);
         assertEquals(3, countAge);
@@ -133,7 +133,7 @@ public class CalculationXMLTest {
     @Test
     public void countName() {
         int countName = 0;
-        countName = calculation.countStringValue("first_name", Person.class, "Richard");
+        countName = calculation.countStringInColumn("first_name", Person.class, "Richard");
 
         assertEquals(1, countName);
         assertNotEquals(0, countName);
@@ -145,7 +145,7 @@ public class CalculationXMLTest {
     @Test
     public void countHeight() {
         int countDouble;
-        countDouble = calculation.countDoubleValue("height", Person.class, 2);
+        countDouble = calculation.countDoubleInColumn("height", Person.class, 2);
 
         assertNotEquals(0, countDouble);
         assertEquals(2, countDouble);
