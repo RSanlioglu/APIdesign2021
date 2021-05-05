@@ -5,12 +5,14 @@ import java.util.List;
 public interface IDataAccess {
     /**
      * Will return all objects from the datafile
+     * @param <T> - Type of object
      * @return - list of objects received from the datafile
      */
     <T> List<T> getAllObjects();
 
     /**
      * Get one object by it's id-reference
+     * @param <T> - Type of object
      * @param fieldName - Name of the ID field
      * @param value - Value of the ID
      * @return - Returns the object if found, else null
@@ -19,6 +21,7 @@ public interface IDataAccess {
 
     /**
      * Get one object by it's id-reference
+     * @param <T> - Type of object
      * @param fieldName - Name of the ID field
      * @param value - Value of the ID
      * @return - Returns the object if found, else null
@@ -27,6 +30,7 @@ public interface IDataAccess {
 
     /**
      * Get one object by it's id-reference
+     * @param <T> - Type of object
      * @param fieldName - Name of the ID field
      * @param value - Value of the ID
      * @return - Returns the object if found, else null

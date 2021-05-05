@@ -5,6 +5,7 @@ import java.util.List;
 public interface ISorting {
     /**
      * Sorting the objects received from the data-file by their int value, ascending.
+     * @param <T> - Type of object
      * @param fieldName - Name of field that contains the int values
      * @return - List of objects sorted
      */
@@ -12,6 +13,7 @@ public interface ISorting {
 
     /**
      * Sorting the objects received from the data-file by their int value, descending.
+     * @param <T> - Type of object
      * @param fieldName - Name of field that contains the int values
      * @return - List of objects sorted
      */
@@ -19,6 +21,7 @@ public interface ISorting {
 
     /**
      * Sorting the objects received from the data-file by their double value, ascending.
+     * @param <T> - Type of object
      * @param fieldName - Name of field that contains the double values
      * @return - List of objects sorted
      */
@@ -26,6 +29,7 @@ public interface ISorting {
 
     /**
      * Sorting the objects received from the data-file by their double value, descending.
+     * @param <T> - Type of object
      * @param fieldName - Name of field that contains the double values
      * @return - List of objects sorted
      */
@@ -33,6 +37,7 @@ public interface ISorting {
 
     /**
      * Sorting the objects received from the data-file by their string value, ascending.
+     * @param <T> - Type of object
      * @param fieldName - Name of field that contains the string values
      * @return - List of objects sorted
      */
@@ -40,6 +45,7 @@ public interface ISorting {
 
     /**
      * Sorting the objects received from the data-file by their string value, descending.
+     * @param <T> - Type of object
      * @param fieldName - Name of field that contains the string values
      * @return - List of objects sorted
      */
