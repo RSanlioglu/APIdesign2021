@@ -35,8 +35,7 @@ public class DataAccessCSV implements IDataAccess {
 
     /**
      * Returns a list of object that is red from the
-     * .csv file. The list of objects is given back to the
-     * client as an OBJECT.
+     * .csv file.
      * @param <T> - Type of class used to cast the objects from the data-file
      * @return - A list of objects returned from the data-file
      */
@@ -68,7 +67,7 @@ public class DataAccessCSV implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
      *
      * @param fieldName - The name of the field to be used for searching
@@ -83,7 +82,7 @@ public class DataAccessCSV implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
      *
      * @param fieldName - The name of the field to be used for searching
@@ -97,7 +96,7 @@ public class DataAccessCSV implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
      *
      * @param fieldName - The name of the field to be used for searching
@@ -204,7 +203,7 @@ public class DataAccessCSV implements IDataAccess {
     @Override
     public boolean doesExist(Object o) {
         boolean exists = false;
-        List<Object> objects = new ArrayList<>();
+        List<Object> objects;
         objects = getAllObjects();
 
         for(Object obj : objects) {
@@ -244,7 +243,7 @@ public class DataAccessCSV implements IDataAccess {
 
     /**
      * Finds the old object in the datafile, and replaces it with the new object.
-     * The old object is delted and the new object is created and appended to the datafile.
+     * The old object is deleted and the new object is created and appended to the datafile.
      * Ergo updatedObjects will be placed on the bottom of the file
      * @param oldObject - Object to be updated
      * @param newObject - Object containing new information
@@ -265,7 +264,7 @@ public class DataAccessCSV implements IDataAccess {
 
     /**
      * Creates a new file with the filename that the client declared in the constructor.
-     * @throws AlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
+     * @throws AlreadyExistsException - If the file already exists a AlreadyExistsException is thrown.
      */
     public void createCSV() throws AlreadyExistsException {
         File file = new File(fileName);

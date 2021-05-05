@@ -45,7 +45,7 @@ abstract public class ConverterJSON {
     }
 
     /**
-     * Function for converting JSON file to CSV file.
+     * Function for converting JSON file to XML file.
      * @param pathName - Name of the JSON file that the client wants to convert
      * @param newFileName - Name of the new XML file the client gets after converting
      * @param rootTagName - Name of the root tag in the XML file.

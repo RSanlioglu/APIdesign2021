@@ -19,7 +19,7 @@ public class Calculation implements ICalculation{
     /**
      * Constructor for Calculation, supporting XML data-access
      * @param xml - Data-access for the data to be calculated
-     * @throws NullPointerException - When data access is a nullpointer
+     * @throws NullPointerException - When data access is throws a nullpointer
      */
     public Calculation(DataAccessXML xml) throws NullPointerException {
         if(xml == null) {
@@ -33,7 +33,7 @@ public class Calculation implements ICalculation{
     /**
      * Constructor for Calculation, supporting JSON data-access
      * @param json - Data-access for the data to be calculated
-     * @throws NullPointerException - When data access is a nullpointer
+     * @throws NullPointerException - When data access throws a nullpointer
      */
     public Calculation(DataAccessJSON json) throws NullPointerException {
         if(json == null) {
@@ -46,7 +46,7 @@ public class Calculation implements ICalculation{
     /**
      * Constructor for Calculation, supporting CSV data-access
      * @param csv - Data-access for the data to be calculated
-     * @throws NullPointerException - When data access is a nullpointer
+     * @throws NullPointerException - When data access throws a nullpointer
      */
     public Calculation(DataAccessCSV csv) throws NullPointerException {
         if(csv == null) {
@@ -57,7 +57,7 @@ public class Calculation implements ICalculation{
     }
 
     /**
-     * Function for calculating a columns MAX value, MIN value and SUM value
+     * Function for calculating a columns integer - MAX value, MIN value and SUM value
      * @param columnName - Name of column you want to execute calculation operation on
      * @param type - Type of class that the objects consist of
      * @param operation - The operation that the client wishes to use (MIN, MAX and SUM)
@@ -77,7 +77,7 @@ public class Calculation implements ICalculation{
     }
 
     /**
-     * Function for calculating a columns MAX value, MIN value and SUM value
+     * Function for calculating a columns double - MAX value, MIN value and SUM value
      * @param columnName - Name of column you want to execute calculation operation on
      * @param type - Type of class that the objects consist of
      * @param operation - The operation that the client wishes to use (MIN, MAX and SUM)

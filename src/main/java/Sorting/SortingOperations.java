@@ -5,6 +5,13 @@ import java.util.*;
 
 abstract class SortingOperations {
 
+    /**
+     * Sorts the list of integers ascending
+     * @param fieldName - Name of field consisting the int values
+     * @param allObjects - List of objects
+     * @param type - Type of class that the object consist of
+     * @return - List of integers sorted ascending
+     */
     @SuppressWarnings("unchecked")
     public static <T> List<T> sortIntegersAscending(String fieldName, List<Object> allObjects, Class<?> type) {
         List<T> sortedList = new ArrayList<>();
@@ -40,6 +47,13 @@ abstract class SortingOperations {
         return sortedList;
     }
 
+    /**
+     * Sorts the list of integers descending
+     * @param fieldName - Name of field consisting the int values
+     * @param allObjects - List of objects
+     * @param type - Type of class that the object consist of
+     * @return - List of integers sorted descending
+     */
     public static <T> List<T> sortIntegerDescending(String fieldName, List<Object> allObjects, Class<?> type) {
         List<T> sortedList = sortIntegersAscending(fieldName, allObjects, type);
         Collections.reverse(sortedList);
@@ -47,6 +61,13 @@ abstract class SortingOperations {
         return sortedList;
     }
 
+    /**
+     * Sorts the list of doubles ascending
+     * @param fieldName - Name of field consisting the double values
+     * @param allObjects - List of objects
+     * @param type - Type of class that the object consist of
+     * @return - List of doubles sorted ascending
+     */
     @SuppressWarnings("unchecked")
     public static <T> List<T> sortDoubleAscending(String fieldName, List<Object> allObjects, Class<?> type) {
         List<T> sortedList = new ArrayList<>();
@@ -80,6 +101,13 @@ abstract class SortingOperations {
         return sortedList;
     }
 
+    /**
+     * Sorts the list of doubles descending
+     * @param fieldName - Name of field consisting the double values
+     * @param allObjects - List of objects
+     * @param type - Type of class that the object consist of
+     * @return - List of doubles sorted descending
+     */
     public static <T> List<T> sortDoubleDescending(String fieldName, List<Object> allObjects, Class<?> type) {
         List<T> sortedList = sortDoubleAscending(fieldName, allObjects, type);
         Collections.reverse(sortedList);
@@ -87,6 +115,13 @@ abstract class SortingOperations {
         return sortedList;
     }
 
+    /**
+     * Sorts the list of string ascending
+     * @param fieldName - Name of field consisting the string values
+     * @param allObjects - List of objects
+     * @param type - Type of class that the object consist of
+     * @return - List of strings sorted ascending
+     */
     @SuppressWarnings("unchecked")
     public static <T> List<T> sortStringAlphabeticalAscending(String fieldName, List<Object> allObjects, Class<?> type) {
         List<T> sortedList = new ArrayList<>();
@@ -121,6 +156,13 @@ abstract class SortingOperations {
         return sortedList;
     }
 
+    /**
+     * Sorts the list of string descending
+     * @param fieldName - Name of field consisting the string values
+     * @param allObjects - List of objects
+     * @param type - Type of class that the object consist of
+     * @return - List of strings sorted descending
+     */
     public static <T> List<T> sortStringAlphabeticalDescending(String fieldName, List<Object> allObjects, Class<?> type) {
         List<T> sortedList = sortStringAlphabeticalAscending(fieldName, allObjects, type);
         Collections.reverse(sortedList);

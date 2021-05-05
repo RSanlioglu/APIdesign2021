@@ -3,6 +3,10 @@ package DataAccess;
 import java.lang.reflect.Field;
 import java.util.List;
 
+/**
+ * Private utility class used to retrieve objects by their ID.
+ * This class was constructed with an effort to minimize duplicated code.
+ */
 abstract class GetObjectByIdOperations {
     /**
      * Gets one object by the id reference (double).

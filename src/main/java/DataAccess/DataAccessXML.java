@@ -59,9 +59,8 @@ public class DataAccessXML implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
-     *
      * @param fieldName - The name of the field to be used for searching
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
@@ -73,9 +72,8 @@ public class DataAccessXML implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
-     *
      * @param fieldName - The name of the field to be used for searching
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
@@ -87,9 +85,8 @@ public class DataAccessXML implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
-     *
      * @param fieldName - The name of the field to be used for searching
      * @param value - The value that the user wants to retrieve the object by
      * @return - Object with correct id will be returned
@@ -149,7 +146,7 @@ public class DataAccessXML implements IDataAccess {
 
         XmlMapper xmlMapper = new XmlMapper();
         try {
-            xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), objects);
+            xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootName).writeValue(new File(fileName), objects);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -167,7 +164,7 @@ public class DataAccessXML implements IDataAccess {
         objects.addAll(l_o);
         XmlMapper xmlMapper = new XmlMapper();
         try {
-            xmlMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), objects);
+            xmlMapper.writerWithDefaultPrettyPrinter().withRootName(rootName).writeValue(new File(fileName), objects);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -235,7 +232,7 @@ public class DataAccessXML implements IDataAccess {
 
     /**
      * Creates a new file with the filename that the client declared in the constructor.
-     * @throws AlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
+     * @throws AlreadyExistsException - If the file already exists a AlreadyExistsException is thrown.
      */
     public void createXML() throws AlreadyExistsException {
         File file = new File(fileName);

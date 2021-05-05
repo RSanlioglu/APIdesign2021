@@ -28,8 +28,7 @@ public class DataAccessJSON implements IDataAccess {
     }
 
     /**
-     * Returns a list of objects to client. Then client can easilly
-     * cast the objects to appropriate class
+     * Returns a list of objects to client.
      * @return list of objects read from file
      */
     @Override
@@ -51,7 +50,7 @@ public class DataAccessJSON implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
      *
      * @param fieldName - The name of the field to be used for searching
@@ -65,7 +64,7 @@ public class DataAccessJSON implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
      *
      * @param fieldName - The name of the field to be used for searching
@@ -79,7 +78,7 @@ public class DataAccessJSON implements IDataAccess {
     }
 
     /**
-     * The client can get one object by ID fields. ID fields should be used since it will guarantee
+     * The client can get one object by ID fields. Unique ID fields should be used since it will guarantee
      * the correct object to be returned by matching it's ID, which is a sort of primary key
      *
      * @param fieldName - The name of the field to be used for searching
@@ -227,7 +226,7 @@ public class DataAccessJSON implements IDataAccess {
 
     /**
      * Creates a new file with the filename that the client declared in the constructor.
-     * @throws AlreadyExistsException - If the file already exists a FileAlreadyExistsException is thrown.
+     * @throws AlreadyExistsException - If the file already exists a AlreadyExistsException is thrown.
      */
     public void createJson() throws AlreadyExistsException {
         File file = new File(fileName);

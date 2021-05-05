@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 abstract class Operations {
+
     /**
      * Private function that will retrieve fields given by the client.
      * @param columnName - Name of the column the client wants to focus on the datafile.
