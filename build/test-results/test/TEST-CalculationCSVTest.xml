@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CalculationCSVTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-05-05T10:05:17" hostname="LAPTOP-KA5PC1CV" time="0.036">
+<testsuite name="CalculationCSVTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-05-05T10:08:32" hostname="LAPTOP-KA5PC1CV" time="0.031">
   <properties/>
-  <testcase name="calculateMinHeight()" classname="CalculationCSVTest" time="0.022"/>
-  <testcase name="calculateMaxAge()" classname="CalculationCSVTest" time="0.001"/>
+  <testcase name="calculateMinHeight()" classname="CalculationCSVTest" time="0.017"/>
+  <testcase name="calculateMaxAge()" classname="CalculationCSVTest" time="0.0"/>
   <testcase name="calculateMinAge()" classname="CalculationCSVTest" time="0.001"/>
-  <testcase name="calculateAverageHeightDouble()" classname="CalculationCSVTest" time="0.0"/>
-  <testcase name="countAge()" classname="CalculationCSVTest" time="0.0"/>
-  <testcase name="calculateSumIntWeight()" classname="CalculationCSVTest" time="0.0"/>
+  <testcase name="calculateAverageHeightDouble()" classname="CalculationCSVTest" time="0.001"/>
+  <testcase name="countAge()" classname="CalculationCSVTest" time="0.001"/>
+  <testcase name="calculateSumIntWeight()" classname="CalculationCSVTest" time="0.001"/>
   <testcase name="calculateDoubleHeight()" classname="CalculationCSVTest" time="0.001"/>
   <testcase name="calculateAverageAgeInt()" classname="CalculationCSVTest" time="0.001"/>
   <testcase name="countName()" classname="CalculationCSVTest" time="0.001"/>
   <testcase name="calculateMaxHeight()" classname="CalculationCSVTest" time="0.001"/>
-  <testcase name="countHeight()" classname="CalculationCSVTest" time="0.001"/>
+  <testcase name="countHeight()" classname="CalculationCSVTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
