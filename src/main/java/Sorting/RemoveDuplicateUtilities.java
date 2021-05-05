@@ -13,7 +13,7 @@ final class RemoveDuplicateUtilities {
      * @return LinkedHashSet containing key integer values without duplicates
      */
     static LinkedHashSet<Integer> removeDuplicatesInt(int[] a) {
-        LinkedHashSet<Integer> set = new LinkedHashSet<Integer>();
+        LinkedHashSet<Integer> set = new LinkedHashSet<>();
         for (int j : a) set.add(j);
         return set;
     }
@@ -24,7 +24,7 @@ final class RemoveDuplicateUtilities {
      * @return LinkedHashSet containing key double values without duplicates
      */
     static LinkedHashSet<Double> removeDuplicatesDouble(double[] a) {
-        LinkedHashSet<Double> set = new LinkedHashSet<Double>();
+        LinkedHashSet<Double> set = new LinkedHashSet<>();
         for (double j : a) set.add(j);
         return set;
     }
@@ -35,7 +35,7 @@ final class RemoveDuplicateUtilities {
      * @return - LinkedHashSet containing key string values without duplicates
      */
     static LinkedHashSet<String> removeDuplicatesString(List<String> a) {
-        return new LinkedHashSet<String>(a);
+        return new LinkedHashSet<>(a);
     }
 
 }

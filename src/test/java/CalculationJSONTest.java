@@ -131,7 +131,7 @@ public class CalculationJSONTest {
      */
     @Test
     public void countName() {
-        int countName = 0;
+        int countName;
         countName = calculation.countStringInColumn("first_name", Person.class, "Shirley");
 
         assertEquals(2, countName);

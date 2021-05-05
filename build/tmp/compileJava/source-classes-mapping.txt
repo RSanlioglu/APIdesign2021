@@ -1,7 +1,7 @@
 Calculation/Operations.java
  Calculation.Operations
-Sorting/RemoveDuplicateUtilities.java
- Sorting.RemoveDuplicateUtilities
+Exception/AlreadyExistsException.java
+ Exception.AlreadyExistsException
 Sorting/SortingAlgorithm.java
  Sorting.SortingAlgorithm
 Sorting/TreeNode.java
@@ -19,16 +19,18 @@ Calculation/ICalculation.java
  Calculation.ICalculation$Method
 DataAccess/IDataAccess.java
  DataAccess.IDataAccess
-Exception/AlreadyExistsException.java
- Exception.AlreadyExistsException
-DataAccess/ObjectOperations.java
- DataAccess.ObjectOperations
+Sorting/SortingOperations.java
+ Sorting.SortingOperations
 Sorting/SortingXML.java
  Sorting.SortingXML
 DataAccess/DataAccessCSV.java
  DataAccess.DataAccessCSV
+DataAccess/GetObjectByIdOperations.java
+ DataAccess.GetObjectByIdOperations
 DataAccess/DataAccessJSON.java
  DataAccess.DataAccessJSON
+Sorting/RemoveDuplicateUtilities.java
+ Sorting.RemoveDuplicateUtilities
 DataAccess/DataAccessXML.java
  DataAccess.DataAccessXML
 Calculation/Calculation.java

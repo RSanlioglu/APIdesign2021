@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DataAccessCSVTest {
     private static final DataAccessCSV dataAccess = new DataAccessCSV("test.csv", Car.class, true);
 
-    /**
+    /*
      * The tests that are created here uses a specific type of class that we have created
      * just for the sake of the tests. The class is a simple Model.Car class, letting us create
      * objects of cars for the different tests
@@ -117,7 +117,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.writeList(Collections.singletonList(cars));
 
         //Returns the cars from the datafile
-        List<Car> returnedCars = new ArrayList<>();
+        List<Car> returnedCars;
         returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(2, returnedCars.size()); //The size of the returned cars are 2
@@ -258,7 +258,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.writeObject(gClass); //Writes the car object to the file
 
         //Get all objects from the file
-        List<Car> cars = new ArrayList<>();
+        List<Car> cars;
         cars = dataAccessCSV.getAllObjects();
 
         //Check if there is only one object in the file, since we only added one file
@@ -280,7 +280,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.writeObject(gClass); //Writes the car object to the file
 
         //Get all objects from the file
-        List<Car> cars = new ArrayList<>();
+        List<Car> cars;
         cars = dataAccessCSV.getAllObjects();
 
         //Check if there is only one object in the file, since we only added one file
@@ -309,7 +309,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
         //Returns the cars from the datafile
-        List<Car> returnedCars = new ArrayList<>();
+        List<Car> returnedCars;
         returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
@@ -337,7 +337,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.writeList(Collections.singletonList(cars)); //Writes the list of cars to the file
 
         //Returns the cars from the datafile
-        List<Car> returnedCars = new ArrayList<>();
+        List<Car> returnedCars;
         returnedCars = dataAccessCSV.getAllObjects();
 
         assertEquals(returnedCars.size(), 3);
@@ -362,7 +362,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.appendObject(golf);
 
         //Get the cars back from the file
-        List<Car> cars = new ArrayList<>();
+        List<Car> cars;
         cars = dataAccessCSV.getAllObjects();
 
         //Check the size of the return list and the values
@@ -386,7 +386,7 @@ public class DataAccessCSVTest {
         dataAccessCSV.appendObject(golf);
 
         //Get the cars back from the file
-        List<Car> cars = new ArrayList<>();
+        List<Car> cars;
         cars = dataAccessCSV.getAllObjects();
 
         //Check the size of the return list and the values

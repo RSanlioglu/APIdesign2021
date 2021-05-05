@@ -132,7 +132,7 @@ public class CalculationXMLTest {
      */
     @Test
     public void countName() {
-        int countName = 0;
+        int countName;
         countName = calculation.countStringInColumn("first_name", Person.class, "Richard");
 
         assertEquals(1, countName);

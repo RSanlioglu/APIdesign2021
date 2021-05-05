@@ -31,41 +31,10 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    @SuppressWarnings("unchecked")
     public <T> List<T> sortIntASC(String fieldName) {
-        List<T> sortedList = new ArrayList<>();
-
-        HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = csv.getAllObjects();
-
-        Field field;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            int[] intToBeSorted = new int[objects.size()];
-            for(int i = 0; i < objects.size(); i++) {
-                List<Object> list = new ArrayList<>();
-                intToBeSorted[i] = (int) field.get(objects.get(i));
-                for (Object object : objects) {
-                    if (field.getInt(objects.get(i)) == field.getInt(object)) {
-                        list.add(object);
-                    }
-                }
-                objectsMap.put(field.getInt(objects.get(i)), list);
-            }
-            SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
-            LinkedHashSet<Integer> set = RemoveDuplicateUtilities.removeDuplicatesInt(intToBeSorted);
-            for(int i : set) {
-                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
-            }
-
-
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return sortedList;
+        return SortingOperations.sortIntegersAscending(fieldName, csv.getAllObjects(), type);
     }
+
 
     /**
      * The client sends in a String of fieldname. The key values will be sorted where the int value is descending,
@@ -77,40 +46,8 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    @SuppressWarnings("unchecked")
     public <T> List<T> sortIntDESC(String fieldName) {
-        List<T> sortedList = new ArrayList<>();
-
-        HashMap<Integer, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = csv.getAllObjects();
-
-        Field field;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            int[] intToBeSorted = new int[objects.size()];
-            for(int i = 0; i < objects.size(); i++) {
-                List<Object> list = new ArrayList<>();
-                intToBeSorted[i] = (int) field.get(objects.get(i));
-                for(Object object : objects) {
-                    if(field.getInt(objects.get(i)) == field.getInt(object)) {
-                        list.add(object);
-                    }
-                }
-                objectsMap.put(field.getInt(objects.get(i)), list);
-            }
-            SortingAlgorithm.mergeSortINT(intToBeSorted, 0, intToBeSorted.length - 1);
-            LinkedHashSet<Integer> set = RemoveDuplicateUtilities.removeDuplicatesInt(intToBeSorted);
-            for(int i : set) {
-                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        Collections.reverse(sortedList);
-
-        return sortedList;
+        return SortingOperations.sortIntegerDescending(fieldName, csv.getAllObjects(), type);
     }
 
     /**
@@ -123,38 +60,8 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    @SuppressWarnings("unchecked")
     public <T> List<T> sortDoubleASC(String fieldName) {
-        List<T> sortedList = new ArrayList<>();
-
-        HashMap<Double, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = csv.getAllObjects();
-
-        Field field;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            double[] doubleToBeSorted = new double[objects.size()];
-            for(int i = 0; i < objects.size(); i++) {
-                List<Object> list = new ArrayList<>();
-                doubleToBeSorted[i] = (double) field.get(objects.get(i));
-                for(Object object : objects) {
-                    if(field.getDouble(objects.get(i)) == field.getDouble(object)) {
-                        list.add(object);
-                    }
-                }
-                objectsMap.put(field.getDouble(objects.get(i)), list);
-            }
-            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
-            LinkedHashSet<Double> set = RemoveDuplicateUtilities.removeDuplicatesDouble(doubleToBeSorted);
-            for(double i : set) {
-                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return sortedList;
+        return SortingOperations.sortDoubleAscending(fieldName, csv.getAllObjects(), type);
     }
 
     /**
@@ -167,40 +74,9 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    @SuppressWarnings("unchecTed")
+    @SuppressWarnings("unchecked")
     public <T> List<T> sortDoubleDESC(String fieldName) {
-        List<T> sortedList = new ArrayList<>();
-
-        HashMap<Double, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = csv.getAllObjects();
-
-        Field field;
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            double[] doubleToBeSorted = new double[objects.size()];
-            for(int i = 0; i < objects.size(); i++) {
-                List<Object> list = new ArrayList<>();
-                doubleToBeSorted[i] = (double) field.get(objects.get(i));
-                for(Object object : objects) {
-                    if(field.getDouble(objects.get(i)) == field.getDouble(object)) {
-                        list.add(object);
-                    }
-                }
-                objectsMap.put(field.getDouble(objects.get(i)), list);
-            }
-            SortingAlgorithm.mergeSortDouble(doubleToBeSorted, 0, doubleToBeSorted.length-1);
-            LinkedHashSet<Double> set = RemoveDuplicateUtilities.removeDuplicatesDouble(doubleToBeSorted);
-            for(double i : set) {
-                sortedList.addAll((Collection<? extends T>) objectsMap.get(i));
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        Collections.reverse(sortedList);
-
-        return sortedList;
+        return SortingOperations.sortDoubleDescending(fieldName, csv.getAllObjects(), type);
     }
 
     /**
@@ -211,39 +87,8 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    @SuppressWarnings("unchecked")
     public <T> List<T> sortStringAlphabeticalASC(String fieldName) {
-        List<T> sortedList = new ArrayList<>();
-
-        HashMap<String, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = csv.getAllObjects();
-
-        Field field;
-
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            List<String> stringToBeSorted = new ArrayList<>();
-            for(int i = 0; i < objects.size(); i++) {
-                List<Object> list = new ArrayList<>();
-                stringToBeSorted.add(i, (String) field.get(objects.get(i)));
-                for(Object object : objects) {
-                    if(field.get(objects.get(i)).toString().equals(field.get(object).toString())) {
-                        list.add(object);
-                    }
-                }
-                objectsMap.put((String) field.get(objects.get(i)), list);
-            }
-            SortingAlgorithm.bstSortString(stringToBeSorted);
-            LinkedHashSet<String> set = RemoveDuplicateUtilities.removeDuplicatesString(stringToBeSorted);
-            for(String s : set) {
-                sortedList.addAll((Collection<? extends T>) objectsMap.get(s));
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return sortedList;
+        return SortingOperations.sortStringAlphabeticalAscending(fieldName, csv.getAllObjects(), type);
     }
 
     /**
@@ -254,41 +99,7 @@ public class SortingCSV implements ISorting{
      * @return - A list of objects that are sorted by the key values
      */
     @Override
-    @SuppressWarnings("unchecked")
     public <T> List<T> sortStringAlphabeticalDESC(String fieldName) {
-        List<T> sortedList = new ArrayList<>();
-
-        HashMap<String, List<Object>> objectsMap = new HashMap<>();
-        List<Object> objects = csv.getAllObjects();
-
-        Field field;
-
-        try {
-            field = type.getDeclaredField(fieldName);
-            field.setAccessible(true);
-
-            List<String> stringToBeSorted = new ArrayList<>();
-            for(int i = 0; i < objects.size(); i++) {
-                List<Object> list = new ArrayList<>();
-                stringToBeSorted.add(i, (String) field.get(objects.get(i)));
-                for(Object object : objects) {
-                    if(field.get(objects.get(i)).toString().equals(field.get(object).toString())) {
-                        list.add(object);
-                    }
-                }
-                objectsMap.put((String) field.get(objects.get(i)), list);
-            }
-            SortingAlgorithm.bstSortString(stringToBeSorted);
-            LinkedHashSet<String> set = RemoveDuplicateUtilities.removeDuplicatesString(stringToBeSorted);
-            for(String s : set) {
-                sortedList.addAll((Collection<? extends T>) objectsMap.get(s));
-            }
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        Collections.reverse(sortedList);
-
-        return sortedList;
+        return SortingOperations.sortStringAlphabeticalDescending(fieldName, csv.getAllObjects(), type);
     }
 }

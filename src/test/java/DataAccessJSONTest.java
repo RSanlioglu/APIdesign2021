@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DataAccessJSONTest {
     private static final DataAccessJSON dataAccessJSON = new DataAccessJSON("test.json", Car.class);
 
-    /**
+    /*
      * The tests that are created here uses a specific type of class that we have created
      * just for the sake of the tests. The class is a simple Model.Car class, letting us create
      * objects of cars for the different tests

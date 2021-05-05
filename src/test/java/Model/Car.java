@@ -24,7 +24,7 @@ public class Car {
         this.cylinderVolume = cylinderVolume;
     }
 
-    //Tom konstruktør for å lese
+    //Empty constructor to read
     public Car() {
 
     }
