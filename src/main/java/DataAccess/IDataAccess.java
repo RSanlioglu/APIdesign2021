@@ -3,10 +3,10 @@ package DataAccess;
 import java.util.List;
 
 public interface IDataAccess {
-    <T> List<T> getAllObjects();                           //Return all of the objects from csv file
-    <T> T getObjectById(String fieldName, int value);      //Get one object by a field
-    <T> T getObjectById(String fieldName, double value);   //Get one object by a field
-    <T> T getObjectById(String fieldName, String value);   //Get one object by a field
+    <T> List<T> getAllObjects();                            //Return all of the objects from csv file
+    <T> T getObjectById(String fieldName, int value);       //Get one object by a field
+    <T> T getObjectById(String fieldName, double value);    //Get one object by a field
+    <T> T getObjectById(String fieldName, String value);    //Get one object by a field
     void writeObject(Object o);                             //Override one object to the file
     void writeList(List<Object> l_o);                       //Override one list to the file
     void appendObject(Object o);                            //Add one object to the file
