@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SortingJSONTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-04-28T17:35:39" hostname="LAPTOP-KA5PC1CV" time="0.158">
+<testsuite name="SortingJSONTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-05-05T10:05:18" hostname="LAPTOP-KA5PC1CV" time="0.03">
   <properties/>
-  <testcase name="sortStringAlphabeticalDescending()" classname="SortingJSONTest" time="0.019"/>
-  <testcase name="sortDoubleDescending()" classname="SortingJSONTest" time="0.054"/>
-  <testcase name="sortStringAlphabeticalAscending()" classname="SortingJSONTest" time="0.02"/>
-  <testcase name="sortDoubleAscending()" classname="SortingJSONTest" time="0.02"/>
-  <testcase name="sortIntAscending()" classname="SortingJSONTest" time="0.019"/>
-  <testcase name="sortIntDescending()" classname="SortingJSONTest" time="0.015"/>
+  <testcase name="sortStringAlphabeticalDescending()" classname="SortingJSONTest" time="0.005"/>
+  <testcase name="sortDoubleDescending()" classname="SortingJSONTest" time="0.004"/>
+  <testcase name="sortStringAlphabeticalAscending()" classname="SortingJSONTest" time="0.004"/>
+  <testcase name="sortDoubleAscending()" classname="SortingJSONTest" time="0.004"/>
+  <testcase name="sortIntAscending()" classname="SortingJSONTest" time="0.006"/>
+  <testcase name="sortIntDescending()" classname="SortingJSONTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
