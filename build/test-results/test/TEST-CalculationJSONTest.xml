@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CalculationJSONTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-05-05T10:03:06" hostname="LAPTOP-KA5PC1CV" time="0.013">
+<testsuite name="CalculationJSONTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-04-28T17:35:36" hostname="LAPTOP-KA5PC1CV" time="0.243">
   <properties/>
-  <testcase name="calculateMinHeight()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="calculateMaxAge()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="calculateMinAge()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="calculateAverageHeightDouble()" classname="CalculationJSONTest" time="0.0"/>
-  <testcase name="countAge()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="calculateSumIntWeight()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="calculateDoubleHeight()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="calculateAverageAgeInt()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="countName()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="calculateMaxHeight()" classname="CalculationJSONTest" time="0.001"/>
-  <testcase name="countHeight()" classname="CalculationJSONTest" time="0.001"/>
+  <testcase name="calculateMinHeight()" classname="CalculationJSONTest" time="0.042"/>
+  <testcase name="calculateMaxAge()" classname="CalculationJSONTest" time="0.011"/>
+  <testcase name="calculateMinAge()" classname="CalculationJSONTest" time="0.013"/>
+  <testcase name="calculateAverageHeightDouble()" classname="CalculationJSONTest" time="0.035"/>
+  <testcase name="countAge()" classname="CalculationJSONTest" time="0.025"/>
+  <testcase name="calculateSumIntWeight()" classname="CalculationJSONTest" time="0.018"/>
+  <testcase name="calculateDoubleHeight()" classname="CalculationJSONTest" time="0.017"/>
+  <testcase name="calculateAverageAgeInt()" classname="CalculationJSONTest" time="0.012"/>
+  <testcase name="countName()" classname="CalculationJSONTest" time="0.016"/>
+  <testcase name="calculateMaxHeight()" classname="CalculationJSONTest" time="0.025"/>
+  <testcase name="countHeight()" classname="CalculationJSONTest" time="0.011"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
