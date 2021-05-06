@@ -37,5 +37,6 @@ When the project with the framework is downloaded click on:
 - Main doumentation [LINK]
 - Getting started with examples [LINK]
 - Jackson library [LINK](https://github.com/FasterXML/jackson "Main portal of Jackson library in GitHub")
+- JavaDoc [LINK]
 - Sorce folder for the framework [LINK]
 
