@@ -1,20 +1,21 @@
 import DataAccess.DataAccessJSON;
 import Exception.AlreadyExistsException;
 import Model.Car;
-import Sorting.SortingJSON;
+import Sorting.Sorting;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class SortingJSONTest {
     private static final DataAccessJSON dataAccess = new DataAccessJSON("src/test/java/DataFiles/cars.json", Car.class);
-    private static final SortingJSON sorting = new SortingJSON(dataAccess, Car.class);
+    private static Sorting sorting = null;
 
     List<Car> cars = new ArrayList<>();
     Car ferrariF40 = new Car(1122029, "Ferrari", "F40", 1992, 2.9);
@@ -38,6 +39,7 @@ public class SortingJSONTest {
         cars.add(gWagon);
         cars.add(bentley);
         dataAccess.writeList(Collections.singletonList(cars));
+        sorting = new Sorting(dataAccess, Car.class);
     }
 
     @AfterEach

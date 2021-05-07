@@ -27,7 +27,6 @@ public class Calculation implements ICalculation{
         } else {
             objects = xml.getAllObjects();
         }
-
     }
 
     /**

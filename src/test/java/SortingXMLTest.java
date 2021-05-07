@@ -1,7 +1,7 @@
 import DataAccess.DataAccessXML;
 import Exception.AlreadyExistsException;
 import Model.Car;
-import Sorting.SortingXML;
+import Sorting.Sorting;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SortingXMLTest {
     private static final DataAccessXML dataAccess = new DataAccessXML("src/test/java/DataFiles/cars.xml", Car.class, "People");
-    private static final SortingXML sorting = new SortingXML(dataAccess, Car.class);
+    private static Sorting sorting = null;
 
     List<Car> cars = new ArrayList<>();
     Car ferrariF40 = new Car(1122029, "Ferrari", "F40", 1992, 2.9);
@@ -39,6 +39,7 @@ public class SortingXMLTest {
         cars.add(gWagon);
         cars.add(bentley);
         dataAccess.writeList(Collections.singletonList(cars));
+        sorting = new Sorting(dataAccess, Car.class);
     }
 
     @AfterEach

@@ -21,8 +21,8 @@ Sorting/BinarySearchTree.java
 Calculation/ICalculation.java
  Calculation.ICalculation
  Calculation.ICalculation$Method
-Sorting/SortingXML.java
- Sorting.SortingXML
+Converter/ConverterCSV.java
+ Converter.ConverterCSV
 DataAccess/IDataAccess.java
  DataAccess.IDataAccess
 DataAccess/DataAccessCSV.java
@@ -36,9 +36,5 @@ Sorting/ISorting.java
 Calculation/Calculation.java
  Calculation.Calculation
  Calculation.Calculation$1
-Converter/ConverterCSV.java
- Converter.ConverterCSV
-Sorting/SortingCSV.java
- Sorting.SortingCSV
-Sorting/SortingJSON.java
- Sorting.SortingJSON
+Sorting/Sorting.java
+ Sorting.Sorting

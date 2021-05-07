@@ -1,7 +1,7 @@
 import DataAccess.DataAccessCSV;
 import Exception.AlreadyExistsException;
 import Model.Car;
-import Sorting.SortingCSV;
+import Sorting.Sorting;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SortingCSVTest {
     private static final DataAccessCSV dataAccess = new DataAccessCSV("src/test/java/DataFiles/cars.csv", Car.class, true);
-    private static final SortingCSV sorting = new SortingCSV(dataAccess, Car.class);
+    private static Sorting sorting = null;
 
     List<Car> cars = new ArrayList<>();
     Car ferrariF40 = new Car(1122029, "Ferrari", "F40", 1992, 2.9);
@@ -39,6 +39,7 @@ public class SortingCSVTest {
         cars.add(gWagon);
         cars.add(bentley);
         dataAccess.writeList(Collections.singletonList(cars));
+        sorting = new Sorting(dataAccess, Car.class);  //Gets the sorting AFTER the files are added
     }
 
     @AfterEach

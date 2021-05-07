@@ -1,24 +1,67 @@
 package Sorting;
 
+import DataAccess.DataAccessXML;
 import DataAccess.DataAccessJSON;
+import DataAccess.DataAccessCSV;
 
 import java.util.List;
 
 /**
- * Factory for SortingJSON.
+ * Factory for Sorting instance
  */
-public class SortingJSON implements ISorting {
-    DataAccessJSON json;
+public class Sorting implements  ISorting{
+    /**
+     * Type of class that the list of objects consist of
+     */
     Class<?> type;
+    /**
+     * List of objects used for Sorting
+     */
+    private static List<Object> objects;
 
     /**
-     * Constructor for creating an instance of SortingJSON class
-     * @param json - DataAccess used to access a JSON file
-     * @param type - Type of objects that is in JSON file
+     * Constructor for creating an instance of Sorting class, supporting a DataAccess operating on XML files
+     * @param xml - XML DataAccess
+     * @param type - Type of objects inside the class
+     * @throws NullPointerException - If the DataAccess is null, exception is thrown
      */
-    public SortingJSON(DataAccessJSON json, Class<?> type) {
-        this.json = json;
-        this.type = type;
+    public Sorting(DataAccessXML xml, Class<?> type) throws NullPointerException {
+        if(xml == null) {
+            throw new NullPointerException();
+        } else {
+            objects = xml.getAllObjects();
+            this.type = type;
+        }
+    }
+
+    /**
+     * Constructor for creating an instance of Sorting class, supporting a DataAccess operating on CSV files
+     * @param csv - CSV DataAccess
+     * @param type - Type of objects inside the class
+     * @throws NullPointerException - If the DataAccess is null, exception is thrown
+     */
+    public Sorting(DataAccessCSV csv, Class<?> type) {
+        if(csv == null) {
+            throw new NullPointerException();
+        } else {
+            objects = csv.getAllObjects();
+            this.type = type;
+        }
+    }
+
+    /**
+     * Constructor for creating an instance of Sorting class, supporting a DataAccess operating on JSON files
+     * @param json - XML DataAccess
+     * @param type - Type of objects inside the class
+     * @throws NullPointerException - If the DataAccess is null, exception is thrown
+     */
+    public Sorting(DataAccessJSON json, Class<?> type) {
+        if(json == null) {
+            throw new NullPointerException();
+        } else {
+            objects = json.getAllObjects();
+            this.type = type;
+        }
     }
 
     /**
@@ -26,13 +69,12 @@ public class SortingJSON implements ISorting {
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
-     *
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
     @Override
     public <T> List<T> sortIntASC(String fieldName) {
-        return SortingOperations.sortIntegersAscending(fieldName, json.getAllObjects(), type);
+        return SortingOperations.sortIntegersAscending(fieldName, objects, type);
     }
 
     /**
@@ -40,13 +82,12 @@ public class SortingJSON implements ISorting {
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
-     *
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
     @Override
     public <T> List<T> sortIntDESC(String fieldName) {
-        return SortingOperations.sortIntegerDescending(fieldName, json.getAllObjects(), type);
+        return SortingOperations.sortIntegerDescending(fieldName, objects, type);
     }
 
     /**
@@ -54,13 +95,12 @@ public class SortingJSON implements ISorting {
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
-     *
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
     @Override
     public <T> List<T> sortDoubleASC(String fieldName) {
-        return SortingOperations.sortDoubleAscending(fieldName, json.getAllObjects(), type);
+        return SortingOperations.sortDoubleAscending(fieldName, objects, type);
     }
 
     /**
@@ -68,13 +108,12 @@ public class SortingJSON implements ISorting {
      * with a merge-sort algorithm and a list of sorted objects is then returned
      * to the client. Note! Changes are not printed on datafile until client
      * writes it on there using the DataAccess.
-     *
      * @param fieldName - sort by the selected field that the client inputs
      * @return - A list of objects that are sorted by the key values
      */
     @Override
     public <T> List<T> sortDoubleDESC(String fieldName) {
-        return SortingOperations.sortDoubleDescending(fieldName, json.getAllObjects(), type);
+        return SortingOperations.sortDoubleDescending(fieldName, objects, type);
     }
 
     /**
@@ -86,7 +125,7 @@ public class SortingJSON implements ISorting {
      */
     @Override
     public <T> List<T> sortStringAlphabeticalASC(String fieldName) {
-        return SortingOperations.sortStringAlphabeticalAscending(fieldName, json.getAllObjects(), type);
+        return SortingOperations.sortStringAlphabeticalAscending(fieldName, objects, type);
     }
 
     /**
@@ -98,6 +137,6 @@ public class SortingJSON implements ISorting {
      */
     @Override
     public <T> List<T> sortStringAlphabeticalDESC(String fieldName) {
-        return SortingOperations.sortStringAlphabeticalDescending(fieldName, json.getAllObjects(), type);
+        return SortingOperations.sortStringAlphabeticalDescending(fieldName, objects, type);
     }
 }
