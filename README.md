@@ -30,8 +30,3 @@ When the project with the framework is downloaded click on:
   6. Select the artifact that you just created and "Build"
   7. After the build has been completed the .jar file should be processed and you can see that in your project folder a new "out" folder is generated
   8. In this folder select the .jar file and place it in your new project
-
-### LINKS
-- Main doumentation [LINK]
-- Getting started [LINK]
-- Jackson library [LINK](https://github.com/FasterXML/jackson "Main portal of Jackson library in GitHub")
