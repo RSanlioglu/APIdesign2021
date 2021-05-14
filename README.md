@@ -9,15 +9,12 @@ Our main audience for the framework are clients who have a specific class of obj
 
 ## Important
 This project and framework was created as a submission to the course ITF20119-1 21V Rammeverk at HIOF university.
-The main documentation is submittet in this repository under the name [NAME OF DOC AND LINK TO IT]
-
-We also took the liberty of creating a "getting started" documentation, a simple and quick document explaining the framework and some issues that the client should be aware of and some easy and simple examples to show how the client can use the different operations. The document is drafted for those who doesn't wish to read the original documentation and just want to start quickly with the framework [LINK TO THE GETTING STARTED DOC].
 
 ## Third party
 We use a third party library in our project to help with serialization and deserialization. The library that we use is the jackson library and you can also [view their GitHub page](https://github.com/FasterXML/jackson "Main portal of Jackson library in GitHub"). This library is widely popular amongst java-developers and we have great confidence that this framework is solid and a trustworthy source to help our framework with operations such as serialization and deserialization.
 
 ## Download the framework
-The download instruction is described in the getting started document, where the instructions for maven and gradle projects are showed and described for the clients to easilly understand.
+You are free to download the source-code for the framework through our github page and build a .jar file if you want to use it for you projects. Instructions regarding how to create a .jar file is mentioned down below.
 
 ## Creating the .jar file from this repository
 Download the source code and open up your IDE. We use IntelliJ IDE for this example.
